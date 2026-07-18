@@ -1,11 +1,11 @@
-import { ArrowRight, Award, Info, Layers } from "lucide-react";
-import type { Metadata } from "next";
-import Link from "next/link";
 import { Alert } from "@/components/ui/alert";
 import { Badge, cefrVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { NCLC_TABLE, NCLC_TABLE_VERSION } from "@/lib/exam/nclc";
+import { ArrowRight, Award, Info, Layers } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Niveaux NCLC",

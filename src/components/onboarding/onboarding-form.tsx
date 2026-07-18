@@ -1,12 +1,12 @@
 "use client";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { useState, useTransition } from "react";
 import { saveOnboarding } from "@/app/(app)/onboarding/actions";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input, Label } from "@/components/ui/field";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useState, useTransition } from "react";
 
 const CEFRS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const SKILLS = [
@@ -69,17 +69,39 @@ export function OnboardingForm() {
 
       <div className="mb-5">
         <Label htmlFor="examDate">Date d'examen (facultatif)</Label>
-        <Input id="examDate" type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} />
+        <Input
+          id="examDate"
+          type="date"
+          value={examDate}
+          onChange={(e) => setExamDate(e.target.value)}
+        />
       </div>
 
       <div className="mb-5 grid grid-cols-2 gap-4">
         <div>
           <Label>Jours / semaine : {weeklyDays}</Label>
-          <input type="range" min={1} max={7} value={weeklyDays} onChange={(e) => setWeeklyDays(Number(e.target.value))} className="w-full accent-[var(--navy)]" aria-label="Jours par semaine" />
+          <input
+            type="range"
+            min={1}
+            max={7}
+            value={weeklyDays}
+            onChange={(e) => setWeeklyDays(Number(e.target.value))}
+            className="w-full accent-[var(--navy)]"
+            aria-label="Jours par semaine"
+          />
         </div>
         <div>
           <Label>Minutes / jour : {dailyMinutes}</Label>
-          <input type="range" min={10} max={90} step={5} value={dailyMinutes} onChange={(e) => setDailyMinutes(Number(e.target.value))} className="w-full accent-[var(--navy)]" aria-label="Minutes par jour" />
+          <input
+            type="range"
+            min={10}
+            max={90}
+            step={5}
+            value={dailyMinutes}
+            onChange={(e) => setDailyMinutes(Number(e.target.value))}
+            className="w-full accent-[var(--navy)]"
+            aria-label="Minutes par jour"
+          />
         </div>
       </div>
 
@@ -105,7 +127,12 @@ export function OnboardingForm() {
       </div>
 
       <label className="mb-6 flex cursor-pointer items-center gap-2.5 text-sm">
-        <input type="checkbox" checked={prior} onChange={(e) => setPrior(e.target.checked)} className="h-4 w-4 accent-[var(--navy)]" />
+        <input
+          type="checkbox"
+          checked={prior}
+          onChange={(e) => setPrior(e.target.checked)}
+          className="h-4 w-4 accent-[var(--navy)]"
+        />
         J'ai déjà passé le TCF Canada.
       </label>
 
@@ -121,7 +148,11 @@ export function OnboardingForm() {
   );
 }
 
-function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function Chip({
+  active,
+  onClick,
+  children,
+}: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
       type="button"
@@ -129,7 +160,9 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       aria-pressed={active}
       className={cn(
         "rounded-full border px-3.5 py-1.5 text-sm transition",
-        active ? "border-navy bg-navy-50 text-navy" : "border-border-strong text-muted hover:bg-surface-2",
+        active
+          ? "border-navy bg-navy-50 text-navy"
+          : "border-border-strong text-muted hover:bg-surface-2",
       )}
     >
       {children}

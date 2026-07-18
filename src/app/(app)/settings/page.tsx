@@ -1,5 +1,3 @@
-import { Download, Sparkles, Target, User } from "lucide-react";
-import Link from "next/link";
 import { DeleteAccountButton, LogoutButton } from "@/components/settings/settings-actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +7,8 @@ import { examGoals } from "@/db/schema";
 import { ownerEq } from "@/lib/auth/owner";
 import { getActor } from "@/lib/auth/session";
 import { getPlanForActor } from "@/lib/entitlements/plan";
+import { Download, Sparkles, Target, User } from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Réglages" };
@@ -16,7 +16,9 @@ export const metadata = { title: "Réglages" };
 export default async function SettingsPage() {
   const actor = await getActor();
   const plan = await getPlanForActor(actor);
-  const goal = actor ? (await db.select().from(examGoals).where(ownerEq(examGoals, actor)).limit(1))[0] : null;
+  const goal = actor
+    ? (await db.select().from(examGoals).where(ownerEq(examGoals, actor)).limit(1))[0]
+    : null;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6">

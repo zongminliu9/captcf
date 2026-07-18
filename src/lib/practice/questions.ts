@@ -1,10 +1,18 @@
 import "server-only";
-import { and, eq, inArray, lte, notInArray, sql } from "drizzle-orm";
 import { db } from "@/db";
-import { audioAssets, bookmarks, mistakes, options, questions, responses, reviewQueue } from "@/db/schema";
+import {
+  audioAssets,
+  bookmarks,
+  mistakes,
+  options,
+  questions,
+  responses,
+  reviewQueue,
+} from "@/db/schema";
 import type { Actor } from "@/lib/auth/owner";
 import { ownerEq } from "@/lib/auth/owner";
 import type { SkillId } from "@/lib/exam/config";
+import { and, eq, inArray, lte, notInArray, sql } from "drizzle-orm";
 
 export interface ClientOption {
   id: string;
@@ -66,7 +74,9 @@ async function optionsFor(ids: string[]): Promise<Map<string, ClientOption[]>> {
   return map;
 }
 
-async function fetchRows(ids: string[]): Promise<Map<string, { q: QRow; file: string | null; dur: number | null }>> {
+async function fetchRows(
+  ids: string[],
+): Promise<Map<string, { q: QRow; file: string | null; dur: number | null }>> {
   if (ids.length === 0) return new Map();
   const rows = await db
     .select({ q: questions, file: audioAssets.file, dur: audioAssets.durationSeconds })
@@ -74,11 +84,17 @@ async function fetchRows(ids: string[]): Promise<Map<string, { q: QRow; file: st
     .leftJoin(audioAssets, eq(audioAssets.id, questions.audioId))
     .where(inArray(questions.id, ids));
   const map = new Map<string, { q: QRow; file: string | null; dur: number | null }>();
-  for (const r of rows) map.set(r.q.id, { q: r.q, file: r.file, dur: r.dur ? Number(r.dur) : null });
+  for (const r of rows)
+    map.set(r.q.id, { q: r.q, file: r.file, dur: r.dur ? Number(r.dur) : null });
   return map;
 }
 
-function toClient(row: QRow, opts: ClientOption[], file: string | null, dur: number | null): ClientQuestion {
+function toClient(
+  row: QRow,
+  opts: ClientOption[],
+  file: string | null,
+  dur: number | null,
+): ClientQuestion {
   return {
     refType: "question",
     refId: row.id,

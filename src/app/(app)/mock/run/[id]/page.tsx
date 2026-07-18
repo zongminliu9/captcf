@@ -1,7 +1,7 @@
-import { notFound, redirect } from "next/navigation";
 import { MockRunner } from "@/components/practice/mock-runner";
 import { getActor } from "@/lib/auth/session";
 import { getMockState } from "@/lib/practice/mock";
+import { notFound, redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 

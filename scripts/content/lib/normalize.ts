@@ -74,12 +74,19 @@ export function pad4(n: number): string {
 }
 
 /** Guarantee options are exactly a,b,c,d with a valid correctAnswer + 3 distractor rationales. */
-function normalizeOptions(rawOptions: any[], correctRaw: string, rationalesRaw: Record<string, string>) {
+function normalizeOptions(
+  rawOptions: any[],
+  correctRaw: string,
+  rationalesRaw: Record<string, string>,
+) {
   if (!Array.isArray(rawOptions) || rawOptions.length !== 4) return null;
   const correctIdx = rawOptions.findIndex((o) => o.id === correctRaw);
   if (correctIdx === -1) return null;
 
-  const options = rawOptions.map((o, i) => ({ id: OPTION_IDS[i]!, text: String(o.text ?? "").trim() }));
+  const options = rawOptions.map((o, i) => ({
+    id: OPTION_IDS[i]!,
+    text: String(o.text ?? "").trim(),
+  }));
   const correctAnswer = OPTION_IDS[correctIdx]!;
 
   // remap rationale keys (old letters → positional letters), keep only non-correct

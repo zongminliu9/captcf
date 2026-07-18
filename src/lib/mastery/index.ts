@@ -6,7 +6,7 @@
  * item wrong hurts more than missing a hard one. `confidence` grows with attempts.
  * Nothing here is a black box — the UI can explain every number.
  */
-import { type CefrLevel, CEFR_ORDER } from "../exam/config";
+import { CEFR_ORDER, type CefrLevel } from "../exam/config";
 
 export interface MasteryState {
   mastery: number; // 0..1
@@ -60,7 +60,9 @@ export function updateMastery(prev: MasteryState, input: MasteryInput): MasteryS
       ? input.correct
         ? 1
         : 0
-      : clamp01(prev.recentAccuracy + recentAlpha * ((input.correct ? 1 : 0) - prev.recentAccuracy));
+      : clamp01(
+          prev.recentAccuracy + recentAlpha * ((input.correct ? 1 : 0) - prev.recentAccuracy),
+        );
 
   const correctTotal = prev.correctTotal + (input.correct ? 1 : 0);
   const longTermAccuracy = correctTotal / attempts;

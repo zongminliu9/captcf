@@ -3,8 +3,8 @@
  *   env check → .env → Postgres up → migrate → seed → audio check → print access info
  */
 import { spawnSync } from "node:child_process";
-import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { randomBytes } from "node:crypto";
+import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadEnv, projectRoot } from "./lib/env";
 
@@ -52,7 +52,9 @@ function main() {
   const audioDir = resolve(projectRoot, "public/audio");
   const hasAudio = existsSync(audioDir) && readdirSync(audioDir).some((f) => f.endsWith(".m4a"));
   if (hasAudio) {
-    console.log(`  ${readdirSync(audioDir).filter((f) => f.endsWith(".m4a")).length} audio files present ✓`);
+    console.log(
+      `  ${readdirSync(audioDir).filter((f) => f.endsWith(".m4a")).length} audio files present ✓`,
+    );
   } else if (process.platform === "darwin") {
     step("Generating listening audio (macOS say + afconvert)");
     run("pnpm", ["exec", "tsx", "scripts/content/audio.ts"]);

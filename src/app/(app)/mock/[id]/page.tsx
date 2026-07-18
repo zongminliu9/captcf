@@ -1,7 +1,3 @@
-import { asc, eq } from "drizzle-orm";
-import { ArrowRight, Clock, Headphones, Info } from "lucide-react";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,9 +5,13 @@ import { Card } from "@/components/ui/card";
 import { db } from "@/db";
 import { mockTests } from "@/db/schema";
 import { getActor } from "@/lib/auth/session";
-import { EXAM_SPEC } from "@/lib/exam/config";
 import { can } from "@/lib/entitlements";
 import { getPlanForActor } from "@/lib/entitlements/plan";
+import { EXAM_SPEC } from "@/lib/exam/config";
+import { asc, eq } from "drizzle-orm";
+import { ArrowRight, Clock, Headphones, Info } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -51,8 +51,8 @@ export default async function MockOverviewPage({ params }: { params: Promise<{ i
               <div className="flex-1">
                 <div className="font-medium">{spec.labelFr}</div>
                 <div className="text-sm text-muted">
-                  {spec.kind === "qcm" ? `${spec.itemCount} questions` : `${spec.itemCount} tâches`} ·{" "}
-                  {Math.round(spec.durationSeconds / 60)} min
+                  {spec.kind === "qcm" ? `${spec.itemCount} questions` : `${spec.itemCount} tâches`}{" "}
+                  · {Math.round(spec.durationSeconds / 60)} min
                 </div>
               </div>
             </Card>

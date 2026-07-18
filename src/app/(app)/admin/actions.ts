@@ -1,9 +1,9 @@
 "use server";
-import { eq, inArray } from "drizzle-orm";
 import { db } from "@/db";
 import { issueReports, options, questionVersions, questions } from "@/db/schema";
 import { requireAdmin } from "@/lib/auth/admin";
 import { readingItemSchema } from "@/lib/content/schema";
+import { eq, inArray } from "drizzle-orm";
 
 export async function updateQuestionStatus(
   id: string,
@@ -47,10 +47,7 @@ export async function updateQuestionFields(
     .where(eq(questions.id, id));
   if (fields.options) {
     for (const opt of fields.options) {
-      await db
-        .update(options)
-        .set({ text: opt.text })
-        .where(eq(options.questionId, id));
+      await db.update(options).set({ text: opt.text }).where(eq(options.questionId, id));
     }
   }
   return { ok: true };
@@ -75,10 +72,22 @@ export async function importContent(json: string, commit: boolean): Promise<Impo
   try {
     parsed = JSON.parse(json);
   } catch {
-    return { ok: false, total: 0, valid: 0, inserted: 0, errors: [{ index: -1, message: "JSON invalide." }] };
+    return {
+      ok: false,
+      total: 0,
+      valid: 0,
+      inserted: 0,
+      errors: [{ index: -1, message: "JSON invalide." }],
+    };
   }
   if (!Array.isArray(parsed)) {
-    return { ok: false, total: 0, valid: 0, inserted: 0, errors: [{ index: -1, message: "Le JSON doit être un tableau." }] };
+    return {
+      ok: false,
+      total: 0,
+      valid: 0,
+      inserted: 0,
+      errors: [{ index: -1, message: "Le JSON doit être un tableau." }],
+    };
   }
 
   const validItems: any[] = [];
@@ -94,10 +103,15 @@ export async function importContent(json: string, commit: boolean): Promise<Impo
   // duplicate id check (within batch + against DB)
   const ids = validItems.map((v) => v.id);
   const dupInBatch = ids.filter((id, i) => ids.indexOf(id) !== i);
-  for (const id of new Set(dupInBatch)) errors.push({ index: -1, id, message: `id dupliqué dans le lot: ${id}` });
+  for (const id of new Set(dupInBatch))
+    errors.push({ index: -1, id, message: `id dupliqué dans le lot: ${id}` });
   if (ids.length) {
-    const existing = await db.select({ id: questions.id }).from(questions).where(inArray(questions.id, ids));
-    for (const row of existing) errors.push({ index: -1, id: row.id, message: `id déjà existant: ${row.id}` });
+    const existing = await db
+      .select({ id: questions.id })
+      .from(questions)
+      .where(inArray(questions.id, ids));
+    for (const row of existing)
+      errors.push({ index: -1, id: row.id, message: `id déjà existant: ${row.id}` });
   }
 
   const result: ImportResult = {
@@ -136,7 +150,12 @@ export async function importContent(json: string, commit: boolean): Promise<Impo
         publishedAt: new Date(),
       });
       await tx.insert(options).values(
-        r.options.map((o: any, i: number) => ({ questionId: r.id, optionId: o.id, text: o.text, orderIndex: i })),
+        r.options.map((o: any, i: number) => ({
+          questionId: r.id,
+          optionId: o.id,
+          text: o.text,
+          orderIndex: i,
+        })),
       );
     }
   });

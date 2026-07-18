@@ -1,8 +1,8 @@
+import { Alert } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { FileText, Scale } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Alert } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
   title: "Conditions d'utilisation",
@@ -27,9 +27,10 @@ const SECTIONS: { title: string; body: React.ReactNode }[] = [
     title: "2. Indépendance et absence d'affiliation",
     body: (
       <p>
-        CapTCF n'est ni affilié, ni approuvé, ni sponsorisé par France Éducation international ni par
-        Immigration, Réfugiés et Citoyenneté Canada (IRCC). Les marques « TCF » et « TCF Canada »
-        appartiennent à leurs propriétaires respectifs et ne sont citées qu'à des fins descriptives.
+        CapTCF n'est ni affilié, ni approuvé, ni sponsorisé par France Éducation international ni
+        par Immigration, Réfugiés et Citoyenneté Canada (IRCC). Les marques « TCF » et « TCF Canada
+        » appartiennent à leurs propriétaires respectifs et ne sont citées qu'à des fins
+        descriptives.
       </p>
     ),
   },
@@ -48,9 +49,9 @@ const SECTIONS: { title: string; body: React.ReactNode }[] = [
     body: (
       <p>
         Les scores, niveaux CEFR et niveaux NCLC affichés dans l'application sont des estimations
-        indicatives, calculées à partir de vos réponses. Ils ne constituent en aucun cas un
-        résultat officiel et ne préjugent pas de votre performance à l'examen réel. Seul un examen
-        passé dans un centre agréé délivre un résultat valable pour vos démarches.
+        indicatives, calculées à partir de vos réponses. Ils ne constituent en aucun cas un résultat
+        officiel et ne préjugent pas de votre performance à l'examen réel. Seul un examen passé dans
+        un centre agréé délivre un résultat valable pour vos démarches.
       </p>
     ),
   },

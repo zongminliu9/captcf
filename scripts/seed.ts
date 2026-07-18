@@ -1,8 +1,3 @@
-/**
- * Seed the database from the audited content bank. Idempotent (upserts by id; rebuilds
- * mock forms + options in place). Creates dev demo accounts unless NODE_ENV=production.
- */
-import { eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/db";
 import {
   audioAssets,
@@ -23,8 +18,13 @@ import {
 import { hashPassword } from "@/lib/auth/password";
 import { assembleMocks } from "@/lib/exam/assemble";
 import { type CefrLevel, EXAM_SPEC, SPEC_VERSION } from "@/lib/exam/config";
-import { loadEnv } from "./lib/env";
+/**
+ * Seed the database from the audited content bank. Idempotent (upserts by id; rebuilds
+ * mock forms + options in place). Creates dev demo accounts unless NODE_ENV=production.
+ */
+import { eq, inArray, sql } from "drizzle-orm";
 import { loadContent } from "./content/lib/load-files";
+import { loadEnv } from "./lib/env";
 
 loadEnv();
 
@@ -55,7 +55,11 @@ async function seedContent() {
       .values(batch)
       .onConflictDoUpdate({
         target: audioAssets.id,
-        set: { file: sql`excluded.file`, durationSeconds: sql`excluded.duration_seconds`, voices: sql`excluded.voices` },
+        set: {
+          file: sql`excluded.file`,
+          durationSeconds: sql`excluded.duration_seconds`,
+          voices: sql`excluded.voices`,
+        },
       });
   });
 
@@ -139,7 +143,12 @@ async function seedContent() {
     await db.delete(options).where(inArray(options.questionId, batch));
   });
   const optRows = [...c.listening, ...c.reading].flatMap((q) =>
-    q.options.map((o) => ({ questionId: q.id, optionId: o.id, text: o.text, orderIndex: OPTION_ORDER[o.id] ?? 0 })),
+    q.options.map((o) => ({
+      questionId: q.id,
+      optionId: o.id,
+      text: o.text,
+      orderIndex: OPTION_ORDER[o.id] ?? 0,
+    })),
   );
   await chunk(optRows, 400, async (batch) => {
     await db.insert(options).values(batch);
@@ -152,7 +161,11 @@ async function seedContent() {
       .values(batch.map((w) => ({ ...w })))
       .onConflictDoUpdate({
         target: writingTasks.id,
-        set: { promptFr: sql`excluded.prompt_fr`, modelAnswerFr: sql`excluded.model_answer_fr`, updatedAt: new Date() },
+        set: {
+          promptFr: sql`excluded.prompt_fr`,
+          modelAnswerFr: sql`excluded.model_answer_fr`,
+          updatedAt: new Date(),
+        },
       });
   });
 
@@ -163,7 +176,11 @@ async function seedContent() {
       .values(batch.map((s) => ({ ...s })))
       .onConflictDoUpdate({
         target: speakingTasks.id,
-        set: { promptFr: sql`excluded.prompt_fr`, modelOutlineFr: sql`excluded.model_outline_fr`, updatedAt: new Date() },
+        set: {
+          promptFr: sql`excluded.prompt_fr`,
+          modelOutlineFr: sql`excluded.model_outline_fr`,
+          updatedAt: new Date(),
+        },
       });
   });
 
@@ -185,7 +202,10 @@ async function seedContent() {
     await db
       .insert(vocabularyItems)
       .values(batch)
-      .onConflictDoUpdate({ target: vocabularyItems.id, set: { definitionFr: sql`excluded.definition_fr` } });
+      .onConflictDoUpdate({
+        target: vocabularyItems.id,
+        set: { definitionFr: sql`excluded.definition_fr` },
+      });
   });
 
   return {
@@ -235,12 +255,25 @@ async function seedMocks(c: ReturnType<typeof loadContent>) {
     for (const sec of sectionDefs) {
       const [section] = await db
         .insert(mockSections)
-        .values({ mockTestId: id, skill: sec.skill, orderIndex: sec.order, durationSeconds: EXAM_SPEC[sec.skill].durationSeconds })
-        .onConflictDoUpdate({ target: [mockSections.mockTestId, mockSections.skill], set: { durationSeconds: EXAM_SPEC[sec.skill].durationSeconds } })
+        .values({
+          mockTestId: id,
+          skill: sec.skill,
+          orderIndex: sec.order,
+          durationSeconds: EXAM_SPEC[sec.skill].durationSeconds,
+        })
+        .onConflictDoUpdate({
+          target: [mockSections.mockTestId, mockSections.skill],
+          set: { durationSeconds: EXAM_SPEC[sec.skill].durationSeconds },
+        })
         .returning({ id: mockSections.id });
       await db.delete(mockItems).where(eq(mockItems.mockSectionId, section!.id));
       await db.insert(mockItems).values(
-        sec.items.map((refId, i) => ({ mockSectionId: section!.id, refType: sec.refType, refId, orderIndex: i })),
+        sec.items.map((refId, i) => ({
+          mockSectionId: section!.id,
+          refType: sec.refType,
+          refId,
+          orderIndex: i,
+        })),
       );
     }
   }
@@ -252,9 +285,27 @@ async function seedDemoUsers() {
     return [];
   }
   const demoUsers = [
-    { email: "demo@captcf.app", name: "Demo Apprenant", password: "demo-captcf-2026", role: "user" as const, plan: "premium" as const },
-    { email: "free@captcf.app", name: "Free Apprenant", password: "demo-captcf-2026", role: "user" as const, plan: "free" as const },
-    { email: "admin@captcf.app", name: "Admin CapTCF", password: "admin-captcf-2026", role: "admin" as const, plan: "premium" as const },
+    {
+      email: "demo@captcf.app",
+      name: "Demo Apprenant",
+      password: "demo-captcf-2026",
+      role: "user" as const,
+      plan: "premium" as const,
+    },
+    {
+      email: "free@captcf.app",
+      name: "Free Apprenant",
+      password: "demo-captcf-2026",
+      role: "user" as const,
+      plan: "free" as const,
+    },
+    {
+      email: "admin@captcf.app",
+      name: "Admin CapTCF",
+      password: "admin-captcf-2026",
+      role: "admin" as const,
+      plan: "premium" as const,
+    },
   ];
   const created: string[] = [];
   for (const u of demoUsers) {
@@ -262,7 +313,10 @@ async function seedDemoUsers() {
     const [row] = await db
       .insert(users)
       .values({ email: u.email, passwordHash, name: u.name, role: u.role, isDemo: true })
-      .onConflictDoUpdate({ target: users.email, set: { passwordHash, name: u.name, role: u.role, isDemo: true } })
+      .onConflictDoUpdate({
+        target: users.email,
+        set: { passwordHash, name: u.name, role: u.role, isDemo: true },
+      })
       .returning({ id: users.id });
     const userId = row!.id;
 
@@ -277,7 +331,13 @@ async function seedDemoUsers() {
     // a default goal so recommendations work out of the box
     await db
       .insert(examGoals)
-      .values({ userId, targetNclc: 7, weeklyDays: 5, dailyMinutes: 30, focusSkills: ["listening", "speaking"] })
+      .values({
+        userId,
+        targetNclc: 7,
+        weeklyDays: 5,
+        dailyMinutes: 30,
+        focusSkills: ["listening", "speaking"],
+      })
       .onConflictDoUpdate({ target: examGoals.userId, set: { targetNclc: 7 } });
     await db
       .insert(profiles)
@@ -294,7 +354,9 @@ async function main() {
   console.log(
     `  questions: ${stats.listening + stats.reading} (listening ${stats.listening}, reading ${stats.reading})`,
   );
-  console.log(`  writing ${stats.writing}, speaking ${stats.speaking}, vocabulary ${stats.vocabulary}`);
+  console.log(
+    `  writing ${stats.writing}, speaking ${stats.speaking}, vocabulary ${stats.vocabulary}`,
+  );
 
   console.log("→ Assembling mock exams…");
   const mocks = await seedMocks(stats.bank);

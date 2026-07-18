@@ -1,5 +1,5 @@
-import { DICTIONARIES } from "./dictionaries";
 import { DEFAULT_LOCALE, type Locale } from "./config";
+import { DICTIONARIES } from "./dictionaries";
 
 export type TFn = (key: string, vars?: Record<string, string | number>) => string;
 

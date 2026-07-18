@@ -1,8 +1,8 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
 import { resolveReport } from "@/app/(app)/admin/actions";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 export function ReportActions({ id }: { id: string }) {
   const router = useRouter();

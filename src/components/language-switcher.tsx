@@ -1,9 +1,9 @@
 "use client";
+import { useI18n } from "@/lib/i18n/client";
+import { LOCALES, LOCALE_LABELS } from "@/lib/i18n/config";
+import { cn } from "@/lib/utils";
 import { Check, Globe } from "lucide-react";
 import { useState } from "react";
-import { useI18n } from "@/lib/i18n/client";
-import { LOCALE_LABELS, LOCALES } from "@/lib/i18n/config";
-import { cn } from "@/lib/utils";
 
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { locale } = useI18n();

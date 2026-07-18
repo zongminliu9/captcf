@@ -1,16 +1,19 @@
-import { PenLine } from "lucide-react";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { db } from "@/db";
 import { writingTasks } from "@/db/schema";
 import { WRITING_TASKS } from "@/lib/exam/config";
+import { PenLine } from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Expression écrite" };
 
 export default async function WritingPage() {
-  const tasks = await db.select().from(writingTasks).orderBy(writingTasks.taskNumber, writingTasks.id);
+  const tasks = await db
+    .select()
+    .from(writingTasks)
+    .orderBy(writingTasks.taskNumber, writingTasks.id);
   const byTask = new Map<number, typeof tasks>();
   for (const t of tasks) {
     const arr = byTask.get(t.taskNumber) ?? [];

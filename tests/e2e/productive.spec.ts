@@ -15,7 +15,9 @@ test.describe("productive skills (no AI key)", () => {
     await firstTask.click();
     await page.getByLabel("Zone de rédaction").fill(LONG_TEXT);
     await page.getByRole("button", { name: /Soumettre pour analyse/ }).click();
-    await expect(page.getByRole("heading", { name: /Votre analyse/ })).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByRole("heading", { name: /Votre analyse/ })).toBeVisible({
+      timeout: 20_000,
+    });
     await expect(page.getByText(/Estimation locale/)).toBeVisible();
     await expect(page.getByText(/\/ 20/).first()).toBeVisible();
   });
@@ -61,7 +63,9 @@ test.describe("productive skills (no AI key)", () => {
     await page.goto("/speaking");
     await page.locator('a[href^="/speaking/speaking_"]').first().click();
     await page.getByRole("button", { name: /Autoriser le micro et commencer/ }).click();
-    await expect(page.getByText(/micro est bloqué|Aucun micro détecté/)).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByText(/micro est bloqué|Aucun micro détecté/)).toBeVisible({
+      timeout: 15_000,
+    });
     await expect(page.getByRole("button", { name: /Réessayer le micro/ })).toBeVisible();
   });
 });

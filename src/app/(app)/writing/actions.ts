@@ -1,10 +1,10 @@
 "use server";
-import { and, desc, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { writingFeedback, writingSubmissions, writingTasks } from "@/db/schema";
 import { ownerEq, ownerValues } from "@/lib/auth/owner";
 import { ensureActor } from "@/lib/auth/session";
-import { analyzeWriting, type WritingAnalysis } from "@/lib/writing/analyze";
+import { type WritingAnalysis, analyzeWriting } from "@/lib/writing/analyze";
+import { and, desc, eq } from "drizzle-orm";
 
 function countWords(text: string): number {
   const t = text.trim();
@@ -43,7 +43,14 @@ export async function saveWritingDraft(
   }
   const [row] = await db
     .insert(writingSubmissions)
-    .values({ ...ownerValues(actor), taskId, text, wordCount: countWords(text), timeSpentSeconds, status: "draft" })
+    .values({
+      ...ownerValues(actor),
+      taskId,
+      text,
+      wordCount: countWords(text),
+      timeSpentSeconds,
+      status: "draft",
+    })
     .returning({ id: writingSubmissions.id });
   return { submissionId: row!.id };
 }

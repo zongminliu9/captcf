@@ -29,7 +29,10 @@ function validQuestionJson(id: string): string {
       estimatedSeconds: 60,
       difficultyEvidence: "Compréhension d'une intention explicite dans un message courant.",
       author: "Admin E2E",
-      passage: { title: "Message", text: "Bonjour, seriez-vous disponible la semaine prochaine pour un rendez-vous ? Merci." },
+      passage: {
+        title: "Message",
+        text: "Bonjour, seriez-vous disponible la semaine prochaine pour un rendez-vous ? Merci.",
+      },
     },
   ]);
 }

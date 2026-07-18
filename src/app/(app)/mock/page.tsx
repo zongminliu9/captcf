@@ -1,14 +1,14 @@
-import { asc } from "drizzle-orm";
-import { ClipboardList, Clock, Lock } from "lucide-react";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { db } from "@/db";
 import { mockTests } from "@/db/schema";
 import { getActor } from "@/lib/auth/session";
-import { EXAM_SPEC } from "@/lib/exam/config";
 import { can } from "@/lib/entitlements";
 import { getPlanForActor } from "@/lib/entitlements/plan";
+import { EXAM_SPEC } from "@/lib/exam/config";
+import { asc } from "drizzle-orm";
+import { ClipboardList, Clock, Lock } from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Examens blancs" };
@@ -70,7 +70,10 @@ export default async function MockListPage() {
                     <Lock className="h-4 w-4" /> Débloquer avec Premium
                   </Link>
                 ) : (
-                  <Link href={`/mock/${form.id}`} className="text-sm font-medium text-navy hover:underline">
+                  <Link
+                    href={`/mock/${form.id}`}
+                    className="text-sm font-medium text-navy hover:underline"
+                  >
                     Voir l'examen →
                   </Link>
                 )}

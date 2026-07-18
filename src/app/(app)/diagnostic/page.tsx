@@ -1,6 +1,6 @@
-import { ArrowRight, BookOpenText, Headphones, Sparkles, Timer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ArrowRight, BookOpenText, Headphones, Sparkles, Timer } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Test de diagnostic" };

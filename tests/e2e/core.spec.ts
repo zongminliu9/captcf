@@ -5,7 +5,10 @@ test.describe("core learner loop", () => {
   test("1. new visitor reaches a real question within two clicks", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-    await page.getByRole("link", { name: /Commencer gratuitement/ }).first().click();
+    await page
+      .getByRole("link", { name: /Commencer gratuitement/ })
+      .first()
+      .click();
     // lands directly on a question with answer options
     await expect(page.getByRole("radio").first()).toBeVisible({ timeout: 20_000 });
     expect(page.url()).toContain("/practice/session/");
@@ -32,7 +35,9 @@ test.describe("core learner loop", () => {
     const email = uniqueEmail("merge");
     await register(page, email);
     // dashboard now has data → recent activity is present (not the empty hero)
-    await expect(page.getByRole("heading", { name: /Tableau de bord/ })).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByRole("heading", { name: /Tableau de bord/ })).toBeVisible({
+      timeout: 20_000,
+    });
     await expect(page.getByText(/Activité récente/)).toBeVisible();
   });
 

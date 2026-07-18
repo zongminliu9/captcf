@@ -1,8 +1,8 @@
 "use client";
-import { Gauge, Pause, Play, RotateCcw } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import { formatClock } from "@/lib/exam/timer";
 import { cn } from "@/lib/utils";
+import { Gauge, Pause, Play, RotateCcw } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 interface AudioPlayerProps {
   src: string;

@@ -39,16 +39,24 @@ type Item = {
 };
 
 function hashItem(item: Item): string {
-  const payload = item.audio.lines
-    .map((l) => `${l.voice}|${l.rate ?? ""}|${l.text}`)
-    .join("‖");
+  const payload = item.audio.lines.map((l) => `${l.voice}|${l.rate ?? ""}|${l.text}`).join("‖");
   return createHash("sha256").update(payload).digest("hex").slice(0, 16);
 }
 
 function say(voice: string, rate: number, text: string, out: string): boolean {
   const res = spawnSync(
     "say",
-    ["-v", voice, "-r", String(rate), "--data-format=LEI16@22050", "--file-format=WAVE", "-o", out, text],
+    [
+      "-v",
+      voice,
+      "-r",
+      String(rate),
+      "--data-format=LEI16@22050",
+      "--file-format=WAVE",
+      "-o",
+      out,
+      text,
+    ],
     { encoding: "utf8" },
   );
   return res.status === 0 && existsSync(out);
@@ -67,8 +75,10 @@ function main() {
   const items: Item[] = JSON.parse(readFileSync(CONTENT, "utf8"));
   mkdirSync(AUDIO_DIR, { recursive: true });
   mkdirSync(TMP, { recursive: true });
-  const manifest: Record<string, { file: string; duration: number; textHash: string; voices: string[]; status: string }> =
-    existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, "utf8")) : {};
+  const manifest: Record<
+    string,
+    { file: string; duration: number; textHash: string; voices: string[]; status: string }
+  > = existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, "utf8")) : {};
 
   let generated = 0;
   let skipped = 0;
@@ -102,7 +112,9 @@ function main() {
     }
 
     const combined = resolve(TMP, `${item.id}_combined.wav`);
-    const concat = spawnSync("python3", [CONCAT_PY, combined, "0.4", ...wavs], { encoding: "utf8" });
+    const concat = spawnSync("python3", [CONCAT_PY, combined, "0.4", ...wavs], {
+      encoding: "utf8",
+    });
     if (concat.status !== 0) {
       failed++;
       console.warn(`  ✗ ${item.id}: concat failed ${concat.stderr}`);

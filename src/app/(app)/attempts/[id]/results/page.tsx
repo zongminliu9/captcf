@@ -1,8 +1,4 @@
-import { and, eq } from "drizzle-orm";
-import { ArrowRight, RotateCcw, Sparkles } from "lucide-react";
-import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
-import { ReviewList, type ReviewEntry } from "@/components/practice/review-list";
+import { type ReviewEntry, ReviewList } from "@/components/practice/review-list";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -15,6 +11,10 @@ import { EXAM_SPEC, type SkillId } from "@/lib/exam/config";
 import type { ScoreEstimate } from "@/lib/exam/scoring";
 import { getFullQuestions } from "@/lib/practice/questions";
 import { pct } from "@/lib/utils";
+import { and, eq } from "drizzle-orm";
+import { ArrowRight, RotateCcw, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -51,7 +51,9 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
   const resp = await db.select().from(responses).where(eq(responses.sessionId, attempt.sessionId));
   const respMap = new Map(resp.map((r) => [r.refId, r]));
 
-  const ids = (session?.itemOrder ?? []).filter((i) => i.refType === "question").map((i) => i.refId);
+  const ids = (session?.itemOrder ?? [])
+    .filter((i) => i.refType === "question")
+    .map((i) => i.refId);
   const full = await getFullQuestions(ids);
   const entries: ReviewEntry[] = full.map((q) => {
     const r = respMap.get(q.refId);
@@ -98,11 +100,19 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
                 <div className="text-3xl font-semibold text-navy tabular-nums">{est.score}</div>
                 <div className="pb-1 text-sm text-muted">/ 699</div>
                 <div className="ml-auto text-right">
-                  <div className="text-sm font-medium">{est.cefr === "below-A1" ? "—" : est.cefr}</div>
+                  <div className="text-sm font-medium">
+                    {est.cefr === "below-A1" ? "—" : est.cefr}
+                  </div>
                   <div className="text-xs text-muted">NCLC {est.nclc || "—"}</div>
                 </div>
               </div>
-              <Meter className="mt-3" value={est.accuracy} tone="navy" label="Précision" showValue />
+              <Meter
+                className="mt-3"
+                value={est.accuracy}
+                tone="navy"
+                label="Précision"
+                showValue
+              />
               <p className="mt-2 text-xs text-faint">{est.disclaimer}</p>
             </Card>
           );

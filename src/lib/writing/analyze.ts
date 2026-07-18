@@ -37,20 +37,113 @@ export interface WritingAnalysis {
 
 // A representative set of French connectors/discourse markers.
 const CONNECTORS = [
-  "d'abord", "ensuite", "puis", "enfin", "finalement", "premièrement", "deuxièmement",
-  "par ailleurs", "de plus", "en outre", "cependant", "toutefois", "néanmoins", "pourtant",
-  "en revanche", "par contre", "donc", "ainsi", "par conséquent", "c'est pourquoi",
-  "parce que", "car", "puisque", "grâce à", "à cause de", "en effet", "par exemple",
-  "en conclusion", "pour conclure", "en résumé", "en somme", "d'une part", "d'autre part",
-  "malgré", "bien que", "afin de", "pour que", "tandis que", "alors que",
+  "d'abord",
+  "ensuite",
+  "puis",
+  "enfin",
+  "finalement",
+  "premièrement",
+  "deuxièmement",
+  "par ailleurs",
+  "de plus",
+  "en outre",
+  "cependant",
+  "toutefois",
+  "néanmoins",
+  "pourtant",
+  "en revanche",
+  "par contre",
+  "donc",
+  "ainsi",
+  "par conséquent",
+  "c'est pourquoi",
+  "parce que",
+  "car",
+  "puisque",
+  "grâce à",
+  "à cause de",
+  "en effet",
+  "par exemple",
+  "en conclusion",
+  "pour conclure",
+  "en résumé",
+  "en somme",
+  "d'une part",
+  "d'autre part",
+  "malgré",
+  "bien que",
+  "afin de",
+  "pour que",
+  "tandis que",
+  "alors que",
 ];
 
 const STOPWORDS = new Set([
-  "le", "la", "les", "un", "une", "des", "de", "du", "et", "à", "a", "en", "que", "qui",
-  "je", "tu", "il", "elle", "on", "nous", "vous", "ils", "elles", "ce", "cette", "ces",
-  "est", "sont", "pour", "dans", "sur", "avec", "au", "aux", "se", "sa", "son", "ses",
-  "ne", "pas", "plus", "mon", "ma", "mes", "votre", "vos", "notre", "nos", "leur", "leurs",
-  "y", "d", "l", "j", "s", "n", "c", "qu", "me", "te", "si", "ou", "où", "par", "comme",
+  "le",
+  "la",
+  "les",
+  "un",
+  "une",
+  "des",
+  "de",
+  "du",
+  "et",
+  "à",
+  "a",
+  "en",
+  "que",
+  "qui",
+  "je",
+  "tu",
+  "il",
+  "elle",
+  "on",
+  "nous",
+  "vous",
+  "ils",
+  "elles",
+  "ce",
+  "cette",
+  "ces",
+  "est",
+  "sont",
+  "pour",
+  "dans",
+  "sur",
+  "avec",
+  "au",
+  "aux",
+  "se",
+  "sa",
+  "son",
+  "ses",
+  "ne",
+  "pas",
+  "plus",
+  "mon",
+  "ma",
+  "mes",
+  "votre",
+  "vos",
+  "notre",
+  "nos",
+  "leur",
+  "leurs",
+  "y",
+  "d",
+  "l",
+  "j",
+  "s",
+  "n",
+  "c",
+  "qu",
+  "me",
+  "te",
+  "si",
+  "ou",
+  "où",
+  "par",
+  "comme",
 ]);
 
 function normalize(s: string): string {
@@ -61,9 +154,15 @@ export function analyzeWriting(text: string, task: WritingTaskLite): WritingAnal
   const trimmed = text.trim();
   const words = trimmed ? trimmed.split(/\s+/).filter(Boolean) : [];
   const wordCount = words.length;
-  const sentences = trimmed.split(/[.!?…]+/).map((s) => s.trim()).filter((s) => s.length > 1);
+  const sentences = trimmed
+    .split(/[.!?…]+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 1);
   const sentenceCount = sentences.length;
-  const paragraphs = trimmed.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+  const paragraphs = trimmed
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
   const paragraphCount = Math.max(paragraphs.length, trimmed ? 1 : 0);
   const avgSentenceLength = sentenceCount ? Math.round(wordCount / sentenceCount) : 0;
 
@@ -72,8 +171,12 @@ export function analyzeWriting(text: string, task: WritingTaskLite): WritingAnal
   const missingKeywords: string[] = [];
   for (const kw of task.keywords) {
     // match on the most salient token of the keyword phrase
-    const core = normalize(kw).split(/\s+/).filter((w) => w.length > 3 && !STOPWORDS.has(w));
-    const hit = core.length ? core.some((w) => normText.includes(w)) : normText.includes(normalize(kw));
+    const core = normalize(kw)
+      .split(/\s+/)
+      .filter((w) => w.length > 3 && !STOPWORDS.has(w));
+    const hit = core.length
+      ? core.some((w) => normText.includes(w))
+      : normText.includes(normalize(kw));
     (hit ? matchedKeywords : missingKeywords).push(kw);
   }
   const keywordCoverage = task.keywords.length ? matchedKeywords.length / task.keywords.length : 1;
@@ -105,12 +208,15 @@ export function analyzeWriting(text: string, task: WritingTaskLite): WritingAnal
   const coverageScore = Math.round(keywordCoverage * 100);
   const structureScore = Math.min(
     100,
-    (paragraphCount >= 2 ? 55 : 25) + (connectorsUsed.length >= 3 ? 45 : connectorsUsed.length * 12),
+    (paragraphCount >= 2 ? 55 : 25) +
+      (connectorsUsed.length >= 3 ? 45 : connectorsUsed.length * 12),
   );
   const cohesionScore = Math.min(100, 40 + connectorsUsed.length * 10);
   const varietyScore = Math.max(
     30,
-    100 - repeatedWords.reduce((s, r) => s + (r.count - 3) * 8, 0) - (avgSentenceLength > 30 ? 20 : 0),
+    100 -
+      repeatedWords.reduce((s, r) => s + (r.count - 3) * 8, 0) -
+      (avgSentenceLength > 30 ? 20 : 0),
   );
 
   const criteria: RubricCriterion[] = [

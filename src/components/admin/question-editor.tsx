@@ -1,11 +1,11 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useState, useTransition } from "react";
 import { updateQuestionFields, updateQuestionStatus } from "@/app/(app)/admin/actions";
 import { useToast } from "@/components/toast";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/field";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
 
 const STATUSES = ["draft", "in_review", "published", "retired"] as const;
 
@@ -55,7 +55,13 @@ export function QuestionEditor({
               className="rounded-full border border-border-strong px-3 py-1 text-sm hover:bg-surface-2 disabled:opacity-50 aria-[current=true]:border-navy aria-[current=true]:bg-navy-50"
               aria-current={status === s}
             >
-              {s === status ? <Badge variant="navy" size="sm">{s}</Badge> : s}
+              {s === status ? (
+                <Badge variant="navy" size="sm">
+                  {s}
+                </Badge>
+              ) : (
+                s
+              )}
             </button>
           ))}
         </div>

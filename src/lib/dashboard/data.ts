@@ -1,14 +1,19 @@
 import "server-only";
-import { and, desc, eq, gte, lte, sql } from "drizzle-orm";
 import { db } from "@/db";
 import { attempts, examGoals, masteryRecords, questions, reviewQueue } from "@/db/schema";
 import { type Actor, ownerEq } from "@/lib/auth/owner";
-import { type SkillId, SKILLS } from "@/lib/exam/config";
+import { SKILLS, type SkillId } from "@/lib/exam/config";
 import { INITIAL_MASTERY, type MasteryState } from "@/lib/mastery";
-import { type Recommendation, recommend, type SkillSnapshot } from "@/lib/recommend";
+import { type Recommendation, type SkillSnapshot, recommend } from "@/lib/recommend";
+import { and, desc, eq, gte, lte, sql } from "drizzle-orm";
 
 export interface DashboardData {
-  goal: { targetNclc: number; examDate: string | null; dailyMinutes: number; weeklyDays: number } | null;
+  goal: {
+    targetNclc: number;
+    examDate: string | null;
+    dailyMinutes: number;
+    weeklyDays: number;
+  } | null;
   snapshots: SkillSnapshot[];
   recommendations: Recommendation[];
   dueReviewCount: number;
@@ -51,7 +56,11 @@ export async function getDashboardData(actor: Actor): Promise<DashboardData> {
 
   // due reviews grouped by skill (+ overall + max overdue)
   const dueRows = await db
-    .select({ skill: questions.skill, n: sql<number>`count(*)::int`, oldest: sql<Date>`min(${reviewQueue.dueAt})` })
+    .select({
+      skill: questions.skill,
+      n: sql<number>`count(*)::int`,
+      oldest: sql<Date>`min(${reviewQueue.dueAt})`,
+    })
     .from(reviewQueue)
     .innerJoin(questions, eq(questions.id, reviewQueue.questionId))
     .where(and(ownerEq(reviewQueue, actor), lte(reviewQueue.dueAt, now)))

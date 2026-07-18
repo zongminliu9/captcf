@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Wordmark } from "@/components/brand";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { ThemeToggle } from "@/components/theme";
+import Link from "next/link";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (

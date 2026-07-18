@@ -149,11 +149,10 @@
 
   --color-ring: var(--ring);
 
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-display:
-    "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Palatino, Georgia, "Times New Roman",
-    serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Palatino, Georgia,
+    "Times New Roman", serif;
 
   --radius: 0.75rem;
   --radius-sm: 0.5rem;
@@ -176,7 +175,10 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     color: var(--ink);
     letter-spacing: -0.015em;
   }
@@ -190,7 +192,9 @@
     border-radius: 3px;
   }
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
@@ -211,9 +215,8 @@
     box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.06);
   }
   .card-raised {
-    box-shadow:
-      0 1px 2px hsl(var(--shadow-color) / 0.06),
-      0 8px 24px -12px hsl(var(--shadow-color) / 0.18);
+    box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 8px 24px -12px
+      hsl(var(--shadow-color) / 0.18);
   }
   .skip-link {
     position: absolute;
@@ -231,16 +234,28 @@
   }
   /* subtle rise-in used for status transitions; respects reduced-motion above */
   @keyframes rise-in {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .rise-in {
     animation: rise-in 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   @keyframes pulse-ring {
-    0% { box-shadow: 0 0 0 0 var(--accent-50); }
-    70% { box-shadow: 0 0 0 10px transparent; }
-    100% { box-shadow: 0 0 0 0 transparent; }
+    0% {
+      box-shadow: 0 0 0 0 var(--accent-50);
+    }
+    70% {
+      box-shadow: 0 0 0 10px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
   }
 }
 

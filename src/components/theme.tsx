@@ -1,7 +1,7 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 
 type Theme = "light" | "dark" | "system";
 
@@ -36,7 +36,11 @@ export function ThemeToggle({ className }: { className?: string }) {
   };
 
   const Icon = theme === "light" ? Sun : theme === "dark" ? Moon : Monitor;
-  const labels: Record<Theme, string> = { light: "Thème clair", dark: "Thème sombre", system: "Thème système" };
+  const labels: Record<Theme, string> = {
+    light: "Thème clair",
+    dark: "Thème sombre",
+    system: "Thème système",
+  };
 
   return (
     <button

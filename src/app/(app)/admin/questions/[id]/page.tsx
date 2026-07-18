@@ -1,12 +1,12 @@
-import { eq } from "drizzle-orm";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { QuestionEditor } from "@/components/admin/question-editor";
 import { Badge, cefrVariant } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { db } from "@/db";
 import { questions } from "@/db/schema";
 import { getFullQuestions } from "@/lib/practice/questions";
+import { eq } from "drizzle-orm";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -49,7 +49,9 @@ export default async function AdminQuestionDetail({ params }: { params: Promise<
               // biome-ignore lint/a11y/useMediaCaption: transcript shown below
               <audio src={full.stimulus.audioFile} controls className="mt-2 w-full" />
             )}
-            {full.transcript && <p className="mt-2 whitespace-pre-line text-xs text-faint">{full.transcript}</p>}
+            {full.transcript && (
+              <p className="mt-2 whitespace-pre-line text-xs text-faint">{full.transcript}</p>
+            )}
           </div>
         )}
 
@@ -67,7 +69,12 @@ export default async function AdminQuestionDetail({ params }: { params: Promise<
       </Card>
 
       <Card className="p-5">
-        <QuestionEditor id={row.id} status={row.status} stem={row.stem} explanation={row.explanation} />
+        <QuestionEditor
+          id={row.id}
+          status={row.status}
+          stem={row.stem}
+          explanation={row.explanation}
+        />
       </Card>
     </div>
   );

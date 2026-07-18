@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Meter } from "@/components/ui/meter";
 import type { WritingAnalysis } from "@/lib/writing/analyze";
+import { useState } from "react";
 
 export function WritingFeedback({
   analysis,
@@ -22,7 +22,9 @@ export function WritingFeedback({
           <Badge variant="warning">Non officiel</Badge>
         </div>
         <div className="mt-3 flex items-end gap-2">
-          <span className="text-3xl font-semibold text-navy tabular-nums">{analysis.estimatedBand}</span>
+          <span className="text-3xl font-semibold text-navy tabular-nums">
+            {analysis.estimatedBand}
+          </span>
           <span className="pb-1 text-sm text-muted">/ 20</span>
           <span className="ml-auto text-sm text-muted">{analysis.wordCount} mots</span>
         </div>
@@ -32,7 +34,12 @@ export function WritingFeedback({
       <div className="space-y-3">
         {analysis.criteria.map((c) => (
           <Card key={c.key} className="p-4">
-            <Meter value={c.score / 100} label={c.labelFr} tone={c.score < 50 ? "accent" : c.score < 75 ? "gold" : "success"} showValue />
+            <Meter
+              value={c.score / 100}
+              label={c.labelFr}
+              tone={c.score < 50 ? "accent" : c.score < 75 ? "gold" : "success"}
+              showValue
+            />
             <p className="mt-2 text-sm text-muted">{c.detailFr}</p>
           </Card>
         ))}

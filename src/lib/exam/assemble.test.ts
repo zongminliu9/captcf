@@ -1,17 +1,19 @@
 import { describe, expect, it } from "vitest";
-import { assembleMocks, type QcmRef, type TaskRef } from "./assemble";
+import { type QcmRef, type TaskRef, assembleMocks } from "./assemble";
 import { CEFR_LEVELS, type CefrLevel } from "./config";
 
 function makeQcm(prefix: string, perLevel: number): QcmRef[] {
   const out: QcmRef[] = [];
   for (const lvl of CEFR_LEVELS) {
-    for (let i = 0; i < perLevel; i++) out.push({ id: `${prefix}_${lvl}_${i}`, cefrLevel: lvl as CefrLevel });
+    for (let i = 0; i < perLevel; i++)
+      out.push({ id: `${prefix}_${lvl}_${i}`, cefrLevel: lvl as CefrLevel });
   }
   return out;
 }
 function makeTasks(prefix: string, perTask: number): TaskRef[] {
   const out: TaskRef[] = [];
-  for (const t of [1, 2, 3]) for (let i = 0; i < perTask; i++) out.push({ id: `${prefix}_t${t}_${i}`, taskNumber: t });
+  for (const t of [1, 2, 3])
+    for (let i = 0; i < perTask; i++) out.push({ id: `${prefix}_t${t}_${i}`, taskNumber: t });
   return out;
 }
 

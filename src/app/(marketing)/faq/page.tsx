@@ -1,10 +1,10 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { PLAN_LIMITS } from "@/lib/entitlements";
+import { EXAM_SPEC } from "@/lib/exam/config";
 import { ArrowRight, ChevronDown, HelpCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { EXAM_SPEC } from "@/lib/exam/config";
-import { PLAN_LIMITS } from "@/lib/entitlements";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -85,10 +85,10 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
     q: "Quelle différence entre l'offre gratuite et l'offre Premium ?",
     a: (
       <p>
-        L'offre gratuite permet jusqu'à {FREE_DAILY} séances d'entraînement par jour, un accès limité
-        à la banque de questions et un examen blanc d'essai. L'offre Premium débloque l'entraînement
-        illimité, les quatre examens blancs, les analyses avancées, le retour par IA et le plan
-        d'étude complet. Le détail figure sur la page{" "}
+        L'offre gratuite permet jusqu'à {FREE_DAILY} séances d'entraînement par jour, un accès
+        limité à la banque de questions et un examen blanc d'essai. L'offre Premium débloque
+        l'entraînement illimité, les quatre examens blancs, les analyses avancées, le retour par IA
+        et le plan d'étude complet. Le détail figure sur la page{" "}
         <Link href="/pricing" className="font-medium text-navy hover:underline">
           Tarifs
         </Link>

@@ -7,7 +7,7 @@
  * (greedy least-used). Productive sections use distinct tasks per form. Pure + seeded
  * (no RNG) so the same bank always yields the same forms.
  */
-import { type CefrLevel, CEFR_ORDER, EXAM_SPEC } from "./config";
+import { CEFR_ORDER, type CefrLevel, EXAM_SPEC } from "./config";
 
 export interface QcmRef {
   id: string;
@@ -47,8 +47,7 @@ const SECTION_TARGET: [CefrLevel, number][] = [
   ["C2", 3],
 ];
 
-const byCefr = (a: string, b: string) =>
-  CEFR_ORDER[a as CefrLevel] - CEFR_ORDER[b as CefrLevel];
+const byCefr = (a: string, b: string) => CEFR_ORDER[a as CefrLevel] - CEFR_ORDER[b as CefrLevel];
 
 function pickQcmSection(
   bank: QcmRef[],
@@ -169,9 +168,13 @@ export function assembleMocks(
     });
     // sanity: each QCM section must be full length
     if (listening[f]!.length !== EXAM_SPEC.listening.itemCount)
-      warnings.push(`form ${f + 1} listening has ${listening[f]!.length}/${EXAM_SPEC.listening.itemCount}`);
+      warnings.push(
+        `form ${f + 1} listening has ${listening[f]!.length}/${EXAM_SPEC.listening.itemCount}`,
+      );
     if (reading[f]!.length !== EXAM_SPEC.reading.itemCount)
-      warnings.push(`form ${f + 1} reading has ${reading[f]!.length}/${EXAM_SPEC.reading.itemCount}`);
+      warnings.push(
+        `form ${f + 1} reading has ${reading[f]!.length}/${EXAM_SPEC.reading.itemCount}`,
+      );
   }
 
   return {

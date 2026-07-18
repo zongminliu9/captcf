@@ -1,5 +1,3 @@
-import { and, eq, lte, sql } from "drizzle-orm";
-import { CalendarClock, Play, Repeat } from "lucide-react";
 import { Alert } from "@/components/ui/alert";
 import { Badge, cefrVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,6 +6,8 @@ import { db } from "@/db";
 import { questions, reviewQueue } from "@/db/schema";
 import { ownerEq } from "@/lib/auth/owner";
 import { getActor } from "@/lib/auth/session";
+import { and, eq, lte, sql } from "drizzle-orm";
+import { CalendarClock, Play, Repeat } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -87,8 +87,8 @@ export default async function ReviewPage({
 
       {empty === "1" && (
         <Alert tone="warning" className="mt-6">
-          Aucune révision disponible pour l'instant. Revenez plus tard : vos questions réapparaîtront
-          à leur échéance.
+          Aucune révision disponible pour l'instant. Revenez plus tard : vos questions
+          réapparaîtront à leur échéance.
         </Alert>
       )}
 

@@ -1,10 +1,17 @@
 import "server-only";
-import { and, asc, desc, eq } from "drizzle-orm";
 import { db } from "@/db";
-import { attempts, mockItems, mockSections, mockTests, practiceSessions, responses } from "@/db/schema";
+import {
+  attempts,
+  mockItems,
+  mockSections,
+  mockTests,
+  practiceSessions,
+  responses,
+} from "@/db/schema";
 import { type Actor, ownerEq, ownerValues } from "@/lib/auth/owner";
 import { EXAM_SPEC, type SkillId } from "@/lib/exam/config";
-import { getClientQuestions, type ClientQuestion } from "./questions";
+import { and, asc, desc, eq } from "drizzle-orm";
+import { type ClientQuestion, getClientQuestions } from "./questions";
 import { submitSession } from "./session";
 
 interface MockSectionConfig {
@@ -55,7 +62,12 @@ export async function createMockSession(actor: Actor, mockTestId: string): Promi
       .where(eq(mockItems.mockSectionId, sec.id))
       .orderBy(asc(mockItems.orderIndex));
     const refIds = items.map((i) => i.refId);
-    cfgSections.push({ skill: sec.skill, durationSeconds: sec.durationSeconds, refIds, startedAt: null });
+    cfgSections.push({
+      skill: sec.skill,
+      durationSeconds: sec.durationSeconds,
+      refIds,
+      startedAt: null,
+    });
     for (const refId of refIds) itemOrder.push({ refType: "question", refId });
   }
 
@@ -117,7 +129,11 @@ export async function getMockState(actor: Actor, sessionId: string): Promise<Moc
     .limit(1);
 
   if (["graded", "submitted", "reviewed", "expired"].includes(session.status)) {
-    const att = await db.select({ id: attempts.id }).from(attempts).where(eq(attempts.sessionId, sessionId)).limit(1);
+    const att = await db
+      .select({ id: attempts.id })
+      .from(attempts)
+      .where(eq(attempts.sessionId, sessionId))
+      .limit(1);
     return {
       sessionId,
       status: "graded",
@@ -207,7 +223,10 @@ export async function startMockSection(actor: Actor, sessionId: string): Promise
 }
 
 /** Advance to the next section (or grade if it was the last). */
-export async function advanceMockSection(actor: Actor, sessionId: string): Promise<{ done: boolean; attemptId?: string }> {
+export async function advanceMockSection(
+  actor: Actor,
+  sessionId: string,
+): Promise<{ done: boolean; attemptId?: string }> {
   const rows = await db
     .select()
     .from(practiceSessions)

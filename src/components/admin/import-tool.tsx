@@ -1,10 +1,10 @@
 "use client";
-import { CheckCircle2, XCircle } from "lucide-react";
-import { useState, useTransition } from "react";
-import { importContent, type ImportResult } from "@/app/(app)/admin/actions";
+import { type ImportResult, importContent } from "@/app/(app)/admin/actions";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/field";
+import { CheckCircle2, XCircle } from "lucide-react";
+import { useState, useTransition } from "react";
 
 const SAMPLE = `[
   {
@@ -92,7 +92,7 @@ export function ImportTool() {
             <ul className="space-y-1 rounded-[var(--radius-sm)] border border-border bg-surface-2 p-3 text-sm">
               {result.errors.map((e, i) => (
                 <li key={i} className="text-danger">
-                  {e.index >= 0 ? `Élément ${e.index}` : e.id ?? "Lot"} : {e.message}
+                  {e.index >= 0 ? `Élément ${e.index}` : (e.id ?? "Lot")} : {e.message}
                 </li>
               ))}
             </ul>

@@ -1,4 +1,4 @@
-import { expect, type Page } from "@playwright/test";
+import { type Page, expect } from "@playwright/test";
 
 /** Answer every question in a learning-mode session and submit → returns on the results page. */
 export async function completeSession(page: Page) {
@@ -16,7 +16,9 @@ export async function completeSession(page: Page) {
     }
     await next.click();
   }
-  await expect(page.getByRole("heading", { name: /Votre analyse/ })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole("heading", { name: /Votre analyse/ })).toBeVisible({
+    timeout: 20_000,
+  });
 }
 
 export function uniqueEmail(prefix = "e2e"): string {

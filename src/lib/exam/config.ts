@@ -148,7 +148,8 @@ export const SPEAKING_TASKS: readonly SpeakingTaskSpec[] = [
     titleFr: "Tâche 2 — Interaction",
     prepSeconds: 2 * 60,
     speakSeconds: Math.round(5.5 * 60),
-    description: "Role-play: gather information to accomplish a real-life task (2 min preparation).",
+    description:
+      "Role-play: gather information to accomplish a real-life task (2 min preparation).",
   },
   {
     taskNumber: 3,

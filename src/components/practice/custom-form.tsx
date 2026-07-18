@@ -1,15 +1,17 @@
 "use client";
-import { Play } from "lucide-react";
-import { useState, useTransition } from "react";
 import { type CustomConfig, startCustomPractice } from "@/app/(app)/practice/actions";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { Play } from "lucide-react";
+import { useState, useTransition } from "react";
 
 const CEFRS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 export function CustomPracticeForm() {
-  const [skills, setSkills] = useState<Set<"listening" | "reading">>(new Set(["listening", "reading"]));
+  const [skills, setSkills] = useState<Set<"listening" | "reading">>(
+    new Set(["listening", "reading"]),
+  );
   const [count, setCount] = useState(10);
   const [levels, setLevels] = useState<Set<string>>(new Set());
   const [source, setSource] = useState<CustomConfig["source"]>("mixed");
@@ -91,7 +93,12 @@ export function CustomPracticeForm() {
         </Chip>
       </Group>
 
-      <Button variant="primary" className="mt-4 w-full" onClick={submit} disabled={pending || skills.size === 0}>
+      <Button
+        variant="primary"
+        className="mt-4 w-full"
+        onClick={submit}
+        disabled={pending || skills.size === 0}
+      >
         <Play className="h-4 w-4" /> {pending ? "Préparation…" : "Lancer l'entraînement"}
       </Button>
     </Card>
@@ -123,7 +130,9 @@ function Chip({
       aria-pressed={active}
       className={cn(
         "rounded-full border px-3.5 py-1.5 text-sm transition",
-        active ? "border-navy bg-navy-50 text-navy" : "border-border-strong text-muted hover:bg-surface-2",
+        active
+          ? "border-navy bg-navy-50 text-navy"
+          : "border-border-strong text-muted hover:bg-surface-2",
       )}
     >
       {children}

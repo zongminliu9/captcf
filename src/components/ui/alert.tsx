@@ -1,6 +1,6 @@
+import { cn } from "@/lib/utils";
 import { Info } from "lucide-react";
 import type * as React from "react";
-import { cn } from "@/lib/utils";
 
 const tones = {
   info: "bg-navy-50 text-navy border-navy-100",

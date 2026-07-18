@@ -78,14 +78,21 @@ export function recommend(ctx: RecommendContext): Recommendation[] {
 
     // 1) Overdue reviews are almost always the highest-value action.
     if (s.dueReviewCount > 0) {
-      const priority = clamp(42 + Math.min(30, s.dueReviewCount * 3) + Math.min(15, s.overdueDays * 2), 0, 100);
+      const priority = clamp(
+        42 + Math.min(30, s.dueReviewCount * 3) + Math.min(15, s.overdueDays * 2),
+        0,
+        100,
+      );
       out.push({
         id: `review:${s.skill}`,
         skill: s.skill,
         reasonCode: "REVIEW_DUE",
         action: "review_due",
         priority,
-        estimatedMinutes: Math.max(5, Math.min(ctx.dailyMinutes || 15, Math.ceil(s.dueReviewCount * 0.8))),
+        estimatedMinutes: Math.max(
+          5,
+          Math.min(ctx.dailyMinutes || 15, Math.ceil(s.dueReviewCount * 0.8)),
+        ),
         params: { count: s.dueReviewCount, skill: s.skill, overdueDays: s.overdueDays },
         debug: `${s.dueReviewCount} ${s.skill} items due for review`,
       });

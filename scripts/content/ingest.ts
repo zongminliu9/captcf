@@ -7,7 +7,7 @@
  * removed here; near-duplicate analysis lives in `content:dedupe`/`content:audit`.
  */
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import {
   listeningItemSchema,
@@ -31,7 +31,13 @@ const RAW_DIR = resolve(projectRoot, "scripts/content/raw");
 const OUT_DIR = resolve(projectRoot, "src/content");
 
 function readRawBundles() {
-  const bundle = { listening: [] as any[], reading: [] as any[], writing: [] as any[], speaking: [] as any[], vocabulary: [] as any[] };
+  const bundle = {
+    listening: [] as any[],
+    reading: [] as any[],
+    writing: [] as any[],
+    speaking: [] as any[],
+    vocabulary: [] as any[],
+  };
   if (!existsSync(RAW_DIR)) return bundle;
   for (const file of readdirSync(RAW_DIR).filter((f) => f.endsWith(".raw.json"))) {
     const parsed = JSON.parse(readFileSync(resolve(RAW_DIR, file), "utf8"));
@@ -74,7 +80,14 @@ function processKind<T>(
   const seqCounters = new Map<string, number>();
   const seen = new Set<string>();
   const out: T[] = [];
-  const report: Report = { kind, input: rawItems.length, valid: 0, invalid: 0, duplicates: 0, reasons: [] };
+  const report: Report = {
+    kind,
+    input: rawItems.length,
+    valid: 0,
+    invalid: 0,
+    duplicates: 0,
+    reasons: [],
+  };
 
   for (const raw of rawItems) {
     const k = seqKey(raw);
@@ -91,7 +104,9 @@ function processKind<T>(
     if (!parsed.success) {
       report.invalid++;
       const issue = parsed.error?.issues?.[0];
-      report.reasons.push(`${normalized.id}: ${issue?.path?.join(".")} ${issue?.message}`.slice(0, 160));
+      report.reasons.push(
+        `${normalized.id}: ${issue?.path?.join(".")} ${issue?.message}`.slice(0, 160),
+      );
       seqCounters.set(k, seq - 1);
       continue;
     }
@@ -118,7 +133,15 @@ function main() {
     normalizeListening,
     listeningItemSchema,
     (r) => String(r.cefrLevel).toLowerCase(),
-    (it: any) => hash(normText(it.stem) + "|" + it.options.map((o: any) => normText(o.text)).sort().join("|")),
+    (it: any) =>
+      hash(
+        normText(it.stem) +
+          "|" +
+          it.options
+            .map((o: any) => normText(o.text))
+            .sort()
+            .join("|"),
+      ),
   );
   const reading = processKind(
     "reading",
@@ -162,7 +185,13 @@ function main() {
   write("speaking", speaking.items);
   write("vocabulary", vocabulary.items);
 
-  const reports = [listening.report, reading.report, writing.report, speaking.report, vocabulary.report];
+  const reports = [
+    listening.report,
+    reading.report,
+    writing.report,
+    speaking.report,
+    vocabulary.report,
+  ];
   console.log("\n Ingest summary");
   console.log(" ─────────────────────────────────────────────");
   for (const r of reports) {
@@ -172,10 +201,7 @@ function main() {
   }
   const rejectLog = reports.flatMap((r) => r.reasons.slice(0, 25));
   if (rejectLog.length) {
-    writeFileSync(
-      resolve(OUT_DIR, "_rejects.log"),
-      `${rejectLog.join("\n")}\n`,
-    );
+    writeFileSync(resolve(OUT_DIR, "_rejects.log"), `${rejectLog.join("\n")}\n`);
     console.log(`\n  ${rejectLog.length} rejection reasons written to src/content/_rejects.log`);
   }
   console.log("");

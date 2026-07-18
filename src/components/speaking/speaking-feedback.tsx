@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Meter } from "@/components/ui/meter";
 import type { SpeakingAnalysis } from "@/lib/speaking/analyze";
+import { useState } from "react";
 
 export function SpeakingFeedback({
   analysis,
@@ -22,7 +22,9 @@ export function SpeakingFeedback({
           <Badge variant="warning">Non officiel</Badge>
         </div>
         <div className="mt-3 flex items-end gap-2">
-          <span className="text-3xl font-semibold text-navy tabular-nums">{analysis.estimatedBand}</span>
+          <span className="text-3xl font-semibold text-navy tabular-nums">
+            {analysis.estimatedBand}
+          </span>
           <span className="pb-1 text-sm text-muted">/ 20</span>
         </div>
         <p className="mt-2 text-sm text-ink">{analysis.summaryFr}</p>

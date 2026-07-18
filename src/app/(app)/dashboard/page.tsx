@@ -1,5 +1,3 @@
-import { ArrowRight, CalendarClock, Clock, Flame, Sparkles, Target, TrendingUp } from "lucide-react";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -8,10 +6,20 @@ import { getActor } from "@/lib/auth/session";
 import { getDashboardData } from "@/lib/dashboard/data";
 import { EXAM_SPEC, type SkillId } from "@/lib/exam/config";
 import { overallNclc } from "@/lib/exam/nclc";
+import { getT } from "@/lib/i18n/server";
 import { masteryLabel } from "@/lib/mastery";
 import type { Recommendation } from "@/lib/recommend";
-import { getT } from "@/lib/i18n/server";
 import { formatMinutes } from "@/lib/utils";
+import {
+  ArrowRight,
+  CalendarClock,
+  Clock,
+  Flame,
+  Sparkles,
+  Target,
+  TrendingUp,
+} from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -45,11 +53,16 @@ export default async function DashboardPage() {
   const reasonText = (rec: Recommendation) =>
     rec.action === "mock"
       ? t("reason.mock", rec.params)
-      : t(`reason.${rec.reasonCode}`, { ...rec.params, skill: rec.skill ? skillLabel(rec.skill) : "" });
+      : t(`reason.${rec.reasonCode}`, {
+          ...rec.params,
+          skill: rec.skill ? skillLabel(rec.skill) : "",
+        });
 
   const primary = data.recommendations[0] ?? null;
   const currentNclc = overallNclc(
-    Object.fromEntries(data.snapshots.filter((s) => s.attempts > 0).map((s) => [s.skill, s.estimatedNclc])),
+    Object.fromEntries(
+      data.snapshots.filter((s) => s.attempts > 0).map((s) => [s.skill, s.estimatedNclc]),
+    ),
   );
 
   if (!data.hasData) {
@@ -68,7 +81,12 @@ export default async function DashboardPage() {
           <h1 className="display text-3xl">Tableau de bord</h1>
           <p className="mt-1 text-sm text-muted">Votre séance recommandée du jour.</p>
         </div>
-        <StatsRow streak={data.streakDays} weekly={data.weeklyMinutes} due={data.dueReviewCount} inline />
+        <StatsRow
+          streak={data.streakDays}
+          weekly={data.weeklyMinutes}
+          due={data.dueReviewCount}
+          inline
+        />
       </div>
 
       {/* primary recommendation hero */}
@@ -127,7 +145,10 @@ export default async function DashboardPage() {
             </p>
           )}
           {!data.goal && (
-            <Link href="/onboarding" className="mt-2 inline-block text-xs font-medium text-navy hover:underline">
+            <Link
+              href="/onboarding"
+              className="mt-2 inline-block text-xs font-medium text-navy hover:underline"
+            >
               Définir mon objectif →
             </Link>
           )}
@@ -151,7 +172,9 @@ export default async function DashboardPage() {
                 showValue
               />
               <p className="mt-1.5 text-xs text-muted">
-                {s.attempts > 0 ? `NCLC ~${s.estimatedNclc} · ${maturity(s.mastery)}` : "Non commencé"}
+                {s.attempts > 0
+                  ? `NCLC ~${s.estimatedNclc} · ${maturity(s.mastery)}`
+                  : "Non commencé"}
               </p>
             </Card>
           ))}
@@ -184,10 +207,9 @@ export default async function DashboardPage() {
           <h3 className="mb-3 text-sm font-semibold text-muted">Activité récente</h3>
           <div className="space-y-2">
             {data.recentAttempts.map((a) => {
-              const answered = Object.values(a.perSkill as Record<string, { answered: number }>).reduce(
-                (s, v) => s + v.answered,
-                0,
-              );
+              const answered = Object.values(
+                a.perSkill as Record<string, { answered: number }>,
+              ).reduce((s, v) => s + v.answered, 0);
               return (
                 <Link
                   key={a.id}
@@ -216,7 +238,9 @@ export default async function DashboardPage() {
 
 function maturity(m: number): string {
   const label = masteryLabel(m);
-  return { novice: "débutant", developing: "en progrès", proficient: "solide", strong: "maîtrisé" }[label];
+  return { novice: "débutant", developing: "en progrès", proficient: "solide", strong: "maîtrisé" }[
+    label
+  ];
 }
 
 function StatsRow({

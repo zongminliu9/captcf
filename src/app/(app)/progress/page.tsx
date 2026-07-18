@@ -1,5 +1,3 @@
-import { and, desc, eq } from "drizzle-orm";
-import { BarChart3, History } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,6 +10,8 @@ import { EXAM_SPEC, SKILLS, type SkillId } from "@/lib/exam/config";
 import { scoreToNclc } from "@/lib/exam/nclc";
 import { type MasteryState, masteryLabel } from "@/lib/mastery";
 import { pct } from "@/lib/utils";
+import { and, desc, eq } from "drizzle-orm";
+import { BarChart3, History } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -34,7 +34,10 @@ const MASTERY_FR: Record<ReturnType<typeof masteryLabel>, string> = {
   strong: "Avancé",
 };
 
-const MASTERY_TONE: Record<ReturnType<typeof masteryLabel>, "accent" | "gold" | "navy" | "success"> = {
+const MASTERY_TONE: Record<
+  ReturnType<typeof masteryLabel>,
+  "accent" | "gold" | "navy" | "success"
+> = {
   novice: "accent",
   developing: "gold",
   proficient: "navy",
@@ -170,8 +173,8 @@ export default async function ProgressPage() {
           })}
         </div>
         <p className="mt-3 text-xs text-faint">
-          Le NCLC estimé est une projection non officielle fondée sur votre maîtrise ; il ne remplace
-          pas un résultat officiel du TCF Canada.
+          Le NCLC estimé est une projection non officielle fondée sur votre maîtrise ; il ne
+          remplace pas un résultat officiel du TCF Canada.
         </p>
       </section>
 
@@ -192,9 +195,7 @@ export default async function ProgressPage() {
                 <Card key={a.id} className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-ink">
-                        {MODE_LABELS[a.mode] ?? a.mode}
-                      </span>
+                      <span className="font-medium text-ink">{MODE_LABELS[a.mode] ?? a.mode}</span>
                       <Badge variant="outline" size="sm">
                         {a.correctItems}/{a.totalItems}
                       </Badge>

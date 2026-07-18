@@ -1,9 +1,9 @@
 "use client";
-import { Check, FileText, Volume2, X } from "lucide-react";
-import { useState } from "react";
 import { Badge, cefrVariant } from "@/components/ui/badge";
 import type { ClientQuestion } from "@/lib/practice/questions";
 import { cn } from "@/lib/utils";
+import { Check, FileText, Volume2, X } from "lucide-react";
+import { useState } from "react";
 import { AudioPlayer } from "./audio-player";
 
 export interface Feedback {
@@ -100,7 +100,9 @@ export function QuestionCard({
                 className={cn(
                   "flex w-full items-center gap-3 rounded-[var(--radius-sm)] border px-4 py-3 text-left text-[0.97rem] transition-colors",
                   !revealed && isSelected && "border-navy bg-navy-50",
-                  !revealed && !isSelected && "border-border bg-surface hover:border-border-strong hover:bg-surface-2",
+                  !revealed &&
+                    !isSelected &&
+                    "border-border bg-surface hover:border-border-strong hover:bg-surface-2",
                   isCorrect && "border-success bg-success-50",
                   isWrongPick && "border-danger bg-danger-50",
                   revealed && !isCorrect && !isWrongPick && "border-border bg-surface opacity-70",

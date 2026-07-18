@@ -1,9 +1,9 @@
-import { Cookie, Database, Download, Lock, ShieldCheck, Trash2 } from "lucide-react";
-import type { Metadata } from "next";
-import Link from "next/link";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Cookie, Database, Download, Lock, ShieldCheck, Trash2 } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
@@ -50,9 +50,7 @@ export default function PrivacyPage() {
         <Badge variant="navy" size="lg" className="mb-5">
           <ShieldCheck className="h-3.5 w-3.5" /> Vos données vous appartiennent
         </Badge>
-        <h1 className="display text-4xl leading-[1.1] sm:text-5xl">
-          Politique de confidentialité
-        </h1>
+        <h1 className="display text-4xl leading-[1.1] sm:text-5xl">Politique de confidentialité</h1>
         <p className="mt-5 text-lg leading-relaxed text-muted">
           Nous collectons le minimum nécessaire pour vous faire progresser, rien de plus. Voici
           exactement ce que nous conservons et ce que vous pouvez en faire.
@@ -151,7 +149,10 @@ export default function PrivacyPage() {
               <tbody>
                 {COOKIES.map((c) => (
                   <tr key={c.name} className="border-t border-border">
-                    <th scope="row" className="whitespace-nowrap px-4 py-3 text-left font-medium text-ink">
+                    <th
+                      scope="row"
+                      className="whitespace-nowrap px-4 py-3 text-left font-medium text-ink"
+                    >
                       {c.name}
                     </th>
                     <td className="px-4 py-3 text-muted">{c.role}</td>

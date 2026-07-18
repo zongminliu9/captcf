@@ -1,11 +1,11 @@
-import { ArrowRight, Check, Minus, Sparkles } from "lucide-react";
-import type { Metadata } from "next";
-import Link from "next/link";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PLAN_LIMITS } from "@/lib/entitlements";
+import { ArrowRight, Check, Minus, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Tarifs",
@@ -135,10 +135,7 @@ export default function PricingPage() {
         </Card>
 
         {/* Premium */}
-        <Card
-          className="relative flex flex-col border-navy/30 p-7 ring-1 ring-navy/20"
-          raised
-        >
+        <Card className="relative flex flex-col border-navy/30 p-7 ring-1 ring-navy/20" raised>
           <div className="absolute right-6 top-6">
             <Badge variant="gold">Recommandé</Badge>
           </div>

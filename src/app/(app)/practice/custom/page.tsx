@@ -1,5 +1,5 @@
-import { Alert } from "@/components/ui/alert";
 import { CustomPracticeForm } from "@/components/practice/custom-form";
+import { Alert } from "@/components/ui/alert";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Entraînement personnalisé" };

@@ -1,5 +1,3 @@
-import { and, eq, sql } from "drizzle-orm";
-import { ArrowRight, BookOpenText } from "lucide-react";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,6 +10,8 @@ import { getActor } from "@/lib/auth/session";
 import { EXAM_SPEC, READING_SUBTYPES } from "@/lib/exam/config";
 import { type MasteryState, masteryLabel } from "@/lib/mastery";
 import { formatMinutes } from "@/lib/utils";
+import { and, eq, sql } from "drizzle-orm";
+import { ArrowRight, BookOpenText } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -33,7 +33,10 @@ const MASTERY_FR: Record<ReturnType<typeof masteryLabel>, string> = {
   strong: "Avancé",
 };
 
-const MASTERY_TONE: Record<ReturnType<typeof masteryLabel>, "accent" | "gold" | "navy" | "success"> = {
+const MASTERY_TONE: Record<
+  ReturnType<typeof masteryLabel>,
+  "accent" | "gold" | "navy" | "success"
+> = {
   novice: "accent",
   developing: "gold",
   proficient: "navy",

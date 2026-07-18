@@ -1,3 +1,9 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Meter } from "@/components/ui/meter";
+import { EXAM_SPEC } from "@/lib/exam/config";
+import { getT } from "@/lib/i18n/server";
 import {
   ArrowRight,
   BarChart3,
@@ -12,12 +18,6 @@ import {
   Target,
 } from "lucide-react";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Meter } from "@/components/ui/meter";
-import { EXAM_SPEC } from "@/lib/exam/config";
-import { getT } from "@/lib/i18n/server";
 
 export default async function HomePage() {
   const { t } = await getT();
@@ -143,8 +143,8 @@ export default async function HomePage() {
               Il sait pourquoi il vous propose chaque exercice
             </h2>
             <p className="mt-4 text-muted">
-              CapTCF suit votre maîtrise par compétence et par type de question, détecte vos
-              baisses de forme, vos révisions en retard et l'écart avec votre objectif NCLC — puis
+              CapTCF suit votre maîtrise par compétence et par type de question, détecte vos baisses
+              de forme, vos révisions en retard et l'écart avec votre objectif NCLC — puis
               transforme tout cela en une seule action prioritaire, expliquée en clair.
             </p>
             <ul className="mt-5 space-y-2 text-sm">
@@ -312,15 +312,47 @@ function FactTile({ value, label }: { value: string; label: string }) {
 }
 
 const STEPS = [
-  { title: "Diagnostic express", body: "8–12 min d'écoute et de lecture pour situer votre niveau et vos points faibles." },
-  { title: "Séances ciblées", body: "Le système choisit le type de question qui vous fera progresser le plus." },
-  { title: "Erreurs recyclées", body: "Chaque erreur revient au bon moment grâce à la révision espacée." },
-  { title: "Examens blancs", body: "Validez en conditions réelles, puis analysez épreuve par épreuve." },
+  {
+    title: "Diagnostic express",
+    body: "8–12 min d'écoute et de lecture pour situer votre niveau et vos points faibles.",
+  },
+  {
+    title: "Séances ciblées",
+    body: "Le système choisit le type de question qui vous fera progresser le plus.",
+  },
+  {
+    title: "Erreurs recyclées",
+    body: "Chaque erreur revient au bon moment grâce à la révision espacée.",
+  },
+  {
+    title: "Examens blancs",
+    body: "Validez en conditions réelles, puis analysez épreuve par épreuve.",
+  },
 ];
 
 const SKILLS = [
-  { href: "/listening", icon: Headphones, title: "Compréhension orale", body: "Dialogues, annonces et interviews avec audio réel et transcription." },
-  { href: "/reading", icon: BookOpenText, title: "Compréhension écrite", body: "Avis, courriels, articles et textes argumentatifs de tous niveaux." },
-  { href: "/writing", icon: PenLine, title: "Expression écrite", body: "Les 3 tâches, avec retour automatique même sans IA." },
-  { href: "/speaking", icon: Mic, title: "Expression orale", body: "Enregistrement réel, réécoute et auto-évaluation guidée." },
+  {
+    href: "/listening",
+    icon: Headphones,
+    title: "Compréhension orale",
+    body: "Dialogues, annonces et interviews avec audio réel et transcription.",
+  },
+  {
+    href: "/reading",
+    icon: BookOpenText,
+    title: "Compréhension écrite",
+    body: "Avis, courriels, articles et textes argumentatifs de tous niveaux.",
+  },
+  {
+    href: "/writing",
+    icon: PenLine,
+    title: "Expression écrite",
+    body: "Les 3 tâches, avec retour automatique même sans IA.",
+  },
+  {
+    href: "/speaking",
+    icon: Mic,
+    title: "Expression orale",
+    body: "Enregistrement réel, réécoute et auto-évaluation guidée.",
+  },
 ];

@@ -1,14 +1,14 @@
 "use client";
-import { Check, Clock, Loader2, Maximize2, Minimize2 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
 import { saveWritingDraft, submitWriting } from "@/app/(app)/writing/actions";
 import { useToast } from "@/components/toast";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/field";
 import { formatClock } from "@/lib/exam/timer";
-import type { WritingAnalysis } from "@/lib/writing/analyze";
 import { cn } from "@/lib/utils";
+import type { WritingAnalysis } from "@/lib/writing/analyze";
+import { Check, Clock, Loader2, Maximize2, Minimize2 } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { WritingFeedback } from "./writing-feedback";
 
 interface WritingEditorProps {
@@ -28,7 +28,10 @@ export function WritingEditor(props: WritingEditorProps) {
   const [elapsed, setElapsed] = useState(0);
   const [saving, setSaving] = useState<"idle" | "saving" | "saved">("idle");
   const [focusMode, setFocusMode] = useState(false);
-  const [feedback, setFeedback] = useState<{ analysis: WritingAnalysis; modelAnswerFr: string } | null>(null);
+  const [feedback, setFeedback] = useState<{
+    analysis: WritingAnalysis;
+    modelAnswerFr: string;
+  } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const startRef = useRef(Date.now());
@@ -37,7 +40,10 @@ export function WritingEditor(props: WritingEditorProps) {
   const inRange = wordCount >= props.minWords && wordCount <= props.maxWords;
 
   useEffect(() => {
-    const id = setInterval(() => setElapsed(Math.round((Date.now() - startRef.current) / 1000)), 1000);
+    const id = setInterval(
+      () => setElapsed(Math.round((Date.now() - startRef.current) / 1000)),
+      1000,
+    );
     return () => clearInterval(id);
   }, []);
 
@@ -45,7 +51,11 @@ export function WritingEditor(props: WritingEditorProps) {
     async (value: string) => {
       setSaving("saving");
       try {
-        await saveWritingDraft(props.taskId, value, Math.round((Date.now() - startRef.current) / 1000));
+        await saveWritingDraft(
+          props.taskId,
+          value,
+          Math.round((Date.now() - startRef.current) / 1000),
+        );
         setSaving("saved");
       } catch {
         setSaving("idle");

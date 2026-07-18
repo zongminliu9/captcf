@@ -1,3 +1,8 @@
+import { Alert } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { EXAM_SPEC, SKILLS, type SkillId } from "@/lib/exam/config";
 import {
   ArrowRight,
   BookOpenText,
@@ -13,11 +18,6 @@ import {
 import type { LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Alert } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { EXAM_SPEC, SKILLS, type SkillId } from "@/lib/exam/config";
 
 export const metadata: Metadata = {
   title: "TCF Canada",
@@ -59,9 +59,7 @@ export default function TcfCanadaPage() {
           <Badge variant="navy" size="lg" className="mb-5">
             <Sparkles className="h-3.5 w-3.5" /> L'examen expliqué simplement
           </Badge>
-          <h1 className="display text-4xl leading-[1.1] sm:text-5xl">
-            Le TCF Canada, de A à Z
-          </h1>
+          <h1 className="display text-4xl leading-[1.1] sm:text-5xl">Le TCF Canada, de A à Z</h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
             Le Test de connaissance du français pour le Canada (TCF Canada) évalue votre niveau de
             français à l'écrit et à l'oral. Il est reconnu par Immigration, Réfugiés et Citoyenneté
@@ -196,10 +194,10 @@ export default function TcfCanadaPage() {
         <Alert tone="warning" icon={<ShieldCheck className="h-4 w-4" />}>
           <p className="font-medium">CapTCF est un outil d'étude indépendant.</p>
           <p className="mt-1">
-            Nous proposons du matériel d'entraînement original de style TCF Canada et des estimations
-            de score non officielles, à titre indicatif. CapTCF n'est ni affilié ni approuvé par
-            France Éducation international ni par IRCC. Seul un examen officiel passé dans un centre
-            agréé délivre un résultat valable pour vos démarches.
+            Nous proposons du matériel d'entraînement original de style TCF Canada et des
+            estimations de score non officielles, à titre indicatif. CapTCF n'est ni affilié ni
+            approuvé par France Éducation international ni par IRCC. Seul un examen officiel passé
+            dans un centre agréé délivre un résultat valable pour vos démarches.
           </p>
         </Alert>
       </section>

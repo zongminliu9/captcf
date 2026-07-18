@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Wordmark } from "@/components/brand";
+import Link from "next/link";
 
 const COLS: { title: string; links: { href: string; label: string }[] }[] = [
   {
@@ -45,8 +45,8 @@ export function SiteFooter() {
           <div>
             <Wordmark />
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
-              Un outil d'étude indépendant proposant du matériel d'entraînement original de
-              style TCF Canada et des estimations non officielles.
+              Un outil d'étude indépendant proposant du matériel d'entraînement original de style
+              TCF Canada et des estimations non officielles.
             </p>
           </div>
           {COLS.map((col) => (
@@ -68,8 +68,8 @@ export function SiteFooter() {
           <p>
             CapTCF n'est pas affilié à France Éducation international ni à IRCC. « TCF » et « TCF
             Canada » sont des marques de leurs propriétaires respectifs, citées uniquement à des
-            fins descriptives. Le matériel proposé est original et les estimations de score sont
-            non officielles.
+            fins descriptives. Le matériel proposé est original et les estimations de score sont non
+            officielles.
           </p>
           <p className="mt-2">© {new Date().getFullYear()} CapTCF.</p>
         </div>

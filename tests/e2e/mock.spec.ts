@@ -9,7 +9,9 @@ function toSeconds(clock: string): number {
 test.describe("mock exam", () => {
   test("8 & 9. start a mock, answer, and the timer is refresh-safe", async ({ page }) => {
     await page.goto("/mock/mock_form_1/begin");
-    await expect(page.getByRole("heading", { name: /Compréhension orale/ })).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByRole("heading", { name: /Compréhension orale/ })).toBeVisible({
+      timeout: 20_000,
+    });
     await page.getByRole("button", { name: /Commencer la section/ }).click();
 
     // timed QCM with a running clock
@@ -41,7 +43,9 @@ test.describe("mock exam", () => {
     await expireLatestMock();
 
     await page.goto(page.url()); // reload the runner → server auto-submits
-    await expect(page.getByRole("heading", { name: /Votre analyse/ })).toBeVisible({ timeout: 25_000 });
+    await expect(page.getByRole("heading", { name: /Votre analyse/ })).toBeVisible({
+      timeout: 25_000,
+    });
     // per-skill section card present
     await expect(page.getByText(/Compréhension (orale|écrite)/).first()).toBeVisible();
   });

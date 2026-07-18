@@ -1,7 +1,7 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { CheckCircle2, Info, X, XCircle } from "lucide-react";
 import { createContext, useCallback, useContext, useState } from "react";
-import { cn } from "@/lib/utils";
 
 type ToastTone = "info" | "success" | "error";
 interface Toast {

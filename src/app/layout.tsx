@@ -1,8 +1,8 @@
-import type { Metadata, Viewport } from "next";
 import { ThemeScript } from "@/components/theme";
 import { ToastProvider } from "@/components/toast";
 import { I18nProvider } from "@/lib/i18n/client";
 import { getLocale } from "@/lib/i18n/server";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {

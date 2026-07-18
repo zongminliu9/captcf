@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useMemo } from "react";
 import type { Locale } from "./config";
-import { createT, type TFn } from "./index";
+import { type TFn, createT } from "./index";
 
 const I18nContext = createContext<{ locale: Locale; t: TFn } | null>(null);
 

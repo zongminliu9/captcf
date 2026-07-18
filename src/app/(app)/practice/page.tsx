@@ -1,3 +1,9 @@
+import { Alert } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { db } from "@/db";
+import { bookmarks, mistakes, reviewQueue } from "@/db/schema";
+import { ownerEq } from "@/lib/auth/owner";
+import { getActor } from "@/lib/auth/session";
 import { and, eq, lte, sql } from "drizzle-orm";
 import {
   ArrowRight,
@@ -10,12 +16,6 @@ import {
   Zap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { Alert } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import { db } from "@/db";
-import { bookmarks, mistakes, reviewQueue } from "@/db/schema";
-import { ownerEq } from "@/lib/auth/owner";
-import { getActor } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
 
@@ -45,10 +45,7 @@ export default async function PracticePage({
         .select({ n: sql<number>`count(*)::int` })
         .from(mistakes)
         .where(and(ownerEq(mistakes, actor), eq(mistakes.resolved, false))),
-      db
-        .select({ n: sql<number>`count(*)::int` })
-        .from(bookmarks)
-        .where(ownerEq(bookmarks, actor)),
+      db.select({ n: sql<number>`count(*)::int` }).from(bookmarks).where(ownerEq(bookmarks, actor)),
       db
         .select({ n: sql<number>`count(*)::int` })
         .from(reviewQueue)
@@ -115,8 +112,8 @@ export default async function PracticePage({
 
       {empty === "1" && (
         <Alert tone="warning" className="mt-6">
-          Il n'y a rien à travailler dans ce mode pour l'instant. Faites d'abord quelques questions —
-          vos erreurs, favoris et révisions apparaîtront ici au fil de l'eau.
+          Il n'y a rien à travailler dans ce mode pour l'instant. Faites d'abord quelques questions
+          — vos erreurs, favoris et révisions apparaîtront ici au fil de l'eau.
         </Alert>
       )}
 
@@ -165,7 +162,8 @@ export default async function PracticePage({
         <div className="flex-1">
           <h2 className="font-semibold text-ink">Entraînement personnalisé</h2>
           <p className="mt-1 text-sm text-muted">
-            Composez votre séance : compétences, niveaux CECR, thèmes, nombre de questions et minuteur.
+            Composez votre séance : compétences, niveaux CECR, thèmes, nombre de questions et
+            minuteur.
           </p>
         </div>
         <span className="inline-flex items-center gap-1 text-sm font-medium text-navy">

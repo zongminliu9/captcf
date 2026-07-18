@@ -1,7 +1,4 @@
 "use client";
-import { AlertTriangle, ChevronLeft, ChevronRight, Clock } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
 import { advanceMock, answerMock, startMockSectionAction } from "@/app/(app)/mock/actions";
 import { useToast } from "@/components/toast";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +7,9 @@ import { Card } from "@/components/ui/card";
 import { formatClock } from "@/lib/exam/timer";
 import type { ClientQuestion } from "@/lib/practice/questions";
 import { cn } from "@/lib/utils";
+import { AlertTriangle, ChevronLeft, ChevronRight, Clock } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { QuestionCard } from "./question-card";
 
 interface MockRunnerProps {
@@ -28,7 +28,13 @@ interface MockRunnerProps {
   };
 }
 
-export function MockRunner({ sessionId, mockTitle, sectionIndex, totalSections, section }: MockRunnerProps) {
+export function MockRunner({
+  sessionId,
+  mockTitle,
+  sectionIndex,
+  totalSections,
+  section,
+}: MockRunnerProps) {
   const router = useRouter();
   const toast = useToast();
   const [index, setIndex] = useState(0);
@@ -97,7 +103,8 @@ export function MockRunner({ sessionId, mockTitle, sectionIndex, totalSections, 
           </Badge>
           <h1 className="display mt-4 text-2xl">{section.label}</h1>
           <p className="mt-2 text-sm text-muted">
-            {section.questions.length} questions · {Math.round(section.durationSeconds / 60)} minutes.
+            {section.questions.length} questions · {Math.round(section.durationSeconds / 60)}{" "}
+            minutes.
             {section.skill === "listening"
               ? " Chaque audio se joue un nombre limité de fois, comme à l'examen."
               : ""}
@@ -172,7 +179,11 @@ export function MockRunner({ sessionId, mockTitle, sectionIndex, totalSections, 
       </div>
 
       <div className="mt-6 flex items-center justify-between gap-3">
-        <Button variant="ghost" onClick={() => setIndex((i) => Math.max(0, i - 1))} disabled={index === 0}>
+        <Button
+          variant="ghost"
+          onClick={() => setIndex((i) => Math.max(0, i - 1))}
+          disabled={index === 0}
+        >
           <ChevronLeft className="h-4 w-4" /> Précédent
         </Button>
         {index < section.questions.length - 1 ? (

@@ -1,8 +1,8 @@
-import { eq } from "drizzle-orm";
-import { type NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { entitlements, subscriptions } from "@/db/schema";
 import { getActor } from "@/lib/auth/session";
+import { eq } from "drizzle-orm";
+import { type NextRequest, NextResponse } from "next/server";
 
 /**
  * Checkout. With Stripe keys it would create a Checkout Session; without them it uses
@@ -24,8 +24,13 @@ export async function GET(req: NextRequest) {
   await db
     .insert(subscriptions)
     .values({ userId: actor.userId, plan: "premium", status: "active", provider: "simulator" })
-    .onConflictDoUpdate({ target: subscriptions.userId, set: { plan: "premium", status: "active" } });
-  await db.insert(entitlements).values({ userId: actor.userId, plan: "premium", source: "simulator" });
+    .onConflictDoUpdate({
+      target: subscriptions.userId,
+      set: { plan: "premium", status: "active" },
+    });
+  await db
+    .insert(entitlements)
+    .values({ userId: actor.userId, plan: "premium", source: "simulator" });
 
   return NextResponse.redirect(new URL("/dashboard?upgraded=1", req.url));
 }

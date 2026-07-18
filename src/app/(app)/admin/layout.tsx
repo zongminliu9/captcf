@@ -1,6 +1,6 @@
+import { requireAdmin } from "@/lib/auth/admin";
 import { FileUp, LayoutList, ListChecks, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { requireAdmin } from "@/lib/auth/admin";
 
 const TABS = [
   { href: "/admin", label: "Vue d'ensemble", icon: ShieldCheck },

@@ -13,8 +13,8 @@ import {
 } from "@/lib/content/schema";
 import { CEFR_LEVELS } from "@/lib/exam/config";
 import { loadEnv, projectRoot } from "../lib/env";
-import { loadContent } from "./lib/load-files";
 import { jaccardDuplicates, normText } from "./lib/dedupe-lib";
+import { loadContent } from "./lib/load-files";
 
 loadEnv();
 
@@ -63,7 +63,10 @@ function auditQcm(kind: string, items: any[], schema: any, opts: { requireAudio?
     // correct option is not always the longest (anti-pattern)
     const lens = it.options.map((o: any) => o.text.length);
     const correctLen = it.options.find((o: any) => o.id === it.correctAnswer)!.text.length;
-    if (correctLen === Math.max(...lens) && lens.filter((l: number) => l === correctLen).length === 1) {
+    if (
+      correctLen === Math.max(...lens) &&
+      lens.filter((l: number) => l === correctLen).length === 1
+    ) {
       // per-item is fine; we check the global rate below
       (auditQcm as any)._longest = ((auditQcm as any)._longest ?? 0) + 1;
     }
@@ -85,7 +88,8 @@ function auditQcm(kind: string, items: any[], schema: any, opts: { requireAudio?
   // answer-letter skew: no letter should exceed 45% of items
   const total = items.length || 1;
   for (const [letter, n] of Object.entries(answerLetters)) {
-    if (n / total > 0.45) warn(kind, `answer letter '${letter}' overused (${Math.round((n / total) * 100)}%)`);
+    if (n / total > 0.45)
+      warn(kind, `answer letter '${letter}' overused (${Math.round((n / total) * 100)}%)`);
   }
   return { count: items.length, ids, answerLetters };
 }
@@ -155,7 +159,10 @@ async function main() {
   auditVocab(c.vocabulary);
 
   // near-duplicate detection (Jaccard on shingles)
-  const dupL = jaccardDuplicates(c.listening.map((x) => ({ id: x.id, text: `${x.stem} ${x.transcript}` })), 0.82);
+  const dupL = jaccardDuplicates(
+    c.listening.map((x) => ({ id: x.id, text: `${x.stem} ${x.transcript}` })),
+    0.82,
+  );
   const dupR = jaccardDuplicates(
     c.reading.map((x) => ({ id: x.id, text: `${x.stem} ${x.passage.text}` })),
     0.82,
@@ -217,7 +224,12 @@ async function main() {
     errors.length ? errors.map((i) => `- \`${i.id}\` — ${i.message}`).join("\n") : "_None._",
     "",
     "## Warnings",
-    warns.length ? warns.slice(0, 200).map((i) => `- \`${i.id}\` — ${i.message}`).join("\n") : "_None._",
+    warns.length
+      ? warns
+          .slice(0, 200)
+          .map((i) => `- \`${i.id}\` — ${i.message}`)
+          .join("\n")
+      : "_None._",
   ].join("\n");
   writeFileSync(resolve(docs, "QUALITY_AUDIT.md"), `${qa}\n`);
 
@@ -234,7 +246,9 @@ async function main() {
 
   console.log("\n Content audit");
   console.log(" ─────────────────────────────");
-  console.log(`  listening ${c.listening.length}  reading ${c.reading.length}  writing ${c.writing.length}  speaking ${c.speaking.length}  vocab ${c.vocabulary.length}`);
+  console.log(
+    `  listening ${c.listening.length}  reading ${c.reading.length}  writing ${c.writing.length}  speaking ${c.speaking.length}  vocab ${c.vocabulary.length}`,
+  );
   console.log(`  errors: ${errors.length}   warnings: ${warns.length}`);
   console.log("  reports → docs/content/*.md\n");
   if (errors.length) {

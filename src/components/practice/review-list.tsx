@@ -1,9 +1,9 @@
 "use client";
-import { Check, ChevronDown, X } from "lucide-react";
-import { useState } from "react";
 import { Badge, cefrVariant } from "@/components/ui/badge";
 import type { FullQuestion } from "@/lib/practice/questions";
 import { cn } from "@/lib/utils";
+import { Check, ChevronDown, X } from "lucide-react";
+import { useState } from "react";
 import { QuestionCard } from "./question-card";
 
 export interface ReviewEntry {
@@ -60,7 +60,9 @@ export function ReviewList({ entries }: { entries: ReviewEntry[] }) {
                   {status === "skipped" && " · non répondue"}
                 </span>
               </span>
-              <ChevronDown className={cn("h-4 w-4 shrink-0 text-muted transition", isOpen && "rotate-180")} />
+              <ChevronDown
+                className={cn("h-4 w-4 shrink-0 text-muted transition", isOpen && "rotate-180")}
+              />
             </button>
             {isOpen && (
               <div className="border-t border-border p-4">

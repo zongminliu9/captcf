@@ -1,15 +1,3 @@
-import {
-  ArrowRight,
-  BookOpenText,
-  Clock,
-  Headphones,
-  Mic,
-  PenLine,
-  Timer,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import type { Metadata } from "next";
-import Link from "next/link";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,11 +5,15 @@ import { Card } from "@/components/ui/card";
 import {
   EXAM_SPEC,
   SKILLS,
-  type SkillId,
   SPEAKING_TASKS,
   SPEC_VERSION,
+  type SkillId,
   WRITING_TASKS,
 } from "@/lib/exam/config";
+import { ArrowRight, BookOpenText, Clock, Headphones, Mic, PenLine, Timer } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Format de l'examen",

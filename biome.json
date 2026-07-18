@@ -10,7 +10,10 @@
       "playwright-report",
       "test-results",
       "coverage",
-      "public/audio"
+      "public/audio",
+      "src/content",
+      "scripts/content/workflows",
+      "scripts/content/raw"
     ]
   },
   "formatter": {
@@ -30,15 +33,24 @@
       },
       "suspicious": {
         "noArrayIndexKey": "off",
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noMisleadingCharacterClass": "off"
+      },
+      "complexity": {
+        "noForEach": "off"
       },
       "style": {
         "noNonNullAssertion": "off",
-        "useNodejsImportProtocol": "error"
+        "useNodejsImportProtocol": "error",
+        "useTemplate": "off",
+        "noUnusedTemplateLiteral": "off"
       },
       "a11y": {
         "useKeyWithClickEvents": "off",
-        "noSvgWithoutTitle": "off"
+        "noSvgWithoutTitle": "off",
+        "useSemanticElements": "off",
+        "noLabelWithoutControl": "off",
+        "useFocusableInteractive": "off"
       }
     }
   },

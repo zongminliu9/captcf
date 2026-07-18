@@ -1,8 +1,8 @@
 "use client";
-import { LogOut, Trash2 } from "lucide-react";
-import { useState, useTransition } from "react";
 import { deleteAccountAction, logoutAction } from "@/app/(app)/settings/actions";
 import { Button } from "@/components/ui/button";
+import { LogOut, Trash2 } from "lucide-react";
+import { useState, useTransition } from "react";
 
 export function LogoutButton() {
   const [pending, start] = useTransition();
@@ -19,7 +19,11 @@ export function DeleteAccountButton() {
 
   if (!confirming) {
     return (
-      <Button variant="ghost" className="text-danger hover:bg-danger-50" onClick={() => setConfirming(true)}>
+      <Button
+        variant="ghost"
+        className="text-danger hover:bg-danger-50"
+        onClick={() => setConfirming(true)}
+      >
         <Trash2 className="h-4 w-4" /> Supprimer mon compte
       </Button>
     );
@@ -33,7 +37,11 @@ export function DeleteAccountButton() {
         <Button variant="ghost" onClick={() => setConfirming(false)}>
           Annuler
         </Button>
-        <Button variant="danger" onClick={() => start(() => deleteAccountAction())} disabled={pending}>
+        <Button
+          variant="danger"
+          onClick={() => start(() => deleteAccountAction())}
+          disabled={pending}
+        >
           {pending ? "Suppression…" : "Confirmer la suppression"}
         </Button>
       </div>

@@ -1,6 +1,4 @@
 "use client";
-import { AlertTriangle, Circle, Mic, MicOff, Play, RotateCcw, Square } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import { useToast } from "@/components/toast";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -9,9 +7,19 @@ import { Card } from "@/components/ui/card";
 import { formatClock } from "@/lib/exam/timer";
 import type { SpeakingAnalysis } from "@/lib/speaking/analyze";
 import { cn } from "@/lib/utils";
+import { AlertTriangle, Circle, Mic, MicOff, Play, RotateCcw, Square } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { SpeakingFeedback } from "./speaking-feedback";
 
-type Phase = "ready" | "prep" | "recording" | "recorded" | "submitting" | "feedback" | "denied" | "nomic";
+type Phase =
+  | "ready"
+  | "prep"
+  | "recording"
+  | "recorded"
+  | "submitting"
+  | "feedback"
+  | "denied"
+  | "nomic";
 
 interface Take {
   url: string;
@@ -39,7 +47,11 @@ export function SpeakingRecorder(props: Props) {
   const [takes, setTakes] = useState<Take[]>([]);
   const [selected, setSelected] = useState(0);
   const [covered, setCovered] = useState<Set<number>>(new Set());
-  const [feedback, setFeedback] = useState<{ analysis: SpeakingAnalysis; audioUrl: string; modelOutlineFr: string } | null>(null);
+  const [feedback, setFeedback] = useState<{
+    analysis: SpeakingAnalysis;
+    audioUrl: string;
+    modelOutlineFr: string;
+  } | null>(null);
 
   const streamRef = useRef<MediaStream | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
@@ -157,7 +169,9 @@ export function SpeakingRecorder(props: Props) {
 
   function onStopped() {
     const duration = Math.round((Date.now() - startRef.current) / 1000);
-    const blob = new Blob(chunksRef.current, { type: recorderRef.current?.mimeType || "audio/webm" });
+    const blob = new Blob(chunksRef.current, {
+      type: recorderRef.current?.mimeType || "audio/webm",
+    });
     const { sum, frames, silent } = metricsRef.current;
     const avgVolume = frames ? sum / frames : 0;
     const silenceRatio = frames ? silent / frames : 0;
@@ -189,7 +203,11 @@ export function SpeakingRecorder(props: Props) {
       const res = await fetch("/api/speaking/submit", { method: "POST", body: fd });
       if (!res.ok) throw new Error();
       const data = await res.json();
-      setFeedback({ analysis: data.analysis, audioUrl: data.audioUrl, modelOutlineFr: data.modelOutlineFr });
+      setFeedback({
+        analysis: data.analysis,
+        audioUrl: data.audioUrl,
+        modelOutlineFr: data.modelOutlineFr,
+      });
       setPhase("feedback");
     } catch {
       toast("Échec de l'envoi de l'enregistrement.", "error");
@@ -219,7 +237,9 @@ export function SpeakingRecorder(props: Props) {
 
   const Checklist = (
     <fieldset className="mt-4">
-      <legend className="mb-2 text-sm font-medium text-ink">Points à aborder (auto-évaluation)</legend>
+      <legend className="mb-2 text-sm font-medium text-ink">
+        Points à aborder (auto-évaluation)
+      </legend>
       <div className="space-y-2">
         {props.guidingPointsFr.map((pt, i) => (
           <label key={i} className="flex cursor-pointer items-start gap-2.5 text-sm text-ink">
@@ -280,8 +300,14 @@ export function SpeakingRecorder(props: Props) {
             {formatClock(count)}{" "}
             <span className="text-lg text-muted">/ {formatClock(props.speakSeconds)}</span>
           </div>
-          <div className="mx-auto mt-5 h-3 w-full max-w-xs overflow-hidden rounded-full bg-surface-3" aria-hidden>
-            <div className="h-full rounded-full bg-success transition-[width] duration-100" style={{ width: `${level * 100}%` }} />
+          <div
+            className="mx-auto mt-5 h-3 w-full max-w-xs overflow-hidden rounded-full bg-surface-3"
+            aria-hidden
+          >
+            <div
+              className="h-full rounded-full bg-success transition-[width] duration-100"
+              style={{ width: `${level * 100}%` }}
+            />
           </div>
           <p className="mt-2 text-xs text-muted" aria-live="polite">
             {level < 0.05 ? "On vous entend peu — parlez plus fort." : "Bon niveau sonore."}
@@ -322,8 +348,13 @@ export function SpeakingRecorder(props: Props) {
           </div>
           {Checklist}
           <div className="mt-5 flex flex-wrap gap-3">
-            <Button variant="outline" onClick={requestMicAndStart} disabled={phase === "submitting"}>
-              <RotateCcw className="h-4 w-4" /> Refaire {takes.length >= 2 ? "(remplace la plus ancienne)" : ""}
+            <Button
+              variant="outline"
+              onClick={requestMicAndStart}
+              disabled={phase === "submitting"}
+            >
+              <RotateCcw className="h-4 w-4" /> Refaire{" "}
+              {takes.length >= 2 ? "(remplace la plus ancienne)" : ""}
             </Button>
             <Button variant="primary" onClick={submit} disabled={phase === "submitting"}>
               {phase === "submitting" ? "Envoi…" : "Soumettre"}
@@ -360,8 +391,8 @@ export function SpeakingRecorder(props: Props) {
               : "Aucun micro détecté sur cet appareil."}
           </Alert>
           <p className="mt-4 text-sm text-muted">
-            Vous pouvez tout de même préparer votre réponse : structurez vos idées à partir des points
-            ci-dessous, puis réessayez l'enregistrement.
+            Vous pouvez tout de même préparer votre réponse : structurez vos idées à partir des
+            points ci-dessous, puis réessayez l'enregistrement.
           </p>
           {Checklist}
           <div className="mt-5 flex items-center gap-3">

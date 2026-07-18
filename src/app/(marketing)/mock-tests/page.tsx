@@ -1,20 +1,11 @@
-import {
-  ArrowRight,
-  Clock,
-  EyeOff,
-  Gift,
-  Headphones,
-  Lock,
-  RefreshCw,
-  Save,
-} from "lucide-react";
-import type { Metadata } from "next";
-import Link from "next/link";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { EXAM_SPEC } from "@/lib/exam/config";
+import { ArrowRight, Clock, EyeOff, Gift, Headphones, Lock, RefreshCw, Save } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Examens blancs",

@@ -82,7 +82,8 @@ export function withinDailyLimit(
     kind === "practice"
       ? PLAN_LIMITS[plan].practiceSessionsPerDay
       : PLAN_LIMITS[plan].mockTestsPerDay;
-  const remaining = limit === Number.POSITIVE_INFINITY ? Number.POSITIVE_INFINITY : limit - usedToday;
+  const remaining =
+    limit === Number.POSITIVE_INFINITY ? Number.POSITIVE_INFINITY : limit - usedToday;
   return {
     allowed: usedToday < limit,
     used: usedToday,

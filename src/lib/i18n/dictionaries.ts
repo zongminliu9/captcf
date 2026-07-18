@@ -74,7 +74,8 @@ const fr: Dict = {
   "reason.REVIEW_DUE": "{count} question(s) de {skill} à réviser aujourd'hui.",
   "reason.EXAM_SOON": "Examen dans {daysToExam} jours — renforcez votre {skill}.",
   "reason.GOAL_GAP": "Objectif NCLC {targetNclc} en {skill} : il vous manque {gap} niveau(x).",
-  "reason.LOW_CONFIDENCE": "Encore peu de données en {skill} : quelques questions affineront l'estimation.",
+  "reason.LOW_CONFIDENCE":
+    "Encore peu de données en {skill} : quelques questions affineront l'estimation.",
   "reason.PACE_TOO_SLOW": "Votre rythme en {skill} est trop lent pour le temps imparti.",
   "reason.RECENT_REGRESSION": "Votre {skill} a baissé d'environ {drop} % récemment.",
   "reason.NEW_SKILL": "Vous n'avez pas encore travaillé votre {skill}.",
@@ -156,7 +157,8 @@ const en: Dict = {
   "reason.REVIEW_DUE": "{count} {skill} question(s) due for review today.",
   "reason.EXAM_SOON": "Exam in {daysToExam} days — strengthen your {skill}.",
   "reason.GOAL_GAP": "Target NCLC {targetNclc} in {skill}: you're {gap} level(s) short.",
-  "reason.LOW_CONFIDENCE": "Little data on {skill} yet — a few questions will sharpen the estimate.",
+  "reason.LOW_CONFIDENCE":
+    "Little data on {skill} yet — a few questions will sharpen the estimate.",
   "reason.PACE_TOO_SLOW": "Your {skill} pace is too slow for the time limit.",
   "reason.RECENT_REGRESSION": "Your {skill} dropped about {drop}% recently.",
   "reason.NEW_SKILL": "You haven't practised {skill} yet.",

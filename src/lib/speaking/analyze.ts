@@ -41,9 +41,17 @@ export function analyzeSpeaking(sig: SpeakingSignals): SpeakingAnalysis {
     sig.avgVolume >= 0.18 ? 100 : sig.avgVolume >= 0.08 ? 70 : sig.avgVolume > 0.02 ? 45 : 20;
 
   const fluencyScore =
-    sig.silenceRatio <= 0.25 ? 100 : sig.silenceRatio <= 0.45 ? 75 : sig.silenceRatio <= 0.6 ? 50 : 30;
+    sig.silenceRatio <= 0.25
+      ? 100
+      : sig.silenceRatio <= 0.45
+        ? 75
+        : sig.silenceRatio <= 0.6
+          ? 50
+          : 30;
 
-  const coverageScore = sig.totalPoints ? Math.round((sig.coveredPoints / sig.totalPoints) * 100) : 0;
+  const coverageScore = sig.totalPoints
+    ? Math.round((sig.coveredPoints / sig.totalPoints) * 100)
+    : 0;
 
   const criteria: SpeakingCriterion[] = [
     {

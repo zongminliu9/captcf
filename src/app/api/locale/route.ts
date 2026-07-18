@@ -1,5 +1,5 @@
+import { LOCALE_COOKIE, isLocale } from "@/lib/i18n/config";
 import { type NextRequest, NextResponse } from "next/server";
-import { isLocale, LOCALE_COOKIE } from "@/lib/i18n/config";
 
 /** Set the UI locale cookie and redirect back (works without client JS). */
 export function GET(req: NextRequest) {

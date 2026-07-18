@@ -17,7 +17,9 @@ export async function answerMock(
   return { ok: true };
 }
 
-export async function advanceMock(sessionId: string): Promise<{ done: boolean; attemptId?: string }> {
+export async function advanceMock(
+  sessionId: string,
+): Promise<{ done: boolean; attemptId?: string }> {
   const actor = await ensureActor();
   return advanceMockSection(actor, sessionId);
 }

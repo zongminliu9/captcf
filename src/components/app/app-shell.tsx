@@ -1,4 +1,10 @@
 "use client";
+import { Wordmark } from "@/components/brand";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { ThemeToggle } from "@/components/theme";
+import { Badge } from "@/components/ui/badge";
+import { useT } from "@/lib/i18n/client";
+import { cn } from "@/lib/utils";
 import {
   BarChart3,
   BookMarked,
@@ -18,12 +24,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Wordmark } from "@/components/brand";
-import { LanguageSwitcher } from "@/components/language-switcher";
-import { ThemeToggle } from "@/components/theme";
-import { Badge } from "@/components/ui/badge";
-import { useT } from "@/lib/i18n/client";
-import { cn } from "@/lib/utils";
 
 export interface ShellData {
   authed: boolean;
@@ -102,11 +102,21 @@ export function AppShell({ data, children }: { data: ShellData; children: React.
         </div>
         <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-2" aria-label="Navigation">
           {primary.map((item) => (
-            <NavLink key={item.href} item={item} active={isActive(item.href)} label={t(item.labelKey)} />
+            <NavLink
+              key={item.href}
+              item={item}
+              active={isActive(item.href)}
+              label={t(item.labelKey)}
+            />
           ))}
           <div className="my-3 border-t border-border" />
           {secondary.map((item) => (
-            <NavLink key={item.href} item={item} active={isActive(item.href)} label={t(item.labelKey)} />
+            <NavLink
+              key={item.href}
+              item={item}
+              active={isActive(item.href)}
+              label={t(item.labelKey)}
+            />
           ))}
         </nav>
         <div className="border-t border-border p-3">

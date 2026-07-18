@@ -5,7 +5,7 @@
  * IRT-based TCF scoring. Every surface that shows these numbers must label them as
  * estimates (see `ScoreEstimate.confidence` and the `disclaimer` field).
  */
-import { type CefrLevel, CEFR_ORDER, type SkillId } from "./config";
+import { CEFR_ORDER, type CefrLevel, type SkillId } from "./config";
 import { scoreToCefr, scoreToNclc } from "./nclc";
 
 /** Midpoint anchor (on the 0–699 scale) for each CEFR level. */

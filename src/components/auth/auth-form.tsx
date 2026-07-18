@@ -1,11 +1,11 @@
 "use client";
-import Link from "next/link";
-import { useActionState } from "react";
-import { type AuthState, loginAction, registerAction } from "@/lib/auth/actions";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FieldError, Input, Label } from "@/components/ui/field";
+import { type AuthState, loginAction, registerAction } from "@/lib/auth/actions";
+import Link from "next/link";
+import { useActionState } from "react";
 
 export function AuthForm({ mode }: { mode: "login" | "register" }) {
   const action = mode === "register" ? registerAction : loginAction;
@@ -62,11 +62,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
           <FieldError>{state.fieldErrors?.password}</FieldError>
         </div>
         <Button type="submit" variant="primary" className="w-full" disabled={pending}>
-          {pending
-            ? "Un instant…"
-            : mode === "register"
-              ? "Créer mon compte"
-              : "Se connecter"}
+          {pending ? "Un instant…" : mode === "register" ? "Créer mon compte" : "Se connecter"}
         </Button>
       </form>
 

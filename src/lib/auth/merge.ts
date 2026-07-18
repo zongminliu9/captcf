@@ -1,6 +1,6 @@
 import "server-only";
-import { sql } from "drizzle-orm";
 import { db } from "@/db";
+import { sql } from "drizzle-orm";
 
 /**
  * Idempotently merge an anonymous guest's data into a user account.

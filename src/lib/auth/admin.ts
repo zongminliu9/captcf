@@ -1,7 +1,7 @@
 import "server-only";
 import { redirect } from "next/navigation";
-import { getActor } from "./session";
 import type { Actor } from "./owner";
+import { getActor } from "./session";
 
 /** Require an authenticated admin; redirect otherwise. */
 export async function requireAdmin(): Promise<Extract<Actor, { kind: "user" }>> {

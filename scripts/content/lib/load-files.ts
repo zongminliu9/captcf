@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { projectRoot } from "../../lib/env";
 import type {
   ListeningItem,
   ReadingItem,
@@ -8,6 +7,7 @@ import type {
   VocabularyItem,
   WritingTask,
 } from "@/lib/content/schema";
+import { projectRoot } from "../../lib/env";
 
 const DIR = resolve(projectRoot, "src/content");
 

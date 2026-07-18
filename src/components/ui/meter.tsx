@@ -1,5 +1,5 @@
-import type * as React from "react";
 import { cn } from "@/lib/utils";
+import type * as React from "react";
 
 interface MeterProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number; // 0..1

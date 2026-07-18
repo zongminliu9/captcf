@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { analyzeWriting, type WritingTaskLite } from "./analyze";
+import { type WritingTaskLite, analyzeWriting } from "./analyze";
 
 const task: WritingTaskLite = {
   keywords: ["invitation", "date et heure", "adresse", "dessert"],
@@ -39,7 +39,10 @@ describe("analyzeWriting", () => {
   });
 
   it("produces an unofficial 0-20 estimate and disclaimer", () => {
-    const a = analyzeWriting("Bonjour, ceci est un texte de test suffisamment long pour analyser.", task);
+    const a = analyzeWriting(
+      "Bonjour, ceci est un texte de test suffisamment long pour analyser.",
+      task,
+    );
     expect(a.estimatedBand).toBeGreaterThanOrEqual(0);
     expect(a.estimatedBand).toBeLessThanOrEqual(20);
     expect(a.disclaimerFr.toLowerCase()).toContain("officielle");

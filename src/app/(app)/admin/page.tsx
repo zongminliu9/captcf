@@ -1,4 +1,5 @@
-import { desc, eq, sql } from "drizzle-orm";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { db } from "@/db";
 import {
   contentAudits,
@@ -9,19 +10,24 @@ import {
   vocabularyItems,
   writingTasks,
 } from "@/db/schema";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
+import { desc, eq, sql } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminOverviewPage() {
   const [qBySkill, wCount, sCount, vCount, mCount, openReports, lastAudit] = await Promise.all([
-    db.select({ skill: questions.skill, status: questions.status, n: sql<number>`count(*)::int` }).from(questions).groupBy(questions.skill, questions.status),
+    db
+      .select({ skill: questions.skill, status: questions.status, n: sql<number>`count(*)::int` })
+      .from(questions)
+      .groupBy(questions.skill, questions.status),
     db.select({ n: sql<number>`count(*)::int` }).from(writingTasks),
     db.select({ n: sql<number>`count(*)::int` }).from(speakingTasks),
     db.select({ n: sql<number>`count(*)::int` }).from(vocabularyItems),
     db.select({ n: sql<number>`count(*)::int` }).from(mockTests),
-    db.select({ n: sql<number>`count(*)::int` }).from(issueReports).where(eq(issueReports.status, "open")),
+    db
+      .select({ n: sql<number>`count(*)::int` })
+      .from(issueReports)
+      .where(eq(issueReports.status, "open")),
     db.select().from(contentAudits).orderBy(desc(contentAudits.runAt)).limit(1),
   ]);
 
@@ -58,11 +64,14 @@ export default async function AdminOverviewPage() {
             <Badge variant={lastAudit[0].passed ? "success" : "danger"}>
               {lastAudit[0].passed ? "Réussi" : "Échec"}
             </Badge>
-            <span className="text-sm text-muted">{new Date(lastAudit[0].runAt).toLocaleString("fr-CA")}</span>
+            <span className="text-sm text-muted">
+              {new Date(lastAudit[0].runAt).toLocaleString("fr-CA")}
+            </span>
           </div>
         ) : (
           <p className="text-sm text-muted">
-            Aucun audit enregistré. Lancez <code className="rounded bg-surface-2 px-1">pnpm content:audit</code>.
+            Aucun audit enregistré. Lancez{" "}
+            <code className="rounded bg-surface-2 px-1">pnpm content:audit</code>.
           </p>
         )}
       </Card>

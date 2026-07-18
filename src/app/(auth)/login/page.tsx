@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import { AuthForm } from "@/components/auth/auth-form";
 import { getActor } from "@/lib/auth/session";
+import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = { title: "Se connecter" };
 

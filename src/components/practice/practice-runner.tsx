@@ -1,14 +1,14 @@
 "use client";
-import { BookmarkPlus, ChevronLeft, ChevronRight, Flag } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useRef, useState, useTransition } from "react";
-import { toggleBookmark } from "@/app/(app)/practice/content-actions";
 import { saveAnswer, submitPractice } from "@/app/(app)/practice/actions";
+import { toggleBookmark } from "@/app/(app)/practice/content-actions";
 import { useToast } from "@/components/toast";
 import { Button } from "@/components/ui/button";
 import { Meter } from "@/components/ui/meter";
 import type { ClientQuestion } from "@/lib/practice/questions";
 import { cn } from "@/lib/utils";
+import { BookmarkPlus, ChevronLeft, ChevronRight, Flag } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useRef, useState, useTransition } from "react";
 import { type Feedback, QuestionCard } from "./question-card";
 
 interface AnswerState {
@@ -53,7 +53,11 @@ export function PracticeRunner({
     setAnswers((a) => ({ ...a, [q.refId]: { selected: optionId } }));
     startTransition(async () => {
       try {
-        const res = await saveAnswer(sessionId, { refId: q.refId, selectedAnswer: optionId, responseMs });
+        const res = await saveAnswer(sessionId, {
+          refId: q.refId,
+          selectedAnswer: optionId,
+          responseMs,
+        });
         setAnswers((a) => ({
           ...a,
           [q.refId]: { selected: optionId, feedback: res.feedback ?? null },

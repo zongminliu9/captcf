@@ -1,5 +1,4 @@
 import "server-only";
-import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/db";
 import {
   attempts,
@@ -12,11 +11,12 @@ import {
 } from "@/db/schema";
 import { type Actor, ownerEq, ownerValues } from "@/lib/auth/owner";
 import type { CefrLevel, SkillId } from "@/lib/exam/config";
-import { estimateQcmScore, type QcmResponseLite } from "@/lib/exam/scoring";
-import { INITIAL_MASTERY, type MasteryState, updateMastery } from "@/lib/mastery";
-import { INITIAL_SM2, qualityFromResponse, review, type Sm2State } from "@/lib/review/sm2";
+import { type QcmResponseLite, estimateQcmScore } from "@/lib/exam/scoring";
 import { isExpired } from "@/lib/exam/timer";
-import { selectQuestionIds, type SelectionConfig } from "./questions";
+import { INITIAL_MASTERY, type MasteryState, updateMastery } from "@/lib/mastery";
+import { INITIAL_SM2, type Sm2State, qualityFromResponse, review } from "@/lib/review/sm2";
+import { and, desc, eq, inArray, sql } from "drizzle-orm";
+import { type SelectionConfig, selectQuestionIds } from "./questions";
 
 export type SessionMode =
   | "quick"
@@ -227,7 +227,10 @@ export interface AttemptSummary {
   totalItems: number;
   answered: number;
   correctItems: number;
-  perSkill: Record<string, { answered: number; correct: number; estimate: ReturnType<typeof estimateQcmScore> }>;
+  perSkill: Record<
+    string,
+    { answered: number; correct: number; estimate: ReturnType<typeof estimateQcmScore> }
+  >;
 }
 
 /**
@@ -277,7 +280,9 @@ export async function submitSession(
   const totalItems = session.itemOrder.length;
   const correctItems = answered.filter((r) => r.correct).length;
   const durationSeconds =
-    session.startedAt != null ? Math.round((Date.now() - session.startedAt.getTime()) / 1000) : null;
+    session.startedAt != null
+      ? Math.round((Date.now() - session.startedAt.getTime()) / 1000)
+      : null;
 
   const [attempt] = await db
     .insert(attempts)
@@ -297,7 +302,11 @@ export async function submitSession(
 
   await db
     .update(practiceSessions)
-    .set({ status: opts.expired ? "expired" : "graded", submittedAt: new Date(), gradedAt: new Date() })
+    .set({
+      status: opts.expired ? "expired" : "graded",
+      submittedAt: new Date(),
+      gradedAt: new Date(),
+    })
     .where(eq(practiceSessions.id, sessionId));
 
   await applyLearningUpdates(actor, answered);
@@ -328,7 +337,12 @@ async function applyLearningUpdates(
   const subtypeRows = await db
     .select({ id: questions.id, subtype: questions.subtype })
     .from(questions)
-    .where(inArray(questions.id, answered.map((r) => r.refId)));
+    .where(
+      inArray(
+        questions.id,
+        answered.map((r) => r.refId),
+      ),
+    );
   const subtypeOf = new Map(subtypeRows.map((r) => [r.id, r.subtype]));
 
   const masteryKeys = new Set<string>();
@@ -337,9 +351,13 @@ async function applyLearningUpdates(
     const st = subtypeOf.get(r.refId);
     if (st) masteryKeys.add(`${r.skill}::${st}`);
   }
-  const existingMastery = await db.select().from(masteryRecords).where(ownerEq(masteryRecords, actor));
+  const existingMastery = await db
+    .select()
+    .from(masteryRecords)
+    .where(ownerEq(masteryRecords, actor));
   const stateMap = new Map<string, MasteryState>();
-  for (const m of existingMastery) stateMap.set(`${m.skill}::${m.subtype}`, m.state as MasteryState);
+  for (const m of existingMastery)
+    stateMap.set(`${m.skill}::${m.subtype}`, m.state as MasteryState);
 
   for (const r of answered) {
     const keys = [`${r.skill}::_all`];
@@ -362,9 +380,10 @@ async function applyLearningUpdates(
       .insert(masteryRecords)
       .values({ ...ownerValues(actor), skill, subtype, state })
       .onConflictDoUpdate({
-        target: actor.kind === "user"
-          ? [masteryRecords.userId, masteryRecords.skill, masteryRecords.subtype]
-          : [masteryRecords.guestId, masteryRecords.skill, masteryRecords.subtype],
+        target:
+          actor.kind === "user"
+            ? [masteryRecords.userId, masteryRecords.skill, masteryRecords.subtype]
+            : [masteryRecords.guestId, masteryRecords.skill, masteryRecords.subtype],
         set: { state, updatedAt: new Date() },
       });
   }
@@ -379,9 +398,18 @@ async function applyLearningUpdates(
       // mistake upsert
       await db
         .insert(mistakes)
-        .values({ ...ownerValues(actor), questionId: r.refId, wrongCount: 1, resolved: false, lastWrongAt: now })
+        .values({
+          ...ownerValues(actor),
+          questionId: r.refId,
+          wrongCount: 1,
+          resolved: false,
+          lastWrongAt: now,
+        })
         .onConflictDoUpdate({
-          target: actor.kind === "user" ? [mistakes.userId, mistakes.questionId] : [mistakes.guestId, mistakes.questionId],
+          target:
+            actor.kind === "user"
+              ? [mistakes.userId, mistakes.questionId]
+              : [mistakes.guestId, mistakes.questionId],
           set: { wrongCount: sql`${mistakes.wrongCount} + 1`, resolved: false, lastWrongAt: now },
         });
       // add / advance in review queue
@@ -390,9 +418,19 @@ async function applyLearningUpdates(
       const next = review(prev, quality, now);
       await db
         .insert(reviewQueue)
-        .values({ ...ownerValues(actor), questionId: r.refId, sm2: next, dueAt: next.dueAt, source: "mistake", lastReviewedAt: now })
+        .values({
+          ...ownerValues(actor),
+          questionId: r.refId,
+          sm2: next,
+          dueAt: next.dueAt,
+          source: "mistake",
+          lastReviewedAt: now,
+        })
         .onConflictDoUpdate({
-          target: actor.kind === "user" ? [reviewQueue.userId, reviewQueue.questionId] : [reviewQueue.guestId, reviewQueue.questionId],
+          target:
+            actor.kind === "user"
+              ? [reviewQueue.userId, reviewQueue.questionId]
+              : [reviewQueue.guestId, reviewQueue.questionId],
           set: { sm2: next, dueAt: next.dueAt, lastReviewedAt: now },
         });
     } else if (r.correct === true) {
@@ -404,7 +442,10 @@ async function applyLearningUpdates(
       // advance an existing review item
       const existing = reviewMap.get(r.refId);
       if (existing) {
-        const quality = qualityFromResponse({ correct: true, responseMs: r.responseMs ?? undefined });
+        const quality = qualityFromResponse({
+          correct: true,
+          responseMs: r.responseMs ?? undefined,
+        });
         const next = review(existing.sm2 as Sm2State, quality, now);
         await db
           .update(reviewQueue)

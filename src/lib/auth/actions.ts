@@ -1,9 +1,9 @@
 "use server";
+import { db } from "@/db";
+import { subscriptions, users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { db } from "@/db";
-import { subscriptions, users } from "@/db/schema";
 import { mergeGuestIntoUser } from "./merge";
 import { hashPassword, passwordIssues, verifyPassword } from "./password";
 import { createUserSession, currentGuestId, signOut } from "./session";
@@ -16,7 +16,9 @@ export interface AuthState {
 const emailSchema = z.string().email().max(200);
 
 export async function registerAction(_prev: AuthState, formData: FormData): Promise<AuthState> {
-  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const email = String(formData.get("email") ?? "")
+    .trim()
+    .toLowerCase();
   const password = String(formData.get("password") ?? "");
   const name = String(formData.get("name") ?? "").trim() || null;
 
@@ -32,7 +34,11 @@ export async function registerAction(_prev: AuthState, formData: FormData): Prom
     };
   }
 
-  const existing = await db.select({ id: users.id }).from(users).where(eq(users.email, email)).limit(1);
+  const existing = await db
+    .select({ id: users.id })
+    .from(users)
+    .where(eq(users.email, email))
+    .limit(1);
   if (existing[0]) return { fieldErrors: { email: "Cette adresse est déjà utilisée." } };
 
   const passwordHash = await hashPassword(password);
@@ -41,7 +47,10 @@ export async function registerAction(_prev: AuthState, formData: FormData): Prom
     .values({ email, passwordHash, name })
     .returning({ id: users.id });
 
-  await db.insert(subscriptions).values({ userId: user!.id, plan: "free", status: "active" }).onConflictDoNothing();
+  await db
+    .insert(subscriptions)
+    .values({ userId: user!.id, plan: "free", status: "active" })
+    .onConflictDoNothing();
 
   // preserve guest progress
   const guestId = await currentGuestId();
@@ -52,7 +61,9 @@ export async function registerAction(_prev: AuthState, formData: FormData): Prom
 }
 
 export async function loginAction(_prev: AuthState, formData: FormData): Promise<AuthState> {
-  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const email = String(formData.get("email") ?? "")
+    .trim()
+    .toLowerCase();
   const password = String(formData.get("password") ?? "");
   if (!email || !password) return { error: "Renseignez votre courriel et votre mot de passe." };
 

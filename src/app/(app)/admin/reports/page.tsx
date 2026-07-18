@@ -1,14 +1,18 @@
-import { desc } from "drizzle-orm";
 import { ReportActions } from "@/components/admin/report-row";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { db } from "@/db";
 import { issueReports } from "@/db/schema";
+import { desc } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminReportsPage() {
-  const reports = await db.select().from(issueReports).orderBy(desc(issueReports.createdAt)).limit(100);
+  const reports = await db
+    .select()
+    .from(issueReports)
+    .orderBy(desc(issueReports.createdAt))
+    .limit(100);
 
   if (reports.length === 0) {
     return <p className="text-sm text-muted">Aucun signalement pour le moment.</p>;
@@ -20,7 +24,9 @@ export default async function AdminReportsPage() {
         <Card key={r.id} className="p-4">
           <div className="flex flex-wrap items-center gap-2">
             <Badge
-              variant={r.status === "open" ? "warning" : r.status === "resolved" ? "success" : "neutral"}
+              variant={
+                r.status === "open" ? "warning" : r.status === "resolved" ? "success" : "neutral"
+              }
               size="sm"
             >
               {r.status}

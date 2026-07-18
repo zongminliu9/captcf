@@ -1,8 +1,8 @@
-import { and, eq, ilike, sql } from "drizzle-orm";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { db } from "@/db";
 import { questions } from "@/db/schema";
+import { and, eq, ilike, sql } from "drizzle-orm";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +13,8 @@ export default async function AdminQuestionsPage({
 }) {
   const sp = await searchParams;
   const conds = [];
-  if (sp.skill && ["listening", "reading"].includes(sp.skill)) conds.push(eq(questions.skill, sp.skill as any));
+  if (sp.skill && ["listening", "reading"].includes(sp.skill))
+    conds.push(eq(questions.skill, sp.skill as any));
   if (sp.status) conds.push(eq(questions.status, sp.status as any));
   if (sp.cefr) conds.push(eq(questions.cefrLevel, sp.cefr));
   if (sp.q) conds.push(ilike(questions.stem, `%${sp.q}%`));
@@ -50,19 +51,30 @@ export default async function AdminQuestionsPage({
           placeholder="Rechercher dans l'énoncé…"
           className="h-9 flex-1 rounded-[var(--radius-sm)] border border-border-strong bg-surface px-3 text-sm"
         />
-        <select name="skill" defaultValue={sp.skill ?? ""} className="h-9 rounded-[var(--radius-sm)] border border-border-strong bg-surface px-2 text-sm">
+        <select
+          name="skill"
+          defaultValue={sp.skill ?? ""}
+          className="h-9 rounded-[var(--radius-sm)] border border-border-strong bg-surface px-2 text-sm"
+        >
           <option value="">Toutes compétences</option>
           <option value="listening">Écoute</option>
           <option value="reading">Lecture</option>
         </select>
-        <select name="status" defaultValue={sp.status ?? ""} className="h-9 rounded-[var(--radius-sm)] border border-border-strong bg-surface px-2 text-sm">
+        <select
+          name="status"
+          defaultValue={sp.status ?? ""}
+          className="h-9 rounded-[var(--radius-sm)] border border-border-strong bg-surface px-2 text-sm"
+        >
           <option value="">Tous statuts</option>
           <option value="published">Publiée</option>
           <option value="draft">Brouillon</option>
           <option value="in_review">En révision</option>
           <option value="retired">Retirée</option>
         </select>
-        <button type="submit" className="h-9 rounded-[var(--radius-sm)] bg-navy px-4 text-sm font-medium text-on-navy">
+        <button
+          type="submit"
+          className="h-9 rounded-[var(--radius-sm)] bg-navy px-4 text-sm font-medium text-on-navy"
+        >
           Filtrer
         </button>
       </form>
@@ -91,7 +103,10 @@ export default async function AdminQuestionsPage({
             {rows.map((r) => (
               <tr key={r.id} className="border-t border-border hover:bg-surface-2">
                 <td className="px-3 py-2">
-                  <Link href={`/admin/questions/${r.id}`} className="font-mono text-xs text-navy hover:underline">
+                  <Link
+                    href={`/admin/questions/${r.id}`}
+                    className="font-mono text-xs text-navy hover:underline"
+                  >
                     {r.id}
                   </Link>
                 </td>

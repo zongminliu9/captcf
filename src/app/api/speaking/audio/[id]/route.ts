@@ -1,10 +1,10 @@
-import { and, eq } from "drizzle-orm";
-import { type NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { speakingSubmissions } from "@/db/schema";
 import { ownerEq } from "@/lib/auth/owner";
 import { getActor } from "@/lib/auth/session";
 import { getStorage } from "@/lib/storage";
+import { and, eq } from "drizzle-orm";
+import { type NextRequest, NextResponse } from "next/server";
 
 /** Streams a speaking recording back, but only to its owner. */
 export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {

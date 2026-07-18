@@ -1,11 +1,11 @@
-import { eq } from "drizzle-orm";
-import { type NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { mockTests } from "@/db/schema";
 import { ensureActor } from "@/lib/auth/session";
 import { can } from "@/lib/entitlements";
 import { getPlanForActor } from "@/lib/entitlements/plan";
 import { createMockSession } from "@/lib/practice/mock";
+import { eq } from "drizzle-orm";
+import { type NextRequest, NextResponse } from "next/server";
 
 /** Route handler → may set the guest cookie. Gates full mocks behind Premium. */
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {

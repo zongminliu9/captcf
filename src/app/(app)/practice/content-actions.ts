@@ -1,10 +1,10 @@
 "use server";
-import { and, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { bookmarks, issueReports, reviewQueue } from "@/db/schema";
 import { ownerEq, ownerValues } from "@/lib/auth/owner";
 import { ensureActor } from "@/lib/auth/session";
 import { INITIAL_SM2, review } from "@/lib/review/sm2";
+import { and, eq } from "drizzle-orm";
 
 export async function toggleBookmark(questionId: string): Promise<{ bookmarked: boolean }> {
   const actor = await ensureActor();
@@ -17,7 +17,10 @@ export async function toggleBookmark(questionId: string): Promise<{ bookmarked: 
     await db.delete(bookmarks).where(eq(bookmarks.id, existing[0].id));
     return { bookmarked: false };
   }
-  await db.insert(bookmarks).values({ ...ownerValues(actor), questionId }).onConflictDoNothing();
+  await db
+    .insert(bookmarks)
+    .values({ ...ownerValues(actor), questionId })
+    .onConflictDoNothing();
   return { bookmarked: true };
 }
 

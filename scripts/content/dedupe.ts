@@ -18,9 +18,24 @@ function scan(name: string, items: { id: string; text: string }[]) {
 
 const c = loadContent();
 let issues = 0;
-issues += scan("listening", c.listening.map((x) => ({ id: x.id, text: `${x.stem} ${x.transcript}` })));
-issues += scan("reading", c.reading.map((x) => ({ id: x.id, text: `${x.stem} ${x.passage.text}` })));
-issues += scan("writing", c.writing.map((x) => ({ id: x.id, text: x.promptFr })));
-issues += scan("speaking", c.speaking.map((x) => ({ id: x.id, text: x.promptFr })));
-issues += scan("vocabulary", c.vocabulary.map((x) => ({ id: x.id, text: x.term })));
+issues += scan(
+  "listening",
+  c.listening.map((x) => ({ id: x.id, text: `${x.stem} ${x.transcript}` })),
+);
+issues += scan(
+  "reading",
+  c.reading.map((x) => ({ id: x.id, text: `${x.stem} ${x.passage.text}` })),
+);
+issues += scan(
+  "writing",
+  c.writing.map((x) => ({ id: x.id, text: x.promptFr })),
+);
+issues += scan(
+  "speaking",
+  c.speaking.map((x) => ({ id: x.id, text: x.promptFr })),
+);
+issues += scan(
+  "vocabulary",
+  c.vocabulary.map((x) => ({ id: x.id, text: x.term })),
+);
 console.log(`\nTotal duplicate signals: ${issues}\n`);

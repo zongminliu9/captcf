@@ -1,15 +1,18 @@
-import { Mic } from "lucide-react";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { db } from "@/db";
 import { speakingTasks } from "@/db/schema";
 import { SPEAKING_TASKS } from "@/lib/exam/config";
+import { Mic } from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Expression orale" };
 
 export default async function SpeakingPage() {
-  const tasks = await db.select().from(speakingTasks).orderBy(speakingTasks.taskNumber, speakingTasks.id);
+  const tasks = await db
+    .select()
+    .from(speakingTasks)
+    .orderBy(speakingTasks.taskNumber, speakingTasks.id);
   const byTask = new Map<number, typeof tasks>();
   for (const t of tasks) {
     const arr = byTask.get(t.taskNumber) ?? [];

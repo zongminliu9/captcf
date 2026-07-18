@@ -20,13 +20,62 @@ export interface NclcRow {
 
 /** Ordered high → low so the first match wins. */
 export const NCLC_TABLE: readonly NclcRow[] = [
-  { nclc: 10, listening: [549, 699], reading: [549, 699], writing: [16, 20], speaking: [16, 20], cefr: "C2" },
-  { nclc: 9, listening: [523, 548], reading: [524, 548], writing: [14, 15], speaking: [14, 15], cefr: "C1" },
-  { nclc: 8, listening: [503, 522], reading: [499, 523], writing: [12, 13], speaking: [12, 13], cefr: "B2" },
-  { nclc: 7, listening: [458, 502], reading: [453, 498], writing: [10, 11], speaking: [10, 11], cefr: "B2" },
-  { nclc: 6, listening: [398, 457], reading: [406, 452], writing: [7, 9], speaking: [7, 9], cefr: "B1" },
-  { nclc: 5, listening: [369, 397], reading: [375, 405], writing: [6, 6], speaking: [6, 6], cefr: "B1" },
-  { nclc: 4, listening: [331, 368], reading: [342, 374], writing: [4, 5], speaking: [4, 5], cefr: "A2" },
+  {
+    nclc: 10,
+    listening: [549, 699],
+    reading: [549, 699],
+    writing: [16, 20],
+    speaking: [16, 20],
+    cefr: "C2",
+  },
+  {
+    nclc: 9,
+    listening: [523, 548],
+    reading: [524, 548],
+    writing: [14, 15],
+    speaking: [14, 15],
+    cefr: "C1",
+  },
+  {
+    nclc: 8,
+    listening: [503, 522],
+    reading: [499, 523],
+    writing: [12, 13],
+    speaking: [12, 13],
+    cefr: "B2",
+  },
+  {
+    nclc: 7,
+    listening: [458, 502],
+    reading: [453, 498],
+    writing: [10, 11],
+    speaking: [10, 11],
+    cefr: "B2",
+  },
+  {
+    nclc: 6,
+    listening: [398, 457],
+    reading: [406, 452],
+    writing: [7, 9],
+    speaking: [7, 9],
+    cefr: "B1",
+  },
+  {
+    nclc: 5,
+    listening: [369, 397],
+    reading: [375, 405],
+    writing: [6, 6],
+    speaking: [6, 6],
+    cefr: "B1",
+  },
+  {
+    nclc: 4,
+    listening: [331, 368],
+    reading: [342, 374],
+    writing: [4, 5],
+    speaking: [4, 5],
+    cefr: "A2",
+  },
 ] as const;
 
 /** CEFR bands for the 0–699 scaled scores (Listening / Reading). */

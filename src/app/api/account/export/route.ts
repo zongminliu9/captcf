@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { db } from "@/db";
 import {
   attempts,
@@ -15,6 +14,7 @@ import {
 } from "@/db/schema";
 import { ownerEq } from "@/lib/auth/owner";
 import { getActor } from "@/lib/auth/session";
+import { NextResponse } from "next/server";
 
 /** GDPR-style data export: everything owned by the current actor, as JSON. */
 export async function GET() {

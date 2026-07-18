@@ -1,5 +1,3 @@
-import { and, eq } from "drizzle-orm";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/db";
 import {
   attempts,
@@ -13,14 +11,16 @@ import {
   subscriptions,
   users,
 } from "@/db/schema";
-import type { Actor } from "@/lib/auth/owner";
 import { mergeGuestIntoUser } from "@/lib/auth/merge";
+import type { Actor } from "@/lib/auth/owner";
 import { getPlanForActor } from "@/lib/entitlements/plan";
 import { createSession, recordResponse, submitSession } from "@/lib/practice/session";
+import { and, eq } from "drizzle-orm";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 const created: { userIds: string[]; guestIds: string[] } = { userIds: [], guestIds: [] };
 
-async function newGuest(): Promise<Actor> {
+async function newGuest(): Promise<Actor & { kind: "guest" }> {
   const [g] = await db
     .insert(guestSessions)
     .values({ tokenHash: `test_${Math.random().toString(36).slice(2)}` })
@@ -97,7 +97,10 @@ describe("practice session lifecycle", () => {
       .from(mistakes)
       .where(eq(mistakes.guestId, actor.kind === "guest" ? actor.guestId : ""));
     expect(wrongCount.length).toBe(2);
-    const review = await db.select().from(reviewQueue).where(eq(reviewQueue.guestId, actor.guestId));
+    const review = await db
+      .select()
+      .from(reviewQueue)
+      .where(eq(reviewQueue.guestId, actor.guestId));
     expect(review.length).toBe(2);
   });
 
@@ -108,7 +111,8 @@ describe("practice session lifecycle", () => {
       mode: "custom",
       itemRefs: qs.map((q) => ({ refType: "question", refId: q.id })),
     });
-    for (const q of qs) await recordResponse(actor, sessionId, { refId: q.id, selectedAnswer: q.correctAnswer });
+    for (const q of qs)
+      await recordResponse(actor, sessionId, { refId: q.id, selectedAnswer: q.correctAnswer });
     const a1 = await submitSession(actor, sessionId);
     const a2 = await submitSession(actor, sessionId);
     expect(a1.attemptId).toBe(a2.attemptId);
@@ -145,7 +149,10 @@ describe("guest → account merge", () => {
     // mistakes + bookmarks moved, still single copies
     const userMistakes = await db.select().from(mistakes).where(eq(mistakes.userId, user.userId));
     expect(userMistakes.length).toBe(2);
-    const userBookmarks = await db.select().from(bookmarks).where(eq(bookmarks.userId, user.userId));
+    const userBookmarks = await db
+      .select()
+      .from(bookmarks)
+      .where(eq(bookmarks.userId, user.userId));
     expect(userBookmarks.length).toBe(1);
     // guest no longer owns anything
     const leftover = await db.select().from(attempts).where(eq(attempts.guestId, guest.guestId));
