@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --version)",
+      "Bash(npm --version)",
+      "Bash(docker --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(ffmpeg -version)",
+      "Bash(echo \"=== which brew ===\" && which brew 2>&1; echo \"=== homebrew bins ===\" && ls -la /opt/homebrew/bin/ 2>&1 | grep -iE \"node|npm|pnpm|ffmpeg|docker|gh|psql|postgres|corepack\" | head -40; echo \"=== /usr/local/bin ===\" && ls /usr/local/bin/ 2>&1 | grep -iE \"node|npm|pnpm|ffmpeg|docker|gh|psql|postgres\" | head -40)",
+      "Read(//Users/michael/.nvm/versions/**)",
+      "Read(//Users/michael/**)",
+      "Bash(git config *)",
+      "Bash(env)",
+      "Bash(git ls-remote *)",
+      "Bash(export GIT_TERMINAL_PROMPT=0)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 15 https://api.github.com)",
+      "Bash(git credential-osxkeychain *)",
+      "Bash(psql --version)",
+      "Bash(corepack enable *)",
+      "Bash(corepack prepare *)"
+    ]
+  }
+}
