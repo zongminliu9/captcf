@@ -18,12 +18,13 @@ you — no Docker needed). On this PA OS sandbox both are already present.
 
 ```bash
 pnpm install
-pnpm setup     # env check → start Postgres → migrate → seed content → generate audio → demo users
-pnpm dev       # http://localhost:3000
+pnpm run setup   # env check → start Postgres → migrate → seed content → verify audio → demo users
+pnpm dev         # http://localhost:3000
 ```
 
-`pnpm setup` is idempotent — safe to run repeatedly. It prints the local URL and the demo
-account credentials when it finishes.
+Use `pnpm run setup` (not `pnpm setup`, which is a reserved pnpm built-in command). It is
+idempotent — safe to run repeatedly — and prints the local URL and demo credentials when it
+finishes.
 
 ### Demo accounts (development only)
 
