@@ -1,5 +1,11 @@
 # CapTCF — Final delivery report
 
+> **Round 2 update:** content was scaled and gaps closed after this report was first written.
+> For current numbers and the Round-2 Definition-of-Done evidence, see
+> [`ROUND2_FINAL_REPORT.md`](ROUND2_FINAL_REPORT.md) (listening **266**, reading **340**, writing/
+> speaking **69/69**, vocab **615**, 4 **non-overlapping** mocks, a **unified 4-section** timed mock,
+> audio QA, and commercial closure). The sections below describe the Round-1 baseline.
+
 An original, working, guest-first TCF Canada intelligent exam-prep platform. This report states
 what actually exists, with real command results — no unsupported "production-ready" claims.
 
