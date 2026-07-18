@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CapTCF design tokens. Warm off-white canvas, deep-navy information colour,
+   restrained French-red/gold accents, clear success green. Light + dark.
+   No external fonts (offline-safe build, best LCP) — a refined system stack.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* palette (light) */
+  --canvas: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #efede7;
+  --surface-3: #e7e4dc;
+  --border: #e2ded4;
+  --border-strong: #cfc9bb;
+  --ink: #1c2431;
+  --muted: #5c6470;
+  --faint: #8a8f99;
+
+  --navy: #1f3a5f;
+  --navy-600: #274a78;
+  --navy-500: #315d93;
+  --navy-100: #dde6f1;
+  --navy-50: #eef3f9;
+  --on-navy: #f7fafc;
+
+  --accent: #c8452f; /* restrained french red */
+  --accent-600: #b23a26;
+  --accent-50: #fbeae6;
+  --gold: #c08a2d;
+  --gold-50: #f7efdd;
+
+  --success: #2f8f5b;
+  --success-50: #e4f3ea;
+  --warning: #b9791f;
+  --warning-50: #f8efdd;
+  --danger: #c0392b;
+  --danger-50: #fbe9e7;
+
+  --ring: #315d93;
+  --shadow-color: 220 30% 20%;
+
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1.1rem;
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"],
+.dark {
+  --canvas: #0e1520;
+  --surface: #172231;
+  --surface-2: #1e2b3d;
+  --surface-3: #26364b;
+  --border: #263447;
+  --border-strong: #35496380;
+  --ink: #eef2f7;
+  --muted: #a2adbd;
+  --faint: #74808f;
+
+  --navy: #4d80c0;
+  --navy-600: #5b8fd0;
+  --navy-500: #6c9cd8;
+  --navy-100: #1c2c40;
+  --navy-50: #172231;
+  --on-navy: #f7fafc;
+
+  --accent: #e2694f;
+  --accent-600: #ec7a60;
+  --accent-50: #331a16;
+  --gold: #d7a24a;
+  --gold-50: #2e2413;
+
+  --success: #46b578;
+  --success-50: #14281d;
+  --warning: #d29a45;
+  --warning-50: #2a2113;
+  --danger: #e0685a;
+  --danger-50: #2e1614;
+
+  --ring: #6c9cd8;
+  --shadow-color: 220 60% 2%;
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #0e1520;
+    --surface: #172231;
+    --surface-2: #1e2b3d;
+    --surface-3: #26364b;
+    --border: #263447;
+    --border-strong: #35496380;
+    --ink: #eef2f7;
+    --muted: #a2adbd;
+    --faint: #74808f;
+    --navy: #4d80c0;
+    --navy-600: #5b8fd0;
+    --navy-500: #6c9cd8;
+    --navy-100: #1c2c40;
+    --navy-50: #172231;
+    --accent: #e2694f;
+    --accent-600: #ec7a60;
+    --accent-50: #331a16;
+    --gold: #d7a24a;
+    --success: #46b578;
+    --success-50: #14281d;
+    --warning: #d29a45;
+    --danger: #e0685a;
+    --ring: #6c9cd8;
+    --shadow-color: 220 60% 2%;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --color-navy: var(--navy);
+  --color-navy-600: var(--navy-600);
+  --color-navy-500: var(--navy-500);
+  --color-navy-100: var(--navy-100);
+  --color-navy-50: var(--navy-50);
+  --color-on-navy: var(--on-navy);
+
+  --color-accent: var(--accent);
+  --color-accent-600: var(--accent-600);
+  --color-accent-50: var(--accent-50);
+  --color-gold: var(--gold);
+  --color-gold-50: var(--gold-50);
+
+  --color-success: var(--success);
+  --color-success-50: var(--success-50);
+  --color-warning: var(--warning);
+  --color-warning-50: var(--warning-50);
+  --color-danger: var(--danger);
+  --color-danger-50: var(--danger-50);
+
+  --color-ring: var(--ring);
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display:
+    "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Palatino, Georgia, "Times New Roman",
+    serif;
+
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1.1rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }
+  ::selection {
+    background: var(--navy-100);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.06);
+  }
+  .card-raised {
+    box-shadow:
+      0 1px 2px hsl(var(--shadow-color) / 0.06),
+      0 8px 24px -12px hsl(var(--shadow-color) / 0.18);
+  }
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: 0.5rem;
+    top: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--navy);
+    color: var(--on-navy);
+    border-radius: var(--radius-sm);
+  }
+  /* subtle rise-in used for status transitions; respects reduced-motion above */
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise-in {
+    animation: rise-in 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 var(--accent-50); }
+    70% { box-shadow: 0 0 0 10px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+  }
+}
+
+/* nicer, quieter scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}

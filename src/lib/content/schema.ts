@@ -49,7 +49,9 @@ const qcmBase = {
   options: z.array(optionSchema).length(4),
   correctAnswer: optionIdEnum,
   explanation: z.string().min(10).max(1200),
-  distractorRationales: z.record(optionIdEnum, z.string().min(3).max(600)),
+  // keys validated to be exactly the non-correct option ids in refineQcm below
+  // (kept as a loose record because z.record(enum,…) in Zod 4 requires ALL enum keys)
+  distractorRationales: z.record(z.string(), z.string().min(3).max(600)),
   vocabulary: z.array(inlineVocabSchema).max(12).default([]),
   estimatedSeconds: z.number().int().min(10).max(240),
   difficultyEvidence: z.string().min(5).max(600),

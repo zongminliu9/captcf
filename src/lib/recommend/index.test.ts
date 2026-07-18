@@ -38,8 +38,8 @@ describe("recommend", () => {
       dailyMinutes: 20,
       skills: [snap({ skill: "reading", dueReviewCount: 12, overdueDays: 3 })],
     });
-    expect(recs[0].reasonCode).toBe("REVIEW_DUE");
-    expect(recs[0].params.count).toBe(12);
+    expect(recs[0]!.reasonCode).toBe("REVIEW_DUE");
+    expect(recs[0]!.params.count).toBe(12);
   });
 
   it("emits a goal gap and amplifies it near the exam", () => {

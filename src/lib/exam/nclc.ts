@@ -60,7 +60,7 @@ export function scoreToNclc(skill: SkillId, score: number): number {
     if (score >= lo && score <= hi) return row.nclc;
   }
   // above the top of the table clamps to 10; below NCLC 4 is 0 ("not yet 4")
-  const top = NCLC_TABLE[0][skill];
+  const top = NCLC_TABLE[0]![skill];
   if (score > top[1]) return 10;
   return 0;
 }
