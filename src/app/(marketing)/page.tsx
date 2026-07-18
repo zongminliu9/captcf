@@ -51,9 +51,9 @@ export default async function HomePage() {
             </ul>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" variant="primary">
-                <Link href="/practice/quick">
+                <a href="/practice/start?mode=quick">
                   {t("cta.start_free")} <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link href="/diagnostic">{t("cta.quick_test")}</Link>
@@ -175,9 +175,9 @@ export default async function HomePage() {
               <Meter label="Expression écrite" value={0.64} tone="gold" showValue />
             </div>
             <Button asChild className="mt-6 w-full" variant="primary">
-              <Link href="/practice/quick">
+              <a href="/practice/start?mode=quick">
                 Commencer la séance <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </Button>
           </Card>
         </div>
@@ -218,9 +218,9 @@ export default async function HomePage() {
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" variant="primary">
-            <Link href="/practice/quick">
+            <a href="/practice/start?mode=quick">
               {t("cta.start_free")} <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
           </Button>
           <Button asChild size="lg" variant="outline">
             <Link href="/pricing">Voir les tarifs</Link>

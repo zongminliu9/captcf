@@ -19,10 +19,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   serverExternalPackages: ["postgres"],
-  experimental: {
-    // typedRoutes gives us compile-time-checked <Link href> across the app
-    typedRoutes: false,
-  },
   async headers() {
     return [
       {
