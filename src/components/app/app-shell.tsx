@@ -42,7 +42,7 @@ interface NavItem {
 }
 
 const FOCUS_RE =
-  /^\/(practice\/session|mock\/[^/]+$|diagnostic|onboarding|writing\/[^/]+$|speaking\/[^/]+$)/;
+  /^\/(practice\/session|mock\/run\/|diagnostic|onboarding|writing\/[^/]+$|speaking\/[^/]+$)/;
 
 export function AppShell({ data, children }: { data: ShellData; children: React.ReactNode }) {
   const pathname = usePathname();

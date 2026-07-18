@@ -164,9 +164,10 @@ export default function PricingPage() {
             ))}
           </ul>
           <Button asChild className="mt-7 w-full" variant="primary" size="lg">
-            <Link href="/pricing">
+            {/* plain <a> so the checkout route handler runs (simulator or Stripe) */}
+            <a href="/api/billing/checkout">
               Passer à Premium <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
           </Button>
         </Card>
       </div>
