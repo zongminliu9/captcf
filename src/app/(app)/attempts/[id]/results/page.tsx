@@ -94,7 +94,9 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
           {attempt.correctItems}/{entries.filter((e) => e.selected != null).length} correctes
         </Badge>
       </div>
-      <h1 className="display text-3xl">{isMock ? "Résultats de l'examen blanc" : "Votre analyse"}</h1>
+      <h1 className="display text-3xl">
+        {isMock ? "Résultats de l'examen blanc" : "Votre analyse"}
+      </h1>
       <p className="mt-2 text-sm text-muted">
         Précision globale {pct(overallAccuracy)} sur {answeredCount} question(s) répondue(s).
         {isMock && " Les épreuves écrite et orale sont évaluées localement (auto-évaluation)."}
@@ -153,11 +155,19 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
                   <div className="text-3xl font-semibold text-navy tabular-nums">{p.band}</div>
                   <div className="pb-1 text-sm text-muted">/ 20</div>
                   <div className="ml-auto text-right">
-                    <div className="text-sm font-medium">{p.cefr === "below-A1" ? "—" : p.cefr}</div>
+                    <div className="text-sm font-medium">
+                      {p.cefr === "below-A1" ? "—" : p.cefr}
+                    </div>
                     <div className="text-xs text-muted">NCLC {p.nclc || "—"}</div>
                   </div>
                 </div>
-                <Meter className="mt-3" value={p.band / 20} tone="gold" label={`${p.tasks} tâche(s)`} showValue />
+                <Meter
+                  className="mt-3"
+                  value={p.band / 20}
+                  tone="gold"
+                  label={`${p.tasks} tâche(s)`}
+                  showValue
+                />
                 <p className="mt-2 text-xs text-faint">
                   Estimation locale non officielle (sans IA/reconnaissance vocale).
                 </p>

@@ -1,3 +1,9 @@
+/**
+ * Seed the database from the audited content bank. Idempotent (upserts by id; rebuilds
+ * mock forms + options in place). Creates dev demo accounts unless NODE_ENV=production.
+ */
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { db } from "@/db";
 import {
   audioAssets,
@@ -18,12 +24,6 @@ import {
 import { hashPassword } from "@/lib/auth/password";
 import { assembleMocks } from "@/lib/exam/assemble";
 import { type CefrLevel, EXAM_SPEC, SPEC_VERSION } from "@/lib/exam/config";
-/**
- * Seed the database from the audited content bank. Idempotent (upserts by id; rebuilds
- * mock forms + options in place). Creates dev demo accounts unless NODE_ENV=production.
- */
-import { existsSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { eq, inArray, sql } from "drizzle-orm";
 import { loadContent } from "./content/lib/load-files";
 import { loadEnv, projectRoot } from "./lib/env";

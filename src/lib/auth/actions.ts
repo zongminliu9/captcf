@@ -1,11 +1,14 @@
 "use server";
 import { db } from "@/db";
 import { subscriptions, users } from "@/db/schema";
+import { clientKey, rateLimit } from "@/lib/rate-limit";
 import { eq } from "drizzle-orm";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { mergeGuestIntoUser } from "./merge";
 import { hashPassword, passwordIssues, verifyPassword } from "./password";
+import { requestPasswordReset, resetPassword } from "./password-reset";
 import { createUserSession, currentGuestId, signOut } from "./session";
 
 export interface AuthState {
@@ -67,6 +70,9 @@ export async function loginAction(_prev: AuthState, formData: FormData): Promise
   const password = String(formData.get("password") ?? "");
   if (!email || !password) return { error: "Renseignez votre courriel et votre mot de passe." };
 
+  const rl = await rateLimit(clientKey(await headers(), "login"), 10, 60);
+  if (!rl.allowed) return { error: "Trop de tentatives. Réessayez dans une minute." };
+
   const rows = await db
     .select({ id: users.id, passwordHash: users.passwordHash })
     .from(users)
@@ -87,4 +93,44 @@ export async function loginAction(_prev: AuthState, formData: FormData): Promise
 export async function logoutAction(): Promise<void> {
   await signOut();
   redirect("/");
+}
+
+export interface ResetState {
+  sent?: boolean;
+  done?: boolean;
+  error?: string;
+}
+
+export async function requestResetAction(
+  _prev: ResetState,
+  formData: FormData,
+): Promise<ResetState> {
+  const email = String(formData.get("email") ?? "")
+    .trim()
+    .toLowerCase();
+  if (!emailSchema.safeParse(email).success) return { error: "Adresse courriel invalide." };
+  const rl = await rateLimit(clientKey(await headers(), "reset"), 5, 3600);
+  if (!rl.allowed) return { error: "Trop de demandes. Réessayez plus tard." };
+  const appUrl = process.env.APP_URL ?? "http://localhost:3000";
+  await requestPasswordReset(email, appUrl);
+  // always report success (no account enumeration)
+  return { sent: true };
+}
+
+export async function resetPasswordAction(
+  _prev: ResetState,
+  formData: FormData,
+): Promise<ResetState> {
+  const token = String(formData.get("token") ?? "");
+  const password = String(formData.get("password") ?? "");
+  const res = await resetPassword(token, password);
+  if (!res.ok) {
+    return {
+      error:
+        res.error === "weak_password"
+          ? "Mot de passe trop faible (8+ caractères, une lettre, un chiffre)."
+          : "Lien invalide ou expiré. Demandez-en un nouveau.",
+    };
+  }
+  return { done: true };
 }

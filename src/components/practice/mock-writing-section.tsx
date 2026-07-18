@@ -1,6 +1,4 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { advanceMock, saveMockWriting } from "@/app/(app)/mock/actions";
 import { useToast } from "@/components/toast";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +7,8 @@ import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/field";
 import type { MockWritingTask } from "@/lib/practice/mock";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export function MockWritingSection({
   sessionId,
@@ -52,7 +52,6 @@ export function MockWritingSection({
   };
 
   // auto-submit the section on timeout
-  // biome-ignore lint/correctness/useExhaustiveDependencies: fire once when expired flips
   useEffect(() => {
     if (expired) finish();
   }, [expired]);
@@ -71,7 +70,9 @@ export function MockWritingSection({
             onClick={() => setActive(i)}
             className={cn(
               "rounded-full border px-3 py-1.5 text-sm",
-              i === active ? "border-navy bg-navy-50 text-navy" : "border-border-strong text-muted hover:bg-surface-2",
+              i === active
+                ? "border-navy bg-navy-50 text-navy"
+                : "border-border-strong text-muted hover:bg-surface-2",
             )}
           >
             Tâche {i + 1}
@@ -83,7 +84,12 @@ export function MockWritingSection({
       <Card className="p-5">
         <div className="mb-1 flex items-center justify-between">
           <Badge variant="navy">Tâche {active + 1}</Badge>
-          <span className={cn("text-sm", wc >= task.minWords && wc <= task.maxWords ? "text-success" : "text-muted")}>
+          <span
+            className={cn(
+              "text-sm",
+              wc >= task.minWords && wc <= task.maxWords ? "text-success" : "text-muted",
+            )}
+          >
             {wc} / {task.minWords}–{task.maxWords} mots
           </span>
         </div>

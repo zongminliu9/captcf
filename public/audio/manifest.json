@@ -1076,5 +1076,3311 @@
       "f1"
     ],
     "status": "generated"
+  },
+  "listening_a1_0013": {
+    "file": "/audio/listening_a1_0013.m4a",
+    "duration": 9,
+    "textHash": "3a11eab2b21d902d",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1628,
+      "peak": 0.9774,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.053,
+      "maxGap": 0.498,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0014": {
+    "file": "/audio/listening_a1_0014.m4a",
+    "duration": 6,
+    "textHash": "11ffcbdf4df15f69",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1285,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.474,
+      "maxGap": 0.512,
+      "gain": 1.431,
+      "distinctVoices": 1,
+      "lineCount": 1
+    }
+  },
+  "listening_a1_0015": {
+    "file": "/audio/listening_a1_0015.m4a",
+    "duration": 9,
+    "textHash": "de49734563f7bfa1",
+    "voices": [
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1724,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.491,
+      "maxGap": 0.939,
+      "gain": 1.519,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0016": {
+    "file": "/audio/listening_a1_0016.m4a",
+    "duration": 11,
+    "textHash": "5da36d5e27b57a2d",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1568,
+      "peak": 0.89,
+      "leadingSilence": 0.185,
+      "trailingSilence": 0.45,
+      "maxGap": 1.018,
+      "gain": 1.161,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a1_0017": {
+    "file": "/audio/listening_a1_0017.m4a",
+    "duration": 8,
+    "textHash": "853135c86c75d993",
+    "voices": [
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1841,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.061,
+      "maxGap": 0.47,
+      "gain": 1.066,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a1_0018": {
+    "file": "/audio/listening_a1_0018.m4a",
+    "duration": 12,
+    "textHash": "ae030938da615314",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1399,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.037,
+      "maxGap": 0.933,
+      "gain": 1.14,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0019": {
+    "file": "/audio/listening_a1_0019.m4a",
+    "duration": 12,
+    "textHash": "dfbf9b784cb56801",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1646,
+      "peak": 0.9366,
+      "leadingSilence": 0.158,
+      "trailingSilence": 0.054,
+      "maxGap": 0.451,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0020": {
+    "file": "/audio/listening_a1_0020.m4a",
+    "duration": 10,
+    "textHash": "4aca5ad5b888ec6c",
+    "voices": [
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1674,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.46,
+      "maxGap": 0.937,
+      "gain": 1.516,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0021": {
+    "file": "/audio/listening_a1_0021.m4a",
+    "duration": 7,
+    "textHash": "460b319445002bb5",
+    "voices": [
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1584,
+      "peak": 1,
+      "leadingSilence": 0.003,
+      "trailingSilence": 0.062,
+      "maxGap": 0.264,
+      "gain": 1,
+      "distinctVoices": 1,
+      "lineCount": 1
+    }
+  },
+  "listening_a1_0022": {
+    "file": "/audio/listening_a1_0022.m4a",
+    "duration": 8,
+    "textHash": "6a285f8c4bf02bc8",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1663,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.464,
+      "maxGap": 0.57,
+      "gain": 1.172,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_a1_0023": {
+    "file": "/audio/listening_a1_0023.m4a",
+    "duration": 9,
+    "textHash": "7e517c649a8dd046",
+    "voices": [
+      "f2",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1449,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.457,
+      "maxGap": 0.863,
+      "gain": 1.076,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0024": {
+    "file": "/audio/listening_a1_0024.m4a",
+    "duration": 7,
+    "textHash": "a49dff7649c273d1",
+    "voices": [
+      "m2",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1398,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.056,
+      "maxGap": 0.861,
+      "gain": 1.184,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_a1_0025": {
+    "file": "/audio/listening_a1_0025.m4a",
+    "duration": 10,
+    "textHash": "1322cd9362f24c92",
+    "voices": [
+      "m2",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1329,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.441,
+      "maxGap": 1.048,
+      "gain": 1.426,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0026": {
+    "file": "/audio/listening_a1_0026.m4a",
+    "duration": 9,
+    "textHash": "65a59555960e6827",
+    "voices": [
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.2165,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.052,
+      "maxGap": 0.474,
+      "gain": 1.155,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0027": {
+    "file": "/audio/listening_a1_0027.m4a",
+    "duration": 9,
+    "textHash": "67441a71a1fb77a3",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1602,
+      "peak": 1,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.049,
+      "maxGap": 0.497,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a1_0028": {
+    "file": "/audio/listening_a1_0028.m4a",
+    "duration": 15,
+    "textHash": "59211e0d920ec7b5",
+    "voices": [
+      "youth",
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1643,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.478,
+      "maxGap": 0.956,
+      "gain": 1.501,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a2_0019": {
+    "file": "/audio/listening_a2_0019.m4a",
+    "duration": 16,
+    "textHash": "396c6db9f59d74ac",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1669,
+      "peak": 1,
+      "leadingSilence": 0.011,
+      "trailingSilence": 0.056,
+      "maxGap": 0.479,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0020": {
+    "file": "/audio/listening_a2_0020.m4a",
+    "duration": 16,
+    "textHash": "1c149e6ab59caad3",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1301,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.501,
+      "maxGap": 0.971,
+      "gain": 1.333,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0021": {
+    "file": "/audio/listening_a2_0021.m4a",
+    "duration": 19,
+    "textHash": "a8b7c3d59d0122e9",
+    "voices": [
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1535,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.574,
+      "maxGap": 0.993,
+      "gain": 1.603,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0022": {
+    "file": "/audio/listening_a2_0022.m4a",
+    "duration": 12,
+    "textHash": "65fbb0c6ffe4f4de",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1528,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.549,
+      "maxGap": 0.862,
+      "gain": 1.424,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0023": {
+    "file": "/audio/listening_a2_0023.m4a",
+    "duration": 18,
+    "textHash": "294eaa7dea733077",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1477,
+      "peak": 0.89,
+      "leadingSilence": 0.015,
+      "trailingSilence": 0.602,
+      "maxGap": 1.028,
+      "gain": 1.039,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0024": {
+    "file": "/audio/listening_a2_0024.m4a",
+    "duration": 16,
+    "textHash": "4d619fceba0198df",
+    "voices": [
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1572,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.44,
+      "maxGap": 0.877,
+      "gain": 1.344,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0025": {
+    "file": "/audio/listening_a2_0025.m4a",
+    "duration": 17,
+    "textHash": "28a4fa3fee64f244",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1674,
+      "peak": 1,
+      "leadingSilence": 0.002,
+      "trailingSilence": 0.058,
+      "maxGap": 0.456,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0026": {
+    "file": "/audio/listening_a2_0026.m4a",
+    "duration": 20,
+    "textHash": "d5fae3e42a08d17a",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1327,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.537,
+      "maxGap": 0.885,
+      "gain": 1.382,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0027": {
+    "file": "/audio/listening_a2_0027.m4a",
+    "duration": 20,
+    "textHash": "91d5da46825faea0",
+    "voices": [
+      "f2",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1645,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.047,
+      "maxGap": 0.892,
+      "gain": 1.153,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0028": {
+    "file": "/audio/listening_a2_0028.m4a",
+    "duration": 17,
+    "textHash": "40fa44c8212bbbad",
+    "voices": [
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1265,
+      "peak": 0.89,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.427,
+      "maxGap": 0.934,
+      "gain": 1.469,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0029": {
+    "file": "/audio/listening_a2_0029.m4a",
+    "duration": 15,
+    "textHash": "740871f8c309b21c",
+    "voices": [
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1701,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.046,
+      "maxGap": 0.452,
+      "gain": 1,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0030": {
+    "file": "/audio/listening_a2_0030.m4a",
+    "duration": 19,
+    "textHash": "191eb01d7c7d110c",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1742,
+      "peak": 0.89,
+      "leadingSilence": 0.007,
+      "trailingSilence": 0.529,
+      "maxGap": 0.871,
+      "gain": 1.137,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0031": {
+    "file": "/audio/listening_a2_0031.m4a",
+    "duration": 16,
+    "textHash": "d2591b7a647c94bf",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1617,
+      "peak": 0.9021,
+      "leadingSilence": 0.158,
+      "trailingSilence": 0.074,
+      "maxGap": 0.463,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0032": {
+    "file": "/audio/listening_a2_0032.m4a",
+    "duration": 19,
+    "textHash": "daa98bae42da219b",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1279,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.499,
+      "maxGap": 0.963,
+      "gain": 1.305,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0033": {
+    "file": "/audio/listening_a2_0033.m4a",
+    "duration": 18,
+    "textHash": "63873553a4c02b51",
+    "voices": [
+      "f2",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1789,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.042,
+      "maxGap": 1.005,
+      "gain": 1.152,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0034": {
+    "file": "/audio/listening_a2_0034.m4a",
+    "duration": 20,
+    "textHash": "76219cd9846cf120",
+    "voices": [
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1564,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.462,
+      "maxGap": 0.887,
+      "gain": 1.765,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_a2_0035": {
+    "file": "/audio/listening_a2_0035.m4a",
+    "duration": 16,
+    "textHash": "08d2e78b10819ba8",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1266,
+      "peak": 1,
+      "leadingSilence": 0.003,
+      "trailingSilence": 0.431,
+      "maxGap": 0.878,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0036": {
+    "file": "/audio/listening_a2_0036.m4a",
+    "duration": 16,
+    "textHash": "6bf5478f6422788b",
+    "voices": [
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1265,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.455,
+      "maxGap": 0.901,
+      "gain": 1.557,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0037": {
+    "file": "/audio/listening_a2_0037.m4a",
+    "duration": 16,
+    "textHash": "0819ff4e2e3f72ed",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1741,
+      "peak": 0.9709,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.062,
+      "maxGap": 0.466,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 3
+    }
+  },
+  "listening_a2_0038": {
+    "file": "/audio/listening_a2_0038.m4a",
+    "duration": 14,
+    "textHash": "02bbb82528597a48",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1438,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.437,
+      "maxGap": 0.88,
+      "gain": 1.489,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0039": {
+    "file": "/audio/listening_a2_0039.m4a",
+    "duration": 18,
+    "textHash": "4f399026203f885f",
+    "voices": [
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1427,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.548,
+      "maxGap": 0.854,
+      "gain": 1.473,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0040": {
+    "file": "/audio/listening_a2_0040.m4a",
+    "duration": 18,
+    "textHash": "7768d98cd372df31",
+    "voices": [
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1648,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.435,
+      "maxGap": 1.005,
+      "gain": 1.937,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_a2_0041": {
+    "file": "/audio/listening_a2_0041.m4a",
+    "duration": 17,
+    "textHash": "e9c88c17b306fba8",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1671,
+      "peak": 0.9709,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.056,
+      "maxGap": 0.471,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_a2_0042": {
+    "file": "/audio/listening_a2_0042.m4a",
+    "duration": 18,
+    "textHash": "a1e41bd6ea97acf9",
+    "voices": [
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1221,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.52,
+      "maxGap": 0.974,
+      "gain": 1.487,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_a2_0043": {
+    "file": "/audio/listening_a2_0043.m4a",
+    "duration": 18,
+    "textHash": "3f1e8e82312c403a",
+    "voices": [
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1657,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.497,
+      "maxGap": 1.007,
+      "gain": 1.631,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_a2_0044": {
+    "file": "/audio/listening_a2_0044.m4a",
+    "duration": 22,
+    "textHash": "6e24c78b2b6c9115",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.165,
+      "peak": 0.958,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.055,
+      "maxGap": 0.499,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 5
+    }
+  },
+  "listening_b1_0027": {
+    "file": "/audio/listening_b1_0027.m4a",
+    "duration": 24,
+    "textHash": "0c014e4d070160cd",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1369,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.474,
+      "maxGap": 0.832,
+      "gain": 1.378,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0028": {
+    "file": "/audio/listening_b1_0028.m4a",
+    "duration": 32,
+    "textHash": "fc7c4bb203bbb02b",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1802,
+      "peak": 0.9707,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.049,
+      "maxGap": 0.462,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0029": {
+    "file": "/audio/listening_b1_0029.m4a",
+    "duration": 25,
+    "textHash": "764d07aeb3eff824",
+    "voices": [
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1524,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.587,
+      "maxGap": 0.9,
+      "gain": 1.279,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0030": {
+    "file": "/audio/listening_b1_0030.m4a",
+    "duration": 29,
+    "textHash": "6c5f234683c97b9a",
+    "voices": [
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1639,
+      "peak": 1,
+      "leadingSilence": 0.004,
+      "trailingSilence": 0.024,
+      "maxGap": 0.484,
+      "gain": 1,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0031": {
+    "file": "/audio/listening_b1_0031.m4a",
+    "duration": 29,
+    "textHash": "df7b1a0dd34afb03",
+    "voices": [
+      "f2",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.169,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.053,
+      "maxGap": 0.977,
+      "gain": 1.052,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0032": {
+    "file": "/audio/listening_b1_0032.m4a",
+    "duration": 30,
+    "textHash": "8e5b7ca93e31faf9",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1372,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.528,
+      "maxGap": 0.858,
+      "gain": 1.203,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0033": {
+    "file": "/audio/listening_b1_0033.m4a",
+    "duration": 26,
+    "textHash": "d1be1f0fd85ad48b",
+    "voices": [
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.2262,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.053,
+      "maxGap": 0.459,
+      "gain": 1.176,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0034": {
+    "file": "/audio/listening_b1_0034.m4a",
+    "duration": 34,
+    "textHash": "1795d21546518902",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1351,
+      "peak": 0.9971,
+      "leadingSilence": 0.01,
+      "trailingSilence": 0.458,
+      "maxGap": 0.924,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0035": {
+    "file": "/audio/listening_b1_0035.m4a",
+    "duration": 33,
+    "textHash": "0de6fb568a3c42fd",
+    "voices": [
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.124,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.434,
+      "maxGap": 0.959,
+      "gain": 1.444,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0036": {
+    "file": "/audio/listening_b1_0036.m4a",
+    "duration": 33,
+    "textHash": "eff61724acaba1b1",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1776,
+      "peak": 1,
+      "leadingSilence": 0.007,
+      "trailingSilence": 0.08,
+      "maxGap": 0.464,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0037": {
+    "file": "/audio/listening_b1_0037.m4a",
+    "duration": 29,
+    "textHash": "08944129f4e6329c",
+    "voices": [
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.155,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.468,
+      "maxGap": 1.022,
+      "gain": 1.327,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0038": {
+    "file": "/audio/listening_b1_0038.m4a",
+    "duration": 31,
+    "textHash": "68f10ec68f2778e3",
+    "voices": [
+      "m2",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.145,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.042,
+      "maxGap": 0.995,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0039": {
+    "file": "/audio/listening_b1_0039.m4a",
+    "duration": 22,
+    "textHash": "c27c222406c5149b",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.172,
+      "peak": 0.9821,
+      "leadingSilence": 0.008,
+      "trailingSilence": 0.045,
+      "maxGap": 0.477,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0040": {
+    "file": "/audio/listening_b1_0040.m4a",
+    "duration": 23,
+    "textHash": "5b0601b0eb328f68",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1357,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.471,
+      "maxGap": 0.881,
+      "gain": 1.393,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0041": {
+    "file": "/audio/listening_b1_0041.m4a",
+    "duration": 24,
+    "textHash": "678c09c54a09afc3",
+    "voices": [
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.138,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.495,
+      "maxGap": 0.918,
+      "gain": 1.574,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0042": {
+    "file": "/audio/listening_b1_0042.m4a",
+    "duration": 22,
+    "textHash": "a789466d00b4017a",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1315,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.546,
+      "maxGap": 0.848,
+      "gain": 1.214,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0043": {
+    "file": "/audio/listening_b1_0043.m4a",
+    "duration": 24,
+    "textHash": "33049238104fa5d8",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1574,
+      "peak": 0.89,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.494,
+      "maxGap": 1.035,
+      "gain": 1.105,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0044": {
+    "file": "/audio/listening_b1_0044.m4a",
+    "duration": 18,
+    "textHash": "f1de60d407d565b0",
+    "voices": [
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.2201,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.051,
+      "maxGap": 0.459,
+      "gain": 1.169,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0045": {
+    "file": "/audio/listening_b1_0045.m4a",
+    "duration": 29,
+    "textHash": "835e83ff14444bda",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.119,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.443,
+      "maxGap": 0.898,
+      "gain": 1.199,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0046": {
+    "file": "/audio/listening_b1_0046.m4a",
+    "duration": 36,
+    "textHash": "8572e2523bc47178",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1476,
+      "peak": 0.89,
+      "leadingSilence": 0.158,
+      "trailingSilence": 0.465,
+      "maxGap": 1.167,
+      "gain": 1.103,
+      "distinctVoices": 2,
+      "lineCount": 5
+    }
+  },
+  "listening_b1_0047": {
+    "file": "/audio/listening_b1_0047.m4a",
+    "duration": 38,
+    "textHash": "c075d6655e99fba5",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1139,
+      "peak": 1,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.432,
+      "maxGap": 0.916,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 5
+    }
+  },
+  "listening_b1_0048": {
+    "file": "/audio/listening_b1_0048.m4a",
+    "duration": 32,
+    "textHash": "50f69f353c25e95f",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1331,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.475,
+      "maxGap": 0.885,
+      "gain": 1.26,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0049": {
+    "file": "/audio/listening_b1_0049.m4a",
+    "duration": 38,
+    "textHash": "e39e76779c5a9a30",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1597,
+      "peak": 0.89,
+      "leadingSilence": 0.015,
+      "trailingSilence": 0.46,
+      "maxGap": 0.95,
+      "gain": 1.208,
+      "distinctVoices": 2,
+      "lineCount": 5
+    }
+  },
+  "listening_b1_0050": {
+    "file": "/audio/listening_b1_0050.m4a",
+    "duration": 32,
+    "textHash": "553764c42e2aca0c",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1529,
+      "peak": 1,
+      "leadingSilence": 0.009,
+      "trailingSilence": 0.058,
+      "maxGap": 0.871,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 5
+    }
+  },
+  "listening_b1_0051": {
+    "file": "/audio/listening_b1_0051.m4a",
+    "duration": 29,
+    "textHash": "5c9dd7a09edf251d",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1369,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.439,
+      "maxGap": 0.906,
+      "gain": 1.374,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0052": {
+    "file": "/audio/listening_b1_0052.m4a",
+    "duration": 31,
+    "textHash": "4b527e5be3af7185",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1844,
+      "peak": 0.9869,
+      "leadingSilence": 0.01,
+      "trailingSilence": 0.042,
+      "maxGap": 0.469,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0053": {
+    "file": "/audio/listening_b1_0053.m4a",
+    "duration": 28,
+    "textHash": "3f1c0ff17785b895",
+    "voices": [
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1419,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.501,
+      "maxGap": 0.955,
+      "gain": 1.42,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0054": {
+    "file": "/audio/listening_b1_0054.m4a",
+    "duration": 25,
+    "textHash": "f1b389ce9c769268",
+    "voices": [
+      "narrator"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1245,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.457,
+      "maxGap": 0.889,
+      "gain": 1.26,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0055": {
+    "file": "/audio/listening_b1_0055.m4a",
+    "duration": 28,
+    "textHash": "d28d6125477f28d8",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1495,
+      "peak": 0.89,
+      "leadingSilence": 0.015,
+      "trailingSilence": 0.573,
+      "maxGap": 0.866,
+      "gain": 1.181,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0056": {
+    "file": "/audio/listening_b1_0056.m4a",
+    "duration": 24,
+    "textHash": "37329419fff12b42",
+    "voices": [
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.2173,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.052,
+      "maxGap": 0.452,
+      "gain": 1.158,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_b1_0057": {
+    "file": "/audio/listening_b1_0057.m4a",
+    "duration": 20,
+    "textHash": "03c33ad54580311c",
+    "voices": [
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.2189,
+      "peak": 0.89,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.049,
+      "maxGap": 0.455,
+      "gain": 1.14,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_b1_0058": {
+    "file": "/audio/listening_b1_0058.m4a",
+    "duration": 27,
+    "textHash": "d17e661c14d8d7c2",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1309,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.461,
+      "maxGap": 0.86,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0059": {
+    "file": "/audio/listening_b1_0059.m4a",
+    "duration": 22,
+    "textHash": "1a866a8c8be0fe04",
+    "voices": [
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1546,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.452,
+      "maxGap": 0.841,
+      "gain": 1.728,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_b1_0060": {
+    "file": "/audio/listening_b1_0060.m4a",
+    "duration": 22,
+    "textHash": "2618874b222259c7",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.155,
+      "peak": 0.89,
+      "leadingSilence": 0.158,
+      "trailingSilence": 0.43,
+      "maxGap": 0.862,
+      "gain": 1.186,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0061": {
+    "file": "/audio/listening_b1_0061.m4a",
+    "duration": 22,
+    "textHash": "878e16b9796401bc",
+    "voices": [
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1605,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.51,
+      "maxGap": 0.88,
+      "gain": 1.468,
+      "distinctVoices": 1,
+      "lineCount": 2
+    }
+  },
+  "listening_b1_0062": {
+    "file": "/audio/listening_b1_0062.m4a",
+    "duration": 22,
+    "textHash": "ceb1797378368e0f",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1831,
+      "peak": 1,
+      "leadingSilence": 0.002,
+      "trailingSilence": 0.05,
+      "maxGap": 0.474,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b1_0063": {
+    "file": "/audio/listening_b1_0063.m4a",
+    "duration": 22,
+    "textHash": "ddd74d62e9511106",
+    "voices": [
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.2242,
+      "peak": 0.89,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.043,
+      "maxGap": 0.253,
+      "gain": 1.158,
+      "distinctVoices": 1,
+      "lineCount": 1
+    }
+  },
+  "listening_b1_0064": {
+    "file": "/audio/listening_b1_0064.m4a",
+    "duration": 27,
+    "textHash": "5f6272cb10b1ac26",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1502,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.455,
+      "maxGap": 0.604,
+      "gain": 1.199,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_b2_0027": {
+    "file": "/audio/listening_b2_0027.m4a",
+    "duration": 42,
+    "textHash": "6b69c2bacd0221f1",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1427,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.445,
+      "maxGap": 1.022,
+      "gain": 1.064,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0028": {
+    "file": "/audio/listening_b2_0028.m4a",
+    "duration": 32,
+    "textHash": "759b49c9d7baccf6",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1208,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.495,
+      "maxGap": 0.822,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0029": {
+    "file": "/audio/listening_b2_0029.m4a",
+    "duration": 35,
+    "textHash": "985b9af29cae6123",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1777,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.049,
+      "maxGap": 0.452,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0030": {
+    "file": "/audio/listening_b2_0030.m4a",
+    "duration": 34,
+    "textHash": "c42ace884b4b516f",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1332,
+      "peak": 1,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.462,
+      "maxGap": 0.979,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0031": {
+    "file": "/audio/listening_b2_0031.m4a",
+    "duration": 39,
+    "textHash": "9e947f8c55f997e1",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1374,
+      "peak": 0.89,
+      "leadingSilence": 0.008,
+      "trailingSilence": 0.426,
+      "maxGap": 0.835,
+      "gain": 1.162,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0032": {
+    "file": "/audio/listening_b2_0032.m4a",
+    "duration": 36,
+    "textHash": "b3a74d51eb1916dd",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1276,
+      "peak": 0.9937,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.471,
+      "maxGap": 1.004,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0033": {
+    "file": "/audio/listening_b2_0033.m4a",
+    "duration": 42,
+    "textHash": "ae36efe9fd6cee74",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1579,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.447,
+      "maxGap": 0.976,
+      "gain": 1.183,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0034": {
+    "file": "/audio/listening_b2_0034.m4a",
+    "duration": 43,
+    "textHash": "edc9a26325b78aeb",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.112,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.437,
+      "maxGap": 0.867,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0035": {
+    "file": "/audio/listening_b2_0035.m4a",
+    "duration": 38,
+    "textHash": "7993bf42381bec8e",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1256,
+      "peak": 0.902,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.438,
+      "maxGap": 0.849,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0036": {
+    "file": "/audio/listening_b2_0036.m4a",
+    "duration": 41,
+    "textHash": "81cf357ca39cc0d9",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1322,
+      "peak": 0.89,
+      "leadingSilence": 0.159,
+      "trailingSilence": 0.458,
+      "maxGap": 0.842,
+      "gain": 1.145,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0037": {
+    "file": "/audio/listening_b2_0037.m4a",
+    "duration": 41,
+    "textHash": "1e62df8b94c2ab1c",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.126,
+      "peak": 0.9483,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.479,
+      "maxGap": 0.899,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0038": {
+    "file": "/audio/listening_b2_0038.m4a",
+    "duration": 43,
+    "textHash": "4545a7d63df28415",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1405,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.439,
+      "maxGap": 0.827,
+      "gain": 1.162,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0039": {
+    "file": "/audio/listening_b2_0039.m4a",
+    "duration": 37,
+    "textHash": "b6d1f04e3676b641",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1659,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.583,
+      "maxGap": 0.89,
+      "gain": 1.145,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0040": {
+    "file": "/audio/listening_b2_0040.m4a",
+    "duration": 37,
+    "textHash": "69caca91a1ad81ab",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1084,
+      "peak": 1,
+      "leadingSilence": 0.011,
+      "trailingSilence": 0.468,
+      "maxGap": 0.906,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0041": {
+    "file": "/audio/listening_b2_0041.m4a",
+    "duration": 32,
+    "textHash": "64d7e6b4a2db5f4d",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1765,
+      "peak": 0.9857,
+      "leadingSilence": 0.003,
+      "trailingSilence": 0.05,
+      "maxGap": 0.472,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0042": {
+    "file": "/audio/listening_b2_0042.m4a",
+    "duration": 37,
+    "textHash": "929e3b24ad54f102",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1718,
+      "peak": 0.9384,
+      "leadingSilence": 0.007,
+      "trailingSilence": 0.046,
+      "maxGap": 0.491,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0043": {
+    "file": "/audio/listening_b2_0043.m4a",
+    "duration": 37,
+    "textHash": "25a9b6ea0d27d0c5",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1811,
+      "peak": 0.956,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.06,
+      "maxGap": 0.466,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0044": {
+    "file": "/audio/listening_b2_0044.m4a",
+    "duration": 32,
+    "textHash": "faa0e4fd3e8b8bc2",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1568,
+      "peak": 0.89,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.608,
+      "maxGap": 0.903,
+      "gain": 1.228,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0045": {
+    "file": "/audio/listening_b2_0045.m4a",
+    "duration": 49,
+    "textHash": "acaedb40f1cb8ec6",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1355,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.434,
+      "maxGap": 0.867,
+      "gain": 1.047,
+      "distinctVoices": 2,
+      "lineCount": 6
+    }
+  },
+  "listening_b2_0046": {
+    "file": "/audio/listening_b2_0046.m4a",
+    "duration": 55,
+    "textHash": "6e80a364e5907699",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1086,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.513,
+      "maxGap": 0.881,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 6
+    }
+  },
+  "listening_b2_0047": {
+    "file": "/audio/listening_b2_0047.m4a",
+    "duration": 48,
+    "textHash": "e898abc92e5b3c2f",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1523,
+      "peak": 0.89,
+      "leadingSilence": 0.007,
+      "trailingSilence": 0.647,
+      "maxGap": 0.89,
+      "gain": 1.17,
+      "distinctVoices": 2,
+      "lineCount": 6
+    }
+  },
+  "listening_b2_0048": {
+    "file": "/audio/listening_b2_0048.m4a",
+    "duration": 55,
+    "textHash": "2213a378127d1f3b",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1067,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.438,
+      "maxGap": 0.997,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 6
+    }
+  },
+  "listening_b2_0049": {
+    "file": "/audio/listening_b2_0049.m4a",
+    "duration": 49,
+    "textHash": "ba4dd49f82403289",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1458,
+      "peak": 0.89,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.547,
+      "maxGap": 0.896,
+      "gain": 1.14,
+      "distinctVoices": 2,
+      "lineCount": 6
+    }
+  },
+  "listening_b2_0050": {
+    "file": "/audio/listening_b2_0050.m4a",
+    "duration": 53,
+    "textHash": "d017c68ded63fc38",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.11,
+      "peak": 0.9119,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.488,
+      "maxGap": 0.982,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 6
+    }
+  },
+  "listening_b2_0051": {
+    "file": "/audio/listening_b2_0051.m4a",
+    "duration": 41,
+    "textHash": "f0820875d894ac53",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1425,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.604,
+      "maxGap": 0.956,
+      "gain": 1.075,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0052": {
+    "file": "/audio/listening_b2_0052.m4a",
+    "duration": 41,
+    "textHash": "0c380b3ed5911f95",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1063,
+      "peak": 1,
+      "leadingSilence": 0.009,
+      "trailingSilence": 0.464,
+      "maxGap": 0.842,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0053": {
+    "file": "/audio/listening_b2_0053.m4a",
+    "duration": 37,
+    "textHash": "6b13727853d190aa",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1727,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.048,
+      "maxGap": 0.603,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0054": {
+    "file": "/audio/listening_b2_0054.m4a",
+    "duration": 38,
+    "textHash": "77403b55e4750edc",
+    "voices": [
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1414,
+      "peak": 0.89,
+      "leadingSilence": 0.01,
+      "trailingSilence": 0.458,
+      "maxGap": 0.84,
+      "gain": 1.168,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0055": {
+    "file": "/audio/listening_b2_0055.m4a",
+    "duration": 41,
+    "textHash": "79d8300b574b9222",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1268,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.442,
+      "maxGap": 0.874,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0056": {
+    "file": "/audio/listening_b2_0056.m4a",
+    "duration": 39,
+    "textHash": "227c7c16206561ef",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1515,
+      "peak": 0.89,
+      "leadingSilence": 0.159,
+      "trailingSilence": 0.496,
+      "maxGap": 0.995,
+      "gain": 1.182,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0057": {
+    "file": "/audio/listening_b2_0057.m4a",
+    "duration": 38,
+    "textHash": "6a28a996d5c04351",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1491,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.474,
+      "maxGap": 0.859,
+      "gain": 1.112,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0058": {
+    "file": "/audio/listening_b2_0058.m4a",
+    "duration": 34,
+    "textHash": "baa631bab0087c3c",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1194,
+      "peak": 0.9443,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.437,
+      "maxGap": 0.897,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0059": {
+    "file": "/audio/listening_b2_0059.m4a",
+    "duration": 34,
+    "textHash": "0ca41767f6c845b4",
+    "voices": [
+      "f1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1567,
+      "peak": 0.89,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.485,
+      "maxGap": 0.888,
+      "gain": 1.16,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0060": {
+    "file": "/audio/listening_b2_0060.m4a",
+    "duration": 32,
+    "textHash": "2fd55404f433515e",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1766,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.028,
+      "maxGap": 0.465,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0061": {
+    "file": "/audio/listening_b2_0061.m4a",
+    "duration": 30,
+    "textHash": "91ceded0a5e78d06",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1732,
+      "peak": 1,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.052,
+      "maxGap": 0.46,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0062": {
+    "file": "/audio/listening_b2_0062.m4a",
+    "duration": 33,
+    "textHash": "e18e4d8cdb48692f",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1807,
+      "peak": 1,
+      "leadingSilence": 0.01,
+      "trailingSilence": 0.04,
+      "maxGap": 0.483,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0063": {
+    "file": "/audio/listening_b2_0063.m4a",
+    "duration": 44,
+    "textHash": "1e62bb018b66820c",
+    "voices": [
+      "f1",
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1493,
+      "peak": 0.89,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.582,
+      "maxGap": 0.931,
+      "gain": 1.122,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_b2_0064": {
+    "file": "/audio/listening_b2_0064.m4a",
+    "duration": 43,
+    "textHash": "a21fc2fe06b0303f",
+    "voices": [
+      "m1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.12,
+      "peak": 1,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.479,
+      "maxGap": 0.865,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0017": {
+    "file": "/audio/listening_c1_0017.m4a",
+    "duration": 53,
+    "textHash": "b238df4c5139178e",
+    "voices": [
+      "narrator",
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1679,
+      "peak": 0.9426,
+      "leadingSilence": 0,
+      "trailingSilence": 0.051,
+      "maxGap": 0.84,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0018": {
+    "file": "/audio/listening_c1_0018.m4a",
+    "duration": 40,
+    "textHash": "381fb95eb53f0eb2",
+    "voices": [
+      "narrator",
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1609,
+      "peak": 1,
+      "leadingSilence": 0,
+      "trailingSilence": 0.062,
+      "maxGap": 0.84,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0019": {
+    "file": "/audio/listening_c1_0019.m4a",
+    "duration": 39,
+    "textHash": "0ddcc057c3a9c511",
+    "voices": [
+      "narrator",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1723,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.05,
+      "maxGap": 0.889,
+      "gain": 1.048,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0020": {
+    "file": "/audio/listening_c1_0020.m4a",
+    "duration": 41,
+    "textHash": "c75c36c9a65e157b",
+    "voices": [
+      "m2",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1672,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.493,
+      "maxGap": 0.878,
+      "gain": 1.07,
+      "distinctVoices": 2,
+      "lineCount": 5
+    }
+  },
+  "listening_c1_0021": {
+    "file": "/audio/listening_c1_0021.m4a",
+    "duration": 42,
+    "textHash": "80eda31762c4278a",
+    "voices": [
+      "narrator",
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1132,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.457,
+      "maxGap": 0.87,
+      "gain": 1.274,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0022": {
+    "file": "/audio/listening_c1_0022.m4a",
+    "duration": 40,
+    "textHash": "e817298c72d582c1",
+    "voices": [
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "prototype_tts",
+    "qa": {
+      "rms": 0.1708,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.065,
+      "maxGap": 0.457,
+      "gain": 1,
+      "distinctVoices": 1,
+      "lineCount": 3
+    }
+  },
+  "listening_c1_0023": {
+    "file": "/audio/listening_c1_0023.m4a",
+    "duration": 40,
+    "textHash": "fb72920c1c204d33",
+    "voices": [
+      "narrator",
+      "m1",
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1612,
+      "peak": 1,
+      "leadingSilence": 0,
+      "trailingSilence": 0.05,
+      "maxGap": 0.904,
+      "gain": 1,
+      "distinctVoices": 4,
+      "lineCount": 5
+    }
+  },
+  "listening_c1_0024": {
+    "file": "/audio/listening_c1_0024.m4a",
+    "duration": 38,
+    "textHash": "d3144d26bc4a7e27",
+    "voices": [
+      "narrator",
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1814,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.045,
+      "maxGap": 0.924,
+      "gain": 1.068,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c1_0025": {
+    "file": "/audio/listening_c1_0025.m4a",
+    "duration": 47,
+    "textHash": "5f80a98524fb3a81",
+    "voices": [
+      "narrator",
+      "f2",
+      "elder_m"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.0953,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.44,
+      "maxGap": 0.853,
+      "gain": 1.141,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c1_0026": {
+    "file": "/audio/listening_c1_0026.m4a",
+    "duration": 39,
+    "textHash": "38ab431d6b26f024",
+    "voices": [
+      "narrator",
+      "m2",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1751,
+      "peak": 0.89,
+      "leadingSilence": 0.035,
+      "trailingSilence": 0.041,
+      "maxGap": 0.975,
+      "gain": 1.091,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c1_0027": {
+    "file": "/audio/listening_c1_0027.m4a",
+    "duration": 42,
+    "textHash": "7ae3de60313fb3cc",
+    "voices": [
+      "narrator",
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1289,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.461,
+      "maxGap": 0.912,
+      "gain": 1.394,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c1_0028": {
+    "file": "/audio/listening_c1_0028.m4a",
+    "duration": 41,
+    "textHash": "9ea8017406410ffc",
+    "voices": [
+      "narrator",
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1676,
+      "peak": 0.9625,
+      "leadingSilence": 0,
+      "trailingSilence": 0.025,
+      "maxGap": 0.887,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c1_0029": {
+    "file": "/audio/listening_c1_0029.m4a",
+    "duration": 46,
+    "textHash": "78a40dd2bba7cec9",
+    "voices": [
+      "narrator",
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1653,
+      "peak": 0.9462,
+      "leadingSilence": 0,
+      "trailingSilence": 0.05,
+      "maxGap": 0.846,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0030": {
+    "file": "/audio/listening_c1_0030.m4a",
+    "duration": 40,
+    "textHash": "97302a0e40da12b3",
+    "voices": [
+      "narrator",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1322,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.422,
+      "maxGap": 0.924,
+      "gain": 1.432,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0031": {
+    "file": "/audio/listening_c1_0031.m4a",
+    "duration": 41,
+    "textHash": "1ce9d5821d81c242",
+    "voices": [
+      "narrator",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1517,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.065,
+      "maxGap": 0.875,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0032": {
+    "file": "/audio/listening_c1_0032.m4a",
+    "duration": 42,
+    "textHash": "8940159d02a08cf4",
+    "voices": [
+      "narrator",
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1499,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.415,
+      "maxGap": 0.885,
+      "gain": 1.392,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0033": {
+    "file": "/audio/listening_c1_0033.m4a",
+    "duration": 40,
+    "textHash": "81df2639b8651adf",
+    "voices": [
+      "narrator",
+      "f1",
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1708,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.047,
+      "maxGap": 0.923,
+      "gain": 1.065,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0034": {
+    "file": "/audio/listening_c1_0034.m4a",
+    "duration": 37,
+    "textHash": "8362631ecd1cd85a",
+    "voices": [
+      "narrator",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.121,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.574,
+      "maxGap": 0.994,
+      "gain": 1.152,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c1_0035": {
+    "file": "/audio/listening_c1_0035.m4a",
+    "duration": 38,
+    "textHash": "33af9d583920cfa4",
+    "voices": [
+      "narrator",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1976,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.07,
+      "maxGap": 0.869,
+      "gain": 1.15,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_c1_0036": {
+    "file": "/audio/listening_c1_0036.m4a",
+    "duration": 37,
+    "textHash": "85627bd296057162",
+    "voices": [
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.125,
+      "peak": 1,
+      "leadingSilence": 0.009,
+      "trailingSilence": 0.471,
+      "maxGap": 0.751,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_c1_0037": {
+    "file": "/audio/listening_c1_0037.m4a",
+    "duration": 29,
+    "textHash": "71af1ad78d7af20d",
+    "voices": [
+      "m2",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1744,
+      "peak": 0.89,
+      "leadingSilence": 0.017,
+      "trailingSilence": 0.049,
+      "maxGap": 0.949,
+      "gain": 1.101,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_c1_0038": {
+    "file": "/audio/listening_c1_0038.m4a",
+    "duration": 37,
+    "textHash": "e1b647e5adf8a8ab",
+    "voices": [
+      "narrator",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1315,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.471,
+      "maxGap": 0.94,
+      "gain": 1.142,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_c1_0039": {
+    "file": "/audio/listening_c1_0039.m4a",
+    "duration": 32,
+    "textHash": "93fd459c80f0672b",
+    "voices": [
+      "elder_m"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1295,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.454,
+      "maxGap": 0.537,
+      "gain": 1.782,
+      "distinctVoices": 1,
+      "lineCount": 1
+    }
+  },
+  "listening_c1_0040": {
+    "file": "/audio/listening_c1_0040.m4a",
+    "duration": 34,
+    "textHash": "969befe9042de710",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1888,
+      "peak": 0.8938,
+      "leadingSilence": 0.002,
+      "trailingSilence": 0.046,
+      "maxGap": 0.472,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 2
+    }
+  },
+  "listening_c2_0011": {
+    "file": "/audio/listening_c2_0011.m4a",
+    "duration": 49,
+    "textHash": "82033f3b1178166e",
+    "voices": [
+      "narrator",
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1751,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.017,
+      "maxGap": 0.846,
+      "gain": 1.021,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0012": {
+    "file": "/audio/listening_c2_0012.m4a",
+    "duration": 56,
+    "textHash": "247a03de50503b15",
+    "voices": [
+      "narrator",
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1184,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.431,
+      "maxGap": 0.925,
+      "gain": 1.071,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0013": {
+    "file": "/audio/listening_c2_0013.m4a",
+    "duration": 49,
+    "textHash": "0f011bc0b51da1f5",
+    "voices": [
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1749,
+      "peak": 1,
+      "leadingSilence": 0.005,
+      "trailingSilence": 0.043,
+      "maxGap": 0.454,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0014": {
+    "file": "/audio/listening_c2_0014.m4a",
+    "duration": 50,
+    "textHash": "9c22fb38c4dc75aa",
+    "voices": [
+      "narrator",
+      "m2",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1289,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.502,
+      "maxGap": 0.923,
+      "gain": 1.343,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0015": {
+    "file": "/audio/listening_c2_0015.m4a",
+    "duration": 57,
+    "textHash": "79a929b132ab1099",
+    "voices": [
+      "narrator",
+      "m1",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1263,
+      "peak": 0.9944,
+      "leadingSilence": 0,
+      "trailingSilence": 0.419,
+      "maxGap": 0.88,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c2_0016": {
+    "file": "/audio/listening_c2_0016.m4a",
+    "duration": 59,
+    "textHash": "3c182a5e7adbfc19",
+    "voices": [
+      "narrator",
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1862,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.495,
+      "maxGap": 0.935,
+      "gain": 1.151,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c2_0017": {
+    "file": "/audio/listening_c2_0017.m4a",
+    "duration": 48,
+    "textHash": "9882dd7a47bd73de",
+    "voices": [
+      "narrator",
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1746,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.053,
+      "maxGap": 0.908,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0018": {
+    "file": "/audio/listening_c2_0018.m4a",
+    "duration": 57,
+    "textHash": "978a6a0361a064df",
+    "voices": [
+      "narrator",
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1072,
+      "peak": 0.89,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.498,
+      "maxGap": 0.973,
+      "gain": 1.113,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c2_0019": {
+    "file": "/audio/listening_c2_0019.m4a",
+    "duration": 48,
+    "textHash": "47dc3555a4e21029",
+    "voices": [
+      "narrator",
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1752,
+      "peak": 1,
+      "leadingSilence": 0.001,
+      "trailingSilence": 0.048,
+      "maxGap": 0.905,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0020": {
+    "file": "/audio/listening_c2_0020.m4a",
+    "duration": 51,
+    "textHash": "5d70f17f54433b0d",
+    "voices": [
+      "narrator",
+      "m2",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1287,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.439,
+      "maxGap": 0.929,
+      "gain": 1.374,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0021": {
+    "file": "/audio/listening_c2_0021.m4a",
+    "duration": 47,
+    "textHash": "70e2bf5cd7c2c0bb",
+    "voices": [
+      "m1",
+      "f1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1798,
+      "peak": 1,
+      "leadingSilence": 0.011,
+      "trailingSilence": 0.055,
+      "maxGap": 0.465,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0022": {
+    "file": "/audio/listening_c2_0022.m4a",
+    "duration": 55,
+    "textHash": "2be2d8721c8e1446",
+    "voices": [
+      "narrator",
+      "m2",
+      "f2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1266,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.45,
+      "maxGap": 0.958,
+      "gain": 1.171,
+      "distinctVoices": 3,
+      "lineCount": 5
+    }
+  },
+  "listening_c2_0023": {
+    "file": "/audio/listening_c2_0023.m4a",
+    "duration": 45,
+    "textHash": "cb83154b49c08b4f",
+    "voices": [
+      "narrator",
+      "f1",
+      "m1"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1752,
+      "peak": 0.9312,
+      "leadingSilence": 0,
+      "trailingSilence": 0.063,
+      "maxGap": 0.853,
+      "gain": 1,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0024": {
+    "file": "/audio/listening_c2_0024.m4a",
+    "duration": 44,
+    "textHash": "f21c9416d6741a39",
+    "voices": [
+      "narrator",
+      "f2",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.138,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.436,
+      "maxGap": 1.074,
+      "gain": 1.32,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0025": {
+    "file": "/audio/listening_c2_0025.m4a",
+    "duration": 43,
+    "textHash": "f1f1305ea623f5f2",
+    "voices": [
+      "m1",
+      "elder_f"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.1144,
+      "peak": 0.9051,
+      "leadingSilence": 0.006,
+      "trailingSilence": 0.459,
+      "maxGap": 0.905,
+      "gain": 1,
+      "distinctVoices": 2,
+      "lineCount": 4
+    }
+  },
+  "listening_c2_0026": {
+    "file": "/audio/listening_c2_0026.m4a",
+    "duration": 47,
+    "textHash": "3e43329bbdf77c39",
+    "voices": [
+      "narrator",
+      "f1",
+      "m2"
+    ],
+    "status": "generated",
+    "quality": "reviewed_tts",
+    "qa": {
+      "rms": 0.166,
+      "peak": 0.89,
+      "leadingSilence": 0,
+      "trailingSilence": 0.056,
+      "maxGap": 0.903,
+      "gain": 1.008,
+      "distinctVoices": 3,
+      "lineCount": 4
+    }
   }
 }

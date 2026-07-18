@@ -17,14 +17,21 @@ function main() {
     : {};
   const listening = loadContent().listening.filter((l: any) => l.status === "published");
 
-  const tiers: Record<string, number> = { premium_ready: 0, reviewed_tts: 0, prototype_tts: 0, rejected: 0 };
+  const tiers: Record<string, number> = {
+    premium_ready: 0,
+    reviewed_tts: 0,
+    prototype_tts: 0,
+    rejected: 0,
+  };
   const missing: string[] = [];
   const rejected: string[] = [];
   const flagged: string[] = [];
 
   for (const item of listening) {
     const m = manifest[item.id];
-    const fileOnDisk = item.audio?.file && existsSync(resolve(projectRoot, "public", item.audio.file.replace(/^\//, "")));
+    const fileOnDisk =
+      item.audio?.file &&
+      existsSync(resolve(projectRoot, "public", item.audio.file.replace(/^\//, "")));
     if (!m || !fileOnDisk) {
       missing.push(item.id);
       continue;
@@ -65,11 +72,16 @@ function main() {
   writeFileSync(resolve(docs, "AUDIO_QA_REPORT.md"), `${lines.join("\n")}\n`);
 
   console.log(`\n Audio QA — published listening ${listening.length}`);
-  console.log(`  premium_ready ${tiers.premium_ready ?? 0} · reviewed_tts ${tiers.reviewed_tts ?? 0} · prototype_tts ${tiers.prototype_tts ?? 0} · rejected ${tiers.rejected ?? 0} · missing ${missing.length}`);
+  console.log(
+    `  premium_ready ${tiers.premium_ready ?? 0} · reviewed_tts ${tiers.reviewed_tts ?? 0} · prototype_tts ${tiers.prototype_tts ?? 0} · rejected ${tiers.rejected ?? 0} · missing ${missing.length}`,
+  );
   console.log(`  report → docs/content/AUDIO_QA_REPORT.md\n`);
 
   if (rejected.length || missing.length) {
-    for (const id of [...rejected.map((x) => `rejected ${x}`), ...missing.map((x) => `missing ${x}`)].slice(0, 30))
+    for (const id of [
+      ...rejected.map((x) => `rejected ${x}`),
+      ...missing.map((x) => `missing ${x}`),
+    ].slice(0, 30))
       console.log(`  ✗ ${id}`);
     process.exitCode = 1;
   }

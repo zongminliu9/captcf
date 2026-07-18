@@ -6,85 +6,85 @@
 
 | Key | Count |
 | --- | ---: |
-| A1 | 12 |
-| A2 | 18 |
-| B1 | 26 |
-| B2 | 26 |
-| C1 | 16 |
-| C2 | 10 |
+| A1 | 28 |
+| A2 | 44 |
+| B1 | 64 |
+| B2 | 64 |
+| C1 | 40 |
+| C2 | 26 |
 
 ## Reading by CEFR
 
 | Key | Count |
 | --- | ---: |
-| A1 | 14 |
-| A2 | 20 |
-| B1 | 30 |
-| B2 | 30 |
-| C1 | 20 |
-| C2 | 12 |
+| A1 | 34 |
+| A2 | 52 |
+| B1 | 82 |
+| B2 | 82 |
+| C1 | 56 |
+| C2 | 34 |
 
 ## Listening by topic
 
 | Key | Count |
 | --- | ---: |
-| culture | 6 |
-| environnement | 16 |
-| etudes | 2 |
-| immigration | 3 |
-| logement | 14 |
-| loisirs | 5 |
-| medias | 7 |
-| sante | 16 |
-| services_publics | 5 |
-| societe | 1 |
-| technologie | 5 |
-| transport | 11 |
-| travail | 14 |
-| vie_quotidienne | 3 |
+| culture | 10 |
+| environnement | 37 |
+| etudes | 7 |
+| immigration | 15 |
+| logement | 38 |
+| loisirs | 11 |
+| medias | 14 |
+| sante | 39 |
+| services_publics | 12 |
+| societe | 4 |
+| technologie | 10 |
+| transport | 30 |
+| travail | 28 |
+| vie_quotidienne | 11 |
 
 ## Reading by topic
 
 | Key | Count |
 | --- | ---: |
-| culture | 4 |
-| environnement | 16 |
-| etudes | 4 |
-| immigration | 2 |
-| logement | 16 |
-| loisirs | 7 |
-| medias | 9 |
-| sante | 13 |
-| services_publics | 4 |
-| societe | 4 |
-| technologie | 8 |
-| transport | 16 |
-| travail | 18 |
-| vie_quotidienne | 5 |
+| culture | 14 |
+| environnement | 42 |
+| etudes | 12 |
+| immigration | 18 |
+| logement | 42 |
+| loisirs | 15 |
+| medias | 22 |
+| sante | 35 |
+| services_publics | 13 |
+| societe | 9 |
+| technologie | 16 |
+| transport | 44 |
+| travail | 44 |
+| vie_quotidienne | 14 |
 
 ## Vocabulary by CEFR
 
 | Key | Count |
 | --- | ---: |
 | A1 | 6 |
-| A2 | 95 |
-| B1 | 144 |
-| B2 | 133 |
-| C1 | 74 |
+| A2 | 122 |
+| B1 | 199 |
+| B2 | 193 |
+| C1 | 94 |
 | C2 | 1 |
 
 ## Writing by task
 
 | Key | Count |
 | --- | ---: |
-| 1 | 15 |
-| 2 | 15 |
-| 3 | 15 |
+| 1 | 23 |
+| 2 | 23 |
+| 3 | 23 |
 
 ## Speaking by task
 
 | Key | Count |
 | --- | ---: |
-| 1 | 15 |
-| 2 | 15 |
-| 3 | 15 |
+| 1 | 23 |
+| 2 | 23 |
+| 3 | 23 |

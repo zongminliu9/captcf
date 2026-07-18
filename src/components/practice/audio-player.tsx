@@ -35,7 +35,6 @@ export function AudioPlayer({
   const [error, setError] = useState(false);
 
   // reset when the source changes (next question)
-  // biome-ignore lint/correctness/useExhaustiveDependencies: intentional reset on src
   useEffect(() => {
     setPlaying(false);
     setCurrent(0);

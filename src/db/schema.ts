@@ -101,6 +101,21 @@ export const authSessions = pgTable(
   (t) => [index("auth_sessions_user_idx").on(t.userId)],
 );
 
+export const passwordResetTokens = pgTable(
+  "password_reset_tokens",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    tokenHash: text("token_hash").notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    usedAt: timestamp("used_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("password_reset_user_idx").on(t.userId)],
+);
+
 export const guestSessions = pgTable("guest_sessions", {
   id: uuid("id").primaryKey().defaultRandom(),
   tokenHash: text("token_hash").notNull().unique(),
@@ -664,6 +679,12 @@ export const analyticsEvents = pgTable(
   },
   (t) => [index("analytics_type_idx").on(t.type)],
 );
+
+export const rateLimits = pgTable("rate_limits", {
+  bucket: text("bucket").primaryKey(), // "<key>:<windowStart>"
+  count: integer("count").notNull().default(0),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+});
 
 export const contentAudits = pgTable("content_audits", {
   id: uuid("id").primaryKey().defaultRandom(),

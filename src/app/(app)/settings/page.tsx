@@ -1,4 +1,8 @@
-import { DeleteAccountButton, LogoutButton } from "@/components/settings/settings-actions";
+import {
+  CancelSubscriptionButton,
+  DeleteAccountButton,
+  LogoutButton,
+} from "@/components/settings/settings-actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -34,9 +38,12 @@ export default async function SettingsPage() {
               <div className="font-medium">{actor.name ?? actor.email}</div>
               <div className="text-sm text-muted">{actor.email}</div>
             </div>
-            <Badge variant={plan === "premium" ? "navy" : "neutral"}>
-              {plan === "premium" ? "Premium" : "Gratuit"}
-            </Badge>
+            <div className="flex items-center gap-2">
+              <Badge variant={plan === "premium" ? "navy" : "neutral"}>
+                {plan === "premium" ? "Premium" : "Gratuit"}
+              </Badge>
+              {plan === "premium" && <CancelSubscriptionButton />}
+            </div>
           </div>
         ) : (
           <div className="flex flex-wrap items-center justify-between gap-3">

@@ -1,9 +1,9 @@
-import { asc, eq, sql } from "drizzle-orm";
 import { AudioQaControls } from "@/components/admin/audio-qa-row";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { db } from "@/db";
 import { audioAssets, questions } from "@/db/schema";
+import { asc, eq, sql } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
 
@@ -79,8 +79,8 @@ export default async function AdminAudioPage({
                   {r.quality}
                 </Badge>
                 <span className="text-xs text-faint">
-                  {Math.round(Number(r.duration))}s · vol {qa.rms ?? "?"} · gap {qa.maxGap ?? "?"}s ·
-                  {qa.distinctVoices ?? "?"} voix
+                  {Math.round(Number(r.duration))}s · vol {qa.rms ?? "?"} · gap {qa.maxGap ?? "?"}s
+                  ·{qa.distinctVoices ?? "?"} voix
                 </span>
               </div>
               <p className="mt-1 line-clamp-1 text-sm text-ink">{r.stem}</p>

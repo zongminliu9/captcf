@@ -60,6 +60,13 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
             aria-invalid={!!state.fieldErrors?.password}
           />
           <FieldError>{state.fieldErrors?.password}</FieldError>
+          {mode === "login" && (
+            <div className="mt-1.5 text-right">
+              <Link href="/forgot-password" className="text-sm text-navy hover:underline">
+                Mot de passe oublié ?
+              </Link>
+            </div>
+          )}
         </div>
         <Button type="submit" variant="primary" className="w-full" disabled={pending}>
           {pending ? "Un instant…" : mode === "register" ? "Créer mon compte" : "Se connecter"}

@@ -1,8 +1,26 @@
 "use client";
-import { deleteAccountAction, logoutAction } from "@/app/(app)/settings/actions";
+import {
+  cancelSubscriptionAction,
+  deleteAccountAction,
+  logoutAction,
+} from "@/app/(app)/settings/actions";
 import { Button } from "@/components/ui/button";
 import { LogOut, Trash2 } from "lucide-react";
 import { useState, useTransition } from "react";
+
+export function CancelSubscriptionButton() {
+  const [pending, start] = useTransition();
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      disabled={pending}
+      onClick={() => start(() => cancelSubscriptionAction())}
+    >
+      {pending ? "…" : "Annuler Premium"}
+    </Button>
+  );
+}
 
 export function LogoutButton() {
   const [pending, start] = useTransition();

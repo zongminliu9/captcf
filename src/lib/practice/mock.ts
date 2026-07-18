@@ -1,5 +1,4 @@
 import "server-only";
-import { and, asc, desc, eq, inArray } from "drizzle-orm";
 import { db } from "@/db";
 import {
   attempts,
@@ -18,6 +17,7 @@ import {
 import { type Actor, ownerEq, ownerValues } from "@/lib/auth/owner";
 import { EXAM_SPEC, type SkillId } from "@/lib/exam/config";
 import { scoreToCefr, scoreToNclc } from "@/lib/exam/nclc";
+import { and, asc, desc, eq, inArray } from "drizzle-orm";
 import { type ClientQuestion, getClientQuestions } from "./questions";
 import { submitSession } from "./session";
 
@@ -233,7 +233,10 @@ export async function getMockState(actor: Actor, sessionId: string): Promise<Moc
       .map((r) => ({ refId: r.refId, selectedAnswer: r.selectedAnswer }));
     section = { ...base, questions, answered };
   } else if (sec.kind === "writing") {
-    const tasks = await db.select().from(writingTasks).where(inArraySafe(writingTasks.id, sec.refIds));
+    const tasks = await db
+      .select()
+      .from(writingTasks)
+      .where(inArraySafe(writingTasks.id, sec.refIds));
     const subs = await db
       .select({ taskId: writingSubmissions.taskId, text: writingSubmissions.text })
       .from(writingSubmissions)
@@ -254,11 +257,16 @@ export async function getMockState(actor: Actor, sessionId: string): Promise<Moc
       })),
     };
   } else {
-    const tasks = await db.select().from(speakingTasks).where(inArraySafe(speakingTasks.id, sec.refIds));
+    const tasks = await db
+      .select()
+      .from(speakingTasks)
+      .where(inArraySafe(speakingTasks.id, sec.refIds));
     const subs = await db
       .select({ taskId: speakingSubmissions.taskId })
       .from(speakingSubmissions)
-      .where(and(ownerEq(speakingSubmissions, actor), eq(speakingSubmissions.sessionId, sessionId)));
+      .where(
+        and(ownerEq(speakingSubmissions, actor), eq(speakingSubmissions.sessionId, sessionId)),
+      );
     const done = new Set(subs.map((s) => s.taskId));
     const ordered = sec.refIds
       .map((id) => tasks.find((t) => t.id === id))
@@ -365,7 +373,11 @@ export async function submitMock(
     .map((r) => (r.band as any)?.estimatedBand)
     .filter((b): b is number => typeof b === "number");
 
-  const attRows = await db.select().from(attempts).where(eq(attempts.sessionId, sessionId)).limit(1);
+  const attRows = await db
+    .select()
+    .from(attempts)
+    .where(eq(attempts.sessionId, sessionId))
+    .limit(1);
   const att = attRows[0];
   if (att) {
     const per = { ...(att.perSkill as Record<string, unknown>) };
@@ -377,10 +389,7 @@ export async function submitMock(
       const band = Math.round(sBands.reduce((a, b) => a + b, 0) / sBands.length);
       per.speaking = productiveEntry("speaking", band, sBands.length);
     }
-    await db
-      .update(attempts)
-      .set({ perSkill: per, estimate: per })
-      .where(eq(attempts.id, att.id));
+    await db.update(attempts).set({ perSkill: per, estimate: per }).where(eq(attempts.id, att.id));
   }
   return { attemptId: summary.attemptId };
 }

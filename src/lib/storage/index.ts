@@ -1,6 +1,6 @@
 import "server-only";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 /**
@@ -16,6 +16,7 @@ export interface StoredFile {
 export interface StorageDriver {
   save(key: string, buffer: Buffer, contentType: string): Promise<void>;
   read(key: string): Promise<StoredFile | null>;
+  remove(key: string): Promise<void>;
 }
 
 const LOCAL_DIR = resolve(process.cwd(), process.env.STORAGE_LOCAL_DIR ?? ".uploads");
@@ -34,6 +35,11 @@ const localDriver: StorageDriver = {
     const typePath = `${path}.type`;
     if (existsSync(typePath)) contentType = (await readFile(typePath, "utf8")).trim();
     return { buffer, contentType };
+  },
+  async remove(key) {
+    const path = resolve(LOCAL_DIR, safeKey(key));
+    await rm(path, { force: true });
+    await rm(`${path}.type`, { force: true });
   },
 };
 

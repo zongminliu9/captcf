@@ -1,7 +1,4 @@
 "use client";
-import { Check, Circle, Mic, MicOff, Square } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { advanceMock } from "@/app/(app)/mock/actions";
 import { useToast } from "@/components/toast";
 import { Alert } from "@/components/ui/alert";
@@ -10,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { formatClock } from "@/lib/exam/timer";
 import type { MockSpeakingTask } from "@/lib/practice/mock";
+import { Check, Circle, Mic, MicOff, Square } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 function pickMime(): string | undefined {
   const c = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"];
@@ -182,7 +182,9 @@ export function MockSpeakingSection({
 }) {
   const router = useRouter();
   const toast = useToast();
-  const [done, setDone] = useState<Set<string>>(new Set(tasks.filter((t) => t.submitted).map((t) => t.id)));
+  const [done, setDone] = useState<Set<string>>(
+    new Set(tasks.filter((t) => t.submitted).map((t) => t.id)),
+  );
   const [finishing, setFinishing] = useState(false);
   const doneRef = useRef(false);
 
@@ -200,7 +202,6 @@ export function MockSpeakingSection({
       setFinishing(false);
     }
   };
-  // biome-ignore lint/correctness/useExhaustiveDependencies: fire once on expiry
   useEffect(() => {
     if (expired) finish();
   }, [expired]);
@@ -210,10 +211,17 @@ export function MockSpeakingSection({
   return (
     <div className="space-y-3">
       {tasks.map((t) => (
-        <TaskRecorder key={t.id} sessionId={sessionId} task={t} onDone={(id) => setDone((s) => new Set(s).add(id))} />
+        <TaskRecorder
+          key={t.id}
+          sessionId={sessionId}
+          task={t}
+          onDone={(id) => setDone((s) => new Set(s).add(id))}
+        />
       ))}
       <div className="flex items-center justify-between pt-2">
-        <span className="text-xs text-muted">{done.size}/{tasks.length} enregistrées</span>
+        <span className="text-xs text-muted">
+          {done.size}/{tasks.length} enregistrées
+        </span>
         <Button variant="primary" onClick={finish} disabled={finishing}>
           {finishing ? "…" : isLast ? "Terminer l'examen" : "Terminer l'expression orale"}
         </Button>

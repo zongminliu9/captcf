@@ -27,6 +27,7 @@
     "db:reset": "tsx scripts/reset-db.ts",
     "db:seed": "tsx scripts/seed.ts",
     "content:ingest": "tsx scripts/content/ingest.ts",
+    "content:ingest2": "tsx scripts/content/ingest-merge.ts",
     "content:validate": "tsx scripts/content/audit.ts",
     "content:audit": "tsx scripts/content/audit.ts --require-audio",
     "content:dedupe": "tsx scripts/content/dedupe.ts",

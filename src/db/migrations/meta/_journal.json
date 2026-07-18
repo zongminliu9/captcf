@@ -15,6 +15,13 @@
       "when": 1784386020583,
       "tag": "0001_awesome_prima",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784388789472,
+      "tag": "0002_careless_james_howlett",
+      "breakpoints": true
     }
   ]
 }

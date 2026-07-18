@@ -1,7 +1,4 @@
 "use client";
-import { AlertTriangle, ChevronLeft, ChevronRight, Clock } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
 import { advanceMock, answerMock, startMockSectionAction } from "@/app/(app)/mock/actions";
 import { useToast } from "@/components/toast";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +7,9 @@ import { Card } from "@/components/ui/card";
 import { formatClock } from "@/lib/exam/timer";
 import type { MockState } from "@/lib/practice/mock";
 import { cn } from "@/lib/utils";
+import { AlertTriangle, ChevronLeft, ChevronRight, Clock } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { MockSpeakingSection } from "./mock-speaking-section";
 import { MockWritingSection } from "./mock-writing-section";
 import { QuestionCard } from "./question-card";
@@ -79,7 +79,11 @@ export function MockRunner({
                 key={l}
                 className={cn(
                   "rounded-full px-2 py-0.5",
-                  i < sectionIndex ? "bg-success-50 text-success" : i === sectionIndex ? "bg-navy-50 text-navy" : "bg-surface-2 text-muted",
+                  i < sectionIndex
+                    ? "bg-success-50 text-success"
+                    : i === sectionIndex
+                      ? "bg-navy-50 text-navy"
+                      : "bg-surface-2 text-muted",
                 )}
               >
                 {i + 1}. {l}
@@ -99,10 +103,16 @@ export function MockRunner({
     <div className="sticky top-14 z-10 mb-4 flex items-center justify-between rounded-[var(--radius-sm)] border border-border bg-canvas/90 px-4 py-2.5 backdrop-blur">
       <div className="text-sm">
         <span className="font-medium">{section.label}</span>
-        <span className="text-muted"> · section {sectionIndex + 1}/{totalSections}</span>
+        <span className="text-muted">
+          {" "}
+          · section {sectionIndex + 1}/{totalSections}
+        </span>
       </div>
       <div
-        className={cn("flex items-center gap-1.5 font-mono text-lg font-semibold tabular-nums", low ? "text-danger" : "text-ink")}
+        className={cn(
+          "flex items-center gap-1.5 font-mono text-lg font-semibold tabular-nums",
+          low ? "text-danger" : "text-ink",
+        )}
         role="timer"
         aria-live="off"
       >
@@ -151,7 +161,8 @@ function sectionDescription(section: Section): string {
   if (section.kind === "qcm") {
     return `${section.questions?.length ?? 0} questions${section.skill === "listening" ? " · audio à écoutes limitées" : ""}`;
   }
-  if (section.kind === "writing") return `${section.writingTasks?.length ?? 0} tâches d'expression écrite`;
+  if (section.kind === "writing")
+    return `${section.writingTasks?.length ?? 0} tâches d'expression écrite`;
   return `${section.speakingTasks?.length ?? 0} tâches d'expression orale`;
 }
 
@@ -193,7 +204,6 @@ function QcmBody({
       setFinishing(false);
     }
   };
-  // biome-ignore lint/correctness/useExhaustiveDependencies: fire once on expiry
   useEffect(() => {
     if (expired) finish();
   }, [expired]);
@@ -239,7 +249,11 @@ function QcmBody({
         ))}
       </div>
       <div className="mt-6 flex items-center justify-between gap-3">
-        <Button variant="ghost" onClick={() => setIndex((i) => Math.max(0, i - 1))} disabled={index === 0}>
+        <Button
+          variant="ghost"
+          onClick={() => setIndex((i) => Math.max(0, i - 1))}
+          disabled={index === 0}
+        >
           <ChevronLeft className="h-4 w-4" /> Précédent
         </Button>
         {index < questions.length - 1 ? (

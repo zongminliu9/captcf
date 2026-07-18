@@ -11,8 +11,8 @@ import {
   vocabularyItemSchema,
   writingTaskSchema,
 } from "@/lib/content/schema";
-import { CEFR_LEVELS } from "@/lib/exam/config";
 import { assembleMocks } from "@/lib/exam/assemble";
+import { CEFR_LEVELS } from "@/lib/exam/config";
 import { loadEnv, projectRoot } from "../lib/env";
 import { jaccardDuplicates, normText } from "./lib/dedupe-lib";
 import { loadContent } from "./lib/load-files";
@@ -178,15 +178,25 @@ async function main() {
     {
       listening: publishedL.map((x: any) => ({ id: x.id, cefrLevel: x.cefrLevel })),
       reading: publishedR.map((x: any) => ({ id: x.id, cefrLevel: x.cefrLevel })),
-      writing: c.writing.filter((x: any) => x.status === "published").map((x: any) => ({ id: x.id, taskNumber: x.taskNumber })),
-      speaking: c.speaking.filter((x: any) => x.status === "published").map((x: any) => ({ id: x.id, taskNumber: x.taskNumber })),
+      writing: c.writing
+        .filter((x: any) => x.status === "published")
+        .map((x: any) => ({ id: x.id, taskNumber: x.taskNumber })),
+      speaking: c.speaking
+        .filter((x: any) => x.status === "published")
+        .map((x: any) => ({ id: x.id, taskNumber: x.taskNumber })),
     },
     4,
   );
   if (asm.overlap.listeningMaxUses > 1)
-    err("mocks", `listening item reused across forms (max uses ${asm.overlap.listeningMaxUses}) — need ≥156 published listening`);
+    err(
+      "mocks",
+      `listening item reused across forms (max uses ${asm.overlap.listeningMaxUses}) — need ≥156 published listening`,
+    );
   if (asm.overlap.readingMaxUses > 1)
-    err("mocks", `reading item reused across forms (max uses ${asm.overlap.readingMaxUses}) — need ≥156 published reading`);
+    err(
+      "mocks",
+      `reading item reused across forms (max uses ${asm.overlap.readingMaxUses}) — need ≥156 published reading`,
+    );
   for (const w of asm.warnings) warn("mocks", w);
 
   // reports

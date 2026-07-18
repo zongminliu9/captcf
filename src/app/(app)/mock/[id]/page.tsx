@@ -76,7 +76,8 @@ export default async function MockOverviewPage({ params }: { params: Promise<{ i
           <Button asChild variant="primary">
             {/* plain <a> so the route handler can set the guest cookie */}
             <a href={`/mock/${form.id}/begin`}>
-              <Clock className="h-4 w-4" /> Commencer l'examen complet <ArrowRight className="h-4 w-4" />
+              <Clock className="h-4 w-4" /> Commencer l'examen complet{" "}
+              <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
         )}

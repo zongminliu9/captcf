@@ -86,7 +86,8 @@ function pickQcmSection(
   // nearest-level unused item (for shortfalls) — still never reuses
   const takeNearest = (level: CefrLevel): QcmRef | null => {
     const order = [...levelsAsc].sort(
-      (a, b) => Math.abs(CEFR_ORDER[a] - CEFR_ORDER[level]) - Math.abs(CEFR_ORDER[b] - CEFR_ORDER[level]),
+      (a, b) =>
+        Math.abs(CEFR_ORDER[a] - CEFR_ORDER[level]) - Math.abs(CEFR_ORDER[b] - CEFR_ORDER[level]),
     );
     for (const l of order) {
       const pool = byLevel.get(l) ?? [];
