@@ -1,7 +1,10 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const ROOT = resolve(import.meta.dirname, "../..");
+// import.meta.dirname is undefined under some bundlers (e.g. drizzle-kit's loader);
+// fall back to the process CWD, which is the project root for all our scripts.
+const HERE = typeof import.meta.dirname === "string" ? import.meta.dirname : null;
+const ROOT = HERE ? resolve(HERE, "../..") : process.cwd();
 
 /**
  * Load environment variables for standalone scripts (drizzle-kit, seed, setup…).
