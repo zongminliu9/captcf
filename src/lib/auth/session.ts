@@ -13,12 +13,13 @@ import {
   newToken,
 } from "./tokens";
 
-const isProd = process.env.NODE_ENV === "production";
+// Secure cookies in production, unless COOKIE_INSECURE=1 (for http-only preview/staging).
+const secureCookies = process.env.NODE_ENV === "production" && process.env.COOKIE_INSECURE !== "1";
 
 function cookieOpts(maxAgeDays: number) {
   return {
     httpOnly: true,
-    secure: isProd,
+    secure: secureCookies,
     sameSite: "lax" as const,
     path: "/",
     maxAge: maxAgeDays * 24 * 60 * 60,

@@ -256,19 +256,23 @@ function QcmBody({
         >
           <ChevronLeft className="h-4 w-4" /> Précédent
         </Button>
-        {index < questions.length - 1 ? (
-          <Button variant="outline" onClick={() => setIndex((i) => i + 1)}>
-            Suivant <ChevronRight className="h-4 w-4" />
-          </Button>
-        ) : (
-          <Button variant="primary" onClick={finish} disabled={finishing}>
-            {finishing ? "…" : isLast ? "Terminer l'examen" : "Section suivante"}
-          </Button>
-        )}
+        <Button
+          variant="outline"
+          onClick={() => setIndex((i) => i + 1)}
+          disabled={index >= questions.length - 1}
+        >
+          Suivant <ChevronRight className="h-4 w-4" />
+        </Button>
       </div>
-      <p className="mt-3 text-center text-xs text-muted">
-        {answeredCount}/{questions.length} répondues
-      </p>
+      {/* section can be submitted at any time (like the real exam) */}
+      <div className="mt-4 flex items-center justify-between gap-3 border-t border-border pt-4">
+        <span className="text-xs text-muted">
+          {answeredCount}/{questions.length} répondues
+        </span>
+        <Button variant="primary" onClick={finish} disabled={finishing}>
+          {finishing ? "…" : isLast ? "Terminer l'examen" : "Terminer la section"}
+        </Button>
+      </div>
     </>
   );
 }

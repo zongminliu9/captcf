@@ -43,7 +43,7 @@ test.describe("mock exam", () => {
     await expireLatestMock();
 
     await page.goto(page.url()); // reload the runner → server auto-submits
-    await expect(page.getByRole("heading", { name: /Votre analyse/ })).toBeVisible({
+    await expect(page.getByRole("heading", { name: /Résultats de l'examen blanc/ })).toBeVisible({
       timeout: 25_000,
     });
     // per-skill section card present
