@@ -7,9 +7,9 @@ import { Meter } from "@/components/ui/meter";
 import type { ClientQuestion } from "@/lib/practice/questions";
 import { cn } from "@/lib/utils";
 import { BookmarkPlus, ChevronLeft, ChevronRight, Flag } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useRef, useState, useTransition } from "react";
 import { type Feedback, QuestionCard } from "./question-card";
+import { ReportProblem } from "./report-problem";
 
 interface AnswerState {
   selected: string | null;
@@ -33,7 +33,6 @@ export function PracticeRunner({
   bookmarked,
   title,
 }: PracticeRunnerProps) {
-  const router = useRouter();
   const toast = useToast();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, AnswerState>>(initial);
@@ -119,6 +118,7 @@ export function PracticeRunner({
             >
               <BookmarkPlus className="h-[18px] w-[18px]" />
             </button>
+            <ReportProblem refId={q.refId} />
           </div>
         </div>
         <Meter value={answeredCount / questions.length} tone="navy" />

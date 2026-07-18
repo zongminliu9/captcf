@@ -1,7 +1,7 @@
 # Round 2 UX audit
 
 Real-browser review across viewports (390 mobile, 768 tablet, 1280/1440 desktop) plus the
-Playwright E2E suite (30 tests, chromium + mobile Pixel-7 + WebKit). Findings below are fixed
+Playwright E2E suite (27 tests, chromium + mobile Pixel-7 + WebKit). Findings below are fixed
 in-tree; each links to the commit and the verifying test.
 
 ## Findings (fixed)
@@ -12,6 +12,7 @@ in-tree; each links to the commit and the verifying test.
 | U2 | Medium | http preview envs | Secure cookies over http broke guest/auth on non-TLS preview deployments | `COOKIE_INSECURE=1` escape hatch (still secure by default in prod) | manual (prod server on http) |
 | U3 | Medium | `/mock/[id]` overview | Copy still said EE/EO were "separate tools" after unification | Rewrote to describe the single 4-section flow | screenshot `r2-mock-results` |
 | U4 | Low | `/attempts/[id]/results` (mock) | Needed to distinguish auto-scored vs local self-eval | Separate cards: CO/CE `/699` + "confiance", EE/EO `/20` + "auto-évaluation locale" | `full-mock.spec.ts` §9 |
+| U5 | Medium | `/practice/session/[id]` | The `reportIssue` action + admin reports view existed, but learners had **no way to flag a bad question** — the workflow had no intake | Added a "Signaler un problème" control (category chips + optional detail) beside the bookmark, writing to `issue_reports` → admin queue | `core.spec.ts` §8 |
 
 ## Checks performed (pass)
 

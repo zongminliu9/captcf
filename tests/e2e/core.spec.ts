@@ -63,4 +63,16 @@ test.describe("core learner loop", () => {
     await page.goto("/bookmarks");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   });
+
+  test("8. reporting a problem on a question is accepted", async ({ page }) => {
+    await page.goto("/practice/start?mode=quick");
+    await page.getByRole("radio").first().waitFor({ timeout: 20_000 });
+    await page.getByRole("button", { name: "Signaler un problème" }).click();
+    await page.getByRole("button", { name: "Problème audio" }).click();
+    await page.getByLabel("Détails du signalement").fill("L'audio semble coupé à la fin.");
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByText(/votre signalement a été envoyé/i).first()).toBeVisible({
+      timeout: 15_000,
+    });
+  });
 });

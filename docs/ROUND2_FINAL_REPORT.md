@@ -24,7 +24,7 @@ stands in for evidence.
 | 14 | Lint | pass | `pnpm lint` |
 | 15 | Unit tests | **60 passed** | `pnpm test` |
 | 16 | Integration tests | **4 passed** | `pnpm test:integration` |
-| 17 | All E2E pass | **30 passed** (chromium+mobile+webkit) | `pnpm test:e2e` |
+| 17 | All E2E pass | **27 passed** (chromium+mobile+webkit) | `pnpm test:e2e` |
 | 18 | Production build | pass | `pnpm build` |
 | 19 | Clean setup from scratch | pass | `pnpm run setup` (reseed verified) |
 | 20 | Pushed to GitHub | ✅ `origin/main` | `git push` |
@@ -56,6 +56,8 @@ stands in for evidence.
   flow), **DB-backed** persistent rate limiter, Stripe webhook (idempotent) + subscription cancel,
   health/readiness endpoints, structured logging, startup env validation, error boundary +
   global-error + 404, recording cleanup on account deletion, backup/restore + retention docs.
+  The **issue-report workflow** is now end-to-end: a learner "Signaler un problème" control on
+  every practice question writes to `issue_reports`, surfaced in the admin reports queue.
 
 ## Actual content (audited)
 
