@@ -73,21 +73,26 @@ export async function startCustomPractice(cfg: CustomConfig): Promise<never> {
   const blocked = await checkPracticeAllowed(actor, plan);
   if (blocked) redirect("/pricing?reason=daily_limit");
 
-  const id = await createSession(actor, {
-    mode: "custom",
-    config: cfg as Record<string, unknown>,
-    instantFeedback: cfg.instantFeedback ?? !cfg.timed,
-    timed: cfg.timed ?? false,
-    durationSeconds: cfg.timed ? cfg.count * 60 : null,
-    selection: {
-      skills: cfg.skills,
-      count: Math.min(60, Math.max(1, cfg.count)),
-      cefrLevels: cfg.cefrLevels,
-      subtypes: cfg.subtypes,
-      topics: cfg.topics,
-      source: cfg.source ?? "mixed",
-    },
-  });
+  let id: string;
+  try {
+    id = await createSession(actor, {
+      mode: "custom",
+      config: cfg as unknown as Record<string, unknown>,
+      instantFeedback: cfg.instantFeedback ?? !cfg.timed,
+      timed: cfg.timed ?? false,
+      durationSeconds: cfg.timed ? cfg.count * 60 : null,
+      selection: {
+        skills: cfg.skills.length ? cfg.skills : ["listening", "reading"],
+        count: Math.min(60, Math.max(1, cfg.count)),
+        cefrLevels: cfg.cefrLevels,
+        subtypes: cfg.subtypes,
+        topics: cfg.topics,
+        source: cfg.source ?? "mixed",
+      },
+    });
+  } catch {
+    redirect("/practice/custom?empty=1");
+  }
   redirect(`/practice/session/${id}`);
 }
 
