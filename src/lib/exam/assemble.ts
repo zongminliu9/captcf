@@ -49,6 +49,13 @@ const SECTION_TARGET: [CefrLevel, number][] = [
 
 const byCefr = (a: string, b: string) => CEFR_ORDER[a as CefrLevel] - CEFR_ORDER[b as CefrLevel];
 
+/**
+ * Build `formCount` QCM sections, consuming items WITHOUT replacement so that no item
+ * appears in more than one form (true non-overlap). Each form targets the progressive CEFR
+ * distribution. If a level runs dry, we borrow the nearest-level unused item (still never
+ * reusing anything) and warn. Only if the whole bank is exhausted do we fall back to reuse
+ * (recorded in `usage`), which shouldn't happen once the bank is large enough (≥156/skill).
+ */
 function pickQcmSection(
   bank: QcmRef[],
   formCount: number,
@@ -62,59 +69,47 @@ function pickQcmSection(
     arr.push(it);
     byLevel.set(it.cefrLevel, arr);
   }
-  // stable order within each level (by id) for determinism
   for (const arr of byLevel.values()) arr.sort((a, b) => (a.id < b.id ? -1 : 1));
-
   const levelsAsc = [...byLevel.keys()].sort(byCefr);
-  const nearestPool = (level: CefrLevel): QcmRef[] => {
-    if (byLevel.get(level)?.length) return byLevel.get(level)!;
-    // fall back to the nearest non-empty level
-    let best: QcmRef[] | null = null;
-    let bestDist = Number.POSITIVE_INFINITY;
-    for (const l of levelsAsc) {
-      const d = Math.abs(CEFR_ORDER[l] - CEFR_ORDER[level]);
-      if (byLevel.get(l)!.length && d < bestDist) {
-        bestDist = d;
-        best = byLevel.get(l)!;
-      }
+
+  const used = new Set<string>();
+  const pointer = new Map<CefrLevel, number>();
+
+  // next unused item of exactly `level`, advancing that level's pointer
+  const takeExact = (level: CefrLevel): QcmRef | null => {
+    const pool = byLevel.get(level) ?? [];
+    let p = pointer.get(level) ?? 0;
+    while (p < pool.length && used.has(pool[p]!.id)) p++;
+    pointer.set(level, p + 1);
+    return p < pool.length ? pool[p]! : null;
+  };
+  // nearest-level unused item (for shortfalls) — still never reuses
+  const takeNearest = (level: CefrLevel): QcmRef | null => {
+    const order = [...levelsAsc].sort(
+      (a, b) => Math.abs(CEFR_ORDER[a] - CEFR_ORDER[level]) - Math.abs(CEFR_ORDER[b] - CEFR_ORDER[level]),
+    );
+    for (const l of order) {
+      const pool = byLevel.get(l) ?? [];
+      for (const cand of pool) if (!used.has(cand.id)) return cand;
     }
-    if (best) warnings.push(`${label}: no ${level} items, substituted nearest level`);
-    return best ?? bank;
+    return null;
   };
 
   const forms: string[][] = [];
   for (let f = 0; f < formCount; f++) {
     const chosen: { id: string; cefrLevel: CefrLevel }[] = [];
-    const inThisForm = new Set<string>();
     for (const [level, count] of SECTION_TARGET) {
-      const pool = nearestPool(level);
       for (let k = 0; k < count; k++) {
-        // least-used item in the pool not already in this form
-        let best: QcmRef | null = null;
-        let bestUse = Number.POSITIVE_INFINITY;
-        for (const cand of pool) {
-          if (inThisForm.has(cand.id)) continue;
-          const u = usage.get(cand.id) ?? 0;
-          if (u < bestUse) {
-            bestUse = u;
-            best = cand;
-          }
+        let pick = takeExact(level) ?? takeNearest(level);
+        if (!pick && bank.length) {
+          // whole bank exhausted → controlled reuse (last resort)
+          pick = bank.reduce((a, b) => ((usage.get(a.id) ?? 0) <= (usage.get(b.id) ?? 0) ? a : b));
+          warnings.push(`${label}: bank too small for non-overlapping forms — reused ${pick.id}`);
         }
-        if (!best) {
-          // pool exhausted for this form → allow any least-used from whole bank
-          for (const cand of bank) {
-            if (inThisForm.has(cand.id)) continue;
-            const u = usage.get(cand.id) ?? 0;
-            if (u < bestUse) {
-              bestUse = u;
-              best = cand;
-            }
-          }
-        }
-        if (!best) break;
-        inThisForm.add(best.id);
-        usage.set(best.id, (usage.get(best.id) ?? 0) + 1);
-        chosen.push({ id: best.id, cefrLevel: best.cefrLevel });
+        if (!pick) break;
+        used.add(pick.id);
+        usage.set(pick.id, (usage.get(pick.id) ?? 0) + 1);
+        chosen.push({ id: pick.id, cefrLevel: pick.cefrLevel });
       }
     }
     chosen.sort((a, b) => byCefr(a.cefrLevel, b.cefrLevel));

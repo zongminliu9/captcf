@@ -22,9 +22,11 @@ import { type CefrLevel, EXAM_SPEC, SPEC_VERSION } from "@/lib/exam/config";
  * Seed the database from the audited content bank. Idempotent (upserts by id; rebuilds
  * mock forms + options in place). Creates dev demo accounts unless NODE_ENV=production.
  */
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { eq, inArray, sql } from "drizzle-orm";
 import { loadContent } from "./content/lib/load-files";
-import { loadEnv } from "./lib/env";
+import { loadEnv, projectRoot } from "./lib/env";
 
 loadEnv();
 
@@ -38,6 +40,12 @@ async function seedContent() {
   const c = loadContent();
   const now = new Date();
 
+  // audio QA manifest (quality tier + metrics per clip)
+  const manifestPath = resolve(projectRoot, "public/audio/manifest.json");
+  const manifest: Record<string, any> = existsSync(manifestPath)
+    ? JSON.parse(readFileSync(manifestPath, "utf8"))
+    : {};
+
   // audio assets (listening)
   const audioRows = c.listening
     .filter((l) => l.audio.file)
@@ -45,9 +53,11 @@ async function seedContent() {
       id: l.id,
       file: l.audio.file!,
       durationSeconds: String(l.audio.durationSeconds ?? 0),
-      textHash: l.id,
+      textHash: manifest[l.id]?.textHash ?? l.id,
       voices: [...new Set(l.audio.lines.map((x) => x.voice))],
       status: "generated",
+      quality: manifest[l.id]?.quality ?? "prototype_tts",
+      qa: manifest[l.id]?.qa ?? null,
     }));
   await chunk(audioRows, 200, async (batch) => {
     await db
@@ -59,6 +69,8 @@ async function seedContent() {
           file: sql`excluded.file`,
           durationSeconds: sql`excluded.duration_seconds`,
           voices: sql`excluded.voices`,
+          quality: sql`excluded.quality`,
+          qa: sql`excluded.qa`,
         },
       });
   });

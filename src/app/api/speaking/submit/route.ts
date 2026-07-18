@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
   const avgVolume = Number(form.get("avgVolume") ?? 0);
   const silenceRatio = Number(form.get("silenceRatio") ?? 0);
   const coveredPoints = Number(form.get("coveredPoints") ?? 0);
+  const sessionId = form.get("sessionId") ? String(form.get("sessionId")) : null;
 
   if (!(file instanceof File)) return NextResponse.json({ error: "no_audio" }, { status: 400 });
   if (!file.type.startsWith("audio/") && !file.type.startsWith("video/")) {
@@ -33,6 +34,7 @@ export async function POST(req: NextRequest) {
     .values({
       ...ownerValues(actor),
       taskId,
+      sessionId,
       durationSeconds: String(durationSeconds),
       status: "submitted",
       submittedAt: new Date(),

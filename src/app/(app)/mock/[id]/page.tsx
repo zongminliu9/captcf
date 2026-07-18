@@ -61,9 +61,10 @@ export default async function MockOverviewPage({ params }: { params: Promise<{ i
       </div>
 
       <Alert tone="info" className="mt-5" icon={<Headphones className="h-4 w-4" />}>
-        L'entraînement chronométré couvre les sections auto-corrigées (compréhension orale et
-        écrite). Les épreuves d'expression écrite et orale se réalisent avec leurs outils dédiés et
-        s'ajoutent à votre bilan.
+        Examen complet en 4 épreuves enchaînées dans une seule session : écoute, lecture, écrit et
+        oral. Chaque épreuve est chronométrée séparément (le chrono ne se réinitialise pas si vous
+        rechargez la page). Écoute et lecture sont corrigées automatiquement ; écrit et oral
+        reçoivent une auto-évaluation locale. Le tout forme un bilan unique.
       </Alert>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -75,16 +76,10 @@ export default async function MockOverviewPage({ params }: { params: Promise<{ i
           <Button asChild variant="primary">
             {/* plain <a> so the route handler can set the guest cookie */}
             <a href={`/mock/${form.id}/begin`}>
-              <Clock className="h-4 w-4" /> Commencer l'examen <ArrowRight className="h-4 w-4" />
+              <Clock className="h-4 w-4" /> Commencer l'examen complet <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
         )}
-        <Button asChild variant="outline">
-          <Link href="/writing">Faire l'expression écrite</Link>
-        </Button>
-        <Button asChild variant="outline">
-          <Link href="/speaking">Faire l'expression orale</Link>
-        </Button>
       </div>
 
       <p className="mt-4 flex items-center gap-1.5 text-xs text-faint">

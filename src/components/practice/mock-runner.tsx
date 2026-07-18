@@ -1,99 +1,63 @@
 "use client";
+import { AlertTriangle, ChevronLeft, ChevronRight, Clock } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { advanceMock, answerMock, startMockSectionAction } from "@/app/(app)/mock/actions";
 import { useToast } from "@/components/toast";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { formatClock } from "@/lib/exam/timer";
-import type { ClientQuestion } from "@/lib/practice/questions";
+import type { MockState } from "@/lib/practice/mock";
 import { cn } from "@/lib/utils";
-import { AlertTriangle, ChevronLeft, ChevronRight, Clock } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
+import { MockSpeakingSection } from "./mock-speaking-section";
+import { MockWritingSection } from "./mock-writing-section";
 import { QuestionCard } from "./question-card";
 
-interface MockRunnerProps {
-  sessionId: string;
-  mockTitle: string;
-  sectionIndex: number;
-  totalSections: number;
-  section: {
-    skill: string;
-    label: string;
-    durationSeconds: number;
-    remainingSeconds: number;
-    started: boolean;
-    questions: ClientQuestion[];
-    answered: { refId: string; selectedAnswer: string | null }[];
-  };
-}
+type Section = NonNullable<MockState["section"]>;
 
 export function MockRunner({
   sessionId,
   mockTitle,
   sectionIndex,
   totalSections,
+  sectionLabels,
   section,
-}: MockRunnerProps) {
+}: {
+  sessionId: string;
+  mockTitle: string;
+  sectionIndex: number;
+  totalSections: number;
+  sectionLabels: string[];
+  section: Section;
+}) {
   const router = useRouter();
-  const toast = useToast();
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string | null>>(
-    Object.fromEntries(section.answered.map((a) => [a.refId, a.selectedAnswer])),
-  );
   const [remaining, setRemaining] = useState(section.remainingSeconds);
+  const [expired, setExpired] = useState(false);
   const [, startTx] = useTransition();
-  const [finishing, setFinishing] = useState(false);
   const startedRef = useRef(Date.now());
-  const finishedRef = useRef(false);
 
-  // server-authoritative snapshot; count down locally from it
   useEffect(() => {
     if (!section.started) return;
     const base = section.remainingSeconds;
     const id = setInterval(() => {
-      const elapsed = Math.round((Date.now() - startedRef.current) / 1000);
-      const left = Math.max(0, base - elapsed);
+      const left = Math.max(0, base - Math.round((Date.now() - startedRef.current) / 1000));
       setRemaining(left);
-      if (left <= 0 && !finishedRef.current) {
-        finishedRef.current = true;
-        finishSection(true);
+      if (left <= 0) {
+        setExpired(true);
+        clearInterval(id);
       }
     }, 500);
     return () => clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [section.started, section.remainingSeconds]);
 
-  const beginSection = () => {
+  const beginSection = () =>
     startTx(async () => {
       await startMockSectionAction(sessionId);
       router.refresh();
     });
-  };
 
-  const finishSection = (expired = false) => {
-    setFinishing(true);
-    startTx(async () => {
-      if (expired) toast("Temps écoulé — passage à la suite.", "info");
-      const res = await advanceMock(sessionId);
-      if (res.done && res.attemptId) router.push(`/attempts/${res.attemptId}/results`);
-      else router.refresh();
-    });
-  };
-
-  const onSelect = (refId: string, optionId: string) => {
-    setAnswers((a) => ({ ...a, [refId]: optionId }));
-    const responseMs = Date.now() - startedRef.current;
-    startTx(async () => {
-      try {
-        await answerMock(sessionId, { refId, selectedAnswer: optionId, responseMs });
-      } catch {
-        toast("Enregistrement impossible.", "error");
-      }
-    });
-  };
-
-  // ── section start gate ──
+  // start gate
   if (!section.started) {
     return (
       <div className="mx-auto max-w-lg px-4 py-10">
@@ -103,16 +67,25 @@ export function MockRunner({
           </Badge>
           <h1 className="display mt-4 text-2xl">{section.label}</h1>
           <p className="mt-2 text-sm text-muted">
-            {section.questions.length} questions · {Math.round(section.durationSeconds / 60)}{" "}
-            minutes.
-            {section.skill === "listening"
-              ? " Chaque audio se joue un nombre limité de fois, comme à l'examen."
-              : ""}
+            {sectionDescription(section)} · {Math.round(section.durationSeconds / 60)} minutes.
           </p>
           <p className="mt-3 text-xs text-faint">
             Le chronomètre démarre dès que vous commencez et ne se réinitialise pas si vous
-            rechargez la page.
+            rechargez la page. Une section terminée ne peut pas être rouverte.
           </p>
+          <ol className="mx-auto mt-4 flex max-w-xs flex-wrap justify-center gap-1.5 text-xs">
+            {sectionLabels.map((l, i) => (
+              <li
+                key={l}
+                className={cn(
+                  "rounded-full px-2 py-0.5",
+                  i < sectionIndex ? "bg-success-50 text-success" : i === sectionIndex ? "bg-navy-50 text-navy" : "bg-surface-2 text-muted",
+                )}
+              >
+                {i + 1}. {l}
+              </li>
+            ))}
+          </ol>
           <Button variant="primary" className="mt-6" onClick={beginSection}>
             Commencer la section
           </Button>
@@ -121,48 +94,136 @@ export function MockRunner({
     );
   }
 
-  const q = section.questions[index]!;
-  const answeredCount = Object.values(answers).filter((v) => v != null).length;
   const low = remaining <= 60;
+  const Timer = (
+    <div className="sticky top-14 z-10 mb-4 flex items-center justify-between rounded-[var(--radius-sm)] border border-border bg-canvas/90 px-4 py-2.5 backdrop-blur">
+      <div className="text-sm">
+        <span className="font-medium">{section.label}</span>
+        <span className="text-muted"> · section {sectionIndex + 1}/{totalSections}</span>
+      </div>
+      <div
+        className={cn("flex items-center gap-1.5 font-mono text-lg font-semibold tabular-nums", low ? "text-danger" : "text-ink")}
+        role="timer"
+        aria-live="off"
+      >
+        {low && <AlertTriangle className="h-4 w-4" />}
+        <Clock className="h-4 w-4" />
+        {formatClock(remaining)}
+      </div>
+    </div>
+  );
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-4 sm:py-6">
-      {/* sticky exam bar */}
-      <div className="sticky top-14 z-10 mb-4 flex items-center justify-between rounded-[var(--radius-sm)] border border-border bg-canvas/90 px-4 py-2.5 backdrop-blur">
-        <div className="text-sm">
-          <span className="font-medium">{section.label}</span>
-          <span className="text-muted">
-            {" "}
-            · {answeredCount}/{section.questions.length}
-          </span>
-        </div>
-        <div
-          className={cn(
-            "flex items-center gap-1.5 font-mono text-lg font-semibold tabular-nums",
-            low ? "text-danger" : "text-ink",
-          )}
-          role="timer"
-          aria-live="off"
-        >
-          {low && <AlertTriangle className="h-4 w-4" />}
-          <Clock className="h-4 w-4" />
-          {formatClock(remaining)}
-        </div>
-      </div>
+      {Timer}
+      {section.kind === "qcm" && (
+        <QcmBody
+          sessionId={sessionId}
+          section={section}
+          expired={expired}
+          sectionIndex={sectionIndex}
+          totalSections={totalSections}
+        />
+      )}
+      {section.kind === "writing" && (
+        <MockWritingSection
+          sessionId={sessionId}
+          tasks={section.writingTasks ?? []}
+          expired={expired}
+          totalSections={totalSections}
+          sectionIndex={sectionIndex}
+        />
+      )}
+      {section.kind === "speaking" && (
+        <MockSpeakingSection
+          sessionId={sessionId}
+          tasks={section.speakingTasks ?? []}
+          expired={expired}
+          totalSections={totalSections}
+          sectionIndex={sectionIndex}
+        />
+      )}
+    </div>
+  );
+}
 
+function sectionDescription(section: Section): string {
+  if (section.kind === "qcm") {
+    return `${section.questions?.length ?? 0} questions${section.skill === "listening" ? " · audio à écoutes limitées" : ""}`;
+  }
+  if (section.kind === "writing") return `${section.writingTasks?.length ?? 0} tâches d'expression écrite`;
+  return `${section.speakingTasks?.length ?? 0} tâches d'expression orale`;
+}
+
+function QcmBody({
+  sessionId,
+  section,
+  expired,
+  sectionIndex,
+  totalSections,
+}: {
+  sessionId: string;
+  section: Section;
+  expired: boolean;
+  sectionIndex: number;
+  totalSections: number;
+}) {
+  const router = useRouter();
+  const toast = useToast();
+  const questions = section.questions ?? [];
+  const [index, setIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string | null>>(
+    Object.fromEntries((section.answered ?? []).map((a) => [a.refId, a.selectedAnswer])),
+  );
+  const [finishing, setFinishing] = useState(false);
+  const startedRef = useRef(Date.now());
+  const doneRef = useRef(false);
+
+  const finish = async () => {
+    if (doneRef.current) return;
+    doneRef.current = true;
+    setFinishing(true);
+    try {
+      const res = await advanceMock(sessionId);
+      if (res.done && res.attemptId) router.push(`/attempts/${res.attemptId}/results`);
+      else router.refresh();
+    } catch {
+      toast("Échec.", "error");
+      doneRef.current = false;
+      setFinishing(false);
+    }
+  };
+  // biome-ignore lint/correctness/useExhaustiveDependencies: fire once on expiry
+  useEffect(() => {
+    if (expired) finish();
+  }, [expired]);
+
+  const onSelect = (refId: string, optionId: string) => {
+    setAnswers((a) => ({ ...a, [refId]: optionId }));
+    const responseMs = Date.now() - startedRef.current;
+    void answerMock(sessionId, { refId, selectedAnswer: optionId, responseMs }).catch(() =>
+      toast("Enregistrement impossible.", "error"),
+    );
+  };
+
+  const q = questions[index]!;
+  const answeredCount = Object.values(answers).filter((v) => v != null).length;
+  const isLast = sectionIndex + 1 >= totalSections;
+
+  return (
+    <>
       <QuestionCard
         q={q}
         index={index}
-        total={section.questions.length}
+        total={questions.length}
         selected={answers[q.refId] ?? null}
         locked={false}
         onSelect={(opt) => onSelect(q.refId, opt)}
         allowTranscript={false}
         audioMaxPlays={section.skill === "listening" ? 2 : undefined}
       />
-
       <div className="mt-6 flex flex-wrap gap-1.5" aria-label="Navigation des questions">
-        {section.questions.map((qq, i) => (
+        {questions.map((qq, i) => (
           <button
             key={qq.refId}
             type="button"
@@ -177,35 +238,23 @@ export function MockRunner({
           />
         ))}
       </div>
-
       <div className="mt-6 flex items-center justify-between gap-3">
-        <Button
-          variant="ghost"
-          onClick={() => setIndex((i) => Math.max(0, i - 1))}
-          disabled={index === 0}
-        >
+        <Button variant="ghost" onClick={() => setIndex((i) => Math.max(0, i - 1))} disabled={index === 0}>
           <ChevronLeft className="h-4 w-4" /> Précédent
         </Button>
-        {index < section.questions.length - 1 ? (
+        {index < questions.length - 1 ? (
           <Button variant="outline" onClick={() => setIndex((i) => i + 1)}>
             Suivant <ChevronRight className="h-4 w-4" />
           </Button>
         ) : (
-          <Button variant="primary" onClick={() => finishSection(false)} disabled={finishing}>
-            {finishing
-              ? "…"
-              : sectionIndex + 1 < totalSections
-                ? "Section suivante"
-                : "Terminer l'examen"}
+          <Button variant="primary" onClick={finish} disabled={finishing}>
+            {finishing ? "…" : isLast ? "Terminer l'examen" : "Section suivante"}
           </Button>
         )}
       </div>
-
-      {answeredCount < section.questions.length && index === section.questions.length - 1 && (
-        <p className="mt-3 text-center text-xs text-muted">
-          {section.questions.length - answeredCount} question(s) sans réponse.
-        </p>
-      )}
-    </div>
+      <p className="mt-3 text-center text-xs text-muted">
+        {answeredCount}/{questions.length} répondues
+      </p>
+    </>
   );
 }

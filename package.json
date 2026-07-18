@@ -31,9 +31,10 @@
     "content:audit": "tsx scripts/content/audit.ts --require-audio",
     "content:dedupe": "tsx scripts/content/dedupe.ts",
     "content:audio": "tsx scripts/content/audio.ts",
+    "content:audio:qa": "tsx scripts/content/audio-qa.ts",
     "setup": "tsx scripts/setup.ts",
     "demo": "tsx scripts/demo.ts",
-    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm content:audit && pnpm build"
+    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm content:audit && pnpm content:audio:qa && pnpm build"
   },
   "dependencies": {
     "next": "16.2.10",

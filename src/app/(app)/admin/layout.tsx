@@ -1,10 +1,11 @@
 import { requireAdmin } from "@/lib/auth/admin";
-import { FileUp, LayoutList, ListChecks, ShieldCheck } from "lucide-react";
+import { FileUp, Headphones, LayoutList, ListChecks, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 const TABS = [
   { href: "/admin", label: "Vue d'ensemble", icon: ShieldCheck },
   { href: "/admin/questions", label: "Questions", icon: LayoutList },
+  { href: "/admin/audio", label: "Audio QA", icon: Headphones },
   { href: "/admin/import", label: "Importer", icon: FileUp },
   { href: "/admin/reports", label: "Signalements", icon: ListChecks },
 ];

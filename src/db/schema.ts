@@ -184,6 +184,9 @@ export const audioAssets = pgTable("audio_assets", {
   textHash: text("text_hash").notNull(),
   voices: jsonb("voices").$type<unknown>().notNull(),
   status: text("status").notNull().default("generated"),
+  // QA tier: prototype_tts | reviewed_tts | premium_ready | rejected
+  quality: text("quality").notNull().default("prototype_tts"),
+  qa: jsonb("qa").$type<unknown>(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

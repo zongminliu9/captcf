@@ -25,6 +25,7 @@ export default async function MockRunPage({ params }: { params: Promise<{ id: st
       mockTitle={state.mockTitle}
       sectionIndex={state.sectionIndex}
       totalSections={state.totalSections}
+      sectionLabels={state.sectionLabels}
       section={state.section!}
     />
   );

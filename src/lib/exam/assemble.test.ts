@@ -18,9 +18,10 @@ function makeTasks(prefix: string, perTask: number): TaskRef[] {
 }
 
 describe("assembleMocks", () => {
+  // ≥156/skill so 4 forms can be fully non-overlapping (39×4 = 156)
   const bank = {
-    listening: makeQcm("l", 20),
-    reading: makeQcm("r", 22),
+    listening: makeQcm("l", 30),
+    reading: makeQcm("r", 30),
     writing: makeTasks("w", 15),
     speaking: makeTasks("s", 15),
   };
@@ -56,9 +57,14 @@ describe("assembleMocks", () => {
     expect(new Set(allWriting).size).toBe(allWriting.length);
   });
 
-  it("bounds reuse and reports overlap", () => {
-    expect(result.overlap.listeningMaxUses).toBeLessThanOrEqual(2);
-    expect(result.overlap.readingMaxUses).toBeLessThanOrEqual(2);
+  it("produces NON-overlapping CO/CE across forms (each item used once)", () => {
+    expect(result.overlap.listeningMaxUses).toBe(1);
+    expect(result.overlap.readingMaxUses).toBe(1);
+    expect(result.overlap.listeningDistinct).toBe(156);
+    expect(result.overlap.readingDistinct).toBe(156);
+    // no listening id shared between any two forms
+    const all = result.forms.flatMap((f) => f.listening);
+    expect(new Set(all).size).toBe(all.length);
   });
 
   it("is deterministic", () => {

@@ -38,6 +38,28 @@ type Item = {
   audio: { context: string; lines: Line[]; file: string | null; durationSeconds: number | null };
 };
 
+export type AudioQuality = "prototype_tts" | "reviewed_tts" | "premium_ready" | "rejected";
+
+/**
+ * Automatic technical QA tier for a generated (TTS) clip. `premium_ready` is reserved for
+ * explicit human approval in the admin QA queue — automation tops out at `reviewed_tts`.
+ * Honestly reflects synthesised audio; not human-recorded.
+ */
+export function gradeAudio(m: any, distinctVoices: number, lineCount: number): AudioQuality {
+  const dur = Number(m.duration ?? 0);
+  const rms = Number(m.rms ?? 0);
+  const peak = Number(m.peak ?? 0);
+  const maxGap = Number(m.maxGap ?? 0);
+  const lead = Number(m.leadingSilence ?? 0);
+  const trail = Number(m.trailingSilence ?? 0);
+  // hard reject: too short, near-silent, or an unnatural long internal gap
+  if (dur < 2.5 || rms < 0.012 || peak < 0.05 || maxGap > 4) return "rejected";
+  const enoughVoices = lineCount >= 2 ? distinctVoices >= 2 : true;
+  const clean = rms >= 0.05 && rms <= 0.6 && lead <= 1.2 && trail <= 1.6 && maxGap <= 2.2;
+  if (clean && enoughVoices) return "reviewed_tts";
+  return "prototype_tts";
+}
+
 function hashItem(item: Item): string {
   const payload = item.audio.lines.map((l) => `${l.voice}|${l.rate ?? ""}|${l.text}`).join("‖");
   return createHash("sha256").update(payload).digest("hex").slice(0, 16);
@@ -75,10 +97,9 @@ function main() {
   const items: Item[] = JSON.parse(readFileSync(CONTENT, "utf8"));
   mkdirSync(AUDIO_DIR, { recursive: true });
   mkdirSync(TMP, { recursive: true });
-  const manifest: Record<
-    string,
-    { file: string; duration: number; textHash: string; voices: string[]; status: string }
-  > = existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, "utf8")) : {};
+  const manifest: Record<string, any> = existsSync(MANIFEST)
+    ? JSON.parse(readFileSync(MANIFEST, "utf8"))
+    : {};
 
   let generated = 0;
   let skipped = 0;
@@ -120,7 +141,13 @@ function main() {
       console.warn(`  ✗ ${item.id}: concat failed ${concat.stderr}`);
       continue;
     }
-    const duration = Number.parseFloat((concat.stdout || "0").trim());
+    let metrics: any = {};
+    try {
+      metrics = JSON.parse((concat.stdout || "{}").trim());
+    } catch {
+      metrics = { duration: 0 };
+    }
+    const duration = Number(metrics.duration ?? 0);
 
     const conv = spawnSync(
       "afconvert",
@@ -133,6 +160,10 @@ function main() {
       continue;
     }
 
+    const distinctVoices = new Set(item.audio.lines.map((l) => l.voice)).size;
+    const lineCount = item.audio.lines.length;
+    const quality = gradeAudio(metrics, distinctVoices, lineCount);
+
     item.audio.file = rel;
     item.audio.durationSeconds = Math.round(duration);
     manifest[item.id] = {
@@ -141,6 +172,17 @@ function main() {
       textHash,
       voices: [...new Set(item.audio.lines.map((l) => l.voice))],
       status: "generated",
+      quality,
+      qa: {
+        rms: metrics.rms ?? 0,
+        peak: metrics.peak ?? 0,
+        leadingSilence: metrics.leadingSilence ?? 0,
+        trailingSilence: metrics.trailingSilence ?? 0,
+        maxGap: metrics.maxGap ?? 0,
+        gain: metrics.gain ?? 1,
+        distinctVoices,
+        lineCount,
+      },
     };
     generated++;
     // cleanup per-item temp

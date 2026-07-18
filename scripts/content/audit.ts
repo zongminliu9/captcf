@@ -12,6 +12,7 @@ import {
   writingTaskSchema,
 } from "@/lib/content/schema";
 import { CEFR_LEVELS } from "@/lib/exam/config";
+import { assembleMocks } from "@/lib/exam/assemble";
 import { loadEnv, projectRoot } from "../lib/env";
 import { jaccardDuplicates, normText } from "./lib/dedupe-lib";
 import { loadContent } from "./lib/load-files";
@@ -169,6 +170,24 @@ async function main() {
   );
   for (const [a, b, s] of [...dupL, ...dupR])
     warn(a, `near-duplicate of ${b} (Jaccard ${s.toFixed(2)})`);
+
+  // mock assembly must be NON-OVERLAPPING across the 4 forms (any reuse = critical error)
+  const publishedL = c.listening.filter((x: any) => x.status === "published");
+  const publishedR = c.reading.filter((x: any) => x.status === "published");
+  const asm = assembleMocks(
+    {
+      listening: publishedL.map((x: any) => ({ id: x.id, cefrLevel: x.cefrLevel })),
+      reading: publishedR.map((x: any) => ({ id: x.id, cefrLevel: x.cefrLevel })),
+      writing: c.writing.filter((x: any) => x.status === "published").map((x: any) => ({ id: x.id, taskNumber: x.taskNumber })),
+      speaking: c.speaking.filter((x: any) => x.status === "published").map((x: any) => ({ id: x.id, taskNumber: x.taskNumber })),
+    },
+    4,
+  );
+  if (asm.overlap.listeningMaxUses > 1)
+    err("mocks", `listening item reused across forms (max uses ${asm.overlap.listeningMaxUses}) — need ≥156 published listening`);
+  if (asm.overlap.readingMaxUses > 1)
+    err("mocks", `reading item reused across forms (max uses ${asm.overlap.readingMaxUses}) — need ≥156 published reading`);
+  for (const w of asm.warnings) warn("mocks", w);
 
   // reports
   const docs = resolve(projectRoot, "docs/content");

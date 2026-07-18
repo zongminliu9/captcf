@@ -1,6 +1,6 @@
 "use server";
 import { db } from "@/db";
-import { issueReports, options, questionVersions, questions } from "@/db/schema";
+import { audioAssets, issueReports, options, questionVersions, questions } from "@/db/schema";
 import { requireAdmin } from "@/lib/auth/admin";
 import { readingItemSchema } from "@/lib/content/schema";
 import { eq, inArray } from "drizzle-orm";
@@ -161,6 +161,15 @@ export async function importContent(json: string, commit: boolean): Promise<Impo
   });
   result.inserted = validItems.length;
   return result;
+}
+
+export async function setAudioQuality(
+  id: string,
+  quality: "prototype_tts" | "reviewed_tts" | "premium_ready" | "rejected",
+): Promise<{ ok: true }> {
+  await requireAdmin();
+  await db.update(audioAssets).set({ quality }).where(eq(audioAssets.id, id));
+  return { ok: true };
 }
 
 export async function resolveReport(

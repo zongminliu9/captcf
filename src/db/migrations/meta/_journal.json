@@ -8,6 +8,13 @@
       "when": 1784365408059,
       "tag": "0000_solid_dreadnoughts",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1784386020583,
+      "tag": "0001_awesome_prima",
+      "breakpoints": true
     }
   ]
 }

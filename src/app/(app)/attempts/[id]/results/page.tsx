@@ -24,6 +24,19 @@ interface PerSkill {
   estimate: ScoreEstimate;
 }
 
+interface ProductiveEntry {
+  kind: "productive";
+  tasks: number;
+  band: number;
+  cefr: string;
+  nclc: number;
+  source: string;
+}
+
+function isProductive(v: PerSkill | ProductiveEntry): v is ProductiveEntry {
+  return (v as ProductiveEntry).kind === "productive";
+}
+
 export default async function ResultsPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const actor = await getActor();
@@ -60,14 +73,17 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
     return { question: q, selected: r?.selectedAnswer ?? null, correct: r?.correct ?? null };
   });
 
-  const perSkill = attempt.perSkill as Record<string, PerSkill>;
-  const skills = Object.keys(perSkill) as SkillId[];
+  const perSkill = attempt.perSkill as Record<string, PerSkill | ProductiveEntry>;
+  const allKeys = Object.keys(perSkill) as SkillId[];
+  const qcmSkills = allKeys.filter((s) => !isProductive(perSkill[s]!));
+  const productiveSkills = allKeys.filter((s) => isProductive(perSkill[s]!));
+  const isMock = attempt.mode === "mock";
   const answeredCount = entries.filter((e) => e.selected != null).length;
   const overallAccuracy = answeredCount ? attempt.correctItems / answeredCount : 0;
 
-  // weakest skill for the "next" nudge
-  const weakest = skills
-    .map((s) => ({ s, acc: perSkill[s]!.estimate.accuracy }))
+  // weakest QCM skill for the "next" nudge
+  const weakest = qcmSkills
+    .map((s) => ({ s, acc: (perSkill[s] as PerSkill).estimate.accuracy }))
     .sort((a, b) => a.acc - b.acc)[0];
 
   return (
@@ -78,15 +94,16 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
           {attempt.correctItems}/{entries.filter((e) => e.selected != null).length} correctes
         </Badge>
       </div>
-      <h1 className="display text-3xl">Votre analyse</h1>
+      <h1 className="display text-3xl">{isMock ? "Résultats de l'examen blanc" : "Votre analyse"}</h1>
       <p className="mt-2 text-sm text-muted">
         Précision globale {pct(overallAccuracy)} sur {answeredCount} question(s) répondue(s).
+        {isMock && " Les épreuves écrite et orale sont évaluées localement (auto-évaluation)."}
       </p>
 
-      {/* per-skill estimates */}
+      {/* auto-scored (QCM) estimates */}
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        {skills.map((skill) => {
-          const ps = perSkill[skill]!;
+        {qcmSkills.map((skill) => {
+          const ps = perSkill[skill] as PerSkill;
           const est = ps.estimate;
           return (
             <Card key={skill} className="p-5">
@@ -118,6 +135,37 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
           );
         })}
       </div>
+
+      {/* productive (writing/speaking) local self-evaluation */}
+      {productiveSkills.length > 0 && (
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          {productiveSkills.map((skill) => {
+            const p = perSkill[skill] as ProductiveEntry;
+            return (
+              <Card key={skill} className="p-5">
+                <div className="flex items-center justify-between">
+                  <h2 className="font-semibold">{EXAM_SPEC[skill].labelFr}</h2>
+                  <Badge variant="warning" size="sm">
+                    auto-évaluation locale
+                  </Badge>
+                </div>
+                <div className="mt-3 flex items-end gap-3">
+                  <div className="text-3xl font-semibold text-navy tabular-nums">{p.band}</div>
+                  <div className="pb-1 text-sm text-muted">/ 20</div>
+                  <div className="ml-auto text-right">
+                    <div className="text-sm font-medium">{p.cefr === "below-A1" ? "—" : p.cefr}</div>
+                    <div className="text-xs text-muted">NCLC {p.nclc || "—"}</div>
+                  </div>
+                </div>
+                <Meter className="mt-3" value={p.band / 20} tone="gold" label={`${p.tasks} tâche(s)`} showValue />
+                <p className="mt-2 text-xs text-faint">
+                  Estimation locale non officielle (sans IA/reconnaissance vocale).
+                </p>
+              </Card>
+            );
+          })}
+        </div>
+      )}
 
       {/* next steps */}
       <Card className="mt-6 flex flex-col gap-3 p-5 sm:flex-row sm:items-center" raised>
