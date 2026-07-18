@@ -37,7 +37,7 @@ export interface ScoreEstimate {
 }
 
 const DISCLAIMER =
-  "Unofficial practice estimate based on this session only. It reflects the current exam structure but does not replace an official TCF Canada result.";
+  "Estimation d'entraînement non officielle, fondée sur cette séance. Elle reflète la structure actuelle de l'examen mais ne remplace pas un résultat officiel du TCF Canada.";
 
 /**
  * Difficulty-weighted estimate: a correct item pulls the estimate toward its own

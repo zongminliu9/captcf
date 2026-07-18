@@ -41,3 +41,6 @@ npm-debug.log*
 # lighthouse
 /docs/lighthouse-raw/
 *.lighthouse.json
+
+# speaking recordings (local storage)
+/.uploads/

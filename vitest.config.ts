@@ -5,6 +5,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
+      "server-only": resolve(__dirname, "./tests/stubs/server-only.ts"),
     },
   },
   test: {
@@ -25,8 +26,13 @@ export default defineConfig({
           environment: "node",
           include: ["tests/integration/**/*.test.ts"],
           testTimeout: 30000,
-          hookTimeout: 60000,
+          hookTimeout: 90000,
           fileParallelism: false,
+          globalSetup: ["tests/integration/global-setup.ts"],
+          env: {
+            DATABASE_URL:
+              process.env.E2E_DATABASE_URL ?? "postgres://captcf@localhost:5433/captcf_test",
+          },
         },
       },
     ],

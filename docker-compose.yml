@@ -1,0 +1,24 @@
+# Optional: Postgres via Docker for parity on machines that have Docker.
+# The default dev workflow uses a native project-local Postgres (`pnpm db:up`) and
+# does NOT require Docker. If you prefer Docker, run `docker compose up -d` and set
+# DATABASE_URL=postgres://captcf:captcf@localhost:5433/captcf in your .env.
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: captcf-db
+    environment:
+      POSTGRES_USER: captcf
+      POSTGRES_PASSWORD: captcf
+      POSTGRES_DB: captcf
+    ports:
+      - "5433:5432"
+    volumes:
+      - captcf_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U captcf"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  captcf_pgdata:

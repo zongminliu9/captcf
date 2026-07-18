@@ -41,7 +41,7 @@ describe("estimateQcmScore", () => {
   });
 
   it("always attaches the unofficial-estimate disclaimer", () => {
-    expect(estimateQcmScore("listening", [resp("B1", true)]).disclaimer).toMatch(/unofficial/i);
+    expect(estimateQcmScore("listening", [resp("B1", true)]).disclaimer).toMatch(/non officielle/i);
   });
 
   it("produces a plausible B2 score for strong B2 performance", () => {
