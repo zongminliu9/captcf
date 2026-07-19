@@ -5,10 +5,11 @@ import { ensureActor } from "@/lib/auth/session";
 import { getPlanForActor } from "@/lib/entitlements/plan";
 import { checkPracticeAllowed } from "@/lib/entitlements/usage";
 import type { SkillId } from "@/lib/exam/config";
+import { redirectTo } from "@/lib/http";
 import type { SelectionConfig } from "@/lib/practice/questions";
 import { type SessionMode, createSession } from "@/lib/practice/session";
 import { and, desc, eq } from "drizzle-orm";
-import { type NextRequest, NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 /**
  * Unified "start practice" entry (route handler → may set the guest cookie).
@@ -18,7 +19,7 @@ export async function GET(req: NextRequest) {
   const actor = await ensureActor();
   const plan = await getPlanForActor(actor);
   if (await checkPracticeAllowed(actor, plan)) {
-    return NextResponse.redirect(new URL("/pricing?reason=daily_limit", req.url));
+    return redirectTo("/pricing?reason=daily_limit");
   }
 
   const mode = (req.nextUrl.searchParams.get("mode") ?? "quick") as SessionMode;
@@ -76,8 +77,7 @@ export async function GET(req: NextRequest) {
       )
       .orderBy(desc(practiceSessions.createdAt))
       .limit(1);
-    if (existing[0])
-      return NextResponse.redirect(new URL(`/practice/session/${existing[0].id}`, req.url));
+    if (existing[0]) return redirectTo(`/practice/session/${existing[0].id}`);
   }
 
   let id: string;
@@ -98,7 +98,7 @@ export async function GET(req: NextRequest) {
           : mode === "review"
             ? "/review"
             : "/practice";
-    return NextResponse.redirect(new URL(`${back}?empty=1`, req.url));
+    return redirectTo(`${back}?empty=1`);
   }
-  return NextResponse.redirect(new URL(`/practice/session/${id}`, req.url));
+  return redirectTo(`/practice/session/${id}`);
 }

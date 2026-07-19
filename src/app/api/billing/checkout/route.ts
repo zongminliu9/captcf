@@ -1,8 +1,7 @@
 import { db } from "@/db";
 import { entitlements, subscriptions } from "@/db/schema";
 import { getActor } from "@/lib/auth/session";
-import { eq } from "drizzle-orm";
-import { type NextRequest, NextResponse } from "next/server";
+import { redirectTo } from "@/lib/http";
 
 /**
  * Checkout.
@@ -13,21 +12,21 @@ import { type NextRequest, NextResponse } from "next/server";
  * - Dev only: the entitlement SIMULATOR grants Premium immediately so it is testable locally.
  * Guests must register first.
  */
-export async function GET(req: NextRequest) {
+export async function GET() {
   const actor = await getActor();
   if (!actor || actor.kind !== "user") {
-    return NextResponse.redirect(new URL("/register?next=/pricing", req.url));
+    return redirectTo("/register?next=/pricing");
   }
 
   const provider = process.env.PAYMENTS_PROVIDER ?? "simulator";
   if (provider === "stripe" && process.env.STRIPE_SECRET_KEY) {
     // A real Stripe Checkout Session would be created here and redirected to.
-    return NextResponse.redirect(new URL("/pricing?checkout=stripe-not-configured", req.url));
+    return redirectTo("/pricing?checkout=stripe-not-configured");
   }
 
   // Anywhere other than an explicit dev simulator (i.e. the hosted beta), grant nothing.
   if (provider !== "simulator" || process.env.NODE_ENV === "production") {
-    return NextResponse.redirect(new URL("/pricing?beta=1", req.url));
+    return redirectTo("/pricing?beta=1");
   }
 
   // Dev simulator only: grant Premium immediately (never runs in production).
@@ -42,5 +41,5 @@ export async function GET(req: NextRequest) {
     .insert(entitlements)
     .values({ userId: actor.userId, plan: "premium", source: "simulator" });
 
-  return NextResponse.redirect(new URL("/dashboard?upgraded=1", req.url));
+  return redirectTo("/dashboard?upgraded=1");
 }
