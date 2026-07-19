@@ -20,8 +20,10 @@ services:
     # --prod=false so build/migrate/seed tooling (tailwind, tsx, drizzle-kit) installs even though
     # NODE_ENV=production is set below.
     buildCommand: corepack enable && pnpm install --frozen-lockfile --prod=false && pnpm build
-    preDeployCommand: pnpm db:migrate && pnpm db:seed
-    startCommand: pnpm start
+    # Migrate + seed run at startup (both idempotent) so this works on the FREE plan too —
+    # preDeployCommand is paid-tier only. On a paid plan you can move these to a preDeployCommand
+    # to keep cold starts fast.
+    startCommand: pnpm db:migrate && pnpm db:seed && pnpm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
