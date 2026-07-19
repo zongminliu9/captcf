@@ -4,7 +4,7 @@ Thanks for helping test **CapTCF**, an independent study tool for the **TCF Cana
 It is a private beta, so a few things are rough and results are **practice estimates, not official
 scores**.
 
-> **Beta URL:** `__FILL_AFTER_DEPLOY__`  ← replaced with the real HTTPS link once the beta is live.
+> **Beta URL:** <https://captcf.onrender.com>
 
 ## Before you start
 
