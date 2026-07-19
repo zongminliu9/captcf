@@ -1,3 +1,4 @@
+import { BetaGrant } from "@/components/admin/beta-grant";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { db } from "@/db";
@@ -74,6 +75,15 @@ export default async function AdminOverviewPage() {
             <code className="rounded bg-surface-2 px-1">pnpm content:audit</code>.
           </p>
         )}
+      </Card>
+
+      <Card className="mt-6 p-5">
+        <div className="mb-1 text-sm font-semibold text-muted">Accès Beta (sans paiement)</div>
+        <p className="mb-3 text-sm text-muted">
+          Accordez l'accès Premium à un testeur invité par son courriel. Les paiements réels sont
+          désactivés pendant la Beta privée.
+        </p>
+        <BetaGrant />
       </Card>
     </div>
   );

@@ -19,6 +19,8 @@ export async function rateLimit(
   limit: number,
   windowSec: number,
 ): Promise<RateResult> {
+  // Deterministic escape hatch for automated tests (never set in production).
+  if (process.env.RATE_LIMIT_DISABLED === "1") return { allowed: true, remaining: limit };
   const now = Date.now();
   const windowStart = Math.floor(now / (windowSec * 1000)) * windowSec * 1000;
   const bucket = `${key}:${windowStart}`;

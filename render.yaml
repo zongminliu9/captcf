@@ -1,0 +1,49 @@
+# Render Blueprint — CapTCF Private Beta (recommended one-click path).
+#
+#   Render Dashboard → New → Blueprint → connect the GitHub repo (zongminliu9/captcf) → Apply.
+#
+# It provisions a managed PostgreSQL 17 + a Node web service, wires DATABASE_URL automatically,
+# generates a strong AUTH_SECRET, runs migrations + the (idempotent) production seed on every
+# deploy, and serves over HTTPS. No secrets live in this file.
+databases:
+  - name: captcf-db
+    plan: free # 1 GB; free Postgres expires after 30 days — switch to a paid plan for a lasting beta
+    postgresMajorVersion: "17"
+
+services:
+  - type: web
+    name: captcf
+    runtime: node
+    plan: free # free web spins down when idle (~1 min cold start); use "starter" to keep it warm
+    region: oregon
+    branch: main
+    # --prod=false so build/migrate/seed tooling (tailwind, tsx, drizzle-kit) installs even though
+    # NODE_ENV=production is set below.
+    buildCommand: corepack enable && pnpm install --frozen-lockfile --prod=false && pnpm build
+    preDeployCommand: pnpm db:migrate && pnpm db:seed
+    startCommand: pnpm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: captcf-db
+          property: connectionString
+      - key: AUTH_SECRET
+        generateValue: true # Render generates a strong random value and keeps it stable
+      # APP_URL is left unset on purpose — the app falls back to RENDER_EXTERNAL_URL at runtime.
+      - key: ENABLE_DEMO_ACCOUNTS
+        value: "false" # never seed demo/admin accounts in the hosted beta
+      - key: PAYMENTS_PROVIDER
+        value: beta # real checkout disabled; testers get Premium via admin "grant Beta access"
+      - key: AI_FEEDBACK_PROVIDER
+        value: none
+      - key: STORAGE_DRIVER
+        value: local
+      - key: STORAGE_LOCAL_DIR
+        value: /tmp/uploads # writable; recordings are ephemeral on the free plan (see DEPLOYMENT.md)
+      - key: NEXT_PUBLIC_BETA
+        value: "true"
+      - key: NEXT_PUBLIC_SHOW_DEMO_ACCOUNTS
+        value: "false"

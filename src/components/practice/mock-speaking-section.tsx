@@ -1,5 +1,6 @@
 "use client";
 import { advanceMock } from "@/app/(app)/mock/actions";
+import { RecordingConsent } from "@/components/speaking/recording-consent";
 import { useToast } from "@/components/toast";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -210,6 +211,7 @@ export function MockSpeakingSection({
 
   return (
     <div className="space-y-3">
+      <RecordingConsent />
       {tasks.map((t) => (
         <TaskRecorder
           key={t.id}

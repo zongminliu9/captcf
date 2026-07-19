@@ -16,6 +16,11 @@ export const metadata: Metadata = {
 const free = PLAN_LIMITS.free;
 const premium = PLAN_LIMITS.premium;
 
+// Real payments are enabled only with a configured Stripe provider. In the hosted Private Beta
+// this is false, so we show a disabled notice instead of a checkout button.
+const paymentsEnabled =
+  process.env.PAYMENTS_PROVIDER === "stripe" && !!process.env.STRIPE_SECRET_KEY;
+
 function practiceLabel(n: number): string {
   return n === Number.POSITIVE_INFINITY ? "illimité" : `${n} / jour`;
 }
@@ -160,12 +165,24 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
-          <Button asChild className="mt-7 w-full" variant="primary" size="lg">
-            {/* plain <a> so the checkout route handler runs (simulator or Stripe) */}
-            <a href="/api/billing/checkout">
-              Passer à Premium <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
+          {paymentsEnabled ? (
+            <Button asChild className="mt-7 w-full" variant="primary" size="lg">
+              {/* plain <a> so the checkout route handler runs */}
+              <a href="/api/billing/checkout">
+                Passer à Premium <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+          ) : (
+            <div className="mt-7">
+              <Button className="w-full" variant="primary" size="lg" disabled>
+                Beta — paiements bientôt disponibles
+              </Button>
+              <p className="mt-2 text-center text-xs text-muted">
+                Les paiements ne sont pas encore activés pendant la Beta privée. Les testeurs
+                invités bénéficient d'un accès Premium gratuit.
+              </p>
+            </div>
+          )}
         </Card>
       </div>
 

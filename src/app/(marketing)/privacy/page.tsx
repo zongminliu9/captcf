@@ -1,7 +1,7 @@
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Cookie, Database, Download, Lock, ShieldCheck, Trash2 } from "lucide-react";
+import { Cookie, Database, Download, Lock, Mic, ShieldCheck, Trash2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -104,6 +104,21 @@ export default function PrivacyPage() {
             rattachée à un identifiant d'appareil stocké dans un cookie sur votre navigateur. Rien
             n'est associé à une identité personnelle. Si vous créez un compte plus tard, ces données
             d'invité sont automatiquement fusionnées avec votre compte, sans double saisie ni perte.
+          </p>
+        </section>
+
+        <section>
+          <div className="flex items-center gap-2">
+            <Mic className="h-5 w-5 text-navy" />
+            <h2 className="display text-2xl leading-tight">Enregistrements vocaux</h2>
+          </div>
+          <p className="mt-4 leading-relaxed text-muted">
+            Le module d'expression orale enregistre votre voix, après votre autorisation explicite
+            du micro, dans le seul but de votre auto-évaluation. Ces enregistrements sont stockés de
+            façon privée, ne servent qu'à vous restituer votre production et une estimation non
+            officielle, ne sont jamais publiés ni vendus, et sont automatiquement supprimés lorsque
+            vous supprimez votre compte. Vous pouvez refuser l'accès au micro : la tâche est alors
+            simplement marquée comme non réalisée.
           </p>
         </section>
 

@@ -72,6 +72,8 @@ export default defineConfig({
       AUTH_SECRET: "e2e-test-secret-e2e-test-secret-32chars",
       ENABLE_DEMO_ACCOUNTS: "true",
       PAYMENTS_PROVIDER: "simulator",
+      NEXT_PUBLIC_SHOW_DEMO_ACCOUNTS: "true",
+      RATE_LIMIT_DISABLED: "1",
     },
   },
 });

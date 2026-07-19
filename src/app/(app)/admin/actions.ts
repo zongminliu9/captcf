@@ -1,9 +1,18 @@
 "use server";
 import { db } from "@/db";
-import { audioAssets, issueReports, options, questionVersions, questions } from "@/db/schema";
+import {
+  audioAssets,
+  entitlements,
+  issueReports,
+  options,
+  questionVersions,
+  questions,
+  subscriptions,
+  users,
+} from "@/db/schema";
 import { requireAdmin } from "@/lib/auth/admin";
 import { readingItemSchema } from "@/lib/content/schema";
-import { eq, inArray } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 
 export async function updateQuestionStatus(
   id: string,
@@ -170,6 +179,61 @@ export async function setAudioQuality(
   await requireAdmin();
   await db.update(audioAssets).set({ quality }).where(eq(audioAssets.id, id));
   return { ok: true };
+}
+
+export interface BetaGrantResult {
+  ok: boolean;
+  message: string;
+}
+
+/**
+ * Grant a Beta tester Premium WITHOUT any payment. This is the only sanctioned no-payment
+ * upgrade path in the hosted beta (the dev entitlement simulator is disabled in production).
+ */
+export async function grantBetaAccess(email: string): Promise<BetaGrantResult> {
+  await requireAdmin();
+  const normalized = email.trim().toLowerCase();
+  if (!normalized) return { ok: false, message: "Renseignez une adresse courriel." };
+  const [user] = await db
+    .select({ id: users.id })
+    .from(users)
+    .where(eq(users.email, normalized))
+    .limit(1);
+  if (!user) return { ok: false, message: `Aucun compte pour ${normalized}.` };
+  await db
+    .insert(subscriptions)
+    .values({ userId: user.id, plan: "premium", status: "active", provider: "beta" })
+    .onConflictDoUpdate({
+      target: subscriptions.userId,
+      set: { plan: "premium", status: "active", provider: "beta" },
+    });
+  // refresh the beta entitlement idempotently (never pile up rows on repeated grants)
+  await db
+    .delete(entitlements)
+    .where(and(eq(entitlements.userId, user.id), eq(entitlements.source, "beta")));
+  await db.insert(entitlements).values({ userId: user.id, plan: "premium", source: "beta" });
+  return { ok: true, message: `Accès Beta Premium accordé à ${normalized}.` };
+}
+
+/** Revoke a previously granted Beta access (back to Free). */
+export async function revokeBetaAccess(email: string): Promise<BetaGrantResult> {
+  await requireAdmin();
+  const normalized = email.trim().toLowerCase();
+  if (!normalized) return { ok: false, message: "Renseignez une adresse courriel." };
+  const [user] = await db
+    .select({ id: users.id })
+    .from(users)
+    .where(eq(users.email, normalized))
+    .limit(1);
+  if (!user) return { ok: false, message: `Aucun compte pour ${normalized}.` };
+  await db
+    .update(subscriptions)
+    .set({ plan: "free", status: "active", provider: "beta" })
+    .where(eq(subscriptions.userId, user.id));
+  await db
+    .delete(entitlements)
+    .where(and(eq(entitlements.userId, user.id), eq(entitlements.source, "beta")));
+  return { ok: true, message: `Accès Beta retiré pour ${normalized}.` };
 }
 
 export async function resolveReport(

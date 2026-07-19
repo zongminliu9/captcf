@@ -25,6 +25,9 @@ export async function registerAction(_prev: AuthState, formData: FormData): Prom
   const password = String(formData.get("password") ?? "");
   const name = String(formData.get("name") ?? "").trim() || null;
 
+  const rl = await rateLimit(clientKey(await headers(), "register"), 5, 3600);
+  if (!rl.allowed) return { error: "Trop de tentatives. Réessayez plus tard." };
+
   const emailParsed = emailSchema.safeParse(email);
   if (!emailParsed.success) return { fieldErrors: { email: "Adresse courriel invalide." } };
   const pwIssues = passwordIssues(password);
@@ -111,7 +114,7 @@ export async function requestResetAction(
   if (!emailSchema.safeParse(email).success) return { error: "Adresse courriel invalide." };
   const rl = await rateLimit(clientKey(await headers(), "reset"), 5, 3600);
   if (!rl.allowed) return { error: "Trop de demandes. Réessayez plus tard." };
-  const appUrl = process.env.APP_URL ?? "http://localhost:3000";
+  const appUrl = process.env.APP_URL ?? process.env.RENDER_EXTERNAL_URL ?? "http://localhost:3000";
   await requestPasswordReset(email, appUrl);
   // always report success (no account enumeration)
   return { sent: true };

@@ -3,8 +3,10 @@ import { db } from "@/db";
 import { bookmarks, issueReports, reviewQueue } from "@/db/schema";
 import { ownerEq, ownerValues } from "@/lib/auth/owner";
 import { ensureActor } from "@/lib/auth/session";
+import { clientKey, rateLimit } from "@/lib/rate-limit";
 import { INITIAL_SM2, review } from "@/lib/review/sm2";
 import { and, eq } from "drizzle-orm";
+import { headers } from "next/headers";
 
 export async function toggleBookmark(questionId: string): Promise<{ bookmarked: boolean }> {
   const actor = await ensureActor();
@@ -41,6 +43,8 @@ export async function reportIssue(input: {
   message: string;
 }): Promise<{ reported: true }> {
   const actor = await ensureActor();
+  const rl = await rateLimit(clientKey(await headers(), "report"), 20, 3600);
+  if (!rl.allowed) throw new Error("rate_limited");
   await db.insert(issueReports).values({
     ...ownerValues(actor),
     refType: input.refType,

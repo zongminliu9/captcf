@@ -9,6 +9,7 @@ import type { SpeakingAnalysis } from "@/lib/speaking/analyze";
 import { cn } from "@/lib/utils";
 import { AlertTriangle, Circle, Mic, MicOff, Play, RotateCcw, Square } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { RecordingConsent } from "./recording-consent";
 import { SpeakingFeedback } from "./speaking-feedback";
 
 type Phase =
@@ -279,6 +280,9 @@ export function SpeakingRecorder(props: Props) {
           <Button variant="primary" className="mt-4" onClick={requestMicAndStart}>
             <Mic className="h-4 w-4" /> Autoriser le micro et commencer
           </Button>
+          <div className="mt-4 text-left">
+            <RecordingConsent />
+          </div>
           {Checklist}
         </Card>
       )}

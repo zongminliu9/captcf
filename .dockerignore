@@ -1,0 +1,20 @@
+# Rebuilt inside the image
+node_modules
+.next
+
+# Never ship secrets or local state into the image
+.env
+.env.local
+.env*.local
+.pgdata
+.uploads
+data
+
+# Repo / CI / test artifacts not needed at runtime
+.git
+.github
+tests
+playwright-report
+test-results
+*.log
+.DS_Store

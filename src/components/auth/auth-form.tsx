@@ -91,7 +91,8 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
         )}
       </p>
 
-      {mode === "login" && (
+      {/* Demo credentials are shown only when explicitly enabled (never in the hosted beta/prod). */}
+      {mode === "login" && process.env.NEXT_PUBLIC_SHOW_DEMO_ACCOUNTS === "true" && (
         <div className="mt-5 rounded-[var(--radius-sm)] border border-border bg-surface-2 p-3 text-xs text-muted">
           <div className="font-medium text-ink">Comptes de démonstration</div>
           <div className="mt-1">demo@captcf.app · demo-captcf-2026 (premium)</div>

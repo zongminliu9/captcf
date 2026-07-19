@@ -2,6 +2,7 @@ import { db } from "@/db";
 import { speakingFeedback, speakingSubmissions, speakingTasks } from "@/db/schema";
 import { ownerValues } from "@/lib/auth/owner";
 import { ensureActor } from "@/lib/auth/session";
+import { clientKey, rateLimit } from "@/lib/rate-limit";
 import { analyzeSpeaking } from "@/lib/speaking/analyze";
 import { extForMime, getStorage } from "@/lib/storage";
 import { eq } from "drizzle-orm";
@@ -11,6 +12,9 @@ const MAX_BYTES = 20 * 1024 * 1024;
 
 export async function POST(req: NextRequest) {
   const actor = await ensureActor();
+  // Cap uploads per IP so recordings can't be used to run up storage costs.
+  const rl = await rateLimit(clientKey(req.headers, "speaking-upload"), 40, 3600);
+  if (!rl.allowed) return NextResponse.json({ error: "rate_limited" }, { status: 429 });
   const form = await req.formData();
   const file = form.get("audio");
   const taskId = String(form.get("taskId") ?? "");
