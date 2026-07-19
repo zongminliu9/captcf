@@ -17,17 +17,22 @@ services:
     plan: free # free web spins down when idle (~1 min cold start); use "starter" to keep it warm
     region: oregon
     branch: main
+    # Render's build image mounts global bins read-only, so `corepack enable` fails (EROFS).
+    # Invoke the pinned pnpm through npx instead — no global shim needed, exact version guaranteed.
     # --prod=false so build/migrate/seed tooling (tailwind, tsx, drizzle-kit) installs even though
     # NODE_ENV=production is set below.
-    buildCommand: corepack enable && pnpm install --frozen-lockfile --prod=false && pnpm build
+    buildCommand: npx --yes pnpm@9.15.4 install --frozen-lockfile --prod=false && npx --yes pnpm@9.15.4 run build
     # Migrate + seed run at startup (both idempotent) so this works on the FREE plan too —
     # preDeployCommand is paid-tier only. On a paid plan you can move these to a preDeployCommand
     # to keep cold starts fast.
-    startCommand: pnpm db:migrate && pnpm db:seed && pnpm start
+    startCommand: npx --yes pnpm@9.15.4 run db:migrate && npx --yes pnpm@9.15.4 run db:seed && npx --yes pnpm@9.15.4 start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: "22.11.0" # pin a stable LTS; otherwise Render resolves ">=20" to a bleeding-edge Node
+
       - key: DATABASE_URL
         fromDatabase:
           name: captcf-db
