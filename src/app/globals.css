@@ -257,6 +257,25 @@
       box-shadow: 0 0 0 0 transparent;
     }
   }
+  /* loading skeleton shimmer (reduced-motion falls back to a static tint via the block above) */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--surface-2) 25%,
+      var(--surface-3) 37%,
+      var(--surface-2) 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-shimmer 1.4s ease infinite;
+  }
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
 }
 
 /* nicer, quieter scrollbars */
