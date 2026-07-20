@@ -203,6 +203,29 @@ export const audioAssets = pgTable("audio_assets", {
   quality: text("quality").notNull().default("prototype_tts"),
   qa: jsonb("qa").$type<unknown>(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+
+  // ── Round 3: provenance + recording lifecycle ──────────────────────────────
+  // Only human_original|human_licensed + publishState 'approved' may serve official content.
+  sourceType: text("source_type").notNull().default("prototype_tts"), // human_original|human_licensed|prototype_tts
+  publishState: text("publish_state").notNull().default("draft"), // draft|awaiting_recording|awaiting_edit|awaiting_qa|approved|rejected
+  licenseName: text("license_name"),
+  licenseUrl: text("license_url"),
+  speakerId: text("speaker_id"),
+  speakerName: text("speaker_display_name"),
+  speakerRegion: text("speaker_region"),
+  recordedAt: timestamp("recorded_at", { withTimezone: true }),
+  recordingSession: text("recording_session"),
+  masterFile: text("master_file"), // path to the WAV master (not web-served)
+  deliveryFile: text("delivery_file"), // path to the web delivery (m4a/opus)
+  transcriptHash: text("transcript_hash"),
+  qaStatus: text("qa_status"), // pending|pass|fail
+  qaReviewer: text("qa_reviewer"),
+  qaNotes: text("qa_notes"),
+  loudnessLufs: numeric("loudness_lufs"),
+  truePeakDb: numeric("true_peak_db"),
+  durationMs: integer("duration_ms"),
+  version: integer("version").notNull().default(1),
+  publishedAt: timestamp("published_at", { withTimezone: true }),
 });
 
 export const questions = pgTable(
