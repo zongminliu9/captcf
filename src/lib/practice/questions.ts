@@ -9,6 +9,7 @@ import {
   responses,
   reviewQueue,
 } from "@/db/schema";
+import { type AudioProvenance, audioSourceLabel } from "@/lib/audio/gating";
 import type { Actor } from "@/lib/auth/owner";
 import { ownerEq } from "@/lib/auth/owner";
 import type { SkillId } from "@/lib/exam/config";
@@ -20,7 +21,15 @@ export interface ClientOption {
 }
 
 export type Stimulus =
-  | { kind: "audio"; context: string; audioFile: string | null; audioDuration: number | null }
+  | {
+      kind: "audio";
+      context: string;
+      audioFile: string | null;
+      audioDuration: number | null;
+      /** True when the clip is TTS (prototype). Shown honestly; never presented as human audio. */
+      synthetic: boolean;
+      sourceLabel: string;
+    }
   | { kind: "text"; title: string | null; text: string };
 
 /** Question shape sent to the client while a session is in progress (no answer key). */
@@ -50,10 +59,23 @@ export interface FullQuestion extends ClientQuestion {
 
 type QRow = typeof questions.$inferSelect;
 
-function toStimulus(row: QRow, audioFile: string | null, audioDuration: number | null): Stimulus {
+function toStimulus(
+  row: QRow,
+  audioFile: string | null,
+  audioDuration: number | null,
+  prov: AudioProvenance,
+): Stimulus {
   const s = row.stimulus as any;
   if (row.skill === "listening") {
-    return { kind: "audio", context: s?.context ?? "", audioFile, audioDuration };
+    const label = audioSourceLabel(prov);
+    return {
+      kind: "audio",
+      context: s?.context ?? "",
+      audioFile,
+      audioDuration,
+      synthetic: label.synthetic,
+      sourceLabel: label.label,
+    };
   }
   return { kind: "text", title: s?.title ?? null, text: s?.text ?? "" };
 }
@@ -74,18 +96,34 @@ async function optionsFor(ids: string[]): Promise<Map<string, ClientOption[]>> {
   return map;
 }
 
-async function fetchRows(
-  ids: string[],
-): Promise<Map<string, { q: QRow; file: string | null; dur: number | null }>> {
+interface AudioRow {
+  q: QRow;
+  file: string | null;
+  dur: number | null;
+  prov: AudioProvenance;
+}
+
+async function fetchRows(ids: string[]): Promise<Map<string, AudioRow>> {
   if (ids.length === 0) return new Map();
   const rows = await db
-    .select({ q: questions, file: audioAssets.file, dur: audioAssets.durationSeconds })
+    .select({
+      q: questions,
+      file: audioAssets.file,
+      dur: audioAssets.durationSeconds,
+      sourceType: audioAssets.sourceType,
+      publishState: audioAssets.publishState,
+    })
     .from(questions)
     .leftJoin(audioAssets, eq(audioAssets.id, questions.audioId))
     .where(inArray(questions.id, ids));
-  const map = new Map<string, { q: QRow; file: string | null; dur: number | null }>();
+  const map = new Map<string, AudioRow>();
   for (const r of rows)
-    map.set(r.q.id, { q: r.q, file: r.file, dur: r.dur ? Number(r.dur) : null });
+    map.set(r.q.id, {
+      q: r.q,
+      file: r.file,
+      dur: r.dur ? Number(r.dur) : null,
+      prov: { sourceType: r.sourceType, publishState: r.publishState },
+    });
   return map;
 }
 
@@ -94,6 +132,7 @@ function toClient(
   opts: ClientOption[],
   file: string | null,
   dur: number | null,
+  prov: AudioProvenance,
 ): ClientQuestion {
   return {
     refType: "question",
@@ -106,7 +145,7 @@ function toClient(
     estimatedSeconds: row.estimatedSeconds,
     stem: row.stem,
     options: opts,
-    stimulus: toStimulus(row, file, dur),
+    stimulus: toStimulus(row, file, dur, prov),
   };
 }
 
@@ -117,7 +156,7 @@ export async function getClientQuestions(ids: string[]): Promise<ClientQuestion[
     .map((id) => {
       const r = rows.get(id);
       if (!r) return null;
-      return toClient(r.q, opts.get(id) ?? [], r.file, r.dur);
+      return toClient(r.q, opts.get(id) ?? [], r.file, r.dur, r.prov);
     })
     .filter((x): x is ClientQuestion => x !== null);
 }
@@ -129,7 +168,7 @@ export async function getFullQuestions(ids: string[]): Promise<FullQuestion[]> {
     .map((id) => {
       const r = rows.get(id);
       if (!r) return null;
-      const base = toClient(r.q, opts.get(id) ?? [], r.file, r.dur);
+      const base = toClient(r.q, opts.get(id) ?? [], r.file, r.dur, r.prov);
       const s = r.q.stimulus as any;
       return {
         ...base,

@@ -72,6 +72,11 @@ export function QuestionCard({
           ) : (
             <p className="text-sm text-danger">Audio indisponible.</p>
           )}
+          {q.stimulus.synthetic && (
+            <p className="mt-1.5 text-xs text-faint" aria-label="Provenance de l'audio">
+              🔊 {q.stimulus.sourceLabel}
+            </p>
+          )}
         </div>
       ) : (
         <div className="mb-4 max-h-[42vh] overflow-y-auto rounded-[var(--radius-sm)] border border-border bg-surface-2 p-4 leading-relaxed sm:max-h-none">
