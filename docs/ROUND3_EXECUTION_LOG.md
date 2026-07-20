@@ -21,7 +21,19 @@ commit per stage; tests before each commit.
 - Measured locally: first boot seeds (650 ms) + sets marker; **warm boot skips in 26 ms**.
 - Tests: `tests/integration/bootstrap.test.ts` — (a) populated DB → second boot does not re-seed;
   (b) two concurrent boots seed at most once. `pnpm test:integration` → 6 passed.
+- Commit: `04f6f58`.
+
+### 1.2 Audio caching + player reliability + skeletons ✅
+- `next.config.ts`: `/audio/:path*` now `Cache-Control: public, max-age=31536000, immutable`
+  (was default `max-age=0` → re-download every play). Verified on a prod serve; range/206 intact.
+- `audio-player.tsx`: visible **loading spinner**, a **12 s load timeout** (no more endless disabled
+  play button), and a real **retry** that reloads + re-arms the timeout.
+- `(app)/loading.tsx` + `.skeleton` shimmer: authed navigations now show a skeleton (nav stays),
+  no blank screen / infinite spinner.
 - Commit: _pending._
+
+Note: DB is already well-indexed (owner indexes on every hot table) — no N+1 index gaps at schema
+level. Deeper audio-file audits (missing/0-byte/silent/corrupt) are built in Phase 2.
 
 ## Phase 2 — Human-audio production system
 - _pending_

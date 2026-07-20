@@ -25,6 +25,12 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        // Listening clips are content-addressed (filename = content) and never change in place,
+        // so cache them hard. Default Next static serving used max-age=0 → re-download every play.
+        source: "/audio/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
     ];
   },
 };

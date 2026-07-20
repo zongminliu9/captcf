@@ -1,8 +1,10 @@
 "use client";
 import { formatClock } from "@/lib/exam/timer";
 import { cn } from "@/lib/utils";
-import { Gauge, Pause, Play, RotateCcw } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Gauge, Loader2, Pause, Play, RotateCcw } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+const LOAD_TIMEOUT_MS = 12_000;
 
 interface AudioPlayerProps {
   src: string;
@@ -33,15 +35,50 @@ export function AudioPlayer({
   const [plays, setPlays] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // reset when the source changes (next question)
+  const clearLoadTimeout = useCallback(() => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = null;
+  }, []);
+
+  // If the clip hasn't become playable in a reasonable time, surface a retry instead of an
+  // endless disabled play button.
+  const armLoadTimeout = useCallback(() => {
+    clearLoadTimeout();
+    timeoutRef.current = setTimeout(() => {
+      if (!ref.current || ref.current.readyState < 2) {
+        setError(true);
+        setLoading(false);
+      }
+    }, LOAD_TIMEOUT_MS);
+  }, [clearLoadTimeout]);
+
+  const markLoaded = useCallback(() => {
+    clearLoadTimeout();
+    setError(false);
+    setLoading(false);
+  }, [clearLoadTimeout]);
+
+  const retry = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    setError(false);
+    setLoading(true);
+    armLoadTimeout();
+    el.load();
+  }, [armLoadTimeout]);
+
+  // reset + arm a load timeout when the source changes (next question)
   useEffect(() => {
     setPlaying(false);
     setCurrent(0);
     setPlays(0);
     setError(false);
     setLoading(true);
-  }, [src]);
+    armLoadTimeout();
+    return clearLoadTimeout;
+  }, [src, armLoadTimeout, clearLoadTimeout]);
 
   const playsExhausted = maxPlays != null && plays >= maxPlays;
 
@@ -86,9 +123,9 @@ export function AudioPlayer({
         preload="auto"
         onLoadedMetadata={(e) => {
           setDuration(e.currentTarget.duration || durationSeconds || 0);
-          setLoading(false);
+          markLoaded();
         }}
-        onCanPlay={() => setLoading(false)}
+        onCanPlay={markLoaded}
         onTimeUpdate={(e) => setCurrent(e.currentTarget.currentTime)}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
@@ -97,6 +134,7 @@ export function AudioPlayer({
           onEnded?.();
         }}
         onError={() => {
+          clearLoadTimeout();
           setError(true);
           setLoading(false);
         }}
@@ -112,7 +150,13 @@ export function AudioPlayer({
           aria-label={playing ? "Pause" : "Lecture"}
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-on-navy transition hover:bg-navy-600 disabled:opacity-50"
         >
-          {playing ? <Pause className="h-5 w-5" /> : <Play className="ml-0.5 h-5 w-5" />}
+          {loading && !error ? (
+            <Loader2 className="h-5 w-5 animate-spin" />
+          ) : playing ? (
+            <Pause className="h-5 w-5" />
+          ) : (
+            <Play className="ml-0.5 h-5 w-5" />
+          )}
         </button>
 
         <div className="min-w-0 flex-1">
@@ -183,7 +227,7 @@ export function AudioPlayer({
       {error && (
         <p className="mt-2 text-xs text-danger" role="alert">
           Impossible de charger l'audio.{" "}
-          <button type="button" className="underline" onClick={() => ref.current?.load()}>
+          <button type="button" className="font-medium underline" onClick={retry}>
             Réessayer
           </button>
         </p>
