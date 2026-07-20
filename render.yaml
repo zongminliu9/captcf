@@ -22,10 +22,11 @@ services:
     # --prod=false so build/migrate/seed tooling (tailwind, tsx, drizzle-kit) installs even though
     # NODE_ENV=production is set below.
     buildCommand: npx --yes pnpm@9.15.4 install --frozen-lockfile --prod=false && npx --yes pnpm@9.15.4 run build
-    # Migrate + seed run at startup (both idempotent) so this works on the FREE plan too —
-    # preDeployCommand is paid-tier only. On a paid plan you can move these to a preDeployCommand
-    # to keep cold starts fast.
-    startCommand: npx --yes pnpm@9.15.4 run db:migrate && npx --yes pnpm@9.15.4 run db:seed && npx --yes pnpm@9.15.4 start
+    # Single bootstrap process (one npx invocation, not three): applies pending migrations and seeds
+    # ONLY when the content checksum changed (versioned seed_state marker + advisory lock), so warm
+    # boots skip the full 600+ item seed and the container is ready in seconds. Fails loudly if the
+    # DB can't be initialised, so the app never starts half-seeded.
+    startCommand: npx --yes pnpm@9.15.4 run start:prod
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV

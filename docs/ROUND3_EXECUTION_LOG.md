@@ -11,7 +11,17 @@ commit per stage; tests before each commit.
 - Commit: _pending (Phase 0 docs)._
 
 ## Phase 1 — Loading & stability
-- _in progress_
+### 1.1 Version-gated bootstrap (kill seed-on-boot) ✅
+- New `scripts/bootstrap.ts`: PG **advisory lock** (no double-seed across instances) → pending
+  migrations only → **`seed_state` checksum marker**: seeds only when `src/content/*.json` or the
+  spec changes; otherwise skips the full 600+ item seed. Fails loudly (exit 1) so the app never
+  starts half-initialised. Structured timing logs, no secrets.
+- `startCommand` collapsed from 3× `npx pnpm` (migrate; seed; start) to a single
+  `npx pnpm run start:prod` = `bootstrap && next start`.
+- Measured locally: first boot seeds (650 ms) + sets marker; **warm boot skips in 26 ms**.
+- Tests: `tests/integration/bootstrap.test.ts` — (a) populated DB → second boot does not re-seed;
+  (b) two concurrent boots seed at most once. `pnpm test:integration` → 6 passed.
+- Commit: _pending._
 
 ## Phase 2 — Human-audio production system
 - _pending_

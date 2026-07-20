@@ -360,7 +360,8 @@ async function seedDemoUsers() {
   return created;
 }
 
-async function main() {
+/** Full content seed. Idempotent (stable ids + upserts). Callable from the bootstrap. */
+export async function runSeed(): Promise<void> {
   console.log("→ Seeding content…");
   const stats = await seedContent();
   console.log(
@@ -373,7 +374,7 @@ async function main() {
   console.log("→ Assembling mock exams…");
   const mocks = await seedMocks(stats.bank);
   console.log(
-    `  4 forms · listening reuse ≤${mocks.overlap.listeningMaxUses}, reading reuse ≤${mocks.overlap.readingMaxUses}`,
+    `  ${mocks.forms.length} forms · listening reuse ≤${mocks.overlap.listeningMaxUses}, reading reuse ≤${mocks.overlap.readingMaxUses}`,
   );
   if (mocks.warnings.length) for (const w of mocks.warnings) console.log(`  ! ${w}`);
 
@@ -382,10 +383,14 @@ async function main() {
   for (const d of demo) console.log(`  ${d}`);
 
   console.log("✓ Seed complete.");
-  process.exit(0);
 }
 
-main().catch((err) => {
-  console.error("✗ Seed failed:", err);
-  process.exit(1);
-});
+// Direct run: `pnpm db:seed`. When imported by the bootstrap, this guard is false.
+if (process.argv[1]?.endsWith("seed.ts")) {
+  runSeed()
+    .then(() => process.exit(0))
+    .catch((err) => {
+      console.error("✗ Seed failed:", err);
+      process.exit(1);
+    });
+}
