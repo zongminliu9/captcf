@@ -36,7 +36,25 @@ Note: DB is already well-indexed (owner indexes on every hot table) — no N+1 i
 level. Deeper audio-file audits (missing/0-byte/silent/corrupt) are built in Phase 2.
 
 ## Phase 2 — Human-audio production system
-- _pending_
+### 2.1 Provenance schema + gating ✅
+- `audio_assets` + `source_type` / `publish_state` lifecycle / license / speaker / recording / QA /
+  loudness / version columns (migration 0003). Existing 266 TTS default to `prototype_tts`.
+- `src/lib/audio/gating.ts` — `isOfficialAudio` = human recording AND `approved`; TTS is never
+  official. Unit tests (4) cover the exclusion. Commit `272af26`.
+
+### 2.2 Recording production package ✅
+- `scripts/content/recording-packets.ts` (`pnpm content:packets`) generates, for all 266 published
+  listening items: per-item actor packets `content/recording-packets/<CEFR>/<id>.md` (scenario,
+  cast→voice spec, script, pace, pronunciation, target duration, interdictions),
+  `content/recording-manifest.csv` (progress tracker, all `awaiting_recording`), and
+  `content/pronunciation-guide.md`.
+- `docs/AUDIO_RECORDING_GUIDE.md` — voice cast, WAV master / −16 LUFS delivery standards, workflow,
+  the 7 QA gates, legal boundary (originals or licensed; no competitor audio; no AI-as-human).
+- **Recordings still needed: 266** (grows with Phase 3 listening). This is an external input — the
+  system is complete; no new TTS is passed off as human audio.
+- Commit: _pending._
+
+### 2.3 Admin import + QA backoffice — _next_
 
 ## Phase 3 — Content scale (40/40/10/120/120)
 - _pending_

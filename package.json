@@ -36,6 +36,7 @@
     "content:dedupe": "tsx scripts/content/dedupe.ts",
     "content:audio": "tsx scripts/content/audio.ts",
     "content:audio:qa": "tsx scripts/content/audio-qa.ts",
+    "content:packets": "tsx scripts/content/recording-packets.ts",
     "setup": "tsx scripts/setup.ts",
     "demo": "tsx scripts/demo.ts",
     "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm content:audit && pnpm content:audio:qa && pnpm build"
