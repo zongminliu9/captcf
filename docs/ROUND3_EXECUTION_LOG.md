@@ -54,7 +54,13 @@ level. Deeper audio-file audits (missing/0-byte/silent/corrupt) are built in Pha
   system is complete; no new TTS is passed off as human audio.
 - Commit: _pending._
 
-### 2.3 Admin import + QA backoffice — _next_
+### 2.3 Honest synthetic-audio label ✅
+- Provenance flows from `audio_assets` → `getClientQuestions` → `Stimulus`; every listening clip in
+  practice AND mock (both use `QuestionCard`) shows "🔊 Audio synthétique (prototype) — enregistrement
+  humain à venir". Flips to "Enregistrement humain" once approved human audio replaces it.
+- Commit `0a5d719`. typecheck + build green, 64 unit tests.
+
+### 2.4 Admin import + QA backoffice — _next (infra; untestable end-to-end until human audio exists)_
 
 ## Phase 3 — Content scale (40/40/10/120/120)
 - _pending_
