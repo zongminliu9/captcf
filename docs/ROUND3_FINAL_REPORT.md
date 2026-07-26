@@ -41,9 +41,11 @@ invocation instead of three.
 
 **Honest split:** the cold start dropped **94.4 s → 54.2 s (−43 %)**, measured on a container that
 had actually gone to sleep. Essentially all of the remaining 54 s is the **Render Free container
-wake**, which no code change can remove — the app's own share fell from ~46 s to a few seconds. Only a paid plan does (Starter web ≈ US$7/mo removes idle sleep; a Starter
-database removes the 30-day expiry). That needs your billing approval — it is the one thing I have
-not done.
+wake**, which no code change can remove — the app's own share fell from ~46 s to a few seconds.
+
+Only a paid plan removes the rest: a Starter web service (≈ US$7/mo) ends idle sleep, and a Starter
+database ends the 30-day free-tier expiry. That needs your billing approval — it is the one
+stability item I have deliberately not actioned.
 
 Tests before merge: empty-DB bootstrap (seeds 606 published + 4 mocks), populated boot skips,
 two concurrent boots seed exactly once, typecheck, lint, 60 unit, 6 integration, production build.
