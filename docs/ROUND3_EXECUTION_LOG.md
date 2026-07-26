@@ -60,7 +60,39 @@ level. Deeper audio-file audits (missing/0-byte/silent/corrupt) are built in Pha
   humain à venir". Flips to "Enregistrement humain" once approved human audio replaces it.
 - Commit `0a5d719`. typecheck + build green, 64 unit tests.
 
-### 2.4 Admin import + QA backoffice — _next (infra; untestable end-to-end until human audio exists)_
+## Section A — stability shipped to production ✅ (2026-07-26)
+Cherry-picked ONLY the verified stability commits onto `main` (`c9694ac`); Round-3 audio/content
+work stayed on the branch. Gate before merge: empty-DB bootstrap (seeds 606 published + 4 mocks),
+populated-DB boot **skips in 21 ms**, two concurrent boots seed **exactly once**, typecheck, lint,
+60 unit, 6 integration, production build.
+
+Deployed via Render CLI (`dep-d9j63iq4hv7c73cf1thg`, succeeded). Live measurements:
+
+| Metric | Before | After |
+| --- | --- | --- |
+| App bootstrap (seed on every boot) | ~46 s | **5.5 s** this boot; future boots skip the seed entirely (marker `8ee7237eaf27` set in prod) |
+| `next start` ready | — | 1.5 s |
+| Warm TTFB `/` | 1.48 s | **0.58 s** |
+| Warm TTFB `/api/health` | 0.165 s | 0.24 s |
+| Warm TTFB `/api/ready` | 0.21 s | 0.37 s |
+| `/audio/*` cache | `max-age=0` | **`public, max-age=31536000, immutable`** (206 range intact) |
+
+Render Free container wake (~48 s) is unchanged — that is a platform limit, removable only by a paid
+plan (see gap audit §5). Production content verified intact: 606 published, 4 mocks, 0 users.
+
+### 2.4 Admin import + QA backoffice
+**Core rules + analyser ✅** — `src/lib/audio/qa.ts` (pure, no DB/fs):
+- `analyseWav()` decodes a real PCM WAV master in pure Node (no ffmpeg): duration, sample rate, bit
+  depth, channels, peak, RMS→LUFS **estimate** (documented as an approximation, not ITU-BS.1770),
+  leading/trailing silence, clipping, internal dead air. Non-WAV/0-byte/corrupt → `analysed:false`
+  rather than a guessed number.
+- `technicalQa()` thresholds; a delivery-only (compressed) upload can never pass — the master is
+  required, so we block publication instead of faking a measurement.
+- `canApprove()` enforces every gate: human source, licence name+url for `human_licensed`,
+  transcript-hash match, technical pass, confirmed human listen.
+- `src/lib/audio/import.ts` — `planImport()` computes the whole batch plan first (matched /
+  unmatched / duplicate_version / unsupported), so a bad file can never leave a half-written record.
+- 16 new unit tests (80 total) covering all six required rules. Commit: _pending._
 
 ## Phase 3 — Content scale (40/40/10/120/120)
 - _pending_
