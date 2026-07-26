@@ -37,10 +37,11 @@ invocation instead of three.
 | Local populated-DB boot | — | **21 ms** |
 | Warm TTFB `/` | 1.48 s | **0.58 s** |
 | `/audio/*` cache | `max-age=0` | **`public, max-age=31536000, immutable`** (206 range intact) |
-| Cold start (total) | 94.4 s | ~48 s Render-Free wake + a few seconds of app |
+| **Cold start (total, measured)** | **94.4 s** | **54.2 s** — re-measured on a genuinely slept container after the deploy |
 
-**Honest split:** roughly half the old cold start was the **Render Free container wake**, which no
-code change can remove. Only a paid plan does (Starter web ≈ US$7/mo removes idle sleep; a Starter
+**Honest split:** the cold start dropped **94.4 s → 54.2 s (−43 %)**, measured on a container that
+had actually gone to sleep. Essentially all of the remaining 54 s is the **Render Free container
+wake**, which no code change can remove — the app's own share fell from ~46 s to a few seconds. Only a paid plan does (Starter web ≈ US$7/mo removes idle sleep; a Starter
 database removes the 30-day expiry). That needs your billing approval — it is the one thing I have
 not done.
 
