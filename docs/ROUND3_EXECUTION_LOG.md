@@ -116,8 +116,23 @@ real history (migration `0004`).
   re-answer → history preserved → survives a completely fresh browser session. Suite: **29 E2E,
   80 unit, 6 integration** all pass.
 
-## Phase 5 — Pricing intent capture
-- _pending_
+## Phase 5 — Pricing intent capture ✅
+Real payments stay **off**. We measure what people say, so the price is set on signal rather than a
+guess (migration `0005`, table `price_intents`).
+
+- `src/lib/pricing/experiment.ts` — all prices live in config, never hard-coded in a component.
+  Tests the reviewer's ~50 RMB signal: **49 ¥ one-time** early bird, with 9 $ CA / 7 $ US
+  equivalents as display variants; locale picks the default, the user can still answer either way.
+- Survey: would you buy at this price (yes/maybe/no — the only required answer), one-time vs
+  monthly, acceptable price band, main reason to buy / main blocker, free-text comment, and a
+  **Passer** (skip) button. Works for guests **and** signed-in users.
+- Anti-pollution: one row per owner+variant (upsert, so repeat clicks update instead of inflating),
+  rate-limited, and unknown enum values are rejected rather than stored as junk.
+- **No fake urgency**: no countdown, no "N people bought", no invented discount. The only claim is
+  the true one — payments are not enabled yet.
+- Admin overview shows the real tally (sample, yes/maybe/no, %, price bands) and explicitly renders
+  "no data yet" instead of a fabricated 0 %.
+- 9 unit tests (89 total) cover config, validation, skip-ability and the never-fake-a-rate rule.
 
 ## Phase 6 — Live black-box acceptance
 - _pending_

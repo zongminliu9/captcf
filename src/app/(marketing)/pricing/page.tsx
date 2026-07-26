@@ -1,8 +1,11 @@
+import { PriceIntent } from "@/components/pricing/price-intent";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PLAN_LIMITS } from "@/lib/entitlements";
+import { getLocale } from "@/lib/i18n/server";
+import { variantForLocale } from "@/lib/pricing/experiment";
 import { ArrowRight, Check, Minus, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -94,7 +97,8 @@ function Cell({ value }: { value: string | boolean }) {
   return <span className="text-sm text-ink">{value}</span>;
 }
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const priceVariant = variantForLocale(await getLocale());
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
       {/* ── Header ────────────────────────────────────────────── */}
@@ -185,6 +189,8 @@ export default function PricingPage() {
           )}
         </Card>
       </div>
+
+      {!paymentsEnabled && <PriceIntent variant={priceVariant} />}
 
       {/* ── Comparison table ──────────────────────────────────── */}
       <section className="mt-14">

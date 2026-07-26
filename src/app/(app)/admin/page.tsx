@@ -6,11 +6,13 @@ import {
   contentAudits,
   issueReports,
   mockTests,
+  priceIntents,
   questions,
   speakingTasks,
   vocabularyItems,
   writingTasks,
 } from "@/db/schema";
+import { intentSummary } from "@/lib/pricing/experiment";
 import { desc, eq, sql } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
@@ -31,6 +33,29 @@ export default async function AdminOverviewPage() {
       .where(eq(issueReports.status, "open")),
     db.select().from(contentAudits).orderBy(desc(contentAudits.runAt)).limit(1),
   ]);
+
+  const intentRows = await db
+    .select({
+      willingness: priceIntents.willingness,
+      band: priceIntents.priceBand,
+      n: sql<number>`count(*)::int`,
+    })
+    .from(priceIntents)
+    .groupBy(priceIntents.willingness, priceIntents.priceBand);
+  const tally = { total: 0, yes: 0, maybe: 0, no: 0 };
+  for (const r of intentRows) {
+    tally.total += r.n;
+    if (r.willingness === "yes") tally.yes += r.n;
+    else if (r.willingness === "maybe") tally.maybe += r.n;
+    else if (r.willingness === "no") tally.no += r.n;
+  }
+  const intent = intentSummary(tally);
+  const bandCounts = intentRows
+    .filter((r) => r.band)
+    .reduce<Record<string, number>>((m, r) => {
+      m[r.band as string] = (m[r.band as string] ?? 0) + r.n;
+      return m;
+    }, {});
 
   const listening = qBySkill.filter((r) => r.skill === "listening").reduce((s, r) => s + r.n, 0);
   const reading = qBySkill.filter((r) => r.skill === "reading").reduce((s, r) => s + r.n, 0);
@@ -74,6 +99,43 @@ export default async function AdminOverviewPage() {
             Aucun audit enregistré. Lancez{" "}
             <code className="rounded bg-surface-2 px-1">pnpm content:audit</code>.
           </p>
+        )}
+      </Card>
+
+      <Card className="mt-6 p-5">
+        <div className="mb-1 text-sm font-semibold text-muted">
+          Intentions de prix (Beta — aucun paiement)
+        </div>
+        {intent.sample === 0 ? (
+          <p className="text-sm text-muted">
+            Aucune réponse pour le moment. Les chiffres n'apparaîtront qu'avec de vraies réponses.
+          </p>
+        ) : (
+          <div className="text-sm">
+            <div className="flex flex-wrap gap-x-5 gap-y-1">
+              <span>
+                Échantillon : <strong className="tabular-nums">{intent.sample}</strong>
+              </span>
+              <span>
+                Oui : <strong className="tabular-nums">{tally.yes}</strong> (
+                {Math.round((intent.yesRate ?? 0) * 100)}%)
+              </span>
+              <span>
+                Peut-être : <strong className="tabular-nums">{tally.maybe}</strong>
+              </span>
+              <span>
+                Non : <strong className="tabular-nums">{tally.no}</strong>
+              </span>
+            </div>
+            {Object.keys(bandCounts).length > 0 && (
+              <div className="mt-2 text-muted">
+                Fourchettes :{" "}
+                {Object.entries(bandCounts)
+                  .map(([k, v]) => `${k}: ${v}`)
+                  .join(" · ")}
+              </div>
+            )}
+          </div>
         )}
       </Card>
 

@@ -701,6 +701,32 @@ export const issueReports = pgTable("issue_reports", {
   resolvedAt: timestamp("resolved_at", { withTimezone: true }),
 });
 
+/**
+ * Price-intent experiment results (Private Beta). No payment is ever taken; this only records
+ * what a learner SAYS they would do, so pricing is decided on real signal instead of a guess.
+ * One row per owner+variant (upsert) so a user cannot skew the tally by clicking repeatedly.
+ */
+export const priceIntents = pgTable(
+  "price_intents",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    ...owner,
+    variantId: text("variant_id").notNull(),
+    willingness: text("willingness").notNull(), // yes | maybe | no
+    modelPreference: text("model_preference").notNull().default("no_preference"),
+    priceBand: text("price_band"),
+    reason: text("reason"),
+    blocker: text("blocker"),
+    comment: text("comment"),
+    ...timestamps,
+  },
+  (t) => [
+    uniqueIndex("price_intent_user_idx").on(t.userId, t.variantId),
+    uniqueIndex("price_intent_guest_idx").on(t.guestId, t.variantId),
+    check("price_intent_owner_ck", sql`(${t.userId} is not null) <> (${t.guestId} is not null)`),
+  ],
+);
+
 export const analyticsEvents = pgTable(
   "analytics_events",
   {
