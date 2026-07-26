@@ -94,8 +94,26 @@ plan (see gap audit §5). Production content verified intact: 606 published, 4 m
   unmatched / duplicate_version / unsupported), so a bad file can never leave a half-written record.
 - 16 new unit tests (80 total) covering all six required rules. Commit: _pending._
 
-## Phase 3 — Content scale (40/40/10/120/120)
-- _pending_
+## Phase 3 — Content scale (40/40/10/120/120) — IN PROGRESS
+Measured gap (computed): reading **+1 220**, listening **+1 294**, writing **+51**, speaking **+51**.
+
+Batched 4-stage workflow running (author → blind solver → French+assessment reviewer →
+editor/persist), reading A1/A2/B1 = 672 items in 68 batches of 10. Each accepted batch is written to
+`content/round3-staging/reading/<CEFR>-<part>.json` so partial progress survives a session end.
+Acceptance requires blind-solver agreement AND reviewer pass (single correct answer, natural
+Canadian French, no answer leak, difficulty matches CEFR, frenchQuality ≥ 80).
+
+**Nothing generated has been published yet** — staging only.
+
+### ⏭ EXACT RESUME POINT (next session)
+1. `git checkout round3/pro-review-remediation`
+2. Check staged batches: `ls content/round3-staging/reading/ | wc -l`
+3. If the workflow died, relaunch:
+   `Workflow({scriptPath: "~/.claude/projects/-Users-michael-France-website/6e0bf217-8591-48cc-a72f-d79fa85c1e07/workflows/scripts/captcf-r3-reading-scale-wf_6a2e210a-c3d.js"})`
+   (buckets are hard-coded in the script; edit them for B2/C1/C2 and the listening/productive runs)
+4. Merge staged batches into the bank with `pnpm content:ingest2`, then `pnpm content:audit`
+5. Regenerate packets for any new listening: `pnpm content:packets`
+6. Remaining: 10 four-skill mocks, writing/speaking to 120/120, live black-box acceptance (Phase 6)
 
 ## Phase 4 — Mistake notebook as a core loop ✅
 The professional reviewer never noticed the notebook, so the loop was rebuilt around visibility and
@@ -135,4 +153,5 @@ guess (migration `0005`, table `price_intents`).
 - 9 unit tests (89 total) cover config, validation, skip-ability and the never-fake-a-rate rule.
 
 ## Phase 6 — Live black-box acceptance
-- _pending_
+- Stability subset already verified live (see Section A). Full-round acceptance pending Phase 3
+  content + any human audio.
