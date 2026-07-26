@@ -97,8 +97,24 @@ plan (see gap audit §5). Production content verified intact: 606 published, 4 m
 ## Phase 3 — Content scale (40/40/10/120/120)
 - _pending_
 
-## Phase 4 — Mistake notebook as a core loop
-- _pending_
+## Phase 4 — Mistake notebook as a core loop ✅
+The professional reviewer never noticed the notebook, so the loop was rebuilt around visibility and
+real history (migration `0004`).
+
+- **Auto-add** now covers wrong answers **and unanswered/timed-out items** (`addedReason`:
+  wrong | timeout | repeated); a repeat mistake resets the streak and un-masters the item.
+- **A later correct answer no longer deletes anything.** It increments `correctStreak`/`correctCount`
+  and the item is only `mastered` after `MASTERY_STREAK = 2` consecutive correct answers. Full trace
+  kept: `firstWrongAt`, `lastWrongAt`, `lastSeenAt`, `wrongCount`, `lastWrongAnswer`.
+- **Dashboard**: a prominent "Carnet d'erreurs" card — due-today count, in-progress vs mastered,
+  weakest question type, repeated-mistake badge, and a one-click *Réviser 5–10 min*.
+- **Results page**: "N question(s) ajoutée(s) à votre carnet" + *Réviser maintenant*.
+- **Notebook page**: filters (en cours / répétées / maîtrisées / toutes) and per-item metadata —
+  why it was added, first/last error, last review, next review, mastery progress — alongside the
+  learner's own wrong answer, the correct answer, the explanation and every distractor rationale.
+- **E2E** `tests/e2e/mistakes.spec.ts`: wrong → results CTA → notebook metadata → dashboard entry →
+  re-answer → history preserved → survives a completely fresh browser session. Suite: **29 E2E,
+  80 unit, 6 integration** all pass.
 
 ## Phase 5 — Pricing intent capture
 - _pending_

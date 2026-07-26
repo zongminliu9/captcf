@@ -18,6 +18,9 @@ import { INITIAL_SM2, type Sm2State, qualityFromResponse, review } from "@/lib/r
 import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import { type SelectionConfig, selectQuestionIds } from "./questions";
 
+/** Consecutive correct answers required before a mistake is considered mastered. */
+export const MASTERY_STREAK = 2;
+
 export type SessionMode =
   | "quick"
   | "custom"
@@ -309,7 +312,11 @@ export async function submitSession(
     })
     .where(eq(practiceSessions.id, sessionId));
 
-  await applyLearningUpdates(actor, answered);
+  await applyLearningUpdates(
+    actor,
+    answered,
+    resp.filter((r) => r.selectedAnswer == null),
+  );
 
   return summaryFromAttempt(attempt!);
 }
@@ -330,8 +337,9 @@ function summaryFromAttempt(a: typeof attempts.$inferSelect): AttemptSummary {
 async function applyLearningUpdates(
   actor: Actor,
   answered: (typeof responses.$inferSelect)[],
+  unanswered: (typeof responses.$inferSelect)[] = [],
 ): Promise<void> {
-  if (answered.length === 0) return;
+  if (answered.length === 0 && unanswered.length === 0) return;
 
   // ── mastery per (skill, subtype) and (skill, _all) ──
   const subtypeRows = await db
@@ -389,11 +397,14 @@ async function applyLearningUpdates(
   }
 
   // ── mistakes + review queue (SM-2) ──
+  // Unanswered items count as mistakes too (timeout / skipped), so the notebook reflects every
+  // question the learner could not do — not just the ones they got visibly wrong.
+  const forNotebook = [...answered, ...unanswered.map((r) => ({ ...r, correct: false as const }))];
   const now = new Date();
   const reviewRows = await db.select().from(reviewQueue).where(ownerEq(reviewQueue, actor));
   const reviewMap = new Map(reviewRows.map((r) => [r.questionId, r]));
 
-  for (const r of answered) {
+  for (const r of forNotebook) {
     if (r.correct === false) {
       // mistake upsert
       await db
@@ -404,13 +415,26 @@ async function applyLearningUpdates(
           wrongCount: 1,
           resolved: false,
           lastWrongAt: now,
+          firstWrongAt: now,
+          lastSeenAt: now,
+          lastWrongAnswer: r.selectedAnswer ?? null,
+          addedReason: r.selectedAnswer == null ? "timeout" : "wrong",
         })
         .onConflictDoUpdate({
           target:
             actor.kind === "user"
               ? [mistakes.userId, mistakes.questionId]
               : [mistakes.guestId, mistakes.questionId],
-          set: { wrongCount: sql`${mistakes.wrongCount} + 1`, resolved: false, lastWrongAt: now },
+          // a repeat mistake resets the streak and un-masters the item, keeping full history
+          set: {
+            wrongCount: sql`${mistakes.wrongCount} + 1`,
+            resolved: false,
+            lastWrongAt: now,
+            lastSeenAt: now,
+            correctStreak: 0,
+            lastWrongAnswer: r.selectedAnswer ?? null,
+            addedReason: sql`CASE WHEN ${mistakes.wrongCount} >= 1 THEN 'repeated' ELSE ${mistakes.addedReason} END`,
+          },
         });
       // add / advance in review queue
       const quality = qualityFromResponse({ correct: false, hintUsed: r.hintUsed });
@@ -434,10 +458,16 @@ async function applyLearningUpdates(
           set: { sm2: next, dueAt: next.dueAt, lastReviewedAt: now },
         });
     } else if (r.correct === true) {
-      // resolve a prior mistake
+      // A later correct answer NEVER deletes the history. It increments the streak; the item is
+      // only "mastered" (resolved) once the learner has been right MASTERY_STREAK times in a row.
       await db
         .update(mistakes)
-        .set({ resolved: true })
+        .set({
+          correctStreak: sql`${mistakes.correctStreak} + 1`,
+          correctCount: sql`${mistakes.correctCount} + 1`,
+          lastSeenAt: now,
+          resolved: sql`(${mistakes.correctStreak} + 1) >= ${MASTERY_STREAK}`,
+        })
         .where(and(ownerEq(mistakes, actor), eq(mistakes.questionId, r.refId)));
       // advance an existing review item
       const existing = reviewMap.get(r.refId);

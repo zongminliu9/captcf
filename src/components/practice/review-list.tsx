@@ -6,11 +6,32 @@ import { Check, ChevronDown, X } from "lucide-react";
 import { useState } from "react";
 import { QuestionCard } from "./question-card";
 
+/** Mistake-notebook metadata — present when the list is rendered as the carnet d'erreurs. */
+export interface MistakeMeta {
+  wrongCount: number;
+  correctStreak: number;
+  mastered: boolean;
+  masteryStreakTarget: number;
+  firstWrongAt: string;
+  lastWrongAt: string;
+  lastSeenAt: string;
+  dueAt: string;
+  addedReason: string;
+}
+
 export interface ReviewEntry {
   question: FullQuestion;
   selected: string | null;
   correct: boolean | null;
+  meta?: MistakeMeta;
 }
+
+const REASON_LABEL: Record<string, string> = {
+  wrong: "réponse incorrecte",
+  timeout: "sans réponse (temps écoulé)",
+  repeated: "erreur répétée",
+  unsure: "marquée « pas sûr »",
+};
 
 export function ReviewList({ entries }: { entries: ReviewEntry[] }) {
   const [open, setOpen] = useState<Set<string>>(new Set());
@@ -58,6 +79,20 @@ export function ReviewList({ entries }: { entries: ReviewEntry[] }) {
                   </Badge>
                   {e.question.skill === "listening" ? "Écoute" : "Lecture"}
                   {status === "skipped" && " · non répondue"}
+                  {e.meta && (
+                    <>
+                      <span>· {e.meta.wrongCount}× manquée</span>
+                      {e.meta.mastered ? (
+                        <Badge variant="success" size="sm">
+                          maîtrisée
+                        </Badge>
+                      ) : (
+                        <Badge variant="outline" size="sm">
+                          {e.meta.correctStreak}/{e.meta.masteryStreakTarget} correctes
+                        </Badge>
+                      )}
+                    </>
+                  )}
                 </span>
               </span>
               <ChevronDown
@@ -66,6 +101,40 @@ export function ReviewList({ entries }: { entries: ReviewEntry[] }) {
             </button>
             {isOpen && (
               <div className="border-t border-border p-4">
+                {e.meta && (
+                  <dl className="mb-4 grid grid-cols-2 gap-x-4 gap-y-1.5 rounded-[var(--radius-sm)] bg-surface-2 p-3 text-xs sm:grid-cols-3">
+                    <div>
+                      <dt className="text-faint">Ajoutée car</dt>
+                      <dd className="text-ink">
+                        {REASON_LABEL[e.meta.addedReason] ?? e.meta.addedReason}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-faint">Première erreur</dt>
+                      <dd className="text-ink">{e.meta.firstWrongAt}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-faint">Dernière erreur</dt>
+                      <dd className="text-ink">{e.meta.lastWrongAt}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-faint">Dernière révision</dt>
+                      <dd className="text-ink">{e.meta.lastSeenAt}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-faint">Prochaine révision</dt>
+                      <dd className="text-ink">{e.meta.dueAt}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-faint">Maîtrise</dt>
+                      <dd className="text-ink">
+                        {e.meta.mastered
+                          ? "acquise"
+                          : `${e.meta.correctStreak}/${e.meta.masteryStreakTarget} bonnes réponses d'affilée`}
+                      </dd>
+                    </div>
+                  </dl>
+                )}
                 <QuestionCard
                   q={e.question}
                   index={i}

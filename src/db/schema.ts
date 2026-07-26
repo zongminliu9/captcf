@@ -548,6 +548,16 @@ export const mistakes = pgTable(
     wrongCount: integer("wrong_count").notNull().default(1),
     resolved: boolean("resolved").notNull().default(false),
     lastWrongAt: timestamp("last_wrong_at", { withTimezone: true }).notNull().defaultNow(),
+    // ── Round 3: full history so a later correct answer never erases the trace ──
+    firstWrongAt: timestamp("first_wrong_at", { withTimezone: true }).notNull().defaultNow(),
+    /** consecutive correct answers since the last mistake; drives the mastered threshold */
+    correctStreak: integer("correct_streak").notNull().default(0),
+    correctCount: integer("correct_count").notNull().default(0),
+    lastSeenAt: timestamp("last_seen_at", { withTimezone: true }),
+    /** the learner's most recent wrong option, shown next to the correct one */
+    lastWrongAnswer: text("last_wrong_answer"),
+    /** why it entered the notebook: wrong | timeout | unsure | repeated */
+    addedReason: text("added_reason").notNull().default("wrong"),
   },
   (t) => [
     uniqueIndex("mistakes_user_idx").on(t.userId, t.questionId),

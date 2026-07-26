@@ -1,3 +1,4 @@
+import { MistakeReviewCard } from "@/components/practice/mistake-review-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -123,6 +124,11 @@ export default async function DashboardPage() {
           </Button>
         </Card>
       )}
+
+      {/* mistake notebook — the review loop, always visible */}
+      <div className="mt-4">
+        <MistakeReviewCard actor={actor} />
+      </div>
 
       {/* goal + skills */}
       <div className="mt-6 grid gap-4 lg:grid-cols-3">

@@ -4,11 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { db } from "@/db";
-import { mistakes } from "@/db/schema";
+import { mistakes, reviewQueue } from "@/db/schema";
 import { ownerEq } from "@/lib/auth/owner";
 import { getActor } from "@/lib/auth/session";
 import { getFullQuestions } from "@/lib/practice/questions";
-import { and, desc, eq } from "drizzle-orm";
+import { MASTERY_STREAK } from "@/lib/practice/session";
+import { and, desc, eq, sql } from "drizzle-orm";
 import { ListChecks, RotateCcw } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -16,9 +17,10 @@ export const dynamic = "force-dynamic";
 export default async function MistakesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ empty?: string }>;
+  searchParams: Promise<{ empty?: string; f?: string }>;
 }) {
-  const { empty } = await searchParams;
+  const { empty, f } = await searchParams;
+  const filter = f ?? "open";
   const actor = await getActor();
 
   if (!actor) {
@@ -39,15 +41,58 @@ export default async function MistakesPage({
     );
   }
 
+  const conds = [ownerEq(mistakes, actor)];
+  if (filter === "open") conds.push(eq(mistakes.resolved, false));
+  else if (filter === "mastered") conds.push(eq(mistakes.resolved, true));
+  else if (filter === "repeated")
+    conds.push(and(eq(mistakes.resolved, false), sql`${mistakes.wrongCount} > 1`)!);
+
   const rows = await db
-    .select({ questionId: mistakes.questionId })
+    .select({
+      questionId: mistakes.questionId,
+      wrongCount: mistakes.wrongCount,
+      correctStreak: mistakes.correctStreak,
+      resolved: mistakes.resolved,
+      firstWrongAt: mistakes.firstWrongAt,
+      lastWrongAt: mistakes.lastWrongAt,
+      lastSeenAt: mistakes.lastSeenAt,
+      lastWrongAnswer: mistakes.lastWrongAnswer,
+      addedReason: mistakes.addedReason,
+      dueAt: reviewQueue.dueAt,
+    })
     .from(mistakes)
-    .where(and(ownerEq(mistakes, actor), eq(mistakes.resolved, false)))
-    .orderBy(desc(mistakes.lastWrongAt));
+    .leftJoin(
+      reviewQueue,
+      and(eq(reviewQueue.questionId, mistakes.questionId), ownerEq(reviewQueue, actor)),
+    )
+    .where(and(...conds))
+    .orderBy(desc(mistakes.lastWrongAt))
+    .limit(200);
 
   const ids = rows.map((r) => r.questionId);
   const full = await getFullQuestions(ids);
-  const entries: ReviewEntry[] = full.map((q) => ({ question: q, selected: null, correct: false }));
+  const metaById = new Map(rows.map((r) => [r.questionId, r]));
+  const entries: ReviewEntry[] = full.map((q) => ({
+    question: q,
+    selected: metaById.get(q.refId)?.lastWrongAnswer ?? null,
+    correct: false,
+    meta: (() => {
+      const m = metaById.get(q.refId);
+      if (!m) return undefined;
+      const fmt = (d: Date | null) => (d ? new Date(d).toLocaleDateString("fr-CA") : "—");
+      return {
+        wrongCount: m.wrongCount,
+        correctStreak: m.correctStreak,
+        mastered: m.resolved,
+        masteryStreakTarget: MASTERY_STREAK,
+        firstWrongAt: fmt(m.firstWrongAt),
+        lastWrongAt: fmt(m.lastWrongAt),
+        lastSeenAt: fmt(m.lastSeenAt),
+        dueAt: fmt(m.dueAt),
+        addedReason: m.addedReason,
+      };
+    })(),
+  }));
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-10">
@@ -94,7 +139,29 @@ export default async function MistakesPage({
             </Button>
           </Card>
 
-          <h2 className="mb-3 mt-8 text-lg font-semibold">Détail des erreurs</h2>
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            <span className="text-sm text-muted">Filtre :</span>
+            {[
+              ["open", "En cours"],
+              ["repeated", "Erreurs répétées"],
+              ["mastered", "Maîtrisées"],
+              ["all", "Toutes"],
+            ].map(([key, label]) => (
+              <a
+                key={key}
+                href={`/mistakes?f=${key}`}
+                className={`rounded-full border px-3 py-1 text-xs ${
+                  filter === key
+                    ? "border-navy bg-navy-50 text-navy"
+                    : "border-border-strong text-muted"
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+
+          <h2 className="mb-3 mt-6 text-lg font-semibold">Détail des erreurs</h2>
           <ReviewList entries={entries} />
         </>
       )}

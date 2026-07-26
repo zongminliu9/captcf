@@ -12,7 +12,7 @@ import type { ScoreEstimate } from "@/lib/exam/scoring";
 import { getFullQuestions } from "@/lib/practice/questions";
 import { pct } from "@/lib/utils";
 import { and, eq } from "drizzle-orm";
-import { ArrowRight, RotateCcw, Sparkles } from "lucide-react";
+import { ArrowRight, NotebookPen, RotateCcw, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
@@ -80,6 +80,8 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
   const isMock = attempt.mode === "mock";
   const answeredCount = entries.filter((e) => e.selected != null).length;
   const overallAccuracy = answeredCount ? attempt.correctItems / answeredCount : 0;
+  // every miss (wrong OR left unanswered) is auto-added to the mistake notebook by submitSession
+  const wrongCount = entries.filter((e) => e.correct === false || e.selected == null).length;
 
   // weakest QCM skill for the "next" nudge
   const weakest = qcmSkills
@@ -202,6 +204,31 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
           </Button>
         </div>
       </Card>
+
+      {/* mistake-notebook closing of the loop */}
+      {wrongCount > 0 && (
+        <Card className="mt-6 overflow-hidden" raised>
+          <div className="border-l-4 border-accent p-5">
+            <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
+              <NotebookPen className="h-4 w-4" /> Carnet d'erreurs
+            </div>
+            <p className="mt-2 text-sm">
+              <strong className="tabular-nums">{wrongCount}</strong> question(s) ajoutée(s) à votre
+              carnet d'erreurs. Elles reviendront au bon moment — ou revoyez-les tout de suite.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Button asChild variant="primary" size="sm">
+                <a href="/practice/start?mode=mistakes">
+                  Réviser maintenant <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="sm">
+                <Link href="/mistakes">Ouvrir le carnet</Link>
+              </Button>
+            </div>
+          </div>
+        </Card>
+      )}
 
       <h2 className="mb-3 mt-10 text-lg font-semibold">Revoir les réponses</h2>
       <ReviewList entries={entries} />
