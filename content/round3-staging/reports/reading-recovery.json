@@ -1,0 +1,1094 @@
+{
+ "summary": {
+  "reviewBatches": 64,
+  "solveStemsIndexed": 651,
+  "accepted": 493,
+  "rejected": 141,
+  "acceptedByCefr": {
+   "A1": 97,
+   "A2": 175,
+   "B1": 221
+  },
+  "acceptedFiles": [
+   "content/round3-staging/accepted/A1.json",
+   "content/round3-staging/accepted/A2.json",
+   "content/round3-staging/accepted/B1.json"
+  ],
+  "rejectedFiles": [
+   "content/round3-staging/rejected/A1.json",
+   "content/round3-staging/rejected/A2.json",
+   "content/round3-staging/rejected/B1.json"
+  ]
+ },
+ "rejections": [
+  {
+   "stem": "Que demande la gestion aux résidents ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce que l'enfant doit apporter ?",
+   "cefr": "A1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Que peut faire une personne qui a besoin de son permis le 20 mai ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que pense Amélie des sacs en tissu ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel jour le point de service est-il fermé ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel est le point de vue de Marc Delorme ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi l'eau sera-t-elle fermée mardi ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'il faut apporter à la clinique ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise",
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Quelle est l'opinion de Sofia ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que faut-il faire avant le 5 mars ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'arrive-t-il aux heures supplémentaires d'un employé qui ne fait rien dans le ",
+   "cefr": "B1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel problème les « ambassadeurs de ruelle » devaient-ils régler ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'arrive-t-il aux heures d'un employé qui ne répond pas au courriel ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qui change pour Samira ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_singleCorrect",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "D'après la ville, pourquoi le trajet 62 est-il utile ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "answerLeak",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qui est vrai au sujet des visites guidées ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi la facture de téléphone cellulaire est-elle refusée ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la position défendue par l'auteur ?",
+   "cefr": "B1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Pourquoi l'auteur préfère-t-il les caisses avec un employé ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel est l'argument central défendu par l'auteure en faveur de la radio communau",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit faire un locataire qui a perdu sa carte ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que se passe-t-il si une personne arrive sans la demande de son médecin ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que fera la Ville à la fin de l'essai d'un an ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que propose Léo Tremblay ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que se passe-t-il si un client demande le renouvellement d'un médicament pour le",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doivent faire les locataires avant le 28 février ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi Marc-Antoine doit-il se garer derrière l'édifice le mardi ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que va-t-il arriver si peu de gens prennent l'autobus le soir ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est l'opinion de l'auteur ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que demande l'auteur du texte ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que fait le Centre communautaire pendant l'atelier ?",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit préparer une personne qui souhaite auditionner ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que se passe-t-il avec les examens pratiques prévus en juillet ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi Madame Ouellet doit-elle apporter sa carte de bibliothèque ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "M. Diallo, 42 ans et en bonne santé, accompagne sa mère de 78 ans le mardi matin",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel est le principal inconvénient du report demandé par Mme Okonkwo ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi les responsables voient-ils une réussite dans le retour des participant",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi l'organisme conseille-t-il d'écrire à l'ordre professionnel sans attend",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que risque Mme Mendoza si elle ne répond pas avant le 15 juillet ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Selon le texte, qu'est-ce qui expliquait le mieux la faible participation au dép",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Le 4 avril, un locataire n'a toujours rien trouvé dans sa boîte aux lettres. Que",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Comment l'auteur traite-t-il les arguments des personnes qui n'aiment pas les co",
+   "cefr": "A2",
+   "reasons": [
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Dans quel cas Karim conseille-t-il à Léa de garder son quart du samedi ?",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Madame Pham veut laver ses vêtements dans l'immeuble. Quand pourra-t-elle le fai",
+   "cefr": "A2",
+   "reasons": [
+    "fail_singleCorrect",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que demande l'auteur du texte ?",
+   "cefr": "A2",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "D'après le courriel, qu'est-ce qui reste pareil pour Karim ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit faire Madame Okeke pour s'inscrire à l'atelier ?",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'il faut apporter au CLSC ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'on met dans le bac brun ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qui peut arriver en juillet ?",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Un homme de 40 ans arrive un mardi à 8 h avec sa carte et sa demande signée. Que",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi les artistes ont-ils rencontré des résidents âgés ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_difficultyOk",
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la position de Guillaume Ouellet ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit faire un locataire qui a encore des jetons après le 1er mars ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'Amina doit apporter elle-même au premier cours ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est l'opinion de l'auteur ?",
+   "cefr": "A2",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Que laisse entendre l'avis au sujet des vélos électriques en hiver ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Selon l'avis, qu'est-ce qui a mené à la fin du service sans rendez-vous ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi les étudiants laissent-ils les visiteurs taper eux-mêmes leurs mots de ",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi Amélie Nadeau parle-t-elle du service juridique du Centre communautaire",
+   "cefr": "B1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi l'école demande-t-elle à Madame Nkemi d'accompagner son fils la premièr",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la position de Marc Ouellette sur ce projet ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la position de Marie-Hélène Dubuc à l'égard du projet pilote ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel inconvénient les usagers réguliers signalent-ils ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel est l'argument principal de l'auteur ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi le commerçant a-t-il finalement retiré ses caisses libre-service ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que peut attendre M. Haddad du couple Caron ?",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle position l'auteur défend-il ?",
+   "cefr": "B1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Que peut attendre Mme Nkurunziza de la séance du 21 novembre ?",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Selon l'avis, quelle situation entraîne des frais ou une sanction pour l'usager?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doivent faire les parents avant le 10 mai ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que propose Louise Bergeron ?",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Comment un locataire peut-il mettre de l'argent sur sa carte ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que demande l'auteur à la fin de sa lettre ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "M. Tremblay a 62 ans et vient seul. Que peut-il faire selon l'avis ?",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Dans quel cas une famille récupère-t-elle la totalité du dépôt ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qui va manquer jeudi matin ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'on peut mettre dans le bac brun ?",
+   "cefr": "A1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'il faut apporter au CLSC ?",
+   "cefr": "A1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Quand M. Okafor peut-il aller chercher sa carte ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pour laver leur linge pendant la fermeture, les locataires doivent :",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la position d'Amira ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qui est vrai au sujet des soirées de conversation ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "À quelle heure Karim commencera-t-il son travail le mardi 12 mai ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi Mme Nkurunziza doit-elle répondre avant le 20 février ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que peut faire Madame Beaulieu maintenant ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'il faut apporter à la clinique ?",
+   "cefr": "A1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Que peut-on faire le 1er juillet ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel problème la société de transport doit-elle résoudre d'ici la fin du projet-",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la thèse défendue par l'auteur ?",
+   "cefr": "B1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Quelle affirmation correspond au fonctionnement de la grainothèque ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi l'agente précise-t-elle qu'une reconnaissance partielle « n'est pas un ",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle position l'auteur défend-il ?",
+   "cefr": "B1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce que les patients doivent apporter à la clinique ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "De quoi le conseiller parle-t-il pendant la séance ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qui peut emprunter une tablette ?",
+   "cefr": "A1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Que veut dire Fatou Diallo quand elle affirme que ses étudiants « restaient muet",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit faire un locataire qui ne sera pas chez lui pendant les travaux ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la position défendue par l'auteur ?",
+   "cefr": "B1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Pourquoi l'organisation a-t-elle décidé de changer de formule ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doivent faire les voyageurs aujourd'hui ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la principale critique de l'auteur à l'égard de la gratuité pour les ",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi la bibliothèque refuse-t-elle d'acheter plus de bornes ?",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit faire M. Haddad s'il n'a pas encore son évaluation comparative des étud",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la situation de Mme Belhadj à la suite de l'analyse de son dossier ?",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que propose exactement l'auteur ?",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'arrivera-t-il si Amina ne vide pas son casier avant vendredi 16 h ?",
+   "cefr": "A2",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "De quoi dépend la continuation du service du dimanche après l'essai ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'il faut apporter au CLSC ?",
+   "cefr": "A1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qu'on met dans le bac brun ?",
+   "cefr": "A1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Que demande Yasmine ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit apporter Rafael au local A-120 ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qui est prévu pour les membres adultes ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit faire une personne dont le rendez-vous était prévu un jeudi ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi la coopérative limite-t-elle le nombre de dossiers acceptés ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi la collecte est-elle plus fréquente entre juin et septembre ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Amina, 30 ans, est enceinte et veut attendre le moins longtemps possible. Quand ",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi l'auteur parle-t-il du café et du service de musique en ligne ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "M. Duguay a 78 ans et sa carte d'assurance maladie est expirée. Il se présente u",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est l'idée principale défendue par l'autrice ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que pense l'auteure de la vente de sacs en tissu au marché ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Madame Osei a des questions sur sa demande de résidence permanente. Que doit-ell",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est la position défendue par l'auteure ?",
+   "cefr": "B1",
+   "reasons": [
+    "answerLeak",
+    "verdict_revise",
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "D'après l'avis, que se passera-t-il si une personne se présente au comptoir pour",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle position l'auteur défend-il dans ce texte ?",
+   "cefr": "B1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Pour quelle raison le département a-t-il d'abord modifié le calendrier des exame",
+   "cefr": "B1",
+   "reasons": [
+    "fail_naturalFrench",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel est le rôle principal des mentors dans ce programme ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Mme Lachance n'a reçu aucun avis et son permis expire dans dix jours. Que dit ce",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel reproche l'auteur adresse-t-il surtout aux réseaux sociaux ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "answerLeak",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Qu’est-ce qu’on ne met pas dans le bac brun ?",
+   "cefr": "A1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit préparer Monsieur Diallo avant d’aller au salon de l’emploi ?",
+   "cefr": "A1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel était l'objectif principal du projet au départ ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit faire un candidat dont l'examen pratique était prévu un vendredi ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle est l'opinion de Josée Tremblay ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_naturalFrench",
+    "lowFrenchQuality",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "D'après l'avis, qu'est-ce que les intervenants ne font pas ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Pourquoi la Ville refuse-t-elle les sacs de plastique ?",
+   "cefr": "A2",
+   "reasons": [
+    "fail_difficultyOk",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quel conseil les organisateurs donnent-ils aux visiteurs ?",
+   "cefr": "A2",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Comment le texte interprète-t-il la baisse de 70 % des passages ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Quelle position l'auteur défend-il ?",
+   "cefr": "B1",
+   "reasons": [
+    "blindDisagree"
+   ]
+  },
+  {
+   "stem": "Qu'est-ce qui pourrait faire perdre sa place à Mme Nkurunziza ?",
+   "cefr": "B1",
+   "reasons": [
+    "fail_canadaAppropriate",
+    "verdict_revise"
+   ]
+  },
+  {
+   "stem": "Que doit savoir une personne qui veut nager des longueurs le vendredi soir ?",
+   "cefr": "B1",
+   "reasons": [
+    "verdict_revise"
+   ]
+  }
+ ]
+}

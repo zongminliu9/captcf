@@ -1,0 +1,6377 @@
+[
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux voyageurs — autobus 24",
+  "passageText": "Avis aux voyageurs. L'arrêt de l'autobus 24 devant le 5100, rue Sherbrooke est fermé. Prenez l'autobus au coin de la rue Girouard, à deux minutes à pied. Ce changement dure jusqu'au 12 mars. Merci de votre patience. — Société de transport de Montréal",
+  "stem": "Où faut-il prendre l'autobus 24 maintenant ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Devant le 5100, rue Sherbrooke"
+   },
+   {
+    "id": "b",
+    "text": "Au coin de la rue Girouard"
+   },
+   {
+    "id": "c",
+    "text": "À l'entrée du métro Villa-Maria"
+   },
+   {
+    "id": "d",
+    "text": "Au bureau de la Société de transport"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "L'avis dit que l'arrêt de la rue Sherbrooke est fermé et qu'il faut prendre l'autobus « au coin de la rue Girouard ». C'est donc le nouvel arrêt.",
+  "distractorRationales": {
+   "a": "C'est l'ancien arrêt, justement celui qui est fermé.",
+   "c": "Aucun métro n'est mentionné dans l'avis.",
+   "d": "Le bureau de la société de transport n'est pas un arrêt d'autobus."
+  },
+  "vocabulary": [
+   {
+    "term": "un arrêt",
+    "gloss_en": "a (bus) stop",
+    "gloss_zh": "车站"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "au coin de",
+    "gloss_en": "at the corner of",
+    "gloss_zh": "在……的拐角"
+   },
+   {
+    "term": "à pied",
+    "gloss_en": "on foot",
+    "gloss_zh": "步行"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "A1 : avis très court, phrases simples au présent et à l'impératif ; la réponse est une information de lieu explicite, mais le lecteur doit distinguer l'ancien arrêt du nouveau.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "vie_quotidienne",
+  "targetNclc": 3,
+  "passageTitle": "Mot d'une voisine — chat perdu",
+  "passageText": "Bonjour les voisins, Mon chat Nougat est parti hier soir. Il est noir avec une patte blanche. Il n'a pas de collier. Si vous le voyez, téléphonez-moi au 819 555-0142. J'habite au 34, rue Alexandre, appartement 3, à Sherbrooke. Merci beaucoup ! Claudine",
+  "stem": "Comment reconnaît-on le chat de Claudine ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Il est blanc avec un collier rouge"
+   },
+   {
+    "id": "b",
+    "text": "Il est noir et gris"
+   },
+   {
+    "id": "c",
+    "text": "Il est noir avec une patte blanche"
+   },
+   {
+    "id": "d",
+    "text": "Il porte un collier avec son nom"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Claudine décrit son chat ainsi : « Il est noir avec une patte blanche. » C'est le seul signe physique donné dans le message.",
+  "distractorRationales": {
+   "a": "Le chat n'est pas blanc et le mot dit clairement qu'il n'a pas de collier.",
+   "b": "La couleur grise n'apparaît pas dans la description.",
+   "d": "Le message précise le contraire : le chat n'a pas de collier."
+  },
+  "vocabulary": [
+   {
+    "term": "un voisin",
+    "gloss_en": "a neighbour",
+    "gloss_zh": "邻居"
+   },
+   {
+    "term": "une patte",
+    "gloss_en": "a paw",
+    "gloss_zh": "爪子"
+   },
+   {
+    "term": "un collier",
+    "gloss_en": "a collar",
+    "gloss_zh": "项圈"
+   },
+   {
+    "term": "téléphoner",
+    "gloss_en": "to call (on the phone)",
+    "gloss_zh": "打电话"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "A1 : mot de voisinage familier, vocabulaire concret ; la difficulté vient de la négation « il n'a pas de collier », qui élimine deux options.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "Patinoire du parc Saint-Vital",
+  "passageText": "La patinoire extérieure du parc Saint-Vital, à Winnipeg, est ouverte tous les jours de 10 h à 21 h. L'entrée est gratuite. On peut louer des patins pour 5 $. Le samedi soir, il y a de la musique de 18 h à 20 h.",
+  "stem": "Combien coûte l'entrée à la patinoire ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "5 $ pour tout le monde"
+   },
+   {
+    "id": "b",
+    "text": "10 $ le samedi soir"
+   },
+   {
+    "id": "c",
+    "text": "21 $ par famille"
+   },
+   {
+    "id": "d",
+    "text": "Rien, c'est gratuit"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Le texte dit : « L'entrée est gratuite. » Les 5 $ concernent la location de patins, pas l'entrée.",
+  "distractorRationales": {
+   "a": "5 $ est le prix pour louer des patins, pas le prix de l'entrée.",
+   "b": "Le samedi soir, il y a de la musique, mais aucun prix n'est ajouté.",
+   "c": "Le nombre 21 vient de l'heure de fermeture (21 h), pas d'un prix."
+  },
+  "vocabulary": [
+   {
+    "term": "une patinoire",
+    "gloss_en": "a skating rink",
+    "gloss_zh": "溜冰场"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free (no charge)",
+    "gloss_zh": "免费的"
+   },
+   {
+    "term": "louer",
+    "gloss_en": "to rent",
+    "gloss_zh": "租"
+   },
+   {
+    "term": "des patins",
+    "gloss_en": "skates",
+    "gloss_zh": "冰鞋"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "A1 : texte informatif court avec heures et prix ; le lecteur doit séparer le prix de location du prix d'entrée et ne pas confondre une heure avec un montant.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "sante",
+  "targetNclc": 4,
+  "passageTitle": "Clinique de vaccination au CLSC",
+  "passageText": "Le CLSC de Sainte-Foy, à Québec, offre le vaccin contre la grippe. La clinique est ouverte du lundi au jeudi, de 8 h 30 à 16 h. Il faut prendre un rendez-vous par téléphone. Apportez votre carte d'assurance maladie. Le vaccin est gratuit.",
+  "stem": "Que faut-il faire avant d'aller au CLSC ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Payer le vaccin en ligne"
+   },
+   {
+    "id": "b",
+    "text": "Passer au bureau le vendredi"
+   },
+   {
+    "id": "c",
+    "text": "Demander une carte d'assurance"
+   },
+   {
+    "id": "d",
+    "text": "Prendre un rendez-vous par téléphone"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Le texte précise : « Il faut prendre un rendez-vous par téléphone. » C'est l'étape obligatoire avant la visite.",
+  "distractorRationales": {
+   "a": "Le vaccin est gratuit : il n'y a rien à payer.",
+   "b": "La clinique est ouverte du lundi au jeudi, donc pas le vendredi.",
+   "c": "Il faut apporter sa carte d'assurance maladie, pas en demander une."
+  },
+  "vocabulary": [
+   {
+    "term": "un vaccin",
+    "gloss_en": "a vaccine / shot",
+    "gloss_zh": "疫苗"
+   },
+   {
+    "term": "la grippe",
+    "gloss_en": "the flu",
+    "gloss_zh": "流感"
+   },
+   {
+    "term": "un rendez-vous",
+    "gloss_en": "an appointment",
+    "gloss_zh": "预约"
+   },
+   {
+    "term": "une carte d'assurance maladie",
+    "gloss_en": "health insurance card",
+    "gloss_zh": "医保卡"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 haut : texte de service public avec plusieurs conditions ; il faut repérer l'action obligatoire (« il faut ») parmi des informations proches (apporter, gratuit, jours d'ouverture).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "environnement",
+  "targetNclc": 4,
+  "passageTitle": "Lettre au journal : trop de béton",
+  "passageText": "À mon avis, il y a trop de béton au centre-ville de Rimouski. Les étés sont très chauds et il n'y a pas d'ombre. Je pense que la Ville doit planter des arbres sur la rue Saint-Germain. C'est joli et c'est bon pour tout le monde. — Amadou Sy",
+  "stem": "Que demande Amadou Sy dans sa lettre ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Que la Ville construise un nouveau parc"
+   },
+   {
+    "id": "b",
+    "text": "Que la Ville ferme la rue aux autos"
+   },
+   {
+    "id": "c",
+    "text": "Que la Ville répare le béton du centre-ville"
+   },
+   {
+    "id": "d",
+    "text": "Que la Ville plante des arbres dans la rue"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Amadou écrit : « Je pense que la Ville doit planter des arbres sur la rue Saint-Germain. » C'est sa demande principale.",
+  "distractorRationales": {
+   "a": "Il ne parle pas de créer un parc, mais de planter des arbres dans une rue existante.",
+   "b": "Les autos ne sont jamais mentionnées dans la lettre.",
+   "c": "Il se plaint qu'il y a trop de béton ; il ne veut pas le réparer."
+  },
+  "vocabulary": [
+   {
+    "term": "à mon avis",
+    "gloss_en": "in my opinion",
+    "gloss_zh": "依我看"
+   },
+   {
+    "term": "le béton",
+    "gloss_en": "concrete",
+    "gloss_zh": "混凝土"
+   },
+   {
+    "term": "l'ombre",
+    "gloss_en": "shade",
+    "gloss_zh": "阴凉"
+   },
+   {
+    "term": "planter",
+    "gloss_en": "to plant",
+    "gloss_zh": "种植"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 haut : opinion très simple, mais le lecteur doit séparer le problème (le béton, la chaleur) de la solution proposée (planter des arbres).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 87,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "travail",
+  "targetNclc": 3,
+  "passageTitle": "Message du gérant — premier jour",
+  "passageText": "Bonjour Ndeye, Tu commences mardi à la boulangerie, à 6 h du matin. Porte un pantalon noir et des souliers fermés. Nous te donnons le tablier et la casquette. Entre par la porte arrière, sur la ruelle. À mardi ! Karim, gérant",
+  "stem": "Qu'est-ce que Ndeye doit apporter elle-même ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Une casquette et un tablier"
+   },
+   {
+    "id": "b",
+    "text": "Un pantalon noir et des souliers"
+   },
+   {
+    "id": "c",
+    "text": "La clé de la porte arrière"
+   },
+   {
+    "id": "d",
+    "text": "Son horaire de la semaine"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Karim écrit : « Porte un pantalon noir et des souliers fermés », alors que le tablier et la casquette sont fournis par la boulangerie.",
+  "distractorRationales": {
+   "a": "Le message dit que la boulangerie donne le tablier et la casquette.",
+   "c": "Ndeye doit entrer par la porte arrière, mais aucune clé n'est mentionnée.",
+   "d": "Le message donne seulement le jour et l'heure ; il ne parle pas d'un horaire à apporter."
+  },
+  "vocabulary": [
+   {
+    "term": "une boulangerie",
+    "gloss_en": "a bakery",
+    "gloss_zh": "面包店"
+   },
+   {
+    "term": "des souliers",
+    "gloss_en": "shoes (common in Québec French)",
+    "gloss_zh": "鞋"
+   },
+   {
+    "term": "un tablier",
+    "gloss_en": "an apron",
+    "gloss_zh": "围裙"
+   },
+   {
+    "term": "une ruelle",
+    "gloss_en": "a back lane / alley",
+    "gloss_zh": "小巷"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 : message de travail court et concret ; il faut opposer ce que l'employée apporte et ce que l'employeur fournit.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "technologie",
+  "targetNclc": 3,
+  "passageTitle": "Ateliers sur les tablettes",
+  "passageText": "La Bibliothèque publique d'Ottawa offre des ateliers gratuits sur les tablettes. Les ateliers ont lieu le mercredi, de 14 h à 15 h 30, à la succursale Vanier. Il faut s'inscrire au comptoir. Apportez votre tablette. Il y a dix places par atelier.",
+  "stem": "Combien de personnes peuvent participer à un atelier ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Dix"
+   },
+   {
+    "id": "b",
+    "text": "Quatorze"
+   },
+   {
+    "id": "c",
+    "text": "Quinze"
+   },
+   {
+    "id": "d",
+    "text": "Trente"
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Le texte indique : « Il y a dix places par atelier. » Une place correspond à une personne.",
+  "distractorRationales": {
+   "b": "14 est l'heure du début de l'atelier (14 h), pas le nombre de places.",
+   "c": "15 vient de l'heure de fin (15 h 30).",
+   "d": "Le nombre 30 vient aussi de l'heure de fin (15 h 30)."
+  },
+  "vocabulary": [
+   {
+    "term": "un atelier",
+    "gloss_en": "a workshop",
+    "gloss_zh": "工作坊"
+   },
+   {
+    "term": "une succursale",
+    "gloss_en": "a branch (of a library)",
+    "gloss_zh": "分馆"
+   },
+   {
+    "term": "s'inscrire",
+    "gloss_en": "to register / sign up",
+    "gloss_zh": "报名"
+   },
+   {
+    "term": "une place",
+    "gloss_en": "a spot / seat",
+    "gloss_zh": "名额"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "A1 : texte informatif bref ; la difficulté est de ne pas confondre les chiffres de l'horaire avec le nombre de places.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux usagers — arrêt déplacé",
+  "passageText": "Avis aux usagers. À partir du lundi 6 avril, l'arrêt de la ligne 3, devant le 245, rue King Ouest, est déplacé de 100 mètres vers l'est, près de la pharmacie. Les travaux durent trois semaines. Merci de votre patience. Société de transport de Sherbrooke.",
+  "stem": "Où les usagers doivent-ils attendre l'autobus à partir du 6 avril ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Près de la pharmacie."
+   },
+   {
+    "id": "b",
+    "text": "Devant le 245, rue King Ouest."
+   },
+   {
+    "id": "c",
+    "text": "Devant la gare de Sherbrooke."
+   },
+   {
+    "id": "d",
+    "text": "À côté de l'hôpital."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'avis dit que l'arrêt est déplacé « vers l'est, près de la pharmacie ». C'est donc le nouvel endroit où attendre l'autobus.",
+  "distractorRationales": {
+   "b": "C'est l'ancien emplacement de l'arrêt, celui qui n'est plus utilisé après le 6 avril.",
+   "c": "La gare n'est jamais mentionnée dans l'avis.",
+   "d": "L'hôpital n'apparaît pas dans le texte ; c'est la pharmacie qui sert de repère."
+  },
+  "vocabulary": [
+   {
+    "term": "un arrêt",
+    "gloss_en": "a (bus) stop",
+    "gloss_zh": "车站"
+   },
+   {
+    "term": "déplacé",
+    "gloss_en": "moved, relocated",
+    "gloss_zh": "移动的，迁移的"
+   },
+   {
+    "term": "des travaux",
+    "gloss_en": "construction work",
+    "gloss_zh": "施工"
+   },
+   {
+    "term": "un usager",
+    "gloss_en": "a user (of a service)",
+    "gloss_zh": "使用者，乘客"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 : phrases courtes au présent, information de lieu explicite dans le texte ; le seul piège est l'ancienne adresse citée juste avant le nouveau repère.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "logement",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du concierge — salle de lavage",
+  "passageText": "Bonjour Madame Ouellet, La salle de lavage du sous-sol ouvre maintenant à 7 h et ferme à 22 h, tous les jours. Il y a une nouvelle machine. Elle prend seulement des cartes, pas de pièces de monnaie. Bonne journée. Karim Belhadj, concierge, 12, rue Laviolette, Trois-Rivières.",
+  "stem": "Comment payer la nouvelle machine ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Avec des pièces de monnaie."
+   },
+   {
+    "id": "b",
+    "text": "Avec un chèque."
+   },
+   {
+    "id": "c",
+    "text": "Avec une carte."
+   },
+   {
+    "id": "d",
+    "text": "En argent comptant, au concierge."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le courriel précise que la machine « prend seulement des cartes, pas de pièces de monnaie ».",
+  "distractorRationales": {
+   "a": "Le texte dit explicitement que les pièces de monnaie ne sont pas acceptées.",
+   "b": "Aucun paiement par chèque n'est mentionné dans le courriel.",
+   "d": "Le concierge écrit le message, mais il n'encaisse aucun paiement."
+  },
+  "vocabulary": [
+   {
+    "term": "la salle de lavage",
+    "gloss_en": "laundry room",
+    "gloss_zh": "洗衣房"
+   },
+   {
+    "term": "le sous-sol",
+    "gloss_en": "basement",
+    "gloss_zh": "地下室"
+   },
+   {
+    "term": "des pièces de monnaie",
+    "gloss_en": "coins",
+    "gloss_zh": "硬币"
+   },
+   {
+    "term": "un concierge",
+    "gloss_en": "building caretaker / superintendent",
+    "gloss_zh": "楼房管理员"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 : courriel très court, réponse portant sur une phrase unique avec opposition simple « seulement… pas de… ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "sante",
+  "targetNclc": 4,
+  "passageTitle": "Clinique de vaccination à Dieppe",
+  "passageText": "La clinique de vaccination contre la grippe ouvre le 15 octobre au Centre de santé communautaire de Dieppe, près de Moncton. Le vaccin est gratuit pour tout le monde. Il n'y a pas de rendez-vous : on arrive et on attend son tour. La clinique est fermée le dimanche.",
+  "stem": "Que doit faire une personne qui veut le vaccin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Téléphoner pour prendre un rendez-vous."
+   },
+   {
+    "id": "b",
+    "text": "Se présenter sur place et attendre."
+   },
+   {
+    "id": "c",
+    "text": "Payer le vaccin à l'accueil."
+   },
+   {
+    "id": "d",
+    "text": "Venir le dimanche matin."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le texte dit : « Il n'y a pas de rendez-vous : on arrive et on attend son tour. » Il faut donc venir directement.",
+  "distractorRationales": {
+   "a": "Le texte indique justement qu'il n'y a pas de rendez-vous.",
+   "c": "Le vaccin est décrit comme gratuit pour tout le monde.",
+   "d": "La clinique est fermée le dimanche."
+  },
+  "vocabulary": [
+   {
+    "term": "la grippe",
+    "gloss_en": "the flu",
+    "gloss_zh": "流感"
+   },
+   {
+    "term": "un rendez-vous",
+    "gloss_en": "an appointment",
+    "gloss_zh": "预约"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free (of charge)",
+    "gloss_zh": "免费的"
+   },
+   {
+    "term": "attendre son tour",
+    "gloss_en": "to wait one's turn",
+    "gloss_zh": "排队等候"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "A1 haut : vocabulaire courant de la santé, mais trois distracteurs sont directement contredits par le texte, ce qui demande de relire chaque phrase.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "Affiche — salle d'étude silencieuse",
+  "passageText": "Bibliothèque du Cégep Garneau, local B-140. Cette salle est réservée à l'étude silencieuse. On ne parle pas et on n'utilise pas le téléphone. Le café et le thé sont interdits ; l'eau est permise. Ouvert de 8 h à 21 h, du lundi au vendredi.",
+  "stem": "Qu'est-ce qui est permis dans cette salle ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parler avec un ami."
+   },
+   {
+    "id": "b",
+    "text": "Boire un café."
+   },
+   {
+    "id": "c",
+    "text": "Utiliser son téléphone."
+   },
+   {
+    "id": "d",
+    "text": "Boire de l'eau."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "L'affiche indique : « le café et le thé sont interdits ; l'eau est permise ».",
+  "distractorRationales": {
+   "a": "La salle est réservée à l'étude silencieuse : on ne parle pas.",
+   "b": "Le café fait partie des boissons interdites.",
+   "c": "L'affiche interdit l'usage du téléphone."
+  },
+  "vocabulary": [
+   {
+    "term": "silencieux / silencieuse",
+    "gloss_en": "silent, quiet",
+    "gloss_zh": "安静的"
+   },
+   {
+    "term": "interdit",
+    "gloss_en": "forbidden",
+    "gloss_zh": "禁止的"
+   },
+   {
+    "term": "permis",
+    "gloss_en": "allowed",
+    "gloss_zh": "允许的"
+   },
+   {
+    "term": "un local",
+    "gloss_en": "a room (in a building)",
+    "gloss_zh": "房间，室"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "A1 : affiche à consignes, opposition interdit / permis très explicite ; il faut seulement repérer l'unique élément autorisé.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "travail",
+  "targetNclc": 3,
+  "passageTitle": "Courriel — première journée à la boulangerie",
+  "passageText": "Bonjour Léa, Tu commences jeudi à la boulangerie. Apporte des chaussures fermées et noires : c'est la règle dans la cuisine. Le tablier et la casquette, c'est nous qui les donnons. Arrive à 6 h 15, la porte arrière est ouverte. Merci ! Sylvain Tremblay, chef d'équipe, Longueuil.",
+  "stem": "Qu'est-ce que Léa doit apporter jeudi ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Des chaussures fermées et noires."
+   },
+   {
+    "id": "b",
+    "text": "Un tablier et une casquette."
+   },
+   {
+    "id": "c",
+    "text": "La clé de la porte arrière."
+   },
+   {
+    "id": "d",
+    "text": "Un uniforme blanc complet."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Sylvain écrit « Apporte des chaussures fermées et noires ». C'est le seul objet que Léa doit apporter.",
+  "distractorRationales": {
+   "b": "Le tablier et la casquette sont fournis par l'employeur.",
+   "c": "La porte arrière est déjà ouverte à 6 h 15 ; aucune clé n'est demandée.",
+   "d": "Aucun uniforme blanc n'est mentionné dans le courriel."
+  },
+  "vocabulary": [
+   {
+    "term": "une boulangerie",
+    "gloss_en": "a bakery",
+    "gloss_zh": "面包店"
+   },
+   {
+    "term": "un tablier",
+    "gloss_en": "an apron",
+    "gloss_zh": "围裙"
+   },
+   {
+    "term": "une casquette",
+    "gloss_en": "a cap",
+    "gloss_zh": "鸭舌帽"
+   },
+   {
+    "term": "un chef d'équipe",
+    "gloss_en": "a team leader / supervisor",
+    "gloss_zh": "班组长"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 : consigne de travail simple ; le distracteur b exige de comprendre « c'est nous qui les donnons », structure d'insistance courante.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 87,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "culture",
+  "targetNclc": 3,
+  "passageTitle": "Concerts gratuits au parc Major's Hill",
+  "passageText": "Chaque mercredi de juillet, un concert gratuit a lieu au parc Major's Hill, à Ottawa. La musique commence à 19 h. Les gens apportent une chaise ou une couverture. S'il pleut, le concert est annulé. Le stationnement est payant, mais l'autobus s'arrête tout près.",
+  "stem": "Que se passe-t-il s'il pleut ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le concert commence plus tard."
+   },
+   {
+    "id": "b",
+    "text": "Le concert a lieu dans un édifice."
+   },
+   {
+    "id": "c",
+    "text": "Le stationnement devient gratuit."
+   },
+   {
+    "id": "d",
+    "text": "Il n'y a pas de concert."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Le texte dit : « S'il pleut, le concert est annulé. » Annulé signifie qu'il n'a pas lieu.",
+  "distractorRationales": {
+   "a": "L'heure de 19 h ne change pas ; le concert est annulé, pas reporté.",
+   "b": "Aucun lieu de remplacement à l'intérieur n'est prévu.",
+   "c": "Le stationnement reste payant ; la pluie ne change rien au prix."
+  },
+  "vocabulary": [
+   {
+    "term": "annulé",
+    "gloss_en": "cancelled",
+    "gloss_zh": "取消的"
+   },
+   {
+    "term": "une couverture",
+    "gloss_en": "a blanket",
+    "gloss_zh": "毯子"
+   },
+   {
+    "term": "le stationnement",
+    "gloss_en": "parking",
+    "gloss_zh": "停车场"
+   },
+   {
+    "term": "avoir lieu",
+    "gloss_en": "to take place",
+    "gloss_zh": "举行"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 : information factuelle brève ; la seule difficulté est le mot « annulé », soutenu par la structure « s'il pleut… ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "immigration",
+  "targetNclc": 3,
+  "passageTitle": "Courriel — rencontre pour les nouveaux arrivants",
+  "passageText": "Bonjour Monsieur Nkosi, Bienvenue à Montréal ! Nous vous invitons à une rencontre pour les nouveaux arrivants, samedi 14 mars, à 10 h, au 3400, rue Saint-Denis. Nous expliquons comment demander la carte d'assurance maladie. C'est gratuit. Apportez votre passeport. Nadia Fortin, Centre d'accueil.",
+  "stem": "Qu'est-ce que Monsieur Nkosi doit apporter à la rencontre ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Sa carte d'assurance maladie."
+   },
+   {
+    "id": "b",
+    "text": "Vingt dollars."
+   },
+   {
+    "id": "c",
+    "text": "Son passeport."
+   },
+   {
+    "id": "d",
+    "text": "Une lettre de son employeur."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "La dernière consigne du courriel est claire : « Apportez votre passeport. »",
+  "distractorRationales": {
+   "a": "La rencontre sert justement à expliquer comment demander cette carte ; il ne l'a pas encore.",
+   "b": "Le courriel précise que la rencontre est gratuite.",
+   "d": "Aucune lettre d'employeur n'est demandée dans le message."
+  },
+  "vocabulary": [
+   {
+    "term": "un nouvel arrivant",
+    "gloss_en": "a newcomer",
+    "gloss_zh": "新移民"
+   },
+   {
+    "term": "une rencontre",
+    "gloss_en": "a meeting, a gathering",
+    "gloss_zh": "聚会，会面"
+   },
+   {
+    "term": "la carte d'assurance maladie",
+    "gloss_en": "health insurance card",
+    "gloss_zh": "医疗保险卡"
+   },
+   {
+    "term": "apporter",
+    "gloss_en": "to bring",
+    "gloss_zh": "带来"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 : courriel d'invitation court ; le distracteur a reprend un mot du texte, ce qui demande de distinguer l'objet du rendez-vous de la consigne finale.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "technologie",
+  "targetNclc": 4,
+  "passageTitle": "Atelier sur les tablettes à la bibliothèque",
+  "passageText": "La bibliothèque de Rimouski offre un atelier sur les tablettes, le jeudi à 14 h. Un employé montre comment envoyer un courriel et chercher un livre en ligne. L'atelier dure une heure. Il faut s'inscrire au comptoir, car il y a seulement dix places.",
+  "stem": "Pourquoi faut-il s'inscrire à l'avance ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce que le nombre de places est limité."
+   },
+   {
+    "id": "b",
+    "text": "Parce que l'atelier coûte assez cher."
+   },
+   {
+    "id": "c",
+    "text": "Parce qu'il faut apporter sa tablette."
+   },
+   {
+    "id": "d",
+    "text": "Parce que l'heure change chaque semaine."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Le texte donne la raison avec « car » : « il y a seulement dix places ». L'inscription sert donc à réserver une place.",
+  "distractorRationales": {
+   "b": "Aucun prix n'est mentionné dans le texte.",
+   "c": "Le texte ne demande pas d'apporter une tablette personnelle.",
+   "d": "L'atelier a toujours lieu le jeudi à 14 h."
+  },
+  "vocabulary": [
+   {
+    "term": "un atelier",
+    "gloss_en": "a workshop",
+    "gloss_zh": "工作坊，讲习班"
+   },
+   {
+    "term": "s'inscrire",
+    "gloss_en": "to register, sign up",
+    "gloss_zh": "报名"
+   },
+   {
+    "term": "le comptoir",
+    "gloss_en": "the counter, service desk",
+    "gloss_zh": "服务台"
+   },
+   {
+    "term": "une place",
+    "gloss_en": "a spot, a seat",
+    "gloss_zh": "名额，座位"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "A1 haut : la réponse repose sur le lien de cause introduit par « car » et sur la reformulation de « seulement dix places » en « nombre limité ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 89,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux voyageurs — arrêt 312",
+  "passageText": "Avis. L'arrêt d'autobus 312, rue Provencher, est fermé du 4 au 8 mai. Prenez l'autobus au coin de la rue Des Meurons. L'autobus 43 passe toutes les 20 minutes. Merci de votre patience. Transit Winnipeg",
+  "stem": "Où faut-il prendre l'autobus du 4 au 8 mai ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Au coin de la rue Des Meurons"
+   },
+   {
+    "id": "b",
+    "text": "À l'arrêt 312, rue Provencher"
+   },
+   {
+    "id": "c",
+    "text": "À la gare centrale de Winnipeg"
+   },
+   {
+    "id": "d",
+    "text": "Devant l'école du quartier"
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "The notice says the stop on rue Provencher is closed and tells riders: « Prenez l'autobus au coin de la rue Des Meurons ». So the temporary stop is at the corner of Des Meurons.",
+  "distractorRationales": {
+   "b": "That is exactly the stop that is closed from 4 to 8 May.",
+   "c": "No train or bus station is mentioned anywhere in the notice.",
+   "d": "A school is never mentioned in the text."
+  },
+  "vocabulary": [
+   {
+    "term": "un arrêt",
+    "gloss_en": "a (bus) stop",
+    "gloss_zh": "车站；站点"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "au coin de",
+    "gloss_en": "at the corner of",
+    "gloss_zh": "在……的拐角处"
+   },
+   {
+    "term": "passer",
+    "gloss_en": "to come by, to pass",
+    "gloss_zh": "经过；来"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Very short public notice with high-frequency words; the answer is one explicit instruction and requires no inference, only locating a place name.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "vie_quotidienne",
+  "targetNclc": 3,
+  "passageTitle": "Courriel d'un voisin",
+  "passageText": "Bonjour Madame Tremblay, Je suis votre voisin du 3e étage. Mon chat gris, Mistral, est sorti hier soir. Il est petit et il porte un collier rouge. Si vous le voyez dans la cour, téléphonez-moi au 819 555-0142. Merci beaucoup ! Karim Belhaj, Sherbrooke",
+  "stem": "Que demande Karim à sa voisine ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "De donner à manger au chat le matin"
+   },
+   {
+    "id": "b",
+    "text": "D'ouvrir la porte de la cour"
+   },
+   {
+    "id": "c",
+    "text": "De lui téléphoner si elle voit le chat"
+   },
+   {
+    "id": "d",
+    "text": "D'acheter un collier rouge pour le chat"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Karim writes: « Si vous le voyez dans la cour, téléphonez-moi ». His only request is a phone call if she sees the cat.",
+  "distractorRationales": {
+   "a": "Feeding the cat is never mentioned in the message.",
+   "b": "The courtyard is named as a place where the cat could be, not as something to open.",
+   "d": "The red collar simply describes the cat; Karim asks for nothing to be bought."
+  },
+  "vocabulary": [
+   {
+    "term": "un voisin",
+    "gloss_en": "a neighbour",
+    "gloss_zh": "邻居"
+   },
+   {
+    "term": "un collier",
+    "gloss_en": "a collar",
+    "gloss_zh": "项圈"
+   },
+   {
+    "term": "la cour",
+    "gloss_en": "the yard, courtyard",
+    "gloss_zh": "院子"
+   },
+   {
+    "term": "téléphoner",
+    "gloss_en": "to phone, to call",
+    "gloss_zh": "打电话"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Short personal email, present tense and simple imperative; the request is stated directly in one sentence with everyday vocabulary.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "La piscine du parc Sainte-Marguerite",
+  "passageText": "La piscine du parc Sainte-Marguerite, à Trois-Rivières, ouvre le 20 juin. Elle est ouverte tous les jours, de 11 h à 19 h. L'entrée est gratuite pour les enfants de moins de 12 ans. Les adultes paient 3 $.",
+  "stem": "Combien paie un adulte pour entrer à la piscine ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Rien, c'est gratuit"
+   },
+   {
+    "id": "b",
+    "text": "3 $"
+   },
+   {
+    "id": "c",
+    "text": "11 $"
+   },
+   {
+    "id": "d",
+    "text": "12 $"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "The last sentence states: « Les adultes paient 3 $ ». Free entry applies only to children.",
+  "distractorRationales": {
+   "a": "Free entry is only for children under 12, not for adults.",
+   "c": "11 is the opening time (11 h), not a price.",
+   "d": "12 is the age limit for free entry, not a price."
+  },
+  "vocabulary": [
+   {
+    "term": "une piscine",
+    "gloss_en": "a swimming pool",
+    "gloss_zh": "游泳池"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free (no cost)",
+    "gloss_zh": "免费的"
+   },
+   {
+    "term": "l'entrée",
+    "gloss_en": "entry, admission",
+    "gloss_zh": "入场；门票"
+   },
+   {
+    "term": "moins de",
+    "gloss_en": "under, less than",
+    "gloss_zh": "少于；不到"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Four simple factual sentences; the learner must not confuse numbers used for time and age with the price, but no inference is needed.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "Message de l'école aux parents",
+  "passageText": "Chers parents, Le mardi 5 novembre, les élèves de 4e année visitent le Musée canadien de la nature, à Ottawa. L'autobus part de l'école à 9 h. Votre enfant doit apporter un dîner froid et un chandail. Merci ! Mme Nadia Okoye, enseignante",
+  "stem": "Qu'est-ce que l'enfant doit apporter ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Un livre et un crayon"
+   },
+   {
+    "id": "b",
+    "text": "Un dîner froid et un chandail"
+   },
+   {
+    "id": "c",
+    "text": "De l'argent pour l'autobus"
+   },
+   {
+    "id": "d",
+    "text": "Un billet de musée"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "The teacher writes: « Votre enfant doit apporter un dîner froid et un chandail ». Nothing else is requested.",
+  "distractorRationales": {
+   "a": "School supplies are not mentioned in the message.",
+   "c": "The bus leaves from the school; no money is asked for.",
+   "d": "No ticket is mentioned; the visit is organized by the school."
+  },
+  "vocabulary": [
+   {
+    "term": "un élève",
+    "gloss_en": "a pupil, student",
+    "gloss_zh": "学生"
+   },
+   {
+    "term": "apporter",
+    "gloss_en": "to bring",
+    "gloss_zh": "带来"
+   },
+   {
+    "term": "un dîner",
+    "gloss_en": "lunch (in Quebec)",
+    "gloss_zh": "午餐（魁北克用法）"
+   },
+   {
+    "term": "un chandail",
+    "gloss_en": "a sweater",
+    "gloss_zh": "毛衣"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Short school letter with familiar school vocabulary; the required items appear in one sentence with the verb « apporter ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 94,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "immigration",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du centre des nouveaux arrivants",
+  "passageText": "Bonjour Madame Nguyen, Bienvenue à Laval ! Nos cours de français gratuits commencent le lundi 8 septembre. Ils ont lieu le soir, de 18 h à 20 h. Le centre est près de la station de métro Montmorency. Répondez à ce courriel pour garder votre place. Élise Fournier",
+  "stem": "Quand ont lieu les cours de français ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le samedi matin"
+   },
+   {
+    "id": "b",
+    "text": "Tous les jours, à midi"
+   },
+   {
+    "id": "c",
+    "text": "Le lundi, de 8 h à 10 h"
+   },
+   {
+    "id": "d",
+    "text": "Le soir, de 18 h à 20 h"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "The email says the classes « ont lieu le soir, de 18 h à 20 h ». The word « soir » and the times 18 h–20 h match option d.",
+  "distractorRationales": {
+   "a": "Saturday is never mentioned in the email.",
+   "b": "The classes are in the evening, not every day at noon.",
+   "c": "The 8 refers to the date (8 September), not to a starting hour."
+  },
+  "vocabulary": [
+   {
+    "term": "un cours",
+    "gloss_en": "a class, a course",
+    "gloss_zh": "课程"
+   },
+   {
+    "term": "avoir lieu",
+    "gloss_en": "to take place",
+    "gloss_zh": "举行"
+   },
+   {
+    "term": "le soir",
+    "gloss_en": "in the evening",
+    "gloss_zh": "晚上"
+   },
+   {
+    "term": "garder sa place",
+    "gloss_en": "to keep one's spot",
+    "gloss_zh": "保留名额"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Welcome email with basic time expressions; the trap is a date number reused as a fake hour, but the correct schedule is stated word for word.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "technologie",
+  "targetNclc": 3,
+  "passageTitle": "Atelier sur le téléphone intelligent",
+  "passageText": "La bibliothèque Lisette-Morin, à Rimouski, offre un atelier sur le téléphone intelligent. Les personnes de 60 ans et plus apprennent à envoyer des photos et des messages. L'atelier a lieu le mercredi, à 10 h. Il faut apporter son téléphone.",
+  "stem": "À qui s'adresse cet atelier ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Aux enfants de l'école"
+   },
+   {
+    "id": "b",
+    "text": "Aux employés de la bibliothèque"
+   },
+   {
+    "id": "c",
+    "text": "Aux personnes de 60 ans et plus"
+   },
+   {
+    "id": "d",
+    "text": "Aux touristes de passage"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "The text names the participants: « Les personnes de 60 ans et plus apprennent à envoyer des photos et des messages ».",
+  "distractorRationales": {
+   "a": "Children are never mentioned; the age given is 60 and over.",
+   "b": "The library offers the workshop; its staff are not the participants.",
+   "d": "Tourists or visitors are not mentioned in the text."
+  },
+  "vocabulary": [
+   {
+    "term": "une bibliothèque",
+    "gloss_en": "a library",
+    "gloss_zh": "图书馆"
+   },
+   {
+    "term": "un téléphone intelligent",
+    "gloss_en": "a smartphone",
+    "gloss_zh": "智能手机"
+   },
+   {
+    "term": "apprendre à",
+    "gloss_en": "to learn how to",
+    "gloss_zh": "学习做……"
+   },
+   {
+    "term": "envoyer",
+    "gloss_en": "to send",
+    "gloss_zh": "发送"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Four short present-tense sentences; the target audience is stated explicitly with a simple age expression.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 94,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux voyageurs — arrêt 42",
+  "passageText": "Avis. L'arrêt 42, devant la pharmacie, est fermé du 3 au 10 mars. Prenez l'autobus au coin de la rue King et de la rue Wellington, à 200 mètres. Le numéro de l'autobus ne change pas. Merci. Société de transport de Sherbrooke.",
+  "stem": "Que doivent faire les voyageurs du 3 au 10 mars ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Prendre le même autobus à un autre arrêt."
+   },
+   {
+    "id": "b",
+    "text": "Prendre un autre autobus au même arrêt."
+   },
+   {
+    "id": "c",
+    "text": "Attendre l'autobus devant la pharmacie."
+   },
+   {
+    "id": "d",
+    "text": "Marcher jusqu'à la rue King chaque matin."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "The notice says stop 42 is closed and that riders should catch the bus at King and Wellington, while the bus number stays the same. So the stop changes, not the bus.",
+  "distractorRationales": {
+   "b": "Reverses the notice: the bus number stays the same, it is the stop that moves.",
+   "c": "The stop in front of the pharmacy is exactly the one that is closed.",
+   "d": "Walking is only to reach the temporary stop during those dates, not a daily instruction."
+  },
+  "vocabulary": [
+   {
+    "term": "un arrêt",
+    "gloss_en": "a (bus) stop",
+    "gloss_zh": "车站"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "au coin de",
+    "gloss_en": "at the corner of",
+    "gloss_zh": "在……街角"
+   },
+   {
+    "term": "un trajet",
+    "gloss_en": "a route / trip",
+    "gloss_zh": "路线"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Very short public notice; answer requires linking « arrêt fermé » with the replacement location, one simple contrast (stop changes / bus stays).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "logement",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du concierge",
+  "passageText": "Bonjour, je suis Karim, le concierge du 4120, rue Fabre, à Montréal. Mardi, il n'y a pas d'eau chaude entre 9 h et 14 h. Un plombier répare les tuyaux du sous-sol. Prenez votre douche le matin, avant 9 h. Merci de votre patience. Karim",
+  "stem": "Pourquoi Karim écrit-il aux locataires ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Pour présenter le nouveau concierge du sous-sol."
+   },
+   {
+    "id": "b",
+    "text": "Pour demander de payer le loyer avant mardi."
+   },
+   {
+    "id": "c",
+    "text": "Pour annoncer une coupure d'eau chaude mardi."
+   },
+   {
+    "id": "d",
+    "text": "Pour interdire les douches pendant toute la semaine."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Karim announces that there will be no hot water on Tuesday from 9 a.m. to 2 p.m. because a plumber is repairing the pipes; everything else in the email supports that announcement.",
+  "distractorRationales": {
+   "a": "Karim introduces himself as the current caretaker; no new caretaker is mentioned.",
+   "b": "Rent is never mentioned in the email.",
+   "d": "Showers are only affected Tuesday between 9 a.m. and 2 p.m., not all week."
+  },
+  "vocabulary": [
+   {
+    "term": "le concierge",
+    "gloss_en": "building caretaker / superintendent",
+    "gloss_zh": "楼房管理员"
+   },
+   {
+    "term": "l'eau chaude",
+    "gloss_en": "hot water",
+    "gloss_zh": "热水"
+   },
+   {
+    "term": "un plombier",
+    "gloss_en": "a plumber",
+    "gloss_zh": "水管工"
+   },
+   {
+    "term": "le sous-sol",
+    "gloss_en": "the basement",
+    "gloss_zh": "地下室"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 email with familiar housing vocabulary; the task is identifying the purpose of a short message, a global-meaning question with no inference chain.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "sante",
+  "targetNclc": 4,
+  "passageTitle": "Clinique de vaccination au CLSC",
+  "passageText": "Le CLSC de Sainte-Foy, à Québec, ouvre une clinique de vaccination contre la grippe. C'est le samedi 12 octobre, de 8 h à 16 h. Le vaccin est gratuit. Il faut apporter la carte d'assurance maladie. Les enfants viennent avec un parent. Sans rendez-vous.",
+  "stem": "Qu'est-ce qu'il faut apporter à la clinique ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Un papier de rendez-vous."
+   },
+   {
+    "id": "b",
+    "text": "La carte d'assurance maladie."
+   },
+   {
+    "id": "c",
+    "text": "De l'argent pour le vaccin."
+   },
+   {
+    "id": "d",
+    "text": "Une lettre du médecin."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "The text states « Il faut apporter la carte d'assurance maladie », which is the only object presented as required.",
+  "distractorRationales": {
+   "a": "The clinic is « sans rendez-vous », so no appointment paper exists.",
+   "c": "The vaccine is described as free (« gratuit »).",
+   "d": "No doctor's letter is mentioned anywhere in the notice."
+  },
+  "vocabulary": [
+   {
+    "term": "la grippe",
+    "gloss_en": "the flu",
+    "gloss_zh": "流感"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free (no cost)",
+    "gloss_zh": "免费的"
+   },
+   {
+    "term": "la carte d'assurance maladie",
+    "gloss_en": "health insurance card",
+    "gloss_zh": "医疗保险卡"
+   },
+   {
+    "term": "sans rendez-vous",
+    "gloss_en": "walk-in, no appointment",
+    "gloss_zh": "无需预约"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Short factual notice; the correct answer is stated with « il faut », but two distractors are eliminated only by reading « gratuit » and « sans rendez-vous ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "loisirs",
+  "targetNclc": 4,
+  "passageTitle": "Patinoire du parc Provencher",
+  "passageText": "Patinoire extérieure du parc Provencher, à Winnipeg. Ouverte tous les jours, de 10 h à 21 h. Le lundi, la glace est nettoyée de 13 h à 15 h : la patinoire est fermée. Casque obligatoire pour les enfants de moins de 12 ans. Location de patins : 5 $.",
+  "stem": "Quand est-ce qu'on ne peut pas patiner ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le samedi, toute la journée."
+   },
+   {
+    "id": "b",
+    "text": "Le lundi soir, entre 19 h et 21 h."
+   },
+   {
+    "id": "c",
+    "text": "Tous les jours, entre 13 h et 15 h."
+   },
+   {
+    "id": "d",
+    "text": "Le lundi, entre 13 h et 15 h."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "The notice says the ice is cleaned on Mondays from 1 p.m. to 3 p.m. and that the rink is closed during that time.",
+  "distractorRationales": {
+   "a": "The rink is open every day from 10 a.m. to 9 p.m.; Saturday is not an exception.",
+   "b": "Monday evening is still within the 10 a.m.–9 p.m. opening hours.",
+   "c": "The 1 p.m.–3 p.m. closing applies to Monday only, not to every day."
+  },
+  "vocabulary": [
+   {
+    "term": "une patinoire",
+    "gloss_en": "skating rink",
+    "gloss_zh": "溜冰场"
+   },
+   {
+    "term": "la glace",
+    "gloss_en": "the ice",
+    "gloss_zh": "冰"
+   },
+   {
+    "term": "un casque",
+    "gloss_en": "a helmet",
+    "gloss_zh": "头盔"
+   },
+   {
+    "term": "la location",
+    "gloss_en": "rental",
+    "gloss_zh": "租用"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "A1 opening-hours notice; requires holding one exception (Monday) against the general rule (every day), a simple two-step reading.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "Message de l'école Sainte-Anne",
+  "passageText": "Chers parents, le vendredi 4 avril, les élèves de 3e année vont au Musée de la nature, à Sherbrooke. Le départ de l'école est à 8 h 30 et le retour est à 15 h. Les enfants apportent un dîner froid et un manteau. Signez le papier bleu. Madame Doucet",
+  "stem": "Que doivent apporter les enfants ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Un dîner froid et un manteau."
+   },
+   {
+    "id": "b",
+    "text": "Un manteau et cinq dollars."
+   },
+   {
+    "id": "c",
+    "text": "Un dîner chaud et un cahier."
+   },
+   {
+    "id": "d",
+    "text": "Un papier bleu et un dîner."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "The teacher writes « Les enfants apportent un dîner froid et un manteau », listing exactly these two items.",
+  "distractorRationales": {
+   "b": "No amount of money is requested in the message.",
+   "c": "The lunch must be cold (« froid »), and no notebook is mentioned.",
+   "d": "The blue paper is to be signed by the parents, not brought by the children as a lunch item."
+  },
+  "vocabulary": [
+   {
+    "term": "un élève",
+    "gloss_en": "a pupil / student",
+    "gloss_zh": "学生"
+   },
+   {
+    "term": "le départ",
+    "gloss_en": "departure",
+    "gloss_zh": "出发"
+   },
+   {
+    "term": "un dîner",
+    "gloss_en": "lunch (Quebec usage)",
+    "gloss_zh": "午餐（魁北克用法）"
+   },
+   {
+    "term": "signer",
+    "gloss_en": "to sign",
+    "gloss_zh": "签字"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Short school note; the answer is one explicit sentence, and distractors recombine words present in the text.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 89,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "environnement",
+  "targetNclc": 4,
+  "passageTitle": "Le nouveau bac brun",
+  "passageText": "À Trois-Rivières, la Ville donne un bac brun à chaque maison. On met dedans les restes de fruits, de légumes et de pain. Pas de plastique, pas de verre. La collecte est le jeudi matin. Sortez le bac sur le trottoir avant 7 h.",
+  "stem": "Qu'est-ce qu'on peut mettre dans le bac brun ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Des bouteilles de verre."
+   },
+   {
+    "id": "b",
+    "text": "Des sacs de plastique."
+   },
+   {
+    "id": "c",
+    "text": "Des restes de pain."
+   },
+   {
+    "id": "d",
+    "text": "Des vieux jouets."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "The text lists fruit, vegetable and bread scraps as what goes in the brown bin, so bread leftovers are accepted.",
+  "distractorRationales": {
+   "a": "Glass is explicitly excluded (« pas de verre »).",
+   "b": "Plastic is explicitly excluded (« pas de plastique »).",
+   "d": "Toys are not mentioned and do not belong to the food scraps listed."
+  },
+  "vocabulary": [
+   {
+    "term": "un bac",
+    "gloss_en": "a bin",
+    "gloss_zh": "垃圾箱"
+   },
+   {
+    "term": "les restes",
+    "gloss_en": "leftovers, scraps",
+    "gloss_zh": "剩余物"
+   },
+   {
+    "term": "la collecte",
+    "gloss_en": "(garbage) pickup",
+    "gloss_zh": "收运"
+   },
+   {
+    "term": "le trottoir",
+    "gloss_en": "sidewalk",
+    "gloss_zh": "人行道"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "A1 municipal information; two distractors are removed by an explicit negative sentence, which is the only processing step.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "culture",
+  "targetNclc": 4,
+  "passageTitle": "Le festival, c'est mieux dehors",
+  "passageText": "Moi, je préfère les spectacles dans la rue. Au festival acadien de Moncton, la musique est dehors et c'est gratuit. Dans une salle, les billets coûtent cher et on reste assis. Dehors, on danse avec ses voisins. Pour moi, c'est ça, la fête. Nadine",
+  "stem": "Pourquoi Nadine préfère-t-elle les spectacles dans la rue ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce que les salles de spectacle sont trop petites."
+   },
+   {
+    "id": "b",
+    "text": "Parce que c'est gratuit et qu'on peut danser."
+   },
+   {
+    "id": "c",
+    "text": "Parce que la musique est moins forte dehors."
+   },
+   {
+    "id": "d",
+    "text": "Parce qu'elle a des billets pour la salle."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Nadine gives two reasons: outdoor shows cost nothing (« c'est gratuit ») and people dance instead of staying seated.",
+  "distractorRationales": {
+   "a": "She criticizes the price of tickets and having to sit, never the size of the venues.",
+   "c": "The volume of the music is never discussed.",
+   "d": "She prefers the street precisely because indoor tickets are expensive; she does not have any."
+  },
+  "vocabulary": [
+   {
+    "term": "un spectacle",
+    "gloss_en": "a show",
+    "gloss_zh": "演出"
+   },
+   {
+    "term": "une salle",
+    "gloss_en": "a hall, venue",
+    "gloss_zh": "演出厅"
+   },
+   {
+    "term": "un billet",
+    "gloss_en": "a ticket",
+    "gloss_zh": "门票"
+   },
+   {
+    "term": "coûter cher",
+    "gloss_en": "to be expensive",
+    "gloss_zh": "价格贵"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Simple first-person opinion; the reader must gather two stated reasons and reject a contrast (« dans une salle ») that describes what she dislikes.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "services_publics",
+  "targetNclc": 4,
+  "passageTitle": "Avis — Centre de services SAAQ",
+  "passageText": "Le centre de services de la SAAQ de Longueuil est fermé les 5 et 6 juin pour des travaux. Pour un permis de conduire ou une plaque, allez au centre de Brossard. Vous pouvez aussi payer en ligne. Le centre rouvre le lundi 9 juin.",
+  "stem": "Que peut faire une personne le 5 juin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Aller au centre de Longueuil le matin seulement."
+   },
+   {
+    "id": "b",
+    "text": "Téléphoner au centre de Longueuil pour un rendez-vous."
+   },
+   {
+    "id": "c",
+    "text": "Attendre le 9 juin, car il n'y a pas d'autre choix."
+   },
+   {
+    "id": "d",
+    "text": "Aller au centre de Brossard ou payer en ligne."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "The notice offers two solutions while the Longueuil office is closed: go to the Brossard office or pay online.",
+  "distractorRationales": {
+   "a": "The Longueuil office is closed all day on June 5 and 6, mornings included.",
+   "b": "No telephone number or appointment service is mentioned.",
+   "c": "Waiting is possible, but the notice clearly gives other choices, so « pas d'autre choix » is false."
+  },
+  "vocabulary": [
+   {
+    "term": "des travaux",
+    "gloss_en": "construction work",
+    "gloss_zh": "施工"
+   },
+   {
+    "term": "un permis de conduire",
+    "gloss_en": "driver's licence",
+    "gloss_zh": "驾驶执照"
+   },
+   {
+    "term": "une plaque",
+    "gloss_en": "licence plate",
+    "gloss_zh": "车牌"
+   },
+   {
+    "term": "en ligne",
+    "gloss_en": "online",
+    "gloss_zh": "在线"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Short public-service notice; the answer combines the two alternatives offered, and one distractor is wrong only because it denies those alternatives.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 87,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "immigration",
+  "targetNclc": 4,
+  "passageTitle": "Lettre d'IRCC",
+  "passageText": "Madame Nguyen, pour votre demande, nous avons besoin de votre photo et de vos empreintes. Allez au centre de Winnipeg avant le 30 mai. Apportez cette lettre et votre passeport. Le rendez-vous dure quinze minutes. Il n'y a rien à payer. IRCC",
+  "stem": "Qu'est-ce que madame Nguyen doit apporter au centre ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Une photo et de l'argent."
+   },
+   {
+    "id": "b",
+    "text": "Son passeport et quinze dollars."
+   },
+   {
+    "id": "c",
+    "text": "Cette lettre et son passeport."
+   },
+   {
+    "id": "d",
+    "text": "Une lettre de son employeur."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "The letter says « Apportez cette lettre et votre passeport », naming exactly these two documents.",
+  "distractorRationales": {
+   "a": "The photo is taken at the centre, and the letter says there is nothing to pay.",
+   "b": "« Quinze » refers to the fifteen minutes of the appointment, not to a fee.",
+   "d": "No document from an employer is requested."
+  },
+  "vocabulary": [
+   {
+    "term": "une demande",
+    "gloss_en": "an application",
+    "gloss_zh": "申请"
+   },
+   {
+    "term": "les empreintes",
+    "gloss_en": "fingerprints",
+    "gloss_zh": "指纹"
+   },
+   {
+    "term": "un rendez-vous",
+    "gloss_en": "an appointment",
+    "gloss_zh": "预约"
+   },
+   {
+    "term": "durer",
+    "gloss_en": "to last",
+    "gloss_zh": "持续"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "A1 official letter; the answer is explicit, but distractors reuse « quinze » and « photo » from the text, requiring careful re-reading.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "logement",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux locataires — 145, rue Laviolette, Trois-Rivières",
+  "passageText": "Avis aux locataires. Mardi 14 avril, il n'y aura pas d'eau chaude entre 9 h et midi. Nous changeons le chauffe-eau du sous-sol. L'eau froide reste normale. Les ascenseurs fonctionnent comme d'habitude. Merci de votre patience. Ginette Roy, concierge.",
+  "stem": "Que se passe-t-il mardi matin dans l'immeuble ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Il n'y a pas d'eau chaude."
+   },
+   {
+    "id": "b",
+    "text": "Il n'y a pas d'électricité."
+   },
+   {
+    "id": "c",
+    "text": "Les ascenseurs sont arrêtés."
+   },
+   {
+    "id": "d",
+    "text": "L'entrée de l'immeuble est fermée."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'avis annonce qu'il n'y aura pas d'eau chaude de 9 h à midi, parce qu'on change le chauffe-eau. L'eau froide, elle, reste normale.",
+  "distractorRationales": {
+   "b": "L'avis ne parle jamais d'électricité ; seul le chauffe-eau est touché.",
+   "c": "Le texte dit au contraire que les ascenseurs fonctionnent comme d'habitude.",
+   "d": "Rien n'indique une fermeture de l'immeuble ; les locataires restent chez eux."
+  },
+  "vocabulary": [
+   {
+    "term": "locataire",
+    "gloss_en": "tenant",
+    "gloss_zh": "租客"
+   },
+   {
+    "term": "eau chaude",
+    "gloss_en": "hot water",
+    "gloss_zh": "热水"
+   },
+   {
+    "term": "chauffe-eau",
+    "gloss_en": "water heater",
+    "gloss_zh": "热水器"
+   },
+   {
+    "term": "concierge",
+    "gloss_en": "building caretaker",
+    "gloss_zh": "大楼管理员"
+   }
+  ],
+  "estimatedSeconds": 35,
+  "difficultyEvidence": "Information très explicite, repérage direct d'un fait unique dans un avis court ; vocabulaire du logement de base et heures simples.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "sante",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du CLSC de Sherbrooke",
+  "passageText": "Bonjour monsieur Diallo, Votre prise de sang est jeudi 3 mars, à 8 h, au CLSC de Sherbrooke. Ne mangez pas le matin avant le test. Apportez votre carte d'assurance maladie. Le test est gratuit. Bonne journée. Sophie Béland, secrétaire.",
+  "stem": "Que doit faire monsieur Diallo jeudi matin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Téléphoner au CLSC de Sherbrooke."
+   },
+   {
+    "id": "b",
+    "text": "Payer son test à l'accueil."
+   },
+   {
+    "id": "c",
+    "text": "Venir au CLSC sans manger."
+   },
+   {
+    "id": "d",
+    "text": "Apporter son passeport canadien."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le courriel demande clairement de ne pas manger le matin avant le test, donc M. Diallo doit venir à jeun à 8 h.",
+  "distractorRationales": {
+   "a": "Aucun appel n'est demandé ; le rendez-vous est déjà fixé.",
+   "b": "Le courriel précise que le test est gratuit.",
+   "d": "On demande la carte d'assurance maladie, pas un passeport."
+  },
+  "vocabulary": [
+   {
+    "term": "prise de sang",
+    "gloss_en": "blood test",
+    "gloss_zh": "抽血"
+   },
+   {
+    "term": "carte d'assurance maladie",
+    "gloss_en": "health insurance card",
+    "gloss_zh": "medicare 健康卡"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free of charge",
+    "gloss_zh": "免费的"
+   },
+   {
+    "term": "apporter",
+    "gloss_en": "to bring",
+    "gloss_zh": "带来"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Consigne à l'impératif négatif simple ; l'apprenant doit relier « ne mangez pas » à l'action attendue, sans inférence complexe.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Un autobus gratuit à Moncton",
+  "passageText": "À Moncton, un autobus gratuit relie le centre-ville et l'aéroport depuis lundi. Il part toutes les trente minutes, de 6 h à 22 h. Le trajet dure vingt minutes. La ville veut aider les touristes et les gens qui travaillent près de l'aéroport.",
+  "stem": "À quelle fréquence l'autobus part-il ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Toutes les vingt minutes."
+   },
+   {
+    "id": "b",
+    "text": "Toutes les trente minutes."
+   },
+   {
+    "id": "c",
+    "text": "Toutes les deux heures."
+   },
+   {
+    "id": "d",
+    "text": "Deux fois par jour."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le texte dit que l'autobus part toutes les trente minutes, entre 6 h et 22 h.",
+  "distractorRationales": {
+   "a": "Vingt minutes est la durée du trajet, pas l'intervalle entre deux départs.",
+   "c": "Aucune fréquence de deux heures n'apparaît dans le texte.",
+   "d": "Le service va de 6 h à 22 h, donc bien plus de deux départs par jour."
+  },
+  "vocabulary": [
+   {
+    "term": "relier",
+    "gloss_en": "to link, to connect",
+    "gloss_zh": "连接"
+   },
+   {
+    "term": "trajet",
+    "gloss_en": "trip, journey",
+    "gloss_zh": "路程"
+   },
+   {
+    "term": "durer",
+    "gloss_en": "to last",
+    "gloss_zh": "持续"
+   },
+   {
+    "term": "centre-ville",
+    "gloss_en": "downtown",
+    "gloss_zh": "市中心"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Deux nombres proches (20 et 30 minutes) obligent à distinguer fréquence et durée : discrimination simple mais réelle.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "etudes",
+  "targetNclc": 4,
+  "passageTitle": "Bibliothèque de l'Université de Saint-Boniface (Winnipeg)",
+  "passageText": "Avis aux étudiants. Pendant les examens, du 5 au 19 décembre, la bibliothèque ferme à 23 h. Le café du deuxième étage reste ouvert jusqu'à 21 h seulement. Silence complet au troisième étage. Bonnes études à tous !",
+  "stem": "Jusqu'à quelle heure le café est-il ouvert ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Jusqu'à 19 h."
+   },
+   {
+    "id": "b",
+    "text": "Jusqu'à 23 h."
+   },
+   {
+    "id": "c",
+    "text": "Jusqu'à minuit."
+   },
+   {
+    "id": "d",
+    "text": "Jusqu'à 21 h."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "L'avis précise que le café du deuxième étage ferme à 21 h, même si la bibliothèque, elle, ferme à 23 h.",
+  "distractorRationales": {
+   "a": "Aucune heure de 19 h n'est mentionnée dans l'avis.",
+   "b": "23 h est l'heure de fermeture de la bibliothèque, pas du café.",
+   "c": "Rien n'indique une ouverture jusqu'à minuit."
+  },
+  "vocabulary": [
+   {
+    "term": "étage",
+    "gloss_en": "floor, storey",
+    "gloss_zh": "楼层"
+   },
+   {
+    "term": "fermer",
+    "gloss_en": "to close",
+    "gloss_zh": "关门"
+   },
+   {
+    "term": "examens",
+    "gloss_en": "exams",
+    "gloss_zh": "考试"
+   },
+   {
+    "term": "silence complet",
+    "gloss_en": "complete silence",
+    "gloss_zh": "绝对安静"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Deux horaires différents dans le même avis ; il faut associer chaque heure au bon lieu (café / bibliothèque).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 91,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "travail",
+  "targetNclc": 3,
+  "passageTitle": "Courriel de la Boulangerie du Vieux-Québec",
+  "passageText": "Bonjour Wei, Marc est malade et il ne rentre pas cette semaine. Peux-tu travailler samedi matin, de 6 h à 13 h ? Réponds-moi avant vendredi midi, s'il te plaît. Sinon, j'appelle Karine. Merci beaucoup ! Julie Tremblay",
+  "stem": "Que demande Julie à Wei ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "D'appeler Karine vendredi soir."
+   },
+   {
+    "id": "b",
+    "text": "De venir travailler vendredi midi."
+   },
+   {
+    "id": "c",
+    "text": "De travailler samedi matin."
+   },
+   {
+    "id": "d",
+    "text": "De rester à la maison samedi."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Julie demande à Wei de travailler samedi de 6 h à 13 h, parce que Marc est malade.",
+  "distractorRationales": {
+   "a": "C'est Julie qui appellera Karine si Wei refuse ; ce n'est pas la demande faite à Wei.",
+   "b": "Vendredi midi est la date limite pour répondre, pas un jour de travail.",
+   "d": "Julie veut justement que Wei vienne travailler samedi."
+  },
+  "vocabulary": [
+   {
+    "term": "malade",
+    "gloss_en": "sick, ill",
+    "gloss_zh": "生病的"
+   },
+   {
+    "term": "répondre",
+    "gloss_en": "to reply",
+    "gloss_zh": "回复"
+   },
+   {
+    "term": "sinon",
+    "gloss_en": "otherwise",
+    "gloss_zh": "否则"
+   },
+   {
+    "term": "s'il te plaît",
+    "gloss_en": "please (informal)",
+    "gloss_zh": "请（非正式）"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Le courriel contient deux moments (vendredi midi pour répondre, samedi pour travailler) ; il faut ne pas les confondre.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 87,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "services_publics",
+  "targetNclc": 4,
+  "passageTitle": "Point de service de la SAAQ — Longueuil",
+  "passageText": "Avis à la clientèle. Le comptoir des permis de conduire est fermé le lundi 6 mai pour des travaux. Vous pouvez payer votre permis en ligne ou par téléphone. Le comptoir rouvre le mardi 7 mai, à 8 h 30. Merci de votre compréhension.",
+  "stem": "Que peut-on faire le lundi 6 mai ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Payer son permis en ligne."
+   },
+   {
+    "id": "b",
+    "text": "Aller au comptoir le matin."
+   },
+   {
+    "id": "c",
+    "text": "Passer son examen de conduite."
+   },
+   {
+    "id": "d",
+    "text": "Rencontrer un employé sur place."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Le comptoir est fermé ce jour-là, mais l'avis propose de payer le permis en ligne ou par téléphone.",
+  "distractorRationales": {
+   "b": "Le comptoir est fermé toute la journée du 6 mai.",
+   "c": "L'avis ne parle pas d'examen de conduite.",
+   "d": "Personne ne reçoit les clients sur place ce lundi-là."
+  },
+  "vocabulary": [
+   {
+    "term": "comptoir",
+    "gloss_en": "service counter",
+    "gloss_zh": "服务柜台"
+   },
+   {
+    "term": "permis de conduire",
+    "gloss_en": "driver's licence",
+    "gloss_zh": "驾驶执照"
+   },
+   {
+    "term": "en ligne",
+    "gloss_en": "online",
+    "gloss_zh": "在线"
+   },
+   {
+    "term": "rouvrir",
+    "gloss_en": "to reopen",
+    "gloss_zh": "重新开放"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Il faut comprendre une fermeture ET la solution de rechange proposée, donc lier deux phrases de l'avis.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "immigration",
+  "targetNclc": 4,
+  "passageTitle": "Courriel du Centre Le Tremplin, Laval",
+  "passageText": "Bonjour madame Ortega, Votre cours de français commence le 8 septembre, à 18 h 30, au Centre Le Tremplin, à Laval. Les cours ont lieu le lundi et le mercredi. Apportez une pièce d'identité le premier soir. Bienvenue chez nous ! Yannick Côté",
+  "stem": "Quand madame Ortega a-t-elle ses cours ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Tous les soirs de la semaine."
+   },
+   {
+    "id": "b",
+    "text": "Le samedi et le dimanche."
+   },
+   {
+    "id": "c",
+    "text": "Seulement le 8 septembre."
+   },
+   {
+    "id": "d",
+    "text": "Le lundi et le mercredi."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Le courriel indique que les cours ont lieu le lundi et le mercredi ; le 8 septembre est seulement le premier cours.",
+  "distractorRationales": {
+   "a": "Seuls deux soirs par semaine sont mentionnés.",
+   "b": "Aucune fin de semaine n'est indiquée dans le message.",
+   "c": "Le 8 septembre est la date de début, pas la seule séance."
+  },
+  "vocabulary": [
+   {
+    "term": "avoir lieu",
+    "gloss_en": "to take place",
+    "gloss_zh": "举行"
+   },
+   {
+    "term": "pièce d'identité",
+    "gloss_en": "piece of ID",
+    "gloss_zh": "身份证件"
+   },
+   {
+    "term": "le premier soir",
+    "gloss_en": "the first evening",
+    "gloss_zh": "第一天晚上"
+   },
+   {
+    "term": "bienvenue",
+    "gloss_en": "welcome",
+    "gloss_zh": "欢迎"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Distinction entre une date de début unique et un horaire hebdomadaire répété : petite inférence de calendrier.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 91,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "La patinoire du parc Riverain ouvre à Ottawa",
+  "passageText": "À Ottawa, la patinoire du parc Riverain ouvre samedi. L'entrée est gratuite pour tout le monde. On peut louer des patins pour cinq dollars l'heure. Un petit chalet chauffé sert du chocolat chaud. La patinoire ferme à 21 h chaque soir.",
+  "stem": "Combien coûte l'entrée de la patinoire ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Rien, elle est gratuite."
+   },
+   {
+    "id": "b",
+    "text": "Cinq dollars par personne."
+   },
+   {
+    "id": "c",
+    "text": "Cinq dollars l'heure."
+   },
+   {
+    "id": "d",
+    "text": "Deux dollars pour les enfants."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Le texte dit que l'entrée est gratuite pour tout le monde ; les cinq dollars servent à louer des patins.",
+  "distractorRationales": {
+   "b": "Aucun prix d'entrée n'est demandé aux visiteurs.",
+   "c": "Cinq dollars l'heure, c'est le prix de la location de patins.",
+   "d": "Aucun tarif pour enfants n'apparaît dans le texte."
+  },
+  "vocabulary": [
+   {
+    "term": "patinoire",
+    "gloss_en": "skating rink",
+    "gloss_zh": "溜冰场"
+   },
+   {
+    "term": "louer",
+    "gloss_en": "to rent",
+    "gloss_zh": "租用"
+   },
+   {
+    "term": "chalet chauffé",
+    "gloss_en": "heated hut",
+    "gloss_zh": "暖房小屋"
+   },
+   {
+    "term": "entrée",
+    "gloss_en": "admission, entry",
+    "gloss_zh": "入场"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Piège classique : un prix figure bien dans le texte, mais il concerne la location, pas l'entrée.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 89,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "environnement",
+  "targetNclc": 4,
+  "passageTitle": "Avis important — Ville de Rimouski",
+  "passageText": "Avis important. À partir du 1er juin, le bac brun est ramassé le jeudi, et non plus le mardi. Sortez votre bac avant 7 h le matin. Le bac bleu ne change pas : il reste ramassé le mardi. Merci de votre collaboration.",
+  "stem": "Qu'est-ce qui change le 1er juin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le prix de la collecte des déchets."
+   },
+   {
+    "id": "b",
+    "text": "L'heure de sortie des bacs bleus."
+   },
+   {
+    "id": "c",
+    "text": "Le jour de la collecte du bac brun."
+   },
+   {
+    "id": "d",
+    "text": "La couleur des bacs de la ville."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "L'avis annonce que le bac brun passe du mardi au jeudi ; le bac bleu, lui, garde le mardi.",
+  "distractorRationales": {
+   "a": "Aucun prix n'est mentionné dans l'avis.",
+   "b": "L'avis dit que le bac bleu ne change pas.",
+   "d": "Les couleurs servent à distinguer les bacs ; elles ne changent pas."
+  },
+  "vocabulary": [
+   {
+    "term": "bac brun",
+    "gloss_en": "brown (compost) bin",
+    "gloss_zh": "棕色堆肥桶"
+   },
+   {
+    "term": "ramasser",
+    "gloss_en": "to collect, to pick up",
+    "gloss_zh": "收取"
+   },
+   {
+    "term": "sortir (un bac)",
+    "gloss_en": "to put out (a bin)",
+    "gloss_zh": "把（桶）拿出去"
+   },
+   {
+    "term": "collaboration",
+    "gloss_en": "cooperation",
+    "gloss_zh": "合作"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Deux bacs et trois jours dans un texte court : il faut suivre ce qui change et ce qui reste pareil.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "medias",
+  "targetNclc": 4,
+  "passageTitle": "Courrier des lecteurs — Le journal de Val-d'Or",
+  "passageText": "J'ai 68 ans et j'habite Val-d'Or. Mes petits-enfants lisent les nouvelles sur leur téléphone, très vite, entre deux autobus. Moi, je préfère le journal papier. Le matin, avec un café, je lis lentement et je suis tranquille. Pour moi, le papier reste meilleur. Denise Boucher",
+  "stem": "Que pense Denise Boucher ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le téléphone est plus pratique."
+   },
+   {
+    "id": "b",
+    "text": "Ses petits-enfants lisent trop."
+   },
+   {
+    "id": "c",
+    "text": "Le journal papier est meilleur."
+   },
+   {
+    "id": "d",
+    "text": "Les nouvelles sont trop tristes."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Denise explique qu'elle préfère le journal papier et termine en disant que, pour elle, le papier reste meilleur.",
+  "distractorRationales": {
+   "a": "C'est l'habitude de ses petits-enfants, pas son opinion à elle.",
+   "b": "Elle ne critique pas la quantité de lecture de ses petits-enfants.",
+   "d": "Elle parle du support (papier ou écran), jamais du contenu des nouvelles."
+  },
+  "vocabulary": [
+   {
+    "term": "petits-enfants",
+    "gloss_en": "grandchildren",
+    "gloss_zh": "孙辈"
+   },
+   {
+    "term": "préférer",
+    "gloss_en": "to prefer",
+    "gloss_zh": "更喜欢"
+   },
+   {
+    "term": "lentement",
+    "gloss_en": "slowly",
+    "gloss_zh": "慢慢地"
+   },
+   {
+    "term": "tranquille",
+    "gloss_en": "calm, at peace",
+    "gloss_zh": "安静的"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Opinion simple mais opposée à celle d'autres personnes du texte ; l'apprenant doit repérer à qui appartient chaque habitude.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux voyageurs — autobus 14",
+  "passageText": "Avis. L'arrêt de l'autobus 14, rue King, est fermé samedi. Il y a un marché dans la rue. Prenez l'autobus au coin de la rue Wellington, devant la pharmacie. Le service est normal dimanche. Merci. Société de transport de Sherbrooke.",
+  "stem": "Samedi, où faut-il prendre l'autobus 14 ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Au coin de la rue Wellington."
+   },
+   {
+    "id": "b",
+    "text": "À l'arrêt habituel de la rue King."
+   },
+   {
+    "id": "c",
+    "text": "Dans le marché de la rue King."
+   },
+   {
+    "id": "d",
+    "text": "Devant la gare d'autobus."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'avis dit : « Prenez l'autobus au coin de la rue Wellington ». C'est le nouvel arrêt pour samedi.",
+  "distractorRationales": {
+   "b": "L'arrêt de la rue King est justement fermé samedi.",
+   "c": "Le marché est la raison de la fermeture, pas un lieu d'arrêt.",
+   "d": "La gare d'autobus n'est pas mentionnée dans l'avis."
+  },
+  "vocabulary": [
+   {
+    "term": "un arrêt",
+    "gloss_en": "a (bus) stop",
+    "gloss_zh": "车站"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "au coin de",
+    "gloss_en": "at the corner of",
+    "gloss_zh": "在……的拐角"
+   },
+   {
+    "term": "un marché",
+    "gloss_en": "a market",
+    "gloss_zh": "市场"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Avis très court, phrases simples au présent et à l'impératif ; il faut seulement repérer le nouveau lieu d'arrêt, sans inférence complexe.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 94,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "logement",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du concierge",
+  "passageText": "Bonjour madame Lavoie, On lave les fenêtres de l'immeuble mardi matin, entre 8 h et 11 h. Fermez bien vos fenêtres lundi soir, s'il vous plaît. Vous n'avez pas besoin d'être à la maison. Merci. Yannick Ouellet, concierge, 45 rue Bonaventure, Trois-Rivières.",
+  "stem": "Que doit faire madame Lavoie ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Rester chez elle mardi matin."
+   },
+   {
+    "id": "b",
+    "text": "Laver ses fenêtres elle-même."
+   },
+   {
+    "id": "c",
+    "text": "Fermer ses fenêtres lundi soir."
+   },
+   {
+    "id": "d",
+    "text": "Téléphoner au concierge lundi."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le concierge écrit : « Fermez bien vos fenêtres lundi soir ». C'est la seule action demandée à la locataire.",
+  "distractorRationales": {
+   "a": "Le courriel dit le contraire : elle n'a pas besoin d'être à la maison.",
+   "b": "Ce sont des employés qui lavent les fenêtres, pas la locataire.",
+   "d": "Aucun appel téléphonique n'est demandé dans le message."
+  },
+  "vocabulary": [
+   {
+    "term": "un concierge",
+    "gloss_en": "building caretaker",
+    "gloss_zh": "大楼管理员"
+   },
+   {
+    "term": "un immeuble",
+    "gloss_en": "an apartment building",
+    "gloss_zh": "公寓楼"
+   },
+   {
+    "term": "laver",
+    "gloss_en": "to wash",
+    "gloss_zh": "清洗"
+   },
+   {
+    "term": "fermer",
+    "gloss_en": "to close",
+    "gloss_zh": "关上"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Courriel de service très court ; une seule consigne à l'impératif, mais un distracteur exige de lire la phrase négative « vous n'avez pas besoin d'être à la maison ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "loisirs",
+  "targetNclc": 4,
+  "passageTitle": "Piscine du parc Victoria",
+  "passageText": "Piscine du parc Victoria, à Québec. Cours de natation pour les enfants : mercredi et vendredi, de 17 h à 18 h. Bain libre pour les adultes : de 18 h à 20 h. La piscine est fermée le dimanche. Bonnet de bain obligatoire.",
+  "stem": "Un adulte veut nager. À quelle heure peut-il venir ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "À 8 h le matin."
+   },
+   {
+    "id": "b",
+    "text": "À 17 h 15."
+   },
+   {
+    "id": "c",
+    "text": "À 20 h 30."
+   },
+   {
+    "id": "d",
+    "text": "À 18 h 30."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Le bain libre pour les adultes est de 18 h à 20 h : 18 h 30 est dans cette période.",
+  "distractorRationales": {
+   "a": "La piscine n'ouvre pas le matin selon l'affiche.",
+   "b": "À 17 h 15, c'est le cours de natation des enfants.",
+   "c": "Le bain libre finit à 20 h."
+  },
+  "vocabulary": [
+   {
+    "term": "la natation",
+    "gloss_en": "swimming",
+    "gloss_zh": "游泳"
+   },
+   {
+    "term": "le bain libre",
+    "gloss_en": "open/free swim",
+    "gloss_zh": "自由游泳时段"
+   },
+   {
+    "term": "un bonnet de bain",
+    "gloss_en": "a swim cap",
+    "gloss_zh": "泳帽"
+   },
+   {
+    "term": "obligatoire",
+    "gloss_en": "mandatory",
+    "gloss_zh": "必须的"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Affiche horaire simple, mais la réponse demande de situer une heure précise dans une plage horaire et de distinguer deux publics (enfants / adultes).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "Message d'Amina",
+  "passageText": "Salut Étienne ! Je suis malade et je ne vais pas au cégep demain. Est-ce que tu peux me prêter tes notes du cours de biologie ? Je peux passer chez toi vendredi soir. Écris-moi ce soir, s'il te plaît. Merci beaucoup ! Amina",
+  "stem": "Qu'est-ce qu'Amina demande à Étienne ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "De lui prêter ses notes de biologie."
+   },
+   {
+    "id": "b",
+    "text": "De l'accompagner chez le médecin."
+   },
+   {
+    "id": "c",
+    "text": "De venir chez elle vendredi soir."
+   },
+   {
+    "id": "d",
+    "text": "De parler au professeur de biologie."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Amina écrit : « Est-ce que tu peux me prêter tes notes du cours de biologie ? » C'est sa demande principale.",
+  "distractorRationales": {
+   "b": "Amina est malade, mais elle ne parle pas du médecin.",
+   "c": "C'est elle qui passe chez Étienne, pas l'inverse.",
+   "d": "Le professeur n'est jamais mentionné dans le message."
+  },
+  "vocabulary": [
+   {
+    "term": "prêter",
+    "gloss_en": "to lend",
+    "gloss_zh": "借出"
+   },
+   {
+    "term": "des notes",
+    "gloss_en": "class notes",
+    "gloss_zh": "课堂笔记"
+   },
+   {
+    "term": "malade",
+    "gloss_en": "sick",
+    "gloss_zh": "生病的"
+   },
+   {
+    "term": "passer chez",
+    "gloss_en": "to drop by (someone's place)",
+    "gloss_zh": "顺路去某人家"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Message amical très court ; la difficulté vient de la direction de l'action (elle passe chez lui) dans un distracteur, pas du vocabulaire.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 94,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "medias",
+  "targetNclc": 4,
+  "passageTitle": "Mon téléphone reste dans mon sac",
+  "passageText": "Je m'appelle Rosalie et j'habite à Winnipeg. Au restaurant, je laisse toujours mon téléphone dans mon sac. Pour moi, c'est plus agréable de parler avec mes amis. Mes amis regardent leur écran et ils n'écoutent pas. Je pense que le téléphone à table, ce n'est pas poli.",
+  "stem": "Quelle est l'opinion de Rosalie ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Les téléphones coûtent trop cher."
+   },
+   {
+    "id": "b",
+    "text": "Il ne faut pas utiliser son téléphone à table."
+   },
+   {
+    "id": "c",
+    "text": "Elle n'aime pas aller au restaurant."
+   },
+   {
+    "id": "d",
+    "text": "Ses amis parlent trop fort au restaurant."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Rosalie dit : « le téléphone à table, ce n'est pas poli ». Elle est contre l'usage du téléphone au restaurant.",
+  "distractorRationales": {
+   "a": "Le prix des téléphones n'est jamais mentionné.",
+   "c": "Elle va au restaurant avec ses amis ; ce n'est pas le restaurant qu'elle critique.",
+   "d": "Elle dit le contraire : ses amis regardent l'écran et n'écoutent pas."
+  },
+  "vocabulary": [
+   {
+    "term": "un écran",
+    "gloss_en": "a screen",
+    "gloss_zh": "屏幕"
+   },
+   {
+    "term": "poli",
+    "gloss_en": "polite",
+    "gloss_zh": "礼貌的"
+   },
+   {
+    "term": "agréable",
+    "gloss_en": "pleasant",
+    "gloss_zh": "愉快的"
+   },
+   {
+    "term": "laisser",
+    "gloss_en": "to leave (something somewhere)",
+    "gloss_zh": "把……留下"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Texte d'opinion très simple, mais l'item demande d'identifier le point de vue global de l'auteure plutôt qu'un détail ; un distracteur inverse le comportement des amis.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "immigration",
+  "targetNclc": 3,
+  "passageTitle": "Séance d'information pour les nouveaux arrivants",
+  "passageText": "Centre d'accueil de Moncton. Séance d'information gratuite pour les nouveaux arrivants : mardi 3 mars, à 18 h. On parle du travail, de l'école et de la santé au Nouveau-Brunswick. Inscrivez-vous par téléphone avant le 1er mars. Les enfants sont bienvenus.",
+  "stem": "Comment faut-il s'inscrire à la séance ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Sur place, le 3 mars à 18 h."
+   },
+   {
+    "id": "b",
+    "text": "Par courriel, avant le 3 mars."
+   },
+   {
+    "id": "c",
+    "text": "Il n'y a pas d'inscription."
+   },
+   {
+    "id": "d",
+    "text": "Par téléphone, avant le 1er mars."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "L'affiche dit : « Inscrivez-vous par téléphone avant le 1er mars ».",
+  "distractorRationales": {
+   "a": "Le 3 mars, c'est la date de la séance, pas de l'inscription.",
+   "b": "Le courriel n'est pas proposé comme moyen d'inscription.",
+   "c": "Une inscription est bien demandée avant le 1er mars."
+  },
+  "vocabulary": [
+   {
+    "term": "une séance d'information",
+    "gloss_en": "an information session",
+    "gloss_zh": "信息说明会"
+   },
+   {
+    "term": "un nouvel arrivant",
+    "gloss_en": "a newcomer",
+    "gloss_zh": "新移民"
+   },
+   {
+    "term": "s'inscrire",
+    "gloss_en": "to register",
+    "gloss_zh": "报名"
+   },
+   {
+    "term": "bienvenu",
+    "gloss_en": "welcome",
+    "gloss_zh": "受欢迎的"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Affiche courte, mais deux dates proches (1er et 3 mars) obligent à distinguer la date limite d'inscription de la date de l'événement.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "travail",
+  "targetNclc": 4,
+  "passageTitle": "Note pour Samuel",
+  "passageText": "Samuel, Cette semaine, tu travailles samedi matin, de 6 h à midi, avec Fatou. Tu ne travailles pas vendredi. Le camion de farine arrive samedi à 7 h : ouvre la porte arrière, s'il te plaît. Bonne semaine ! Julie, gérante, Boulangerie du Fleuve, Rimouski",
+  "stem": "Qu'est-ce qui change pour Samuel cette semaine ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Il a une nouvelle gérante."
+   },
+   {
+    "id": "b",
+    "text": "Il commence son travail à midi."
+   },
+   {
+    "id": "c",
+    "text": "Il travaille samedi et non vendredi."
+   },
+   {
+    "id": "d",
+    "text": "Il livre la farine chez les clients."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Julie écrit : « tu travailles samedi matin » et « tu ne travailles pas vendredi ». Le jour de travail change.",
+  "distractorRationales": {
+   "a": "Julie signe la note comme gérante ; rien n'indique un changement de personne.",
+   "b": "Il commence à 6 h et finit à midi.",
+   "d": "C'est le camion qui apporte la farine à la boulangerie."
+  },
+  "vocabulary": [
+   {
+    "term": "une gérante",
+    "gloss_en": "a (female) manager",
+    "gloss_zh": "经理"
+   },
+   {
+    "term": "la farine",
+    "gloss_en": "flour",
+    "gloss_zh": "面粉"
+   },
+   {
+    "term": "un camion",
+    "gloss_en": "a truck",
+    "gloss_zh": "卡车"
+   },
+   {
+    "term": "la porte arrière",
+    "gloss_en": "the back door",
+    "gloss_zh": "后门"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Note de travail brève ; la réponse combine une phrase affirmative et une phrase négative, et un distracteur joue sur l'heure de fin (midi) prise pour l'heure de début.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "culture",
+  "targetNclc": 3,
+  "passageTitle": "Cinéma gratuit au parc La Fontaine",
+  "passageText": "Cet été, il y a du cinéma gratuit au parc La Fontaine, à Montréal. Le film commence à 21 h, le samedi. Apportez une chaise ou une couverture. S'il pleut, il n'y a pas de film. Le stationnement est difficile : venez à vélo ou en métro.",
+  "stem": "Qu'est-ce que les spectateurs doivent apporter ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Une chaise ou une couverture."
+   },
+   {
+    "id": "b",
+    "text": "Un billet acheté à l'avance."
+   },
+   {
+    "id": "c",
+    "text": "De l'argent pour le stationnement."
+   },
+   {
+    "id": "d",
+    "text": "Un parapluie, parce qu'il pleut souvent."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Le texte dit : « Apportez une chaise ou une couverture ». C'est la seule chose à apporter.",
+  "distractorRationales": {
+   "b": "Le cinéma est gratuit : il n'y a pas de billet à acheter.",
+   "c": "Le texte conseille de venir à vélo ou en métro, pas de payer un stationnement.",
+   "d": "S'il pleut, le film est annulé ; on ne parle pas de parapluie."
+  },
+  "vocabulary": [
+   {
+    "term": "une couverture",
+    "gloss_en": "a blanket",
+    "gloss_zh": "毯子"
+   },
+   {
+    "term": "le stationnement",
+    "gloss_en": "parking",
+    "gloss_zh": "停车"
+   },
+   {
+    "term": "pleuvoir",
+    "gloss_en": "to rain",
+    "gloss_zh": "下雨"
+   },
+   {
+    "term": "à vélo",
+    "gloss_en": "by bike",
+    "gloss_zh": "骑自行车"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Annonce culturelle simple au présent ; les distracteurs reprennent des éléments réels du texte (pluie, stationnement, gratuité) et demandent une lecture complète.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "Piscine du parc Lemire, Trois-Rivières",
+  "passageText": "PISCINE DU PARC LEMIRE — Trois-Rivières\n\nBains libres : lundi, mercredi et vendredi, de 18 h à 20 h.\nSamedi : de 10 h à midi.\nLa piscine est fermée le dimanche.\n\nPrix : 4 $ pour les adultes.\nGratuit pour les enfants de moins de 6 ans.",
+  "stem": "Quand peut-on nager le matin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le samedi"
+   },
+   {
+    "id": "b",
+    "text": "Le lundi"
+   },
+   {
+    "id": "c",
+    "text": "Le mercredi"
+   },
+   {
+    "id": "d",
+    "text": "Le dimanche"
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'avis indique « Samedi : de 10 h à midi », donc les seules heures avant midi sont le samedi. Les autres bains libres commencent à 18 h, c'est-à-dire le soir.",
+  "distractorRationales": {
+   "b": "Le lundi, le bain libre est de 18 h à 20 h, donc le soir et non le matin.",
+   "c": "Le mercredi aussi, la piscine ouvre seulement de 18 h à 20 h.",
+   "d": "Le dimanche, la piscine est complètement fermée."
+  },
+  "vocabulary": [
+   {
+    "term": "bain libre",
+    "gloss_en": "open (public) swim",
+    "gloss_zh": "自由游泳时段"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free (no cost)",
+    "gloss_zh": "免费的"
+   },
+   {
+    "term": "midi",
+    "gloss_en": "noon",
+    "gloss_zh": "中午十二点"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Simple horaire; l'apprenant doit relier « le matin » à l'heure 10 h à midi, sans vocabulaire rare.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "Lettre aux parents — école Sainte-Marie, Sherbrooke",
+  "passageText": "Chers parents,\n\nLe mardi 12 mai, la classe de 2e année va au Musée de la nature. Nous partons de l'école à 9 h et nous revenons à 15 h. Votre enfant doit apporter un dîner froid et une bouteille d'eau. La visite est gratuite.\n\nMerci,\nJulie Bergeron, enseignante",
+  "stem": "Que doit apporter l'enfant le 12 mai ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "De l'argent pour l'entrée du musée"
+   },
+   {
+    "id": "b",
+    "text": "Un livre de sciences de la classe"
+   },
+   {
+    "id": "c",
+    "text": "Un dîner froid et une bouteille d'eau"
+   },
+   {
+    "id": "d",
+    "text": "Un maillot de bain et une serviette"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "L'enseignante écrit : « Votre enfant doit apporter un dîner froid et une bouteille d'eau. »",
+  "distractorRationales": {
+   "a": "La lettre précise que la visite est gratuite, donc l'argent n'est pas nécessaire.",
+   "b": "Aucun livre n'est demandé dans la lettre.",
+   "d": "La sortie est au musée, pas à la piscine."
+  },
+  "vocabulary": [
+   {
+    "term": "sortie",
+    "gloss_en": "school outing / field trip",
+    "gloss_zh": "校外活动"
+   },
+   {
+    "term": "apporter",
+    "gloss_en": "to bring",
+    "gloss_zh": "带来"
+   },
+   {
+    "term": "dîner",
+    "gloss_en": "lunch (Quebec usage)",
+    "gloss_zh": "午餐（魁北克用法）"
+   },
+   {
+    "term": "enseignante",
+    "gloss_en": "teacher (female)",
+    "gloss_zh": "女教师"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Consigne explicite; le distracteur « argent » demande de relier l'information « gratuite ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "immigration",
+  "targetNclc": 4,
+  "passageTitle": "Centre d'accueil des nouveaux arrivants, Winnipeg",
+  "passageText": "Le Centre d'accueil des nouveaux arrivants de Winnipeg offre des cours de français et d'anglais. Les cours sont gratuits pour les résidents permanents. Une garderie accueille les jeunes enfants pendant les cours du matin. Le centre est ouvert du lundi au vendredi, de 9 h à 16 h.",
+  "stem": "Qui peut suivre les cours sans payer ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Les touristes de passage"
+   },
+   {
+    "id": "b",
+    "text": "Les enfants de la garderie"
+   },
+   {
+    "id": "c",
+    "text": "Les gens qui viennent le samedi"
+   },
+   {
+    "id": "d",
+    "text": "Les résidents permanents"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Le texte dit : « Les cours sont gratuits pour les résidents permanents. » Ce sont donc eux qui ne paient pas.",
+  "distractorRationales": {
+   "a": "Les touristes ne sont pas mentionnés dans le texte.",
+   "b": "La garderie garde les enfants; elle n'offre pas les cours de langue.",
+   "c": "Le centre est ouvert du lundi au vendredi, donc pas le samedi."
+  },
+  "vocabulary": [
+   {
+    "term": "nouvel arrivant",
+    "gloss_en": "newcomer",
+    "gloss_zh": "新移民"
+   },
+   {
+    "term": "résident permanent",
+    "gloss_en": "permanent resident",
+    "gloss_zh": "永久居民"
+   },
+   {
+    "term": "garderie",
+    "gloss_en": "daycare",
+    "gloss_zh": "托儿所"
+   },
+   {
+    "term": "offrir",
+    "gloss_en": "to offer",
+    "gloss_zh": "提供"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Il faut distinguer deux services (cours et garderie) et vérifier les jours d'ouverture.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "medias",
+  "targetNclc": 4,
+  "passageTitle": "Courrier des lecteurs — Rimouski",
+  "passageText": "Mon opinion : à Rimouski, j'écoute la radio locale tous les matins. Je trouve que c'est mieux que les nouvelles sur le téléphone. À la radio, on parle de ma ville, de mes voisins et de la météo d'ici. Le téléphone, lui, parle du monde entier.\n\n— Céline, 68 ans",
+  "stem": "Pourquoi Céline préfère-t-elle la radio locale ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce qu'elle n'a pas de téléphone"
+   },
+   {
+    "id": "b",
+    "text": "Parce qu'on y parle de sa ville"
+   },
+   {
+    "id": "c",
+    "text": "Parce que la radio ne coûte rien"
+   },
+   {
+    "id": "d",
+    "text": "Parce qu'elle se lève très tôt"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Céline explique son choix : à la radio, « on parle de ma ville, de mes voisins et de la météo d'ici ». C'est l'information locale qu'elle aime.",
+  "distractorRationales": {
+   "a": "Elle parle des nouvelles sur le téléphone, donc elle en a un.",
+   "c": "Le prix n'est jamais mentionné dans le texte.",
+   "d": "Elle écoute la radio le matin, mais elle ne dit pas à quelle heure elle se lève."
+  },
+  "vocabulary": [
+   {
+    "term": "écouter",
+    "gloss_en": "to listen to",
+    "gloss_zh": "收听"
+   },
+   {
+    "term": "les nouvelles",
+    "gloss_en": "the news",
+    "gloss_zh": "新闻"
+   },
+   {
+    "term": "voisin",
+    "gloss_en": "neighbour",
+    "gloss_zh": "邻居"
+   },
+   {
+    "term": "météo",
+    "gloss_en": "weather forecast",
+    "gloss_zh": "天气预报"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Court texte d'opinion : il faut repérer la raison donnée et écarter une raison plausible mais absente (le prix).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "travail",
+  "targetNclc": 3,
+  "passageTitle": "Affiche — Épicerie Chez Nadine, Ottawa",
+  "passageText": "ÉPICERIE CHEZ NADINE — Ottawa\n\nNous cherchons une personne pour la caisse.\nHoraire : le soir, de 16 h à 21 h, trois jours par semaine.\nIl faut parler français et anglais.\n\nApportez votre CV au magasin avant le 30 août.",
+  "stem": "Que doit faire une personne intéressée par cet emploi ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Téléphoner au magasin le soir"
+   },
+   {
+    "id": "b",
+    "text": "Envoyer un courriel à Nadine"
+   },
+   {
+    "id": "c",
+    "text": "Apporter son CV au magasin"
+   },
+   {
+    "id": "d",
+    "text": "Se présenter le 30 août à 16 h"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "L'affiche demande : « Apportez votre CV au magasin avant le 30 août. »",
+  "distractorRationales": {
+   "a": "Aucun numéro de téléphone n'est donné et l'affiche ne demande pas d'appeler.",
+   "b": "Aucune adresse courriel n'est donnée sur l'affiche.",
+   "d": "Le 30 août est la date limite : il faut venir avant, pas ce jour-là."
+  },
+  "vocabulary": [
+   {
+    "term": "caisse",
+    "gloss_en": "cash register / checkout",
+    "gloss_zh": "收银台"
+   },
+   {
+    "term": "horaire",
+    "gloss_en": "schedule",
+    "gloss_zh": "工作时间表"
+   },
+   {
+    "term": "CV",
+    "gloss_en": "résumé, CV",
+    "gloss_zh": "简历"
+   },
+   {
+    "term": "avant",
+    "gloss_en": "before",
+    "gloss_zh": "在……之前"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Instruction explicite; le distracteur « le 30 août » teste la compréhension de la préposition « avant ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "culture",
+  "targetNclc": 4,
+  "passageTitle": "Fête des lumières à Québec",
+  "passageText": "Cette fin de semaine, la Ville de Québec organise la Fête des lumières. Samedi soir, il y a un spectacle de musique gratuit devant l'hôtel de ville. Dimanche, des artistes dessinent dans la rue Saint-Jean. S'il pleut, la fête a lieu à l'intérieur, au centre communautaire.",
+  "stem": "Que se passe-t-il s'il pleut ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "La fête est annulée pour la fin de semaine"
+   },
+   {
+    "id": "b",
+    "text": "Le spectacle est déplacé à dimanche soir"
+   },
+   {
+    "id": "c",
+    "text": "Les artistes dessinent dans la rue Saint-Jean"
+   },
+   {
+    "id": "d",
+    "text": "La fête a lieu au centre communautaire"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Le texte précise : « S'il pleut, la fête a lieu à l'intérieur, au centre communautaire. » La fête continue donc, mais ailleurs.",
+  "distractorRationales": {
+   "a": "Le texte dit que la fête continue à l'intérieur, elle n'est pas annulée.",
+   "b": "Aucun changement de journée n'est annoncé dans le texte.",
+   "c": "C'est ce qui est prévu dimanche dehors, pas la solution en cas de pluie."
+  },
+  "vocabulary": [
+   {
+    "term": "fin de semaine",
+    "gloss_en": "weekend (Quebec usage)",
+    "gloss_zh": "周末（魁北克用法）"
+   },
+   {
+    "term": "spectacle",
+    "gloss_en": "show, performance",
+    "gloss_zh": "演出"
+   },
+   {
+    "term": "hôtel de ville",
+    "gloss_en": "city hall",
+    "gloss_zh": "市政厅"
+   },
+   {
+    "term": "avoir lieu",
+    "gloss_en": "to take place",
+    "gloss_zh": "举行"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Compréhension d'une condition (« s'il pleut ») et distinction entre le programme normal et le plan de rechange.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux voyageurs — arrêt Osborne",
+  "passageText": "Avis aux voyageurs. Samedi 14 mars, l'arrêt Osborne est fermé. Les autobus 16 et 18 s'arrêtent devant la pharmacie, rue River. Le dimanche, l'arrêt Osborne est ouvert comme d'habitude. Merci de votre patience. — Transit de Winnipeg",
+  "stem": "Samedi, où les voyageurs prennent-ils l'autobus ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "À l'arrêt Osborne, comme d'habitude"
+   },
+   {
+    "id": "b",
+    "text": "Devant l'hôtel de ville de Winnipeg"
+   },
+   {
+    "id": "c",
+    "text": "Devant la pharmacie de la rue River"
+   },
+   {
+    "id": "d",
+    "text": "Devant la pharmacie, le dimanche seulement"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "L'avis dit que l'arrêt Osborne est fermé samedi et que les autobus 16 et 18 s'arrêtent « devant la pharmacie, rue River ». C'est donc là qu'on prend l'autobus ce jour-là.",
+  "distractorRationales": {
+   "a": "L'arrêt Osborne est ouvert comme d'habitude le dimanche, pas le samedi : samedi, il est fermé.",
+   "b": "L'hôtel de ville n'est jamais mentionné dans l'avis.",
+   "d": "La pharmacie est le point d'arrêt du samedi ; le dimanche, on retourne à l'arrêt Osborne."
+  },
+  "vocabulary": [
+   {
+    "term": "un avis",
+    "gloss_en": "a notice",
+    "gloss_zh": "通知"
+   },
+   {
+    "term": "un arrêt",
+    "gloss_en": "a (bus) stop",
+    "gloss_zh": "车站"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "comme d'habitude",
+    "gloss_en": "as usual",
+    "gloss_zh": "照常"
+   },
+   {
+    "term": "la patience",
+    "gloss_en": "patience",
+    "gloss_zh": "耐心"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Vocabulaire A1 très courant (arrêt, fermé, samedi) et phrases courtes ; la seule demande est de relier un jour précis à un lieu précis, sans inférence complexe.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "environnement",
+  "targetNclc": 4,
+  "passageTitle": "Le vélo en ville",
+  "passageText": "Moi, je vais au travail à vélo. C'est bon pour la santé et ça ne pollue pas. À Québec, il y a beaucoup de pistes cyclables. Bien sûr, l'hiver est froid, mais je mets un manteau chaud. Pour moi, le vélo est mieux que l'auto. — Nadia, 29 ans",
+  "stem": "Pourquoi Nadia choisit-elle le vélo ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce que le vélo va plus vite que l'auto"
+   },
+   {
+    "id": "b",
+    "text": "Parce que le vélo ne pollue pas"
+   },
+   {
+    "id": "c",
+    "text": "Parce que l'hiver est doux à Québec"
+   },
+   {
+    "id": "d",
+    "text": "Parce qu'il n'y a pas de pistes cyclables"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Nadia donne deux raisons : la santé et le fait que le vélo « ne pollue pas ». C'est la seule option qui reprend une de ses raisons.",
+  "distractorRationales": {
+   "a": "Nadia ne parle jamais de vitesse dans son texte.",
+   "c": "Elle dit au contraire que l'hiver est froid ; elle met un manteau chaud.",
+   "d": "Elle dit qu'il y a beaucoup de pistes cyclables à Québec."
+  },
+  "vocabulary": [
+   {
+    "term": "polluer",
+    "gloss_en": "to pollute",
+    "gloss_zh": "污染"
+   },
+   {
+    "term": "une piste cyclable",
+    "gloss_en": "a bike lane",
+    "gloss_zh": "自行车道"
+   },
+   {
+    "term": "un manteau",
+    "gloss_en": "a coat",
+    "gloss_zh": "外套"
+   },
+   {
+    "term": "mieux que",
+    "gloss_en": "better than",
+    "gloss_zh": "比…更好"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Opinion personnelle en phrases simples au présent ; deux distracteurs contredisent directement le texte, ce qui reste accessible à un lecteur A1 attentif.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 91,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "Piscine municipale — horaire d'été",
+  "passageText": "Piscine municipale de Trois-Rivières. Bain libre : tous les jours, de 13 h à 19 h. Cours de natation pour enfants : mardi et jeudi matin. Entrée : 4 $ pour les adultes, gratuit pour les enfants de moins de 6 ans. Bonnet de bain obligatoire.",
+  "stem": "Qui entre gratuitement à la piscine ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Les adultes qui habitent Trois-Rivières"
+   },
+   {
+    "id": "b",
+    "text": "Les enfants inscrits aux cours de natation"
+   },
+   {
+    "id": "c",
+    "text": "Les personnes qui ont un bonnet de bain"
+   },
+   {
+    "id": "d",
+    "text": "Les enfants de moins de 6 ans"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "L'affiche indique : « gratuit pour les enfants de moins de 6 ans ». C'est le seul groupe qui ne paie pas.",
+  "distractorRationales": {
+   "a": "Les adultes paient 4 $ ; l'affiche ne fait aucune différence selon la ville.",
+   "b": "Les cours de natation ont un horaire, mais l'affiche ne dit pas qu'ils sont gratuits.",
+   "c": "Le bonnet de bain est obligatoire pour tout le monde, ce n'est pas lié au prix."
+  },
+  "vocabulary": [
+   {
+    "term": "un bain libre",
+    "gloss_en": "open swim",
+    "gloss_zh": "自由游泳时段"
+   },
+   {
+    "term": "la natation",
+    "gloss_en": "swimming",
+    "gloss_zh": "游泳"
+   },
+   {
+    "term": "une entrée",
+    "gloss_en": "admission (fee)",
+    "gloss_zh": "入场费"
+   },
+   {
+    "term": "un bonnet de bain",
+    "gloss_en": "a swim cap",
+    "gloss_zh": "泳帽"
+   },
+   {
+    "term": "obligatoire",
+    "gloss_en": "required",
+    "gloss_zh": "强制的"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Affiche avec heures et prix, format très fréquent au niveau A1 ; il suffit de repérer le mot « gratuit » et le groupe associé.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 4,
+  "passageTitle": "Message d'Élodie",
+  "passageText": "Salut Thomas ! Mon cours d'espagnol commence lundi à l'Université d'Ottawa. Le cours est le soir, de 18 h à 20 h. Moi, je finis mon travail à 17 h, alors c'est parfait. Tu veux venir avec moi ? Réponds-moi vite ! Élodie",
+  "stem": "Pourquoi l'horaire du cours est-il parfait pour Élodie ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce qu'elle finit de travailler avant le cours"
+   },
+   {
+    "id": "b",
+    "text": "Parce que le cours a lieu le matin"
+   },
+   {
+    "id": "c",
+    "text": "Parce que Thomas habite près de l'université"
+   },
+   {
+    "id": "d",
+    "text": "Parce que le cours dure seulement une heure"
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Élodie finit son travail à 17 h et le cours commence à 18 h : elle est libre, donc l'horaire lui convient.",
+  "distractorRationales": {
+   "b": "Le cours est le soir, de 18 h à 20 h, pas le matin.",
+   "c": "Le message ne dit rien sur le lieu où habite Thomas.",
+   "d": "De 18 h à 20 h, le cours dure deux heures."
+  },
+  "vocabulary": [
+   {
+    "term": "commencer",
+    "gloss_en": "to begin",
+    "gloss_zh": "开始"
+   },
+   {
+    "term": "le soir",
+    "gloss_en": "the evening",
+    "gloss_zh": "晚上"
+   },
+   {
+    "term": "finir",
+    "gloss_en": "to finish",
+    "gloss_zh": "结束"
+   },
+   {
+    "term": "parfait",
+    "gloss_en": "perfect",
+    "gloss_zh": "完美的"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Message amical au présent ; la réponse demande une mini-inférence sur deux heures (17 h et 18 h), ce qui reste dans les limites du A1.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "technologie",
+  "targetNclc": 4,
+  "passageTitle": "Des tablettes à la bibliothèque",
+  "passageText": "La bibliothèque publique de Moncton prête maintenant des tablettes. Les membres peuvent garder une tablette pendant deux semaines. Le service est gratuit. Il y a aussi des ateliers d'informatique le samedi, à 10 h, pour les personnes de 60 ans et plus.",
+  "stem": "Qui peut participer aux ateliers d'informatique ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Tous les membres de la bibliothèque"
+   },
+   {
+    "id": "b",
+    "text": "Les enfants des écoles de Moncton"
+   },
+   {
+    "id": "c",
+    "text": "Les personnes de 60 ans et plus"
+   },
+   {
+    "id": "d",
+    "text": "Les visiteurs qui viennent le dimanche"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le texte précise que les ateliers du samedi sont « pour les personnes de 60 ans et plus ».",
+  "distractorRationales": {
+   "a": "Les membres peuvent emprunter une tablette, mais les ateliers visent un groupe d'âge précis.",
+   "b": "Le texte ne parle pas des écoles ni des enfants.",
+   "d": "Les ateliers ont lieu le samedi, pas le dimanche."
+  },
+  "vocabulary": [
+   {
+    "term": "prêter",
+    "gloss_en": "to lend",
+    "gloss_zh": "借出"
+   },
+   {
+    "term": "garder",
+    "gloss_en": "to keep",
+    "gloss_zh": "保留"
+   },
+   {
+    "term": "un atelier",
+    "gloss_en": "a workshop",
+    "gloss_zh": "工作坊"
+   },
+   {
+    "term": "l'informatique",
+    "gloss_en": "computing / IT",
+    "gloss_zh": "计算机"
+   }
+  ],
+  "estimatedSeconds": 42,
+  "difficultyEvidence": "Texte factuel court ; le lecteur doit distinguer deux services (prêt de tablettes / ateliers) mais le vocabulaire reste élémentaire.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 91,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "travail",
+  "targetNclc": 4,
+  "passageTitle": "Courriel d'Emploi-Québec",
+  "passageText": "Bonjour Monsieur Nguyen, Votre atelier « Chercher un emploi » a lieu le mercredi 12 février, à 13 h 30, au 250, rue Saint-Jean. Apportez un stylo. L'atelier dure deux heures. Si vous ne pouvez pas venir, écrivez-moi avant mardi. Louise Tremblay, agente",
+  "stem": "Que doit faire Monsieur Nguyen s'il ne peut pas venir ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Téléphoner à l'agente mercredi matin"
+   },
+   {
+    "id": "b",
+    "text": "Apporter un stylo à l'atelier"
+   },
+   {
+    "id": "c",
+    "text": "Aller au 250, rue Saint-Jean"
+   },
+   {
+    "id": "d",
+    "text": "Écrire à Louise avant mardi"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "La dernière phrase donne la consigne en cas d'absence : « Si vous ne pouvez pas venir, écrivez-moi avant mardi. »",
+  "distractorRationales": {
+   "a": "Le courriel demande d'écrire, pas de téléphoner, et avant mardi.",
+   "b": "Le stylo est utile si on vient à l'atelier, pas si on est absent.",
+   "c": "C'est l'adresse de l'atelier, donc pour la personne qui vient."
+  },
+  "vocabulary": [
+   {
+    "term": "un atelier",
+    "gloss_en": "a workshop",
+    "gloss_zh": "工作坊"
+   },
+   {
+    "term": "avoir lieu",
+    "gloss_en": "to take place",
+    "gloss_zh": "举行"
+   },
+   {
+    "term": "un stylo",
+    "gloss_en": "a pen",
+    "gloss_zh": "笔"
+   },
+   {
+    "term": "durer",
+    "gloss_en": "to last",
+    "gloss_zh": "持续"
+   }
+  ],
+  "estimatedSeconds": 48,
+  "difficultyEvidence": "Courriel institutionnel court ; la structure « si + présent » et les distracteurs tirés d'autres informations du texte gardent la tâche au niveau A1.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 89,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "medias",
+  "targetNclc": 4,
+  "passageTitle": "Le journal papier",
+  "passageText": "Mon fils lit les nouvelles sur son téléphone. Moi, j'achète encore le journal papier chaque matin. J'aime le prendre dans mes mains et lire lentement. Sur le téléphone, il y a trop de choses qui bougent. Le papier, c'est plus calme. — Gérard, Rimouski",
+  "stem": "Pourquoi Gérard préfère-t-il le journal papier ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce qu'il aime lire lentement et calmement"
+   },
+   {
+    "id": "b",
+    "text": "Parce que le journal papier est gratuit"
+   },
+   {
+    "id": "c",
+    "text": "Parce que son fils lui donne le journal"
+   },
+   {
+    "id": "d",
+    "text": "Parce qu'il n'a pas de téléphone"
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Gérard dit qu'il aime « lire lentement » et que le papier « c'est plus calme ». C'est sa raison principale.",
+  "distractorRationales": {
+   "b": "Il dit qu'il achète le journal, donc il le paie.",
+   "c": "C'est son fils qui lit sur un téléphone ; le texte ne parle pas d'un journal offert.",
+   "d": "Le texte ne dit pas que Gérard n'a pas de téléphone, seulement qu'il préfère le papier."
+  },
+  "vocabulary": [
+   {
+    "term": "les nouvelles",
+    "gloss_en": "the news",
+    "gloss_zh": "新闻"
+   },
+   {
+    "term": "acheter",
+    "gloss_en": "to buy",
+    "gloss_zh": "购买"
+   },
+   {
+    "term": "lentement",
+    "gloss_en": "slowly",
+    "gloss_zh": "慢慢地"
+   },
+   {
+    "term": "bouger",
+    "gloss_en": "to move",
+    "gloss_zh": "移动"
+   },
+   {
+    "term": "calme",
+    "gloss_en": "calm / quiet",
+    "gloss_zh": "平静的"
+   }
+  ],
+  "estimatedSeconds": 48,
+  "difficultyEvidence": "Opinion simple au présent avec un contraste père/fils ; la réponse reprend deux mots du texte, mais un distracteur exige de ne pas confondre « acheter » et « gratuit ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 91,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis aux voyageurs — arrêt 4212",
+  "passageText": "Avis. L'arrêt 4212, rue King Ouest, est fermé du 3 au 7 mars. Les autobus 1 et 8 s'arrêtent devant la pharmacie, au coin de la rue Wellington. Merci de votre patience. — Société de transport de Sherbrooke",
+  "stem": "Du 3 au 7 mars, où les autobus 1 et 8 s'arrêtent-ils ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "À la gare d'autobus de la rue Dépôt"
+   },
+   {
+    "id": "b",
+    "text": "À l'arrêt 4212, rue King Ouest"
+   },
+   {
+    "id": "c",
+    "text": "Devant la pharmacie, rue Wellington"
+   },
+   {
+    "id": "d",
+    "text": "Devant l'école Sainte-Anne, rue Galt"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "L'avis dit que les autobus 1 et 8 « s'arrêtent devant la pharmacie, au coin de la rue Wellington » pendant la fermeture de l'arrêt 4212.",
+  "distractorRationales": {
+   "a": "Aucune gare d'autobus n'est mentionnée dans l'avis.",
+   "b": "C'est justement l'arrêt qui est fermé du 3 au 7 mars.",
+   "d": "L'école Sainte-Anne n'apparaît pas dans le texte."
+  },
+  "vocabulary": [
+   {
+    "term": "un arrêt",
+    "gloss_en": "a (bus) stop",
+    "gloss_zh": "车站"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "au coin de",
+    "gloss_en": "at the corner of",
+    "gloss_zh": "在……的拐角"
+   },
+   {
+    "term": "la patience",
+    "gloss_en": "patience",
+    "gloss_zh": "耐心"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Avis de 38 mots, phrases courtes au présent ; la réponse est une information de lieu repérable directement, sans inférence.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "logement",
+  "targetNclc": 3,
+  "passageTitle": "Courriel de la concierge",
+  "passageText": "Bonjour à tous. La salle de lavage du sous-sol sera fermée jeudi : un technicien répare les deux sécheuses. Vous pouvez laver votre linge à la buanderie du troisième étage. Tout sera normal vendredi matin. Merci ! — Nadia Bourgeois, concierge, 145 rue Laviolette, Trois-Rivières",
+  "stem": "Que peuvent faire les locataires jeudi ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Laver leur linge à la buanderie du troisième étage"
+   },
+   {
+    "id": "b",
+    "text": "Utiliser la salle de lavage du sous-sol"
+   },
+   {
+    "id": "c",
+    "text": "Téléphoner au technicien pour les sécheuses"
+   },
+   {
+    "id": "d",
+    "text": "Attendre samedi pour laver leur linge"
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "La concierge propose une solution de remplacement : « Vous pouvez laver votre linge à la buanderie du troisième étage. »",
+  "distractorRationales": {
+   "b": "Cette salle est justement fermée jeudi pour la réparation.",
+   "c": "Le courriel ne demande à personne d'appeler le technicien.",
+   "d": "Le service redevient normal vendredi, pas samedi."
+  },
+  "vocabulary": [
+   {
+    "term": "la salle de lavage",
+    "gloss_en": "laundry room",
+    "gloss_zh": "洗衣房"
+   },
+   {
+    "term": "une sécheuse",
+    "gloss_en": "clothes dryer (Quebec French)",
+    "gloss_zh": "烘干机"
+   },
+   {
+    "term": "le sous-sol",
+    "gloss_en": "basement",
+    "gloss_zh": "地下室"
+   },
+   {
+    "term": "le linge",
+    "gloss_en": "laundry, clothes",
+    "gloss_zh": "衣物"
+   },
+   {
+    "term": "un concierge",
+    "gloss_en": "building caretaker",
+    "gloss_zh": "楼宇管理员"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Courriel de 44 mots, vocabulaire du quotidien ; il suffit de retenir l'endroit proposé comme solution de rechange.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 87,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "environnement",
+  "targetNclc": 4,
+  "passageTitle": "Le bac bleu est juste à côté",
+  "passageText": "Je m'appelle Karim et j'habite un immeuble du quartier Rosemont, à Montréal. Beaucoup de voisins jettent leurs bouteilles dans la poubelle. C'est dommage : le bac bleu est juste à côté ! Recycler prend cinq secondes. À mon avis, chaque personne doit faire ce petit effort.",
+  "stem": "Quelle est l'opinion de Karim ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Il faut acheter beaucoup moins de bouteilles"
+   },
+   {
+    "id": "b",
+    "text": "Chaque voisin devrait utiliser le bac bleu"
+   },
+   {
+    "id": "c",
+    "text": "La ville doit installer d'autres poubelles"
+   },
+   {
+    "id": "d",
+    "text": "Recycler demande vraiment trop de temps"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Karim conclut par « chaque personne doit faire ce petit effort », c'est-à-dire mettre les bouteilles dans le bac bleu plutôt que dans la poubelle.",
+  "distractorRationales": {
+   "a": "Karim parle du tri des bouteilles, pas de la quantité achetée.",
+   "c": "Il dit qu'il y a déjà un bac bleu à côté ; il ne demande pas d'équipement.",
+   "d": "Il dit le contraire : recycler prend cinq secondes."
+  },
+  "vocabulary": [
+   {
+    "term": "un bac bleu",
+    "gloss_en": "blue recycling bin",
+    "gloss_zh": "蓝色回收箱"
+   },
+   {
+    "term": "jeter",
+    "gloss_en": "to throw away",
+    "gloss_zh": "扔掉"
+   },
+   {
+    "term": "c'est dommage",
+    "gloss_en": "it's a shame",
+    "gloss_zh": "真可惜"
+   },
+   {
+    "term": "à mon avis",
+    "gloss_en": "in my opinion",
+    "gloss_zh": "我认为"
+   },
+   {
+    "term": "un effort",
+    "gloss_en": "an effort",
+    "gloss_zh": "努力"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Texte d'opinion de 46 mots au présent ; l'avis est annoncé par « à mon avis », mais il faut relier la conclusion au bac bleu.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "services_publics",
+  "targetNclc": 3,
+  "passageTitle": "Avis à la clientèle — SAAQ",
+  "passageText": "Avis à la clientèle. Le centre de services de la SAAQ, boulevard Charest, à Québec, ferme à 13 h le vendredi 12 juin : nos employés suivent une formation. Pour changer votre adresse, utilisez notre site Web. Ouverture normale le lundi, à 8 h 30.",
+  "stem": "Pourquoi le centre ferme-t-il plus tôt le 12 juin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce que les employés suivent une formation"
+   },
+   {
+    "id": "b",
+    "text": "Parce que c'est un jour férié au Québec"
+   },
+   {
+    "id": "c",
+    "text": "Parce que le site Web ne fonctionne plus"
+   },
+   {
+    "id": "d",
+    "text": "Parce qu'il y a des travaux dans l'édifice"
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'avis donne la raison après les deux-points : « nos employés suivent une formation ».",
+  "distractorRationales": {
+   "b": "Aucun congé ni jour férié n'est mentionné.",
+   "c": "Le site Web est présenté comme une solution, il fonctionne.",
+   "d": "Le texte ne parle pas de travaux."
+  },
+  "vocabulary": [
+   {
+    "term": "la clientèle",
+    "gloss_en": "customers, clientele",
+    "gloss_zh": "客户"
+   },
+   {
+    "term": "une formation",
+    "gloss_en": "training session",
+    "gloss_zh": "培训"
+   },
+   {
+    "term": "changer d'adresse",
+    "gloss_en": "to change one's address",
+    "gloss_zh": "更改地址"
+   },
+   {
+    "term": "l'ouverture",
+    "gloss_en": "opening (hours)",
+    "gloss_zh": "开门时间"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Avis administratif de 43 mots ; la cause est donnée directement dans la phrase, sans connecteur complexe.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "Message aux parents — photo scolaire",
+  "passageText": "Chers parents, la photo scolaire aura lieu le mardi 14 octobre. Les élèves portent leurs vêtements habituels ; il n'y a pas d'uniforme. Aucun paiement n'est demandé ce jour-là. Vous recevrez les photos par la poste en novembre. — Mme Léa Fontaine, école Cartier, Longueuil",
+  "stem": "Que doivent faire les élèves le mardi 14 octobre ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Apporter de l'argent pour les photos"
+   },
+   {
+    "id": "b",
+    "text": "Porter l'uniforme de l'école Cartier"
+   },
+   {
+    "id": "c",
+    "text": "Venir avec leurs vêtements habituels"
+   },
+   {
+    "id": "d",
+    "text": "Chercher les photos au bureau de l'école"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le message précise : « Les élèves portent leurs vêtements habituels ; il n'y a pas d'uniforme. »",
+  "distractorRationales": {
+   "a": "Le message dit qu'aucun paiement n'est demandé ce jour-là.",
+   "b": "L'école indique clairement qu'il n'y a pas d'uniforme.",
+   "d": "Les photos arriveront par la poste, en novembre."
+  },
+  "vocabulary": [
+   {
+    "term": "avoir lieu",
+    "gloss_en": "to take place",
+    "gloss_zh": "举行"
+   },
+   {
+    "term": "habituel",
+    "gloss_en": "usual, everyday",
+    "gloss_zh": "平常的"
+   },
+   {
+    "term": "un paiement",
+    "gloss_en": "a payment",
+    "gloss_zh": "付款"
+   },
+   {
+    "term": "par la poste",
+    "gloss_en": "by mail",
+    "gloss_zh": "通过邮寄"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Message scolaire de 45 mots ; deux informations proches (vêtements, paiement) obligent à choisir la bonne, mais la phrase clé est explicite.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "culture",
+  "targetNclc": 4,
+  "passageTitle": "Cinéma en plein air à Ahuntsic",
+  "passageText": "Cinéma en plein air. La Maison de la culture Ahuntsic présente un film québécois dans le parc Saint-Paul, le samedi 6 août, à 20 h 30. C'est gratuit. Apportez une chaise ou une couverture. S'il pleut, le film est présenté à l'intérieur, dans la grande salle.",
+  "stem": "Que se passe-t-il s'il pleut le 6 août ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "La soirée de cinéma est annulée"
+   },
+   {
+    "id": "b",
+    "text": "Le film coûte alors dix dollars"
+   },
+   {
+    "id": "c",
+    "text": "Le film commence plus tôt, à 20 h"
+   },
+   {
+    "id": "d",
+    "text": "Le film est présenté dans la grande salle"
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "La dernière phrase donne la solution de rechange : « S'il pleut, le film est présenté à l'intérieur, dans la grande salle. »",
+  "distractorRationales": {
+   "a": "Rien n'est annulé : une salle intérieure est prévue.",
+   "b": "L'activité est gratuite dans tous les cas.",
+   "c": "L'heure annoncée reste 20 h 30."
+  },
+  "vocabulary": [
+   {
+    "term": "en plein air",
+    "gloss_en": "outdoors",
+    "gloss_zh": "露天"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free of charge",
+    "gloss_zh": "免费"
+   },
+   {
+    "term": "une couverture",
+    "gloss_en": "a blanket",
+    "gloss_zh": "毯子"
+   },
+   {
+    "term": "à l'intérieur",
+    "gloss_en": "indoors",
+    "gloss_zh": "在室内"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Affiche de 47 mots ; il faut comprendre une condition simple avec « s'il pleut », ce qui reste au niveau A1.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "immigration",
+  "targetNclc": 4,
+  "passageTitle": "Lettre de rendez-vous — données biométriques",
+  "passageText": "Madame Duarte, votre rendez-vous pour les données biométriques est fixé au jeudi 19 mai, à 9 h 15, au centre de service de Montréal. Apportez cette lettre et votre passeport. Arrivez quinze minutes avant l'heure du rendez-vous. — Immigration, Réfugiés et Citoyenneté Canada",
+  "stem": "À quelle heure Madame Duarte doit-elle arriver au centre ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "À 9 h 15"
+   },
+   {
+    "id": "b",
+    "text": "À 9 h 30"
+   },
+   {
+    "id": "c",
+    "text": "À 9 h 00"
+   },
+   {
+    "id": "d",
+    "text": "À 8 h 15"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le rendez-vous est à 9 h 15 et la lettre demande d'arriver quinze minutes avant : elle doit donc être là à 9 h 00.",
+  "distractorRationales": {
+   "a": "C'est l'heure du rendez-vous, pas l'heure d'arrivée demandée.",
+   "b": "C'est quinze minutes après le rendez-vous.",
+   "d": "Cela ferait une heure d'avance, et non quinze minutes."
+  },
+  "vocabulary": [
+   {
+    "term": "un rendez-vous",
+    "gloss_en": "an appointment",
+    "gloss_zh": "预约"
+   },
+   {
+    "term": "les données biométriques",
+    "gloss_en": "biometrics",
+    "gloss_zh": "生物识别信息"
+   },
+   {
+    "term": "fixé au",
+    "gloss_en": "set for (a date)",
+    "gloss_zh": "定于"
+   },
+   {
+    "term": "arriver avant",
+    "gloss_en": "to arrive before",
+    "gloss_zh": "提前到达"
+   }
+  ],
+  "estimatedSeconds": 60,
+  "difficultyEvidence": "Lettre de 42 mots ; le calcul « quinze minutes avant 9 h 15 » est un petit raisonnement, mais le vocabulaire et l'heure restent A1.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 89,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "logement",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du concierge",
+  "passageText": "Bonjour madame Nadeau, Il n'y aura pas d'eau chaude dans l'immeuble mercredi, de 9 h à 14 h. Un plombier va réparer le chauffe-eau du sous-sol. L'eau froide reste normale. Merci de votre compréhension. Réjean Boucher, concierge, 42, rue Wellington, Sherbrooke.",
+  "stem": "Qu'est-ce qui ne marchera pas mercredi matin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "L'ascenseur de l'immeuble."
+   },
+   {
+    "id": "b",
+    "text": "L'eau chaude de l'immeuble."
+   },
+   {
+    "id": "c",
+    "text": "Le chauffage des appartements."
+   },
+   {
+    "id": "d",
+    "text": "L'eau froide des appartements."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le courriel annonce clairement : « Il n'y aura pas d'eau chaude dans l'immeuble mercredi, de 9 h à 14 h ».",
+  "distractorRationales": {
+   "a": "L'ascenseur n'est jamais mentionné dans le message.",
+   "c": "Le texte parle du chauffe-eau (appareil à eau chaude), pas du chauffage des appartements.",
+   "d": "Le courriel précise le contraire : « L'eau froide reste normale »."
+  },
+  "vocabulary": [
+   {
+    "term": "concierge",
+    "gloss_en": "building caretaker",
+    "gloss_zh": "公寓管理员"
+   },
+   {
+    "term": "immeuble",
+    "gloss_en": "apartment building",
+    "gloss_zh": "公寓楼"
+   },
+   {
+    "term": "plombier",
+    "gloss_en": "plumber",
+    "gloss_zh": "水管工"
+   },
+   {
+    "term": "chauffe-eau",
+    "gloss_en": "water heater",
+    "gloss_zh": "热水器"
+   },
+   {
+    "term": "sous-sol",
+    "gloss_en": "basement",
+    "gloss_zh": "地下室"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Information explicite en première phrase ; la seule petite exigence est de distinguer « chauffe-eau » de « chauffage » et « eau chaude » de « eau froide ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "La patinoire du parc Laviolette",
+  "passageText": "La patinoire du parc Laviolette ouvre samedi à Trois-Rivières. Elle est gratuite pour tout le monde. On peut patiner de 10 h à 21 h, sept jours sur sept. La Ville prête des casques aux enfants. Attention : les patins ne sont pas prêtés.",
+  "stem": "Qu'est-ce que la Ville prête aux enfants ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Des patins."
+   },
+   {
+    "id": "b",
+    "text": "Des billets."
+   },
+   {
+    "id": "c",
+    "text": "Des casques."
+   },
+   {
+    "id": "d",
+    "text": "Des manteaux."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le texte dit : « La Ville prête des casques aux enfants ». Les patins, eux, ne sont pas prêtés.",
+  "distractorRationales": {
+   "a": "Le texte précise justement que « les patins ne sont pas prêtés ».",
+   "b": "La patinoire est gratuite, donc il n'y a pas de billets.",
+   "d": "Les manteaux ne sont pas mentionnés dans le texte."
+  },
+  "vocabulary": [
+   {
+    "term": "patinoire",
+    "gloss_en": "skating rink",
+    "gloss_zh": "溜冰场"
+   },
+   {
+    "term": "gratuit",
+    "gloss_en": "free (no cost)",
+    "gloss_zh": "免费的"
+   },
+   {
+    "term": "prêter",
+    "gloss_en": "to lend",
+    "gloss_zh": "借出"
+   },
+   {
+    "term": "casque",
+    "gloss_en": "helmet",
+    "gloss_zh": "头盔"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Une seule phrase porte la réponse ; le distracteur « patins » exige de lire la dernière phrase négative, mais le vocabulaire reste concret et courant.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "sante",
+  "targetNclc": 3,
+  "passageTitle": "Clinique de vaccination — CLSC de Limoilou",
+  "passageText": "Clinique de vaccination contre la grippe. Du 3 au 7 novembre, de 8 h 30 à 16 h. Apportez votre carte d'assurance maladie. Sans rendez-vous pour les personnes de 65 ans et plus. Les autres personnes doivent appeler le 811. CLSC de Limoilou, Québec.",
+  "stem": "Qui peut venir à la clinique sans rendez-vous ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Les personnes qui ont moins de 18 ans."
+   },
+   {
+    "id": "b",
+    "text": "Les personnes qui travaillent au CLSC."
+   },
+   {
+    "id": "c",
+    "text": "Toutes les personnes de la ville de Québec."
+   },
+   {
+    "id": "d",
+    "text": "Les personnes de 65 ans et plus."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "L'avis indique : « Sans rendez-vous pour les personnes de 65 ans et plus ». Les autres doivent téléphoner au 811.",
+  "distractorRationales": {
+   "a": "Aucun âge minimum n'est donné ; l'avis parle seulement des 65 ans et plus.",
+   "b": "Les employés du CLSC ne sont pas mentionnés.",
+   "c": "Les autres personnes ne peuvent pas venir directement : elles doivent appeler le 811."
+  },
+  "vocabulary": [
+   {
+    "term": "grippe",
+    "gloss_en": "flu",
+    "gloss_zh": "流感"
+   },
+   {
+    "term": "sans rendez-vous",
+    "gloss_en": "walk-in, no appointment",
+    "gloss_zh": "无需预约"
+   },
+   {
+    "term": "carte d'assurance maladie",
+    "gloss_en": "health insurance card",
+    "gloss_zh": "医疗保险卡"
+   },
+   {
+    "term": "CLSC",
+    "gloss_en": "local community health centre (Quebec)",
+    "gloss_zh": "魁北克社区健康中心"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Question de repérage sur une condition simple ; l'apprenant doit associer « sans rendez-vous » au groupe d'âge donné et écarter le renvoi au 811.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "Message de l'enseignante",
+  "passageText": "Chers parents, Jeudi, la classe de 3e année va à la piscine du quartier Saint-Boniface, à Winnipeg. Votre enfant doit apporter un maillot de bain, une serviette et un dîner froid. L'autobus part de l'école à 9 h. Merci ! Amélie Thibault, enseignante.",
+  "stem": "Que doit apporter l'enfant jeudi ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Un maillot de bain, une serviette et un dîner."
+   },
+   {
+    "id": "b",
+    "text": "Un cahier, un crayon et un dîner chaud."
+   },
+   {
+    "id": "c",
+    "text": "Un maillot de bain et de l'argent pour l'autobus."
+   },
+   {
+    "id": "d",
+    "text": "Une serviette et un billet pour la piscine."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'enseignante écrit : « Votre enfant doit apporter un maillot de bain, une serviette et un dîner froid ».",
+  "distractorRationales": {
+   "b": "Le message demande un dîner froid, et il ne parle ni de cahier ni de crayon.",
+   "c": "L'autobus part de l'école, mais aucun argent n'est demandé.",
+   "d": "Aucun billet n'est mentionné dans le message."
+  },
+  "vocabulary": [
+   {
+    "term": "maillot de bain",
+    "gloss_en": "swimsuit",
+    "gloss_zh": "泳衣"
+   },
+   {
+    "term": "serviette",
+    "gloss_en": "towel",
+    "gloss_zh": "毛巾"
+   },
+   {
+    "term": "dîner",
+    "gloss_en": "lunch (Quebec usage)",
+    "gloss_zh": "午餐（魁北克用法）"
+   },
+   {
+    "term": "3e année",
+    "gloss_en": "Grade 3",
+    "gloss_zh": "三年级"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Liste explicite de trois objets à retrouver ; les distracteurs modifient un seul élément (dîner chaud, argent, billet), ce qui demande une lecture attentive mais aucune inférence.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "environnement",
+  "targetNclc": 4,
+  "passageTitle": "Le bac brun arrive à Gatineau",
+  "passageText": "À partir du 5 avril, la Ville de Gatineau ramasse le bac brun chaque semaine, le mardi matin. Le bac vert, pour le recyclage, est ramassé toutes les deux semaines. Les ordures, elles, sont ramassées le vendredi. Sortez vos bacs sur le trottoir avant 7 h.",
+  "stem": "Quand le bac brun est-il ramassé ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le vendredi matin, avec les ordures."
+   },
+   {
+    "id": "b",
+    "text": "Toutes les deux semaines, comme le bac vert."
+   },
+   {
+    "id": "c",
+    "text": "Le mardi matin, chaque semaine."
+   },
+   {
+    "id": "d",
+    "text": "Tous les jours, avant 7 h."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le texte dit que la Ville « ramasse le bac brun chaque semaine, le mardi matin ».",
+  "distractorRationales": {
+   "a": "Le vendredi, ce sont les ordures qui sont ramassées, pas le bac brun.",
+   "b": "C'est le bac vert (recyclage) qui est ramassé toutes les deux semaines.",
+   "d": "« Avant 7 h » indique l'heure de sortie des bacs, pas la fréquence du ramassage."
+  },
+  "vocabulary": [
+   {
+    "term": "bac brun",
+    "gloss_en": "brown bin (compost)",
+    "gloss_zh": "棕色厨余桶"
+   },
+   {
+    "term": "ramasser",
+    "gloss_en": "to collect, pick up",
+    "gloss_zh": "收集／收走"
+   },
+   {
+    "term": "recyclage",
+    "gloss_en": "recycling",
+    "gloss_zh": "回收"
+   },
+   {
+    "term": "ordures",
+    "gloss_en": "garbage",
+    "gloss_zh": "垃圾"
+   },
+   {
+    "term": "trottoir",
+    "gloss_en": "sidewalk",
+    "gloss_zh": "人行道"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Trois collectes différentes sont données dans le même texte ; l'apprenant doit relier le bon bac au bon jour, ce qui exige une petite mise en relation.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "vie_quotidienne",
+  "targetNclc": 4,
+  "passageTitle": "Le vélo en hiver ?",
+  "passageText": "Moi, je fais du vélo toute l'année à Québec, même en janvier. Mes amis disent que c'est trop froid. Je ne suis pas d'accord : avec de bons gants, ça va très bien. Et le matin, le vélo est plus rapide que l'autobus. — Karim, 29 ans",
+  "stem": "Que pense Karim du vélo en hiver ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Il pense qu'il fait trop froid."
+   },
+   {
+    "id": "b",
+    "text": "Il pense que c'est une bonne idée."
+   },
+   {
+    "id": "c",
+    "text": "Il préfère prendre l'autobus le matin."
+   },
+   {
+    "id": "d",
+    "text": "Il fait du vélo seulement en été."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Karim dit « je ne suis pas d'accord » avec ses amis, puis donne deux raisons positives : avec de bons gants « ça va très bien », et le vélo est plus rapide que l'autobus.",
+  "distractorRationales": {
+   "a": "C'est l'opinion de ses amis, pas la sienne : il dit qu'il n'est pas d'accord.",
+   "c": "Il trouve au contraire le vélo plus rapide que l'autobus le matin.",
+   "d": "Il précise qu'il fait du vélo « toute l'année », même en janvier."
+  },
+  "vocabulary": [
+   {
+    "term": "toute l'année",
+    "gloss_en": "all year round",
+    "gloss_zh": "全年"
+   },
+   {
+    "term": "être d'accord",
+    "gloss_en": "to agree",
+    "gloss_zh": "同意"
+   },
+   {
+    "term": "gants",
+    "gloss_en": "gloves",
+    "gloss_zh": "手套"
+   },
+   {
+    "term": "plus rapide que",
+    "gloss_en": "faster than",
+    "gloss_zh": "比……快"
+   }
+  ],
+  "estimatedSeconds": 55,
+  "difficultyEvidence": "Il faut séparer l'opinion de l'auteur de celle de ses amis grâce à « Je ne suis pas d'accord » : la demande porte sur le point de vue, pas sur un simple détail.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 87,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "travail",
+  "targetNclc": 3,
+  "passageTitle": "Affiche à la boulangerie",
+  "passageText": "Nous cherchons une personne pour servir les clients, le samedi et le dimanche, de 7 h à 13 h. Expérience non nécessaire. Français et anglais demandés. Laissez votre CV au comptoir. Boulangerie du Marché, rue Dalhousie, Ottawa.",
+  "stem": "Quand la personne va-t-elle travailler ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Du lundi au vendredi, le matin."
+   },
+   {
+    "id": "b",
+    "text": "Le samedi soir et le dimanche soir."
+   },
+   {
+    "id": "c",
+    "text": "Le samedi seulement, toute la journée."
+   },
+   {
+    "id": "d",
+    "text": "La fin de semaine, le matin."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "L'affiche demande une personne « le samedi et le dimanche, de 7 h à 13 h », c'est-à-dire la fin de semaine, le matin.",
+  "distractorRationales": {
+   "a": "Les jours de semaine ne sont pas mentionnés : l'offre concerne le samedi et le dimanche.",
+   "b": "Les heures indiquées sont de 7 h à 13 h, donc le matin, pas le soir.",
+   "c": "Le dimanche fait aussi partie de l'horaire, et le travail se termine à 13 h."
+  },
+  "vocabulary": [
+   {
+    "term": "servir les clients",
+    "gloss_en": "to serve customers",
+    "gloss_zh": "接待顾客"
+   },
+   {
+    "term": "expérience non nécessaire",
+    "gloss_en": "no experience required",
+    "gloss_zh": "无需经验"
+   },
+   {
+    "term": "CV",
+    "gloss_en": "resumé",
+    "gloss_zh": "简历"
+   },
+   {
+    "term": "comptoir",
+    "gloss_en": "counter",
+    "gloss_zh": "柜台"
+   },
+   {
+    "term": "fin de semaine",
+    "gloss_en": "weekend (Canadian French)",
+    "gloss_zh": "周末（加拿大法语）"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "L'apprenant doit reformuler « le samedi et le dimanche, de 7 h à 13 h » en « la fin de semaine, le matin » : petite reformulation, aucun mot rare.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 85,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "immigration",
+  "targetNclc": 4,
+  "passageTitle": "Lettre de rendez-vous",
+  "passageText": "Madame Okafor, Votre rendez-vous pour vos données biométriques est le 12 mai, à 10 h 15, au bureau de Montréal. Apportez cette lettre et votre passeport. Si vous ne pouvez pas venir ce jour-là, téléphonez avant le 5 mai. Bureau des services d'immigration.",
+  "stem": "Que doit apporter madame Okafor à son rendez-vous ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Son passeport et une photo."
+   },
+   {
+    "id": "b",
+    "text": "Cette lettre et son billet d'avion."
+   },
+   {
+    "id": "c",
+    "text": "Cette lettre et son passeport."
+   },
+   {
+    "id": "d",
+    "text": "Son passeport et de l'argent."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "La lettre demande deux documents : « Apportez cette lettre et votre passeport ».",
+  "distractorRationales": {
+   "a": "Aucune photo n'est demandée dans la lettre.",
+   "b": "Le billet d'avion n'est pas mentionné.",
+   "d": "La lettre ne parle pas de paiement ni d'argent."
+  },
+  "vocabulary": [
+   {
+    "term": "rendez-vous",
+    "gloss_en": "appointment",
+    "gloss_zh": "预约"
+   },
+   {
+    "term": "données biométriques",
+    "gloss_en": "biometrics",
+    "gloss_zh": "生物识别信息"
+   },
+   {
+    "term": "apporter",
+    "gloss_en": "to bring",
+    "gloss_zh": "带来"
+   },
+   {
+    "term": "passeport",
+    "gloss_en": "passport",
+    "gloss_zh": "护照"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Deux éléments à retenir dans une même phrase ; chaque distracteur garde un élément vrai et en ajoute un faux, ce qui empêche la réponse par simple reconnaissance d'un mot.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 86,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "culture",
+  "targetNclc": 3,
+  "passageTitle": "Dimanches gratuits au musée",
+  "passageText": "Le musée acadien de Moncton est gratuit le premier dimanche du mois, de 12 h à 17 h. Une visite guidée en français commence à 14 h. Les autres jours, l'entrée coûte 8 $ pour les adultes. Le musée est fermé le lundi.",
+  "stem": "Quand peut-on entrer au musée sans payer ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le premier dimanche du mois."
+   },
+   {
+    "id": "b",
+    "text": "Tous les dimanches, à 14 h."
+   },
+   {
+    "id": "c",
+    "text": "Le lundi, de 12 h à 17 h."
+   },
+   {
+    "id": "d",
+    "text": "Tous les jours, après 14 h."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Le texte précise que le musée « est gratuit le premier dimanche du mois, de 12 h à 17 h ». Les autres jours, l'entrée coûte 8 $.",
+  "distractorRationales": {
+   "b": "La gratuité concerne seulement le premier dimanche du mois ; 14 h est l'heure de la visite guidée.",
+   "c": "Le musée est fermé le lundi.",
+   "d": "Les autres jours, il faut payer 8 $, quelle que soit l'heure."
+  },
+  "vocabulary": [
+   {
+    "term": "musée",
+    "gloss_en": "museum",
+    "gloss_zh": "博物馆"
+   },
+   {
+    "term": "entrée",
+    "gloss_en": "admission",
+    "gloss_zh": "门票／入场"
+   },
+   {
+    "term": "visite guidée",
+    "gloss_en": "guided tour",
+    "gloss_zh": "导览参观"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Trois informations d'horaire coexistent (gratuité, visite guidée, fermeture) ; il faut choisir celle qui répond à « sans payer » sans se laisser attirer par l'heure de 14 h.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "logement",
+  "targetNclc": 4,
+  "passageTitle": "Avis aux locataires — 4520, rue Fabre, Montréal",
+  "passageText": "Chers locataires,\n\nLa salle de lavage du sous-sol est ouverte tous les jours, de 7 h à 22 h. Les machines acceptent seulement la carte. Il n'y a pas de monnaie sur place. Merci de laisser la salle propre après votre lessive.\n\nMarc Boisvert, concierge",
+  "stem": "Comment peut-on payer les machines à laver ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Avec une carte."
+   },
+   {
+    "id": "b",
+    "text": "Avec de l'argent comptant."
+   },
+   {
+    "id": "c",
+    "text": "Avec un chèque."
+   },
+   {
+    "id": "d",
+    "text": "C'est gratuit."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'avis dit : « Les machines acceptent seulement la carte. » Le mot « seulement » indique qu'il n'y a pas d'autre moyen de payer.",
+  "distractorRationales": {
+   "b": "L'avis précise au contraire qu'il n'y a pas de monnaie sur place.",
+   "c": "Le chèque n'est jamais mentionné dans l'avis.",
+   "d": "Rien n'indique la gratuité ; il faut payer avec une carte."
+  },
+  "vocabulary": [
+   {
+    "term": "locataire",
+    "gloss_en": "tenant",
+    "gloss_zh": "租客"
+   },
+   {
+    "term": "la salle de lavage",
+    "gloss_en": "laundry room",
+    "gloss_zh": "洗衣房"
+   },
+   {
+    "term": "le sous-sol",
+    "gloss_en": "basement",
+    "gloss_zh": "地下室"
+   },
+   {
+    "term": "la monnaie",
+    "gloss_en": "change (coins)",
+    "gloss_zh": "零钱"
+   },
+   {
+    "term": "le concierge",
+    "gloss_en": "building caretaker",
+    "gloss_zh": "大楼管理员"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Passage de 45 mots, phrases courtes au présent. L'information cible est donnée en toutes lettres dans une seule phrase ; le repérage lexical (carte / comptant) suffit, sans inférence.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "etudes",
+  "targetNclc": 4,
+  "passageTitle": "Courriel entre deux étudiants",
+  "passageText": "Bonjour Amina,\n\nJe ne trouve plus mon cahier de mathématiques. Est-ce que tu peux m'envoyer une photo de tes notes du cours de mardi ? J'en ai vraiment besoin pour étudier avant l'examen de vendredi.\n\nMerci beaucoup !\n\nJulien, Cégep de Sherbrooke",
+  "stem": "Que demande Julien à Amina ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "De lui acheter un nouveau cahier de mathématiques."
+   },
+   {
+    "id": "b",
+    "text": "De l'accompagner à l'examen de vendredi matin."
+   },
+   {
+    "id": "c",
+    "text": "De lui envoyer une photo de ses notes de cours."
+   },
+   {
+    "id": "d",
+    "text": "De parler au professeur de mathématiques pour lui."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Julien écrit : « Est-ce que tu peux m'envoyer une photo de tes notes du cours de mardi ? » C'est la seule demande du courriel.",
+  "distractorRationales": {
+   "a": "Julien a perdu son cahier, mais il ne demande pas d'en acheter un autre.",
+   "b": "L'examen de vendredi est mentionné comme raison, pas comme une demande d'accompagnement.",
+   "d": "Aucun professeur n'est mentionné dans le message."
+  },
+  "vocabulary": [
+   {
+    "term": "un cahier",
+    "gloss_en": "notebook",
+    "gloss_zh": "练习本"
+   },
+   {
+    "term": "des notes",
+    "gloss_en": "class notes",
+    "gloss_zh": "课堂笔记"
+   },
+   {
+    "term": "un examen",
+    "gloss_en": "exam",
+    "gloss_zh": "考试"
+   },
+   {
+    "term": "avoir besoin de",
+    "gloss_en": "to need",
+    "gloss_zh": "需要"
+   },
+   {
+    "term": "le cégep",
+    "gloss_en": "Quebec pre-university college",
+    "gloss_zh": "魁北克大学预科学院"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Courriel de 41 mots, vocabulaire scolaire de base. La question porte sur l'acte de parole principal (une demande) exprimé par une structure simple « est-ce que tu peux… ».",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Une nouvelle piste cyclable à Trois-Rivières",
+  "passageText": "Une nouvelle piste cyclable ouvre le 15 juin à Trois-Rivières. Elle relie le parc Laviolette au centre-ville. La piste fait quatre kilomètres. Elle est réservée aux vélos et aux piétons. Les autos ne peuvent pas y circuler.",
+  "stem": "Qui peut utiliser la nouvelle piste ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Les autos et les vélos."
+   },
+   {
+    "id": "b",
+    "text": "Les vélos et les piétons."
+   },
+   {
+    "id": "c",
+    "text": "Les autos seulement."
+   },
+   {
+    "id": "d",
+    "text": "Les autobus de la ville."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le texte dit : « Elle est réservée aux vélos et aux piétons » et ajoute que les autos ne peuvent pas y circuler.",
+  "distractorRationales": {
+   "a": "Les autos sont explicitement interdites sur la piste.",
+   "c": "C'est le contraire de ce qu'indique la dernière phrase.",
+   "d": "Les autobus ne sont pas mentionnés dans le texte."
+  },
+  "vocabulary": [
+   {
+    "term": "une piste cyclable",
+    "gloss_en": "bike path",
+    "gloss_zh": "自行车道"
+   },
+   {
+    "term": "relier",
+    "gloss_en": "to link, to connect",
+    "gloss_zh": "连接"
+   },
+   {
+    "term": "un piéton",
+    "gloss_en": "pedestrian",
+    "gloss_zh": "行人"
+   },
+   {
+    "term": "réservé à",
+    "gloss_en": "reserved for",
+    "gloss_zh": "专供…使用"
+   },
+   {
+    "term": "circuler",
+    "gloss_en": "to drive, to travel",
+    "gloss_zh": "通行"
+   }
+  ],
+  "estimatedSeconds": 35,
+  "difficultyEvidence": "Texte factuel de 37 mots, cinq phrases simples. La réponse combine une phrase affirmative et une phrase négative très transparentes ; aucun connecteur complexe.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "travail",
+  "targetNclc": 4,
+  "passageTitle": "Message du chef d'équipe",
+  "passageText": "Bonjour Karine,\n\nTon horaire change la semaine prochaine : tu commences à 6 h le matin, et non à 14 h. Attention, le stationnement de l'entrepôt est fermé pour des travaux. Gare-toi dans la rue Marion.\n\nDenis Tremblay, chef d'équipe, Saint-Boniface",
+  "stem": "Pourquoi Karine doit-elle se garer dans la rue Marion ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce qu'elle commence son travail très tôt le matin."
+   },
+   {
+    "id": "b",
+    "text": "Parce que le stationnement de l'entrepôt est fermé."
+   },
+   {
+    "id": "c",
+    "text": "Parce que la rue Marion est gratuite avant 6 h."
+   },
+   {
+    "id": "d",
+    "text": "Parce qu'elle n'a plus de permis de stationnement."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le message donne la raison juste avant l'instruction : « le stationnement de l'entrepôt est fermé pour des travaux ». C'est pour cela qu'elle doit se garer dans la rue.",
+  "distractorRationales": {
+   "a": "Le nouvel horaire est une autre information, sans lien avec le stationnement.",
+   "c": "Le texte ne dit rien sur le prix du stationnement dans la rue Marion.",
+   "d": "Aucun permis de stationnement n'est mentionné dans le message."
+  },
+  "vocabulary": [
+   {
+    "term": "un horaire",
+    "gloss_en": "work schedule",
+    "gloss_zh": "工作时间表"
+   },
+   {
+    "term": "un entrepôt",
+    "gloss_en": "warehouse",
+    "gloss_zh": "仓库"
+   },
+   {
+    "term": "des travaux",
+    "gloss_en": "construction work",
+    "gloss_zh": "施工"
+   },
+   {
+    "term": "se garer",
+    "gloss_en": "to park",
+    "gloss_zh": "停车"
+   },
+   {
+    "term": "un chef d'équipe",
+    "gloss_en": "team leader, supervisor",
+    "gloss_zh": "班组长"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Note de 41 mots contenant deux informations distinctes (horaire, stationnement). La question exige de relier la consigne à sa cause immédiate et d'écarter l'information sur l'horaire.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 5,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "Patinoire du parc Brewer, Ottawa",
+  "passageText": "Patinage libre : samedi et dimanche, de 13 h à 15 h.\nLe casque est obligatoire pour tous les enfants de moins de 12 ans.\nLocation de patins : 5 $.\nLa patinoire est fermée quand il pleut.",
+  "stem": "Qu'est-ce qui est obligatoire pour un enfant de dix ans ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le casque."
+   },
+   {
+    "id": "b",
+    "text": "Les gants."
+   },
+   {
+    "id": "c",
+    "text": "La location de patins."
+   },
+   {
+    "id": "d",
+    "text": "Une carte de membre."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L'affiche dit que « le casque est obligatoire pour tous les enfants de moins de 12 ans ». Un enfant de dix ans a moins de 12 ans.",
+  "distractorRationales": {
+   "b": "Les gants ne sont pas mentionnés sur l'affiche.",
+   "c": "La location de patins est un service payant, pas une obligation.",
+   "d": "Aucune carte de membre n'est exigée."
+  },
+  "vocabulary": [
+   {
+    "term": "une patinoire",
+    "gloss_en": "skating rink",
+    "gloss_zh": "溜冰场"
+   },
+   {
+    "term": "le patinage libre",
+    "gloss_en": "public/free skating",
+    "gloss_zh": "自由滑冰时段"
+   },
+   {
+    "term": "un casque",
+    "gloss_en": "helmet",
+    "gloss_zh": "头盔"
+   },
+   {
+    "term": "obligatoire",
+    "gloss_en": "mandatory",
+    "gloss_zh": "强制的"
+   },
+   {
+    "term": "la location",
+    "gloss_en": "rental",
+    "gloss_zh": "租借"
+   }
+  ],
+  "estimatedSeconds": 35,
+  "difficultyEvidence": "Affiche de 36 mots en quatre lignes. Micro-inférence numérique très simple (dix ans < 12 ans) ; le reste est du repérage direct.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 6,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "environnement",
+  "targetNclc": 4,
+  "passageTitle": "Courrier des élèves — journal de l'école, Chicoutimi",
+  "passageText": "Dans notre école, on jette beaucoup trop de bouteilles d'eau en plastique. Je pense que chaque élève devrait apporter une bouteille réutilisable. C'est facile, ça coûte moins cher et c'est mieux pour la nature. Notre école peut faire mieux !\n\nLéa, 4e secondaire",
+  "stem": "Que propose Léa aux élèves ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "De vendre de l'eau moins chère à la cafétéria."
+   },
+   {
+    "id": "b",
+    "text": "De demander une nouvelle fontaine d'eau à l'école."
+   },
+   {
+    "id": "c",
+    "text": "De payer pour le recyclage du plastique."
+   },
+   {
+    "id": "d",
+    "text": "D'apporter chacun une bouteille réutilisable."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Léa écrit clairement sa proposition : « chaque élève devrait apporter une bouteille réutilisable ». Le reste du texte donne ses raisons.",
+  "distractorRationales": {
+   "a": "Léa parle du prix, mais elle ne propose pas de vendre de l'eau.",
+   "b": "Aucune fontaine d'eau n'est mentionnée dans le texte.",
+   "c": "Le recyclage n'est pas évoqué ; Léa veut surtout éviter le plastique."
+  },
+  "vocabulary": [
+   {
+    "term": "jeter",
+    "gloss_en": "to throw away",
+    "gloss_zh": "扔掉"
+   },
+   {
+    "term": "réutilisable",
+    "gloss_en": "reusable",
+    "gloss_zh": "可重复使用的"
+   },
+   {
+    "term": "coûter",
+    "gloss_en": "to cost",
+    "gloss_zh": "花费"
+   },
+   {
+    "term": "la nature",
+    "gloss_en": "nature, the environment",
+    "gloss_zh": "大自然"
+   },
+   {
+    "term": "un élève",
+    "gloss_en": "pupil, student",
+    "gloss_zh": "学生"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Texte d'opinion de 42 mots. L'apprenant doit distinguer la proposition (« devrait apporter ») des arguments qui la suivent, mais le vocabulaire reste courant.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "technologie",
+  "targetNclc": 3,
+  "passageTitle": "Bibliothèque publique de Moncton — atelier gratuit",
+  "passageText": "Atelier « Utiliser une tablette »\nMardi 14 avril, de 10 h à 11 h 30, salle 2.\nPour les débutants de 60 ans et plus.\nC'est gratuit, mais les places sont limitées.\nInscrivez-vous au comptoir d'accueil.",
+  "stem": "Pour qui est cet atelier ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Pour les enfants de l'école primaire."
+   },
+   {
+    "id": "b",
+    "text": "Pour les employés de la bibliothèque."
+   },
+   {
+    "id": "c",
+    "text": "Pour les débutants de 60 ans et plus."
+   },
+   {
+    "id": "d",
+    "text": "Pour les étudiants en informatique."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "L'affiche indique le public visé : « Pour les débutants de 60 ans et plus. »",
+  "distractorRationales": {
+   "a": "L'atelier s'adresse aux personnes de 60 ans et plus, pas aux enfants.",
+   "b": "Les employés ne sont pas mentionnés ; l'atelier est pour le public.",
+   "d": "L'atelier vise des débutants, donc pas des étudiants en informatique."
+  },
+  "vocabulary": [
+   {
+    "term": "un atelier",
+    "gloss_en": "workshop",
+    "gloss_zh": "讲习班"
+   },
+   {
+    "term": "une tablette",
+    "gloss_en": "tablet (device)",
+    "gloss_zh": "平板电脑"
+   },
+   {
+    "term": "un débutant",
+    "gloss_en": "beginner",
+    "gloss_zh": "初学者"
+   },
+   {
+    "term": "les places sont limitées",
+    "gloss_en": "limited seats",
+    "gloss_zh": "名额有限"
+   },
+   {
+    "term": "s'inscrire",
+    "gloss_en": "to register, to sign up",
+    "gloss_zh": "报名"
+   }
+  ],
+  "estimatedSeconds": 35,
+  "difficultyEvidence": "Affiche de 36 mots en lignes séparées. L'information est isolée sur une ligne ; le mot « débutants » suffit à éliminer le distracteur informatique.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "sante",
+  "targetNclc": 4,
+  "passageTitle": "Courriel de la Clinique médicale de Gatineau",
+  "passageText": "Bonjour Monsieur Ndiaye,\n\nVotre rendez-vous avec la docteure Roy est déplacé au jeudi 9 mars, à 8 h 45. Merci d'arriver quinze minutes avant l'heure du rendez-vous. Si cette date ne vous convient pas, appelez-nous avant lundi.\n\nClinique médicale de Gatineau",
+  "stem": "À quelle heure Monsieur Ndiaye doit-il arriver à la clinique ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "À 8 h 30."
+   },
+   {
+    "id": "b",
+    "text": "À 8 h 45."
+   },
+   {
+    "id": "c",
+    "text": "À 9 h."
+   },
+   {
+    "id": "d",
+    "text": "À 8 h 15."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "Le rendez-vous est à 8 h 45 et la clinique demande d'arriver quinze minutes avant : 8 h 45 moins 15 minutes, c'est 8 h 30.",
+  "distractorRationales": {
+   "b": "C'est l'heure du rendez-vous, pas l'heure d'arrivée demandée.",
+   "c": "Cette heure est après le rendez-vous ; il serait en retard.",
+   "d": "Cela ferait trente minutes avant, et non quinze."
+  },
+  "vocabulary": [
+   {
+    "term": "un rendez-vous",
+    "gloss_en": "appointment",
+    "gloss_zh": "预约"
+   },
+   {
+    "term": "déplacé",
+    "gloss_en": "moved, rescheduled",
+    "gloss_zh": "改期的"
+   },
+   {
+    "term": "convenir",
+    "gloss_en": "to suit, to be convenient",
+    "gloss_zh": "合适"
+   },
+   {
+    "term": "une clinique",
+    "gloss_en": "clinic",
+    "gloss_zh": "诊所"
+   },
+   {
+    "term": "arriver",
+    "gloss_en": "to arrive",
+    "gloss_zh": "到达"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Courriel de 40 mots. La réponse demande un petit calcul horaire (8 h 45 moins 15 minutes) plutôt qu'un simple repérage, ce qui place l'item en haut de la bande A1.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 94,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "immigration",
+  "targetNclc": 3,
+  "passageTitle": "Cours de langue au centre des nouveaux arrivants de Longueuil",
+  "passageText": "Le centre d'accueil des nouveaux arrivants de Longueuil offre des cours de français et d'anglais gratuits. Les cours ont lieu le soir, du lundi au jeudi. Il faut avoir 18 ans et plus. On peut s'inscrire en ligne ou au bureau de la rue Saint-Charles.",
+  "stem": "Quand les cours ont-ils lieu ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le matin, du lundi au vendredi."
+   },
+   {
+    "id": "b",
+    "text": "Le soir, du lundi au jeudi."
+   },
+   {
+    "id": "c",
+    "text": "La fin de semaine seulement."
+   },
+   {
+    "id": "d",
+    "text": "Le soir, du vendredi au dimanche."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le texte précise : « Les cours ont lieu le soir, du lundi au jeudi. »",
+  "distractorRationales": {
+   "a": "Les cours sont le soir, pas le matin, et ils s'arrêtent le jeudi.",
+   "c": "La fin de semaine n'est jamais mentionnée dans le texte.",
+   "d": "Le moment de la journée est bon, mais les jours ne correspondent pas."
+  },
+  "vocabulary": [
+   {
+    "term": "un nouvel arrivant",
+    "gloss_en": "newcomer",
+    "gloss_zh": "新移民"
+   },
+   {
+    "term": "un centre d'accueil",
+    "gloss_en": "welcome centre",
+    "gloss_zh": "接待中心"
+   },
+   {
+    "term": "avoir lieu",
+    "gloss_en": "to take place",
+    "gloss_zh": "举行"
+   },
+   {
+    "term": "en ligne",
+    "gloss_en": "online",
+    "gloss_zh": "在线"
+   },
+   {
+    "term": "la fin de semaine",
+    "gloss_en": "weekend (Canadian French)",
+    "gloss_zh": "周末"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "Texte informatif de 45 mots au présent. Repérage d'un groupe de temps, mais les distracteurs demandent de vérifier deux éléments (moment de la journée et jours).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 91,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "Piscine du parc Laurier — avis aux nageurs",
+  "passageText": "AVIS\nLa piscine du parc Laurier est ouverte de 13 h à 20 h.\nLe lundi, la piscine est réservée aux enfants de 6 à 12 ans.\nLe prix est de 3 $ pour les adultes. Les enfants entrent gratuitement.\nApportez une serviette et un cadenas.\nArrondissement du Plateau-Mont-Royal, Montréal",
+  "stem": "Qui peut nager le lundi ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Les adultes de plus de 20 ans"
+   },
+   {
+    "id": "b",
+    "text": "Les enfants de 6 à 12 ans"
+   },
+   {
+    "id": "c",
+    "text": "Les personnes qui paient 3 $"
+   },
+   {
+    "id": "d",
+    "text": "Les groupes du quartier"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "L'avis dit : « Le lundi, la piscine est réservée aux enfants de 6 à 12 ans. » Le lundi est donc un jour seulement pour ce groupe d'âge.",
+  "distractorRationales": {
+   "a": "Le nombre 20 vient de l'heure de fermeture (20 h), pas d'un âge ; les adultes n'ont pas le lundi.",
+   "c": "Le prix de 3 $ concerne les adultes, mais payer ne donne pas accès le lundi.",
+   "d": "L'avis ne parle d'aucun groupe du quartier."
+  },
+  "vocabulary": [
+   {
+    "term": "ouverte",
+    "gloss_en": "open",
+    "gloss_zh": "开放的"
+   },
+   {
+    "term": "réservée à",
+    "gloss_en": "reserved for",
+    "gloss_zh": "专供…使用"
+   },
+   {
+    "term": "gratuitement",
+    "gloss_en": "free of charge",
+    "gloss_zh": "免费"
+   },
+   {
+    "term": "une serviette",
+    "gloss_en": "a towel",
+    "gloss_zh": "毛巾"
+   },
+   {
+    "term": "un cadenas",
+    "gloss_en": "a padlock",
+    "gloss_zh": "挂锁"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "Information explicite dans une phrase courte ; les distracteurs réutilisent des chiffres du texte (20, 3 $), ce qui demande de relier le bon nombre à la bonne idée. Vocabulaire A1 très concret.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 89,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "logement",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du concierge",
+  "passageText": "Bonjour Madame Thériault,\nJe suis le concierge de l'immeuble. Vendredi matin, un plombier vient dans votre appartement. Il change le robinet de la cuisine. Vous devez être là entre 9 h et 11 h. Merci de me répondre aujourd'hui.\nDenis Cormier, 2, rue Botsford, Moncton",
+  "stem": "Que doit faire Madame Thériault vendredi matin ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Appeler le plombier à 9 h"
+   },
+   {
+    "id": "b",
+    "text": "Laisser la clé au concierge"
+   },
+   {
+    "id": "c",
+    "text": "Être chez elle entre 9 h et 11 h"
+   },
+   {
+    "id": "d",
+    "text": "Payer le concierge aujourd'hui"
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le courriel dit : « Vous devez être là entre 9 h et 11 h. » « Là » = dans son appartement, pendant la visite du plombier.",
+  "distractorRationales": {
+   "a": "L'heure 9 h est dans le texte, mais c'est le début de la visite, pas un appel à faire.",
+   "b": "Le texte ne parle pas de clé : le concierge demande la présence de la locataire.",
+   "d": "« Aujourd'hui » concerne la réponse au courriel, pas un paiement."
+  },
+  "vocabulary": [
+   {
+    "term": "un concierge",
+    "gloss_en": "building caretaker / superintendent",
+    "gloss_zh": "大楼管理员"
+   },
+   {
+    "term": "un plombier",
+    "gloss_en": "plumber",
+    "gloss_zh": "水管工"
+   },
+   {
+    "term": "un robinet",
+    "gloss_en": "tap, faucet",
+    "gloss_zh": "水龙头"
+   },
+   {
+    "term": "être là",
+    "gloss_en": "to be there / at home",
+    "gloss_zh": "在场，在家"
+   }
+  ],
+  "estimatedSeconds": 50,
+  "difficultyEvidence": "Message court et concret, mais la bonne réponse demande de comprendre « être là » comme « rester à la maison ». Les distracteurs recyclent des mots du texte (9 h, aujourd'hui, concierge).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "sante",
+  "targetNclc": 4,
+  "passageTitle": "CLSC de Gatineau — clinique de vaccination",
+  "passageText": "CLSC de Gatineau — Clinique de vaccination\nSans rendez-vous, du mardi au jeudi, de 8 h 30 à 16 h.\nApportez votre carte d'assurance maladie.\nLes enfants doivent venir avec un parent.\nFermé le midi, de 12 h à 13 h.",
+  "stem": "Vous arrivez au CLSC à 12 h 30, un mercredi. Que se passe-t-il ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Vous entrez tout de suite"
+   },
+   {
+    "id": "b",
+    "text": "La clinique est fermée"
+   },
+   {
+    "id": "c",
+    "text": "Vous devez prendre un rendez-vous"
+   },
+   {
+    "id": "d",
+    "text": "Vous payez la vaccination"
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le mercredi est un jour ouvert, mais l'avis dit : « Fermé le midi, de 12 h à 13 h. » À 12 h 30, on est dans cette pause.",
+  "distractorRationales": {
+   "a": "L'heure 12 h 30 tombe pendant la fermeture du midi, donc on ne peut pas entrer.",
+   "c": "L'avis dit clairement « sans rendez-vous ».",
+   "d": "L'avis ne parle d'aucun prix ni paiement."
+  },
+  "vocabulary": [
+   {
+    "term": "sans rendez-vous",
+    "gloss_en": "walk-in, no appointment",
+    "gloss_zh": "无需预约"
+   },
+   {
+    "term": "la carte d'assurance maladie",
+    "gloss_en": "health insurance card",
+    "gloss_zh": "医疗保险卡"
+   },
+   {
+    "term": "fermé",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭"
+   },
+   {
+    "term": "le midi",
+    "gloss_en": "midday, noon hour",
+    "gloss_zh": "中午"
+   }
+  ],
+  "estimatedSeconds": 60,
+  "difficultyEvidence": "Il faut croiser deux informations (le jour est bon, mais l'heure tombe dans la pause du midi) au lieu de lire une seule ligne. Les chiffres restent simples et le lexique est celui des affiches publiques A1.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 93,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 0,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "transport",
+  "targetNclc": 3,
+  "passageTitle": "Avis — Vélos en libre-service, Trois-Rivières",
+  "passageText": "Avis aux clients. La station de vélos de la rue Notre-Dame est fermée du 3 au 7 mai. Pendant ces cinq jours, les vélos sont à la station du parc Champlain, à 200 mètres. Merci de votre patience. — Ville de Trois-Rivières",
+  "stem": "Où sont les vélos du 3 au 7 mai ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "À la station du parc Champlain."
+   },
+   {
+    "id": "b",
+    "text": "À la station de la rue Notre-Dame."
+   },
+   {
+    "id": "c",
+    "text": "Au bureau de la Ville."
+   },
+   {
+    "id": "d",
+    "text": "À la gare de Trois-Rivières."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "L’avis dit que la station de la rue Notre-Dame est fermée et que les vélos sont à la station du parc Champlain, à 200 mètres.",
+  "distractorRationales": {
+   "b": "C’est la station fermée du 3 au 7 mai, donc les vélos n’y sont pas.",
+   "c": "Le bureau de la Ville n’est pas mentionné ; la Ville signe seulement l’avis.",
+   "d": "La gare n’apparaît pas dans le texte."
+  },
+  "vocabulary": [
+   {
+    "term": "fermée",
+    "gloss_en": "closed",
+    "gloss_zh": "关闭的"
+   },
+   {
+    "term": "la station",
+    "gloss_en": "the station / docking point",
+    "gloss_zh": "站点"
+   },
+   {
+    "term": "un mètre",
+    "gloss_en": "a metre",
+    "gloss_zh": "米"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "A1 : phrases courtes, vocabulaire concret (station, vélos, mai) ; l’élève doit seulement repérer le lieu de remplacement, mais doit distinguer la station fermée de la station ouverte.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 86,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 1,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "sante",
+  "targetNclc": 3,
+  "passageTitle": "Courriel du CLSC de Sainte-Foy",
+  "passageText": "Bonjour Madame Kouassi, votre rendez-vous pour le vaccin est le mardi 14 avril, à 10 h 30. Apportez votre carte d’assurance maladie. Le bureau est au 2e étage, porte 214. Si vous êtes malade ce jour-là, téléphonez-nous. Merci. Nadine Roy, infirmière",
+  "stem": "Qu’est-ce que Madame Kouassi doit apporter au rendez-vous ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Son passeport canadien."
+   },
+   {
+    "id": "b",
+    "text": "Sa carte d’assurance maladie."
+   },
+   {
+    "id": "c",
+    "text": "Une photo récente."
+   },
+   {
+    "id": "d",
+    "text": "De l’argent pour le vaccin."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "Le courriel demande une seule chose : « Apportez votre carte d’assurance maladie. »",
+  "distractorRationales": {
+   "a": "Le passeport n’est jamais mentionné dans le courriel.",
+   "c": "Aucune photo n’est demandée par l’infirmière.",
+   "d": "Le texte ne parle pas de payer le vaccin."
+  },
+  "vocabulary": [
+   {
+    "term": "un rendez-vous",
+    "gloss_en": "an appointment",
+    "gloss_zh": "预约"
+   },
+   {
+    "term": "apporter",
+    "gloss_en": "to bring",
+    "gloss_zh": "带来"
+   },
+   {
+    "term": "la carte d’assurance maladie",
+    "gloss_en": "health insurance card",
+    "gloss_zh": "医保卡"
+   },
+   {
+    "term": "une infirmière",
+    "gloss_en": "a nurse",
+    "gloss_zh": "护士"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "A1 : courriel très court à l’impératif ; la réponse est une information explicite, mais les distracteurs sont des objets courants d’un rendez-vous médical.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 2,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "etudes",
+  "targetNclc": 3,
+  "passageTitle": "La nouvelle bibliothèque de l’école Sainte-Anne",
+  "passageText": "L’école Sainte-Anne, à Winnipeg, a une nouvelle bibliothèque. Elle est ouverte de 8 h à 16 h, du lundi au vendredi. Chaque élève peut prendre trois livres pour deux semaines. La bibliothèque est fermée le samedi et le dimanche.",
+  "stem": "Combien de livres un élève peut-il prendre ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Un livre."
+   },
+   {
+    "id": "b",
+    "text": "Deux livres."
+   },
+   {
+    "id": "c",
+    "text": "Trois livres."
+   },
+   {
+    "id": "d",
+    "text": "Cinq livres."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "Le texte dit : « Chaque élève peut prendre trois livres pour deux semaines. »",
+  "distractorRationales": {
+   "a": "Le chiffre un n’apparaît pas pour les livres.",
+   "b": "« Deux » est le nombre de semaines de prêt, pas le nombre de livres.",
+   "d": "Le nombre cinq n’est pas dans le texte."
+  },
+  "vocabulary": [
+   {
+    "term": "une bibliothèque",
+    "gloss_en": "a library",
+    "gloss_zh": "图书馆"
+   },
+   {
+    "term": "un élève",
+    "gloss_en": "a pupil / student",
+    "gloss_zh": "学生"
+   },
+   {
+    "term": "prendre",
+    "gloss_en": "to take / borrow",
+    "gloss_zh": "借取"
+   }
+  ],
+  "estimatedSeconds": 35,
+  "difficultyEvidence": "A1 : texte factuel avec des nombres ; le piège léger est de confondre « trois livres » et « deux semaines », ce qui demande de lier le chiffre au bon mot.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 3,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "logement",
+  "targetNclc": 4,
+  "passageTitle": "Avis aux locataires — 45, rue Wellington",
+  "passageText": "Chers locataires, il n’y a pas d’eau chaude le jeudi 9 février, de 9 h à 15 h. Un plombier travaille dans le sous-sol. L’eau froide fonctionne normalement. Désolé pour le dérangement. Le concierge, M. Tremblay",
+  "stem": "Que se passe-t-il le jeudi 9 février dans l’immeuble ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Le concierge nettoie le sous-sol toute la journée."
+   },
+   {
+    "id": "b",
+    "text": "Il n’y a pas d’eau chaude pendant une partie de la journée."
+   },
+   {
+    "id": "c",
+    "text": "Les locataires doivent quitter l’immeuble le matin."
+   },
+   {
+    "id": "d",
+    "text": "L’eau froide est coupée jusqu’à quinze heures."
+   }
+  ],
+  "correctAnswer": "b",
+  "explanation": "L’avis annonce une coupure d’eau chaude de 9 h à 15 h seulement, donc pendant une partie de la journée.",
+  "distractorRationales": {
+   "a": "C’est un plombier qui travaille dans le sous-sol, et il ne nettoie pas.",
+   "c": "L’avis ne demande à personne de quitter l’immeuble.",
+   "d": "Le texte précise au contraire que l’eau froide fonctionne normalement."
+  },
+  "vocabulary": [
+   {
+    "term": "un locataire",
+    "gloss_en": "a tenant",
+    "gloss_zh": "租客"
+   },
+   {
+    "term": "l’eau chaude",
+    "gloss_en": "hot water",
+    "gloss_zh": "热水"
+   },
+   {
+    "term": "un plombier",
+    "gloss_en": "a plumber",
+    "gloss_zh": "水管工"
+   },
+   {
+    "term": "le sous-sol",
+    "gloss_en": "the basement",
+    "gloss_zh": "地下室"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "A1 haut : lexique du logement simple, mais il faut comprendre que « de 9 h à 15 h » = une partie de la journée et distinguer eau chaude / eau froide.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 88,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 4,
+  "cefrLevel": "A1",
+  "subtype": "correspondence",
+  "topic": "loisirs",
+  "targetNclc": 3,
+  "passageTitle": "Message d’Amélie",
+  "passageText": "Salut Karim ! Samedi, je vais patiner sur le canal Rideau, à Ottawa. On part à 13 h de chez moi. Il fait très froid : prends une tuque et des gants. Après, on mange une queue de castor. Tu viens avec nous ? Amélie",
+  "stem": "Qu’est-ce qu’Amélie demande à Karim de prendre ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Des patins neufs."
+   },
+   {
+    "id": "b",
+    "text": "Un repas chaud."
+   },
+   {
+    "id": "c",
+    "text": "De l’argent pour le train."
+   },
+   {
+    "id": "d",
+    "text": "Une tuque et des gants."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "Amélie écrit : « prends une tuque et des gants », parce qu’il fait très froid.",
+  "distractorRationales": {
+   "a": "On patine, mais Amélie ne demande pas d’acheter ou d’apporter des patins.",
+   "b": "Le repas (une queue de castor) est prévu après, il n’est pas à apporter.",
+   "c": "Le train n’est pas mentionné ; ils partent de chez Amélie."
+  },
+  "vocabulary": [
+   {
+    "term": "patiner",
+    "gloss_en": "to skate",
+    "gloss_zh": "滑冰"
+   },
+   {
+    "term": "une tuque",
+    "gloss_en": "a winter hat (Can. Fr.)",
+    "gloss_zh": "冬季毛线帽"
+   },
+   {
+    "term": "des gants",
+    "gloss_en": "gloves",
+    "gloss_zh": "手套"
+   },
+   {
+    "term": "une queue de castor",
+    "gloss_en": "BeaverTail (fried pastry)",
+    "gloss_zh": "海狸尾（一种油炸点心）"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "A1 : message amical au présent ; réponse explicite, mais les distracteurs reprennent des éléments réels du texte (patins, repas) dans un autre rôle.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 92,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 7,
+  "cefrLevel": "A1",
+  "subtype": "notice",
+  "topic": "technologie",
+  "targetNclc": 4,
+  "passageTitle": "Affiche — Bibliothèque publique de Moncton",
+  "passageText": "Nouveau ! Vous pouvez emprunter une tablette pour deux semaines. Il faut avoir 16 ans et une carte de la bibliothèque. Demandez au comptoir du 1er étage. Internet est gratuit partout dans la bibliothèque.",
+  "stem": "Qui peut emprunter une tablette ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Toutes les personnes qui entrent dans la bibliothèque."
+   },
+   {
+    "id": "b",
+    "text": "Les élèves de l’école du quartier seulement."
+   },
+   {
+    "id": "c",
+    "text": "Les personnes de 16 ans et plus qui ont une carte."
+   },
+   {
+    "id": "d",
+    "text": "Les personnes qui paient deux dollars par semaine."
+   }
+  ],
+  "correctAnswer": "c",
+  "explanation": "L’affiche donne deux conditions : avoir 16 ans et avoir une carte de la bibliothèque.",
+  "distractorRationales": {
+   "a": "Il y a des conditions ; entrer dans la bibliothèque ne suffit pas.",
+   "b": "Aucune école n’est mentionnée sur l’affiche.",
+   "d": "L’affiche ne parle d’aucun prix ; « deux » concerne les semaines de prêt."
+  },
+  "vocabulary": [
+   {
+    "term": "emprunter",
+    "gloss_en": "to borrow",
+    "gloss_zh": "借用"
+   },
+   {
+    "term": "une tablette",
+    "gloss_en": "a tablet",
+    "gloss_zh": "平板电脑"
+   },
+   {
+    "term": "un comptoir",
+    "gloss_en": "a service desk / counter",
+    "gloss_zh": "服务台"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "A1 haut : lexique concret, mais la réponse demande de combiner deux conditions (âge + carte) au lieu d’une seule information isolée.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 86,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 8,
+  "cefrLevel": "A1",
+  "subtype": "argumentative",
+  "topic": "culture",
+  "targetNclc": 4,
+  "passageTitle": "J’aime le musée le mercredi soir",
+  "passageText": "Moi, je préfère visiter le Musée des beaux-arts de Montréal le mercredi soir. Le jour, il y a beaucoup de monde et je ne vois pas bien les tableaux. Le soir, c’est calme. Je peux rester dix minutes devant un tableau. C’est parfait !",
+  "stem": "Pourquoi l’auteur préfère-t-il aller au musée le mercredi soir ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "Parce que l’entrée du musée est gratuite le soir."
+   },
+   {
+    "id": "b",
+    "text": "Parce que le musée ouvre seulement le mercredi."
+   },
+   {
+    "id": "c",
+    "text": "Parce qu’il travaille pendant toute la journée."
+   },
+   {
+    "id": "d",
+    "text": "Parce qu’il y a moins de monde et c’est calme."
+   }
+  ],
+  "correctAnswer": "d",
+  "explanation": "L’auteur explique que le jour il y a beaucoup de monde, tandis que le soir c’est calme et il peut bien regarder les tableaux.",
+  "distractorRationales": {
+   "a": "Le prix n’est jamais mentionné dans le texte.",
+   "b": "Le texte ne dit pas que le musée ouvre seulement le mercredi.",
+   "c": "Le travail de l’auteur n’est pas évoqué."
+  },
+  "vocabulary": [
+   {
+    "term": "préférer",
+    "gloss_en": "to prefer",
+    "gloss_zh": "更喜欢"
+   },
+   {
+    "term": "un tableau",
+    "gloss_en": "a painting",
+    "gloss_zh": "画作"
+   },
+   {
+    "term": "calme",
+    "gloss_en": "quiet",
+    "gloss_zh": "安静的"
+   },
+   {
+    "term": "beaucoup de monde",
+    "gloss_en": "a lot of people",
+    "gloss_zh": "很多人"
+   }
+  ],
+  "estimatedSeconds": 45,
+  "difficultyEvidence": "A1 haut : texte d’opinion très simple, mais la question porte sur la raison (cause), donc il faut relier « beaucoup de monde » le jour et « c’est calme » le soir.",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 90,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ },
+ {
+  "index": 9,
+  "cefrLevel": "A1",
+  "subtype": "informative",
+  "topic": "immigration",
+  "targetNclc": 3,
+  "passageTitle": "Cours de français pour nouveaux arrivants",
+  "passageText": "À Ottawa, le centre Accueil-Nouveaux Arrivants offre des cours de français gratuits. Les cours sont le soir, de 18 h à 20 h. Il faut apporter son document de résidence permanente au premier cours. Pour s’inscrire, téléphonez au bureau le matin.",
+  "stem": "Comment fait-on pour s’inscrire aux cours ?",
+  "options": [
+   {
+    "id": "a",
+    "text": "On téléphone au bureau le matin."
+   },
+   {
+    "id": "b",
+    "text": "On envoie un courriel au centre."
+   },
+   {
+    "id": "c",
+    "text": "On va au bureau le soir, à 18 h."
+   },
+   {
+    "id": "d",
+    "text": "On remplit un formulaire sur Internet."
+   }
+  ],
+  "correctAnswer": "a",
+  "explanation": "La dernière phrase indique la démarche : « Pour s’inscrire, téléphonez au bureau le matin. »",
+  "distractorRationales": {
+   "b": "Aucun courriel n’est proposé dans le texte.",
+   "c": "18 h est l’heure du cours, pas celle de l’inscription.",
+   "d": "Le texte ne parle pas de formulaire ni d’Internet."
+  },
+  "vocabulary": [
+   {
+    "term": "s’inscrire",
+    "gloss_en": "to register / sign up",
+    "gloss_zh": "报名"
+   },
+   {
+    "term": "un nouvel arrivant",
+    "gloss_en": "a newcomer",
+    "gloss_zh": "新移民"
+   },
+   {
+    "term": "la résidence permanente",
+    "gloss_en": "permanent residence",
+    "gloss_zh": "永久居民身份"
+   }
+  ],
+  "estimatedSeconds": 40,
+  "difficultyEvidence": "A1 : informations pratiques courtes ; il faut séparer l’horaire du cours (18 h) de la démarche d’inscription (le matin, par téléphone).",
+  "_qa": {
+   "blindAgree": true,
+   "frenchQuality": 86,
+   "reviewer": "review-pass-recovered",
+   "verdict": "published"
+  }
+ }
+]
