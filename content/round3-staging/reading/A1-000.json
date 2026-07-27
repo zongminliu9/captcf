@@ -1,0 +1,312 @@
+[
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "transport",
+    "targetNclc": 3,
+    "passageTitle": "Avis aux voyageurs — arrêt 42",
+    "passageText": "Avis. L'arrêt 42, devant la pharmacie, est fermé du 3 au 10 mars. Prenez l'autobus au coin de la rue King et de la rue Wellington, à 200 mètres. Le numéro de l'autobus ne change pas. Merci. Société de transport de Sherbrooke.",
+    "stem": "Que doivent faire les voyageurs du 3 au 10 mars ?",
+    "options": [
+      { "id": "a", "text": "Prendre le même autobus à un autre arrêt." },
+      { "id": "b", "text": "Prendre un autre autobus au même arrêt." },
+      { "id": "c", "text": "Attendre l'autobus devant la pharmacie." },
+      { "id": "d", "text": "Marcher jusqu'à la rue King chaque matin." }
+    ],
+    "correctAnswer": "a",
+    "explanation": "The notice says stop 42 is closed and that riders should catch the bus at King and Wellington, while the bus number stays the same. So the stop changes, not the bus.",
+    "distractorRationales": {
+      "b": "Reverses the notice: the bus number stays the same, it is the stop that moves.",
+      "c": "The stop in front of the pharmacy is exactly the one that is closed.",
+      "d": "Walking is only to reach the temporary stop during those dates, not a daily instruction."
+    },
+    "vocabulary": [
+      { "term": "un arrêt", "gloss_en": "a (bus) stop", "gloss_zh": "车站" },
+      { "term": "fermé", "gloss_en": "closed", "gloss_zh": "关闭的" },
+      { "term": "au coin de", "gloss_en": "at the corner of", "gloss_zh": "在……街角" },
+      { "term": "un trajet", "gloss_en": "a route / trip", "gloss_zh": "路线" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Very short public notice; answer requires linking « arrêt fermé » with the replacement location, one simple contrast (stop changes / bus stays).",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "logement",
+    "targetNclc": 3,
+    "passageTitle": "Courriel du concierge",
+    "passageText": "Bonjour, je suis Karim, le concierge du 4120, rue Fabre, à Montréal. Mardi, il n'y a pas d'eau chaude entre 9 h et 14 h. Un plombier répare les tuyaux du sous-sol. Prenez votre douche le matin, avant 9 h. Merci de votre patience. Karim",
+    "stem": "Pourquoi Karim écrit-il aux locataires ?",
+    "options": [
+      { "id": "a", "text": "Pour présenter le nouveau concierge du sous-sol." },
+      { "id": "b", "text": "Pour demander de payer le loyer avant mardi." },
+      { "id": "c", "text": "Pour annoncer une coupure d'eau chaude mardi." },
+      { "id": "d", "text": "Pour interdire les douches pendant toute la semaine." }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Karim announces that there will be no hot water on Tuesday from 9 a.m. to 2 p.m. because a plumber is repairing the pipes; everything else in the email supports that announcement.",
+    "distractorRationales": {
+      "a": "Karim introduces himself as the current caretaker; no new caretaker is mentioned.",
+      "b": "Rent is never mentioned in the email.",
+      "d": "Showers are only affected Tuesday between 9 a.m. and 2 p.m., not all week."
+    },
+    "vocabulary": [
+      { "term": "le concierge", "gloss_en": "building caretaker / superintendent", "gloss_zh": "楼房管理员" },
+      { "term": "l'eau chaude", "gloss_en": "hot water", "gloss_zh": "热水" },
+      { "term": "un plombier", "gloss_en": "a plumber", "gloss_zh": "水管工" },
+      { "term": "le sous-sol", "gloss_en": "the basement", "gloss_zh": "地下室" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "A1 email with familiar housing vocabulary; the task is identifying the purpose of a short message, a global-meaning question with no inference chain.",
+    "_qa": { "blindAgree": true, "frenchQuality": 90, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "sante",
+    "targetNclc": 4,
+    "passageTitle": "Clinique de vaccination au CLSC",
+    "passageText": "Le CLSC de Sainte-Foy, à Québec, ouvre une clinique de vaccination contre la grippe. C'est le samedi 12 octobre, de 8 h à 16 h. Le vaccin est gratuit. Il faut apporter la carte d'assurance maladie. Les enfants viennent avec un parent. Sans rendez-vous.",
+    "stem": "Qu'est-ce qu'il faut apporter à la clinique ?",
+    "options": [
+      { "id": "a", "text": "Un papier de rendez-vous." },
+      { "id": "b", "text": "La carte d'assurance maladie." },
+      { "id": "c", "text": "De l'argent pour le vaccin." },
+      { "id": "d", "text": "Une lettre du médecin." }
+    ],
+    "correctAnswer": "b",
+    "explanation": "The text states « Il faut apporter la carte d'assurance maladie », which is the only object presented as required.",
+    "distractorRationales": {
+      "a": "The clinic is « sans rendez-vous », so no appointment paper exists.",
+      "c": "The vaccine is described as free (« gratuit »).",
+      "d": "No doctor's letter is mentioned anywhere in the notice."
+    },
+    "vocabulary": [
+      { "term": "la grippe", "gloss_en": "the flu", "gloss_zh": "流感" },
+      { "term": "gratuit", "gloss_en": "free (no cost)", "gloss_zh": "免费的" },
+      { "term": "la carte d'assurance maladie", "gloss_en": "health insurance card", "gloss_zh": "医疗保险卡" },
+      { "term": "sans rendez-vous", "gloss_en": "walk-in, no appointment", "gloss_zh": "无需预约" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Short factual notice; the correct answer is stated with « il faut », but two distractors are eliminated only by reading « gratuit » and « sans rendez-vous ».",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "loisirs",
+    "targetNclc": 4,
+    "passageTitle": "Patinoire du parc Provencher",
+    "passageText": "Patinoire extérieure du parc Provencher, à Winnipeg. Ouverte tous les jours, de 10 h à 21 h. Le lundi, la glace est nettoyée de 13 h à 15 h : la patinoire est fermée. Casque obligatoire pour les enfants de moins de 12 ans. Location de patins : 5 $.",
+    "stem": "Quand est-ce qu'on ne peut pas patiner ?",
+    "options": [
+      { "id": "a", "text": "Le samedi, toute la journée." },
+      { "id": "b", "text": "Le lundi soir, entre 19 h et 21 h." },
+      { "id": "c", "text": "Tous les jours, entre 13 h et 15 h." },
+      { "id": "d", "text": "Le lundi, entre 13 h et 15 h." }
+    ],
+    "correctAnswer": "d",
+    "explanation": "The notice says the ice is cleaned on Mondays from 1 p.m. to 3 p.m. and that the rink is closed during that time.",
+    "distractorRationales": {
+      "a": "The rink is open every day from 10 a.m. to 9 p.m.; Saturday is not an exception.",
+      "b": "Monday evening is still within the 10 a.m.–9 p.m. opening hours.",
+      "c": "The 1 p.m.–3 p.m. closing applies to Monday only, not to every day."
+    },
+    "vocabulary": [
+      { "term": "une patinoire", "gloss_en": "skating rink", "gloss_zh": "溜冰场" },
+      { "term": "la glace", "gloss_en": "the ice", "gloss_zh": "冰" },
+      { "term": "un casque", "gloss_en": "a helmet", "gloss_zh": "头盔" },
+      { "term": "la location", "gloss_en": "rental", "gloss_zh": "租用" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "A1 opening-hours notice; requires holding one exception (Monday) against the general rule (every day), a simple two-step reading.",
+    "_qa": { "blindAgree": true, "frenchQuality": 93, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "etudes",
+    "targetNclc": 3,
+    "passageTitle": "Message de l'école Sainte-Anne",
+    "passageText": "Chers parents, le vendredi 4 avril, les élèves de 3e année vont au Musée de la nature, à Sherbrooke. Le départ de l'école est à 8 h 30 et le retour est à 15 h. Les enfants apportent un dîner froid et un manteau. Signez le papier bleu. Madame Doucet",
+    "stem": "Que doivent apporter les enfants ?",
+    "options": [
+      { "id": "a", "text": "Un dîner froid et un manteau." },
+      { "id": "b", "text": "Un manteau et cinq dollars." },
+      { "id": "c", "text": "Un dîner chaud et un cahier." },
+      { "id": "d", "text": "Un papier bleu et un dîner." }
+    ],
+    "correctAnswer": "a",
+    "explanation": "The teacher writes « Les enfants apportent un dîner froid et un manteau », listing exactly these two items.",
+    "distractorRationales": {
+      "b": "No amount of money is requested in the message.",
+      "c": "The lunch must be cold (« froid »), and no notebook is mentioned.",
+      "d": "The blue paper is to be signed by the parents, not brought by the children as a lunch item."
+    },
+    "vocabulary": [
+      { "term": "un élève", "gloss_en": "a pupil / student", "gloss_zh": "学生" },
+      { "term": "le départ", "gloss_en": "departure", "gloss_zh": "出发" },
+      { "term": "un dîner", "gloss_en": "lunch (Quebec usage)", "gloss_zh": "午餐（魁北克用法）" },
+      { "term": "signer", "gloss_en": "to sign", "gloss_zh": "签字" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Short school note; the answer is one explicit sentence, and distractors recombine words present in the text.",
+    "_qa": { "blindAgree": true, "frenchQuality": 89, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "environnement",
+    "targetNclc": 4,
+    "passageTitle": "Le nouveau bac brun",
+    "passageText": "À Trois-Rivières, la Ville donne un bac brun à chaque maison. On met dedans les restes de fruits, de légumes et de pain. Pas de plastique, pas de verre. La collecte est le jeudi matin. Sortez le bac sur le trottoir avant 7 h.",
+    "stem": "Qu'est-ce qu'on peut mettre dans le bac brun ?",
+    "options": [
+      { "id": "a", "text": "Des bouteilles de verre." },
+      { "id": "b", "text": "Des sacs de plastique." },
+      { "id": "c", "text": "Des restes de pain." },
+      { "id": "d", "text": "Des vieux jouets." }
+    ],
+    "correctAnswer": "c",
+    "explanation": "The text lists fruit, vegetable and bread scraps as what goes in the brown bin, so bread leftovers are accepted.",
+    "distractorRationales": {
+      "a": "Glass is explicitly excluded (« pas de verre »).",
+      "b": "Plastic is explicitly excluded (« pas de plastique »).",
+      "d": "Toys are not mentioned and do not belong to the food scraps listed."
+    },
+    "vocabulary": [
+      { "term": "un bac", "gloss_en": "a bin", "gloss_zh": "垃圾箱" },
+      { "term": "les restes", "gloss_en": "leftovers, scraps", "gloss_zh": "剩余物" },
+      { "term": "la collecte", "gloss_en": "(garbage) pickup", "gloss_zh": "收运" },
+      { "term": "le trottoir", "gloss_en": "sidewalk", "gloss_zh": "人行道" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "A1 municipal information; two distractors are removed by an explicit negative sentence, which is the only processing step.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "argumentative",
+    "topic": "culture",
+    "targetNclc": 4,
+    "passageTitle": "Le festival, c'est mieux dehors",
+    "passageText": "Moi, je préfère les spectacles dans la rue. Au festival acadien de Moncton, la musique est dehors et c'est gratuit. Dans une salle, les billets coûtent cher et on reste assis. Dehors, on danse avec ses voisins. Pour moi, c'est ça, la fête. Nadine",
+    "stem": "Pourquoi Nadine préfère-t-elle les spectacles dans la rue ?",
+    "options": [
+      { "id": "a", "text": "Parce que les salles de spectacle sont trop petites." },
+      { "id": "b", "text": "Parce que c'est gratuit et qu'on peut danser." },
+      { "id": "c", "text": "Parce que la musique est moins forte dehors." },
+      { "id": "d", "text": "Parce qu'elle a des billets pour la salle." }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Nadine gives two reasons: outdoor shows cost nothing (« c'est gratuit ») and people dance instead of staying seated.",
+    "distractorRationales": {
+      "a": "She criticizes the price of tickets and having to sit, never the size of the venues.",
+      "c": "The volume of the music is never discussed.",
+      "d": "She prefers the street precisely because indoor tickets are expensive; she does not have any."
+    },
+    "vocabulary": [
+      { "term": "un spectacle", "gloss_en": "a show", "gloss_zh": "演出" },
+      { "term": "une salle", "gloss_en": "a hall, venue", "gloss_zh": "演出厅" },
+      { "term": "un billet", "gloss_en": "a ticket", "gloss_zh": "门票" },
+      { "term": "coûter cher", "gloss_en": "to be expensive", "gloss_zh": "价格贵" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "Simple first-person opinion; the reader must gather two stated reasons and reject a contrast (« dans une salle ») that describes what she dislikes.",
+    "_qa": { "blindAgree": true, "frenchQuality": 88, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "services_publics",
+    "targetNclc": 4,
+    "passageTitle": "Avis — Centre de services SAAQ",
+    "passageText": "Le centre de services de la SAAQ de Longueuil est fermé les 5 et 6 juin pour des travaux. Pour un permis de conduire ou une plaque, allez au centre de Brossard. Vous pouvez aussi payer en ligne. Le centre rouvre le lundi 9 juin.",
+    "stem": "Que peut faire une personne le 5 juin ?",
+    "options": [
+      { "id": "a", "text": "Aller au centre de Longueuil le matin seulement." },
+      { "id": "b", "text": "Téléphoner au centre de Longueuil pour un rendez-vous." },
+      { "id": "c", "text": "Attendre le 9 juin, car il n'y a pas d'autre choix." },
+      { "id": "d", "text": "Aller au centre de Brossard ou payer en ligne." }
+    ],
+    "correctAnswer": "d",
+    "explanation": "The notice offers two solutions while the Longueuil office is closed: go to the Brossard office or pay online.",
+    "distractorRationales": {
+      "a": "The Longueuil office is closed all day on June 5 and 6, mornings included.",
+      "b": "No telephone number or appointment service is mentioned.",
+      "c": "Waiting is possible, but the notice clearly gives other choices, so « pas d'autre choix » is false."
+    },
+    "vocabulary": [
+      { "term": "des travaux", "gloss_en": "construction work", "gloss_zh": "施工" },
+      { "term": "un permis de conduire", "gloss_en": "driver's licence", "gloss_zh": "驾驶执照" },
+      { "term": "une plaque", "gloss_en": "licence plate", "gloss_zh": "车牌" },
+      { "term": "en ligne", "gloss_en": "online", "gloss_zh": "在线" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "Short public-service notice; the answer combines the two alternatives offered, and one distractor is wrong only because it denies those alternatives.",
+    "_qa": { "blindAgree": true, "frenchQuality": 87, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "travail",
+    "targetNclc": 4,
+    "passageTitle": "Courriel de la gérante",
+    "passageText": "Bonjour Samira, à partir de lundi, tu commences à 6 h, et non à 7 h. Le pain sort du four plus tôt. Ta journée finit donc à 13 h, une heure plus tôt qu'avant. Le nombre d'heures de travail ne change pas. Apporte des souliers noirs fermés. Bonne semaine ! Louise, Boulangerie du Marché, Ottawa",
+    "stem": "Qu'est-ce qui change pour Samira ?",
+    "options": [
+      { "id": "a", "text": "Elle commence son travail une heure plus tôt." },
+      { "id": "b", "text": "Elle travaille une heure de plus chaque jour." },
+      { "id": "c", "text": "Elle finit son travail une heure plus tard." },
+      { "id": "d", "text": "Elle change de boulangerie à partir de lundi." }
+    ],
+    "correctAnswer": "a",
+    "explanation": "Louise writes « tu commences à 6 h, et non à 7 h », so the start moves one hour earlier; the day now ends at 1 p.m., also one hour earlier.",
+    "distractorRationales": {
+      "b": "The email states « Le nombre d'heures de travail ne change pas ».",
+      "c": "Her day ends at 13 h, « une heure plus tôt qu'avant », not later.",
+      "d": "She keeps working at the Boulangerie du Marché; only her schedule changes."
+    },
+    "vocabulary": [
+      { "term": "la gérante", "gloss_en": "the (female) manager", "gloss_zh": "女经理" },
+      { "term": "à partir de", "gloss_en": "starting from", "gloss_zh": "从……起" },
+      { "term": "le four", "gloss_en": "the oven", "gloss_zh": "烤炉" },
+      { "term": "des souliers", "gloss_en": "shoes", "gloss_zh": "鞋" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "Short work email; the reader must compare two start times (6 h vs 7 h) and use the sentence about the unchanged number of hours to reject the longer-day option.",
+    "_qa": { "blindAgree": true, "frenchQuality": 88, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "immigration",
+    "targetNclc": 4,
+    "passageTitle": "Lettre d'IRCC",
+    "passageText": "Madame Nguyen, pour votre demande, nous avons besoin de votre photo et de vos empreintes. Allez au centre de Winnipeg avant le 30 mai. Apportez cette lettre et votre passeport. Le rendez-vous dure quinze minutes. Il n'y a rien à payer. IRCC",
+    "stem": "Qu'est-ce que madame Nguyen doit apporter au centre ?",
+    "options": [
+      { "id": "a", "text": "Une photo et de l'argent." },
+      { "id": "b", "text": "Son passeport et quinze dollars." },
+      { "id": "c", "text": "Cette lettre et son passeport." },
+      { "id": "d", "text": "Une lettre de son employeur." }
+    ],
+    "correctAnswer": "c",
+    "explanation": "The letter says « Apportez cette lettre et votre passeport », naming exactly these two documents.",
+    "distractorRationales": {
+      "a": "The photo is taken at the centre, and the letter says there is nothing to pay.",
+      "b": "« Quinze » refers to the fifteen minutes of the appointment, not to a fee.",
+      "d": "No document from an employer is requested."
+    },
+    "vocabulary": [
+      { "term": "une demande", "gloss_en": "an application", "gloss_zh": "申请" },
+      { "term": "les empreintes", "gloss_en": "fingerprints", "gloss_zh": "指纹" },
+      { "term": "un rendez-vous", "gloss_en": "an appointment", "gloss_zh": "预约" },
+      { "term": "durer", "gloss_en": "to last", "gloss_zh": "持续" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "A1 official letter; the answer is explicit, but distractors reuse « quinze » and « photo » from the text, requiring careful re-reading.",
+    "_qa": { "blindAgree": true, "frenchQuality": 88, "reviewer": "review-pass", "verdict": "published" }
+  }
+]

@@ -1,0 +1,315 @@
+[
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "transport",
+    "targetNclc": 3,
+    "passageTitle": "Avis aux voyageurs — arrêt 4212",
+    "passageText": "Avis. L'arrêt 4212, rue King Ouest, est fermé du 3 au 7 mars. Les autobus 1 et 8 s'arrêtent devant la pharmacie, au coin de la rue Wellington. Merci de votre patience. — Société de transport de Sherbrooke",
+    "stem": "Du 3 au 7 mars, où les autobus 1 et 8 s'arrêtent-ils ?",
+    "options": [
+      { "id": "a", "text": "À la gare d'autobus de la rue Dépôt" },
+      { "id": "b", "text": "À l'arrêt 4212, rue King Ouest" },
+      { "id": "c", "text": "Devant la pharmacie, rue Wellington" },
+      { "id": "d", "text": "Devant l'école Sainte-Anne, rue Galt" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "L'avis dit que les autobus 1 et 8 « s'arrêtent devant la pharmacie, au coin de la rue Wellington » pendant la fermeture de l'arrêt 4212.",
+    "distractorRationales": {
+      "a": "Aucune gare d'autobus n'est mentionnée dans l'avis.",
+      "b": "C'est justement l'arrêt qui est fermé du 3 au 7 mars.",
+      "d": "L'école Sainte-Anne n'apparaît pas dans le texte."
+    },
+    "vocabulary": [
+      { "term": "un arrêt", "gloss_en": "a (bus) stop", "gloss_zh": "车站" },
+      { "term": "fermé", "gloss_en": "closed", "gloss_zh": "关闭的" },
+      { "term": "au coin de", "gloss_en": "at the corner of", "gloss_zh": "在……的拐角" },
+      { "term": "la patience", "gloss_en": "patience", "gloss_zh": "耐心" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Avis de 38 mots, phrases courtes au présent ; la réponse est une information de lieu repérable directement, sans inférence.",
+    "_qa": { "blindAgree": true, "frenchQuality": 93, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "logement",
+    "targetNclc": 3,
+    "passageTitle": "Courriel de la concierge",
+    "passageText": "Bonjour à tous. La salle de lavage du sous-sol sera fermée jeudi : un technicien répare les deux sécheuses. Vous pouvez laver votre linge à la buanderie du troisième étage. Tout sera normal vendredi matin. Merci ! — Nadia Bourgeois, concierge, 145 rue Laviolette, Trois-Rivières",
+    "stem": "Que peuvent faire les locataires jeudi ?",
+    "options": [
+      { "id": "a", "text": "Laver leur linge à la buanderie du troisième étage" },
+      { "id": "b", "text": "Utiliser la salle de lavage du sous-sol" },
+      { "id": "c", "text": "Téléphoner au technicien pour les sécheuses" },
+      { "id": "d", "text": "Attendre samedi pour laver leur linge" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "La concierge propose une solution de remplacement : « Vous pouvez laver votre linge à la buanderie du troisième étage. »",
+    "distractorRationales": {
+      "b": "Cette salle est justement fermée jeudi pour la réparation.",
+      "c": "Le courriel ne demande à personne d'appeler le technicien.",
+      "d": "Le service redevient normal vendredi, pas samedi."
+    },
+    "vocabulary": [
+      { "term": "la salle de lavage", "gloss_en": "laundry room", "gloss_zh": "洗衣房" },
+      { "term": "une sécheuse", "gloss_en": "clothes dryer (Quebec French)", "gloss_zh": "烘干机" },
+      { "term": "le sous-sol", "gloss_en": "basement", "gloss_zh": "地下室" },
+      { "term": "le linge", "gloss_en": "laundry, clothes", "gloss_zh": "衣物" },
+      { "term": "un concierge", "gloss_en": "building caretaker", "gloss_zh": "楼宇管理员" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Courriel de 44 mots, vocabulaire du quotidien ; il suffit de retenir l'endroit proposé comme solution de rechange.",
+    "_qa": { "blindAgree": true, "frenchQuality": 87, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "sante",
+    "targetNclc": 3,
+    "passageTitle": "Clinique sans rendez-vous à Moncton",
+    "passageText": "La clinique du chemin Mountain, à Moncton, reçoit les patients pour le vaccin contre la grippe. Elle est ouverte samedi et dimanche, de 9 h à 16 h. Apportez votre carte d'assurance-maladie. Les enfants de moins de cinq ans doivent venir avec un parent.",
+    "stem": "Qu'est-ce que les patients doivent apporter à la clinique ?",
+    "options": [
+      { "id": "a", "text": "Une ordonnance de leur médecin de famille" },
+      { "id": "b", "text": "Un papier de rendez-vous imprimé" },
+      { "id": "c", "text": "De l'argent comptant pour le vaccin" },
+      { "id": "d", "text": "Leur carte d'assurance-maladie" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "Le texte donne une seule consigne d'objet à apporter : « Apportez votre carte d'assurance-maladie. »",
+    "distractorRationales": {
+      "a": "Aucune ordonnance n'est demandée dans le texte.",
+      "b": "C'est une clinique sans rendez-vous : il n'y a pas de papier de rendez-vous.",
+      "c": "Le texte ne parle pas de payer le vaccin."
+    },
+    "vocabulary": [
+      { "term": "sans rendez-vous", "gloss_en": "walk-in (no appointment)", "gloss_zh": "无需预约" },
+      { "term": "la grippe", "gloss_en": "the flu", "gloss_zh": "流感" },
+      { "term": "apporter", "gloss_en": "to bring", "gloss_zh": "带来" },
+      { "term": "la carte d'assurance-maladie", "gloss_en": "health insurance card", "gloss_zh": "医疗保险卡" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Texte informatif de 44 mots, phrases simples ; la réponse correspond à une consigne explicite à l'impératif.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "argumentative",
+    "topic": "environnement",
+    "targetNclc": 4,
+    "passageTitle": "Le bac bleu est juste à côté",
+    "passageText": "Je m'appelle Karim et j'habite un immeuble du quartier Rosemont, à Montréal. Beaucoup de voisins jettent leurs bouteilles dans la poubelle. C'est dommage : le bac bleu est juste à côté ! Recycler prend cinq secondes. À mon avis, chaque personne doit faire ce petit effort.",
+    "stem": "Quelle est l'opinion de Karim ?",
+    "options": [
+      { "id": "a", "text": "Il faut acheter beaucoup moins de bouteilles" },
+      { "id": "b", "text": "Chaque voisin devrait utiliser le bac bleu" },
+      { "id": "c", "text": "La ville doit installer d'autres poubelles" },
+      { "id": "d", "text": "Recycler demande vraiment trop de temps" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Karim conclut par « chaque personne doit faire ce petit effort », c'est-à-dire mettre les bouteilles dans le bac bleu plutôt que dans la poubelle.",
+    "distractorRationales": {
+      "a": "Karim parle du tri des bouteilles, pas de la quantité achetée.",
+      "c": "Il dit qu'il y a déjà un bac bleu à côté ; il ne demande pas d'équipement.",
+      "d": "Il dit le contraire : recycler prend cinq secondes."
+    },
+    "vocabulary": [
+      { "term": "un bac bleu", "gloss_en": "blue recycling bin", "gloss_zh": "蓝色回收箱" },
+      { "term": "jeter", "gloss_en": "to throw away", "gloss_zh": "扔掉" },
+      { "term": "c'est dommage", "gloss_en": "it's a shame", "gloss_zh": "真可惜" },
+      { "term": "à mon avis", "gloss_en": "in my opinion", "gloss_zh": "我认为" },
+      { "term": "un effort", "gloss_en": "an effort", "gloss_zh": "努力" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "Texte d'opinion de 46 mots au présent ; l'avis est annoncé par « à mon avis », mais il faut relier la conclusion au bac bleu.",
+    "_qa": { "blindAgree": true, "frenchQuality": 90, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "services_publics",
+    "targetNclc": 3,
+    "passageTitle": "Avis à la clientèle — SAAQ",
+    "passageText": "Avis à la clientèle. Le centre de services de la SAAQ, boulevard Charest, à Québec, ferme à 13 h le vendredi 12 juin : nos employés suivent une formation. Pour changer votre adresse, utilisez notre site Web. Ouverture normale le lundi, à 8 h 30.",
+    "stem": "Pourquoi le centre ferme-t-il plus tôt le 12 juin ?",
+    "options": [
+      { "id": "a", "text": "Parce que les employés suivent une formation" },
+      { "id": "b", "text": "Parce que c'est un jour férié au Québec" },
+      { "id": "c", "text": "Parce que le site Web ne fonctionne plus" },
+      { "id": "d", "text": "Parce qu'il y a des travaux dans l'édifice" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "L'avis donne la raison après les deux-points : « nos employés suivent une formation ».",
+    "distractorRationales": {
+      "b": "Aucun congé ni jour férié n'est mentionné.",
+      "c": "Le site Web est présenté comme une solution, il fonctionne.",
+      "d": "Le texte ne parle pas de travaux."
+    },
+    "vocabulary": [
+      { "term": "la clientèle", "gloss_en": "customers, clientele", "gloss_zh": "客户" },
+      { "term": "une formation", "gloss_en": "training session", "gloss_zh": "培训" },
+      { "term": "changer d'adresse", "gloss_en": "to change one's address", "gloss_zh": "更改地址" },
+      { "term": "l'ouverture", "gloss_en": "opening (hours)", "gloss_zh": "开门时间" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Avis administratif de 43 mots ; la cause est donnée directement dans la phrase, sans connecteur complexe.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "etudes",
+    "targetNclc": 3,
+    "passageTitle": "Message aux parents — photo scolaire",
+    "passageText": "Chers parents, la photo scolaire aura lieu le mardi 14 octobre. Les élèves portent leurs vêtements habituels ; il n'y a pas d'uniforme. Aucun paiement n'est demandé ce jour-là. Vous recevrez les photos par la poste en novembre. — Mme Léa Fontaine, école Cartier, Longueuil",
+    "stem": "Que doivent faire les élèves le mardi 14 octobre ?",
+    "options": [
+      { "id": "a", "text": "Apporter de l'argent pour les photos" },
+      { "id": "b", "text": "Porter l'uniforme de l'école Cartier" },
+      { "id": "c", "text": "Venir avec leurs vêtements habituels" },
+      { "id": "d", "text": "Chercher les photos au bureau de l'école" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Le message précise : « Les élèves portent leurs vêtements habituels ; il n'y a pas d'uniforme. »",
+    "distractorRationales": {
+      "a": "Le message dit qu'aucun paiement n'est demandé ce jour-là.",
+      "b": "L'école indique clairement qu'il n'y a pas d'uniforme.",
+      "d": "Les photos arriveront par la poste, en novembre."
+    },
+    "vocabulary": [
+      { "term": "avoir lieu", "gloss_en": "to take place", "gloss_zh": "举行" },
+      { "term": "habituel", "gloss_en": "usual, everyday", "gloss_zh": "平常的" },
+      { "term": "un paiement", "gloss_en": "a payment", "gloss_zh": "付款" },
+      { "term": "par la poste", "gloss_en": "by mail", "gloss_zh": "通过邮寄" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Message scolaire de 45 mots ; deux informations proches (vêtements, paiement) obligent à choisir la bonne, mais la phrase clé est explicite.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "travail",
+    "targetNclc": 3,
+    "passageTitle": "Séance d'information gratuite",
+    "passageText": "Services Québec invite les personnes nouvellement arrivées de Gatineau à une séance gratuite. Un conseiller explique comment écrire un curriculum vitae. La rencontre a lieu le mercredi 8 avril, de 10 h à midi, au 250, rue Laurier. Inscription par téléphone seulement, au 819 555-0142. Places limitées.",
+    "stem": "De quoi le conseiller parle-t-il pendant la séance ?",
+    "options": [
+      { "id": "a", "text": "Des cours de français pour les débutants" },
+      { "id": "b", "text": "De la façon d'écrire un curriculum vitae" },
+      { "id": "c", "text": "Des logements à louer dans le quartier" },
+      { "id": "d", "text": "Du prix des billets d'autobus à Gatineau" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le texte annonce le contenu de la séance : « Un conseiller explique comment écrire un curriculum vitae. »",
+    "distractorRationales": {
+      "a": "Aucun cours de langue n'est mentionné.",
+      "c": "Le texte ne parle pas de logement.",
+      "d": "Le transport n'est pas le sujet de la rencontre."
+    },
+    "vocabulary": [
+      { "term": "une séance", "gloss_en": "a session", "gloss_zh": "讲座、会议" },
+      { "term": "une personne nouvellement arrivée", "gloss_en": "a newcomer", "gloss_zh": "新移民" },
+      { "term": "un conseiller", "gloss_en": "an adviser", "gloss_zh": "顾问" },
+      { "term": "un curriculum vitae", "gloss_en": "a résumé/CV", "gloss_zh": "简历" },
+      { "term": "l'inscription", "gloss_en": "registration", "gloss_zh": "报名" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Annonce de 47 mots ; le sujet de la séance est nommé dans une phrase courte, les distracteurs viennent d'autres domaines non cités.",
+    "_qa": { "blindAgree": true, "frenchQuality": 91, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "culture",
+    "targetNclc": 4,
+    "passageTitle": "Cinéma en plein air à Ahuntsic",
+    "passageText": "Cinéma en plein air. La Maison de la culture Ahuntsic présente un film québécois dans le parc Saint-Paul, le samedi 6 août, à 20 h 30. C'est gratuit. Apportez une chaise ou une couverture. S'il pleut, le film est présenté à l'intérieur, dans la grande salle.",
+    "stem": "Que se passe-t-il s'il pleut le 6 août ?",
+    "options": [
+      { "id": "a", "text": "La soirée de cinéma est annulée" },
+      { "id": "b", "text": "Le film coûte alors dix dollars" },
+      { "id": "c", "text": "Le film commence plus tôt, à 20 h" },
+      { "id": "d", "text": "Le film est présenté dans la grande salle" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "La dernière phrase donne la solution de rechange : « S'il pleut, le film est présenté à l'intérieur, dans la grande salle. »",
+    "distractorRationales": {
+      "a": "Rien n'est annulé : une salle intérieure est prévue.",
+      "b": "L'activité est gratuite dans tous les cas.",
+      "c": "L'heure annoncée reste 20 h 30."
+    },
+    "vocabulary": [
+      { "term": "en plein air", "gloss_en": "outdoors", "gloss_zh": "露天" },
+      { "term": "gratuit", "gloss_en": "free of charge", "gloss_zh": "免费" },
+      { "term": "une couverture", "gloss_en": "a blanket", "gloss_zh": "毯子" },
+      { "term": "à l'intérieur", "gloss_en": "indoors", "gloss_zh": "在室内" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Affiche de 47 mots ; il faut comprendre une condition simple avec « s'il pleut », ce qui reste au niveau A1.",
+    "_qa": { "blindAgree": true, "frenchQuality": 90, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "immigration",
+    "targetNclc": 4,
+    "passageTitle": "Lettre de rendez-vous — données biométriques",
+    "passageText": "Madame Duarte, votre rendez-vous pour les données biométriques est fixé au jeudi 19 mai, à 9 h 15, au centre de service de Montréal. Apportez cette lettre et votre passeport. Arrivez quinze minutes avant l'heure du rendez-vous. — Immigration, Réfugiés et Citoyenneté Canada",
+    "stem": "À quelle heure Madame Duarte doit-elle arriver au centre ?",
+    "options": [
+      { "id": "a", "text": "À 9 h 15" },
+      { "id": "b", "text": "À 9 h 30" },
+      { "id": "c", "text": "À 9 h 00" },
+      { "id": "d", "text": "À 8 h 15" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Le rendez-vous est à 9 h 15 et la lettre demande d'arriver quinze minutes avant : elle doit donc être là à 9 h 00.",
+    "distractorRationales": {
+      "a": "C'est l'heure du rendez-vous, pas l'heure d'arrivée demandée.",
+      "b": "C'est quinze minutes après le rendez-vous.",
+      "d": "Cela ferait une heure d'avance, et non quinze minutes."
+    },
+    "vocabulary": [
+      { "term": "un rendez-vous", "gloss_en": "an appointment", "gloss_zh": "预约" },
+      { "term": "les données biométriques", "gloss_en": "biometrics", "gloss_zh": "生物识别信息" },
+      { "term": "fixé au", "gloss_en": "set for (a date)", "gloss_zh": "定于" },
+      { "term": "arriver avant", "gloss_en": "to arrive before", "gloss_zh": "提前到达" }
+    ],
+    "estimatedSeconds": 60,
+    "difficultyEvidence": "Lettre de 42 mots ; le calcul « quinze minutes avant 9 h 15 » est un petit raisonnement, mais le vocabulaire et l'heure restent A1.",
+    "_qa": { "blindAgree": true, "frenchQuality": 89, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "technologie",
+    "targetNclc": 3,
+    "passageTitle": "Prêt de tablettes à la bibliothèque",
+    "passageText": "Bibliothèque de Saint-Boniface, à Winnipeg. Vous n'avez pas d'ordinateur à la maison ? La bibliothèque prête des tablettes pendant trois semaines. Le service est gratuit pour les membres. Il faut avoir seize ans ou plus. Demandez au comptoir du deuxième étage.",
+    "stem": "Qui peut emprunter une tablette ?",
+    "options": [
+      { "id": "a", "text": "Les membres de seize ans ou plus" },
+      { "id": "b", "text": "Tous les enfants des écoles du quartier" },
+      { "id": "c", "text": "Les personnes qui paient trois dollars" },
+      { "id": "d", "text": "Les visiteurs sans carte de bibliothèque" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "Le texte pose deux conditions : être membre et avoir seize ans ou plus.",
+    "distractorRationales": {
+      "b": "Les moins de seize ans ne peuvent pas emprunter une tablette.",
+      "c": "Le service est gratuit ; « trois » renvoie aux semaines de prêt.",
+      "d": "Le prêt est réservé aux membres de la bibliothèque."
+    },
+    "vocabulary": [
+      { "term": "prêter", "gloss_en": "to lend", "gloss_zh": "借出" },
+      { "term": "une tablette", "gloss_en": "a tablet", "gloss_zh": "平板电脑" },
+      { "term": "un membre", "gloss_en": "a member", "gloss_zh": "会员" },
+      { "term": "le comptoir", "gloss_en": "the (service) counter", "gloss_zh": "服务台" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Texte informatif de 41 mots ; deux conditions courtes à combiner, avec un piège numérique simple entre « trois semaines » et un prix.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  }
+]

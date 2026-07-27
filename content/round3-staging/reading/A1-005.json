@@ -1,0 +1,312 @@
+[
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "transport",
+    "targetNclc": 3,
+    "passageTitle": "Avis aux voyageurs — arrêt 312",
+    "passageText": "Avis. L'arrêt d'autobus 312, rue Provencher, est fermé du 4 au 8 mai. Prenez l'autobus au coin de la rue Des Meurons. L'autobus 43 passe toutes les 20 minutes. Merci de votre patience. Transit Winnipeg",
+    "stem": "Où faut-il prendre l'autobus du 4 au 8 mai ?",
+    "options": [
+      { "id": "a", "text": "Au coin de la rue Des Meurons" },
+      { "id": "b", "text": "À l'arrêt 312, rue Provencher" },
+      { "id": "c", "text": "À la gare centrale de Winnipeg" },
+      { "id": "d", "text": "Devant l'école du quartier" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "The notice says the stop on rue Provencher is closed and tells riders: « Prenez l'autobus au coin de la rue Des Meurons ». So the temporary stop is at the corner of Des Meurons.",
+    "distractorRationales": {
+      "b": "That is exactly the stop that is closed from 4 to 8 May.",
+      "c": "No train or bus station is mentioned anywhere in the notice.",
+      "d": "A school is never mentioned in the text."
+    },
+    "vocabulary": [
+      { "term": "un arrêt", "gloss_en": "a (bus) stop", "gloss_zh": "车站；站点" },
+      { "term": "fermé", "gloss_en": "closed", "gloss_zh": "关闭的" },
+      { "term": "au coin de", "gloss_en": "at the corner of", "gloss_zh": "在……的拐角处" },
+      { "term": "passer", "gloss_en": "to come by, to pass", "gloss_zh": "经过；来" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Very short public notice with high-frequency words; the answer is one explicit instruction and requires no inference, only locating a place name.",
+    "_qa": { "blindAgree": true, "frenchQuality": 90, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "vie_quotidienne",
+    "targetNclc": 3,
+    "passageTitle": "Courriel d'un voisin",
+    "passageText": "Bonjour Madame Tremblay, Je suis votre voisin du 3e étage. Mon chat gris, Mistral, est sorti hier soir. Il est petit et il porte un collier rouge. Si vous le voyez dans la cour, téléphonez-moi au 819 555-0142. Merci beaucoup ! Karim Belhaj, Sherbrooke",
+    "stem": "Que demande Karim à sa voisine ?",
+    "options": [
+      { "id": "a", "text": "De donner à manger au chat le matin" },
+      { "id": "b", "text": "D'ouvrir la porte de la cour" },
+      { "id": "c", "text": "De lui téléphoner si elle voit le chat" },
+      { "id": "d", "text": "D'acheter un collier rouge pour le chat" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Karim writes: « Si vous le voyez dans la cour, téléphonez-moi ». His only request is a phone call if she sees the cat.",
+    "distractorRationales": {
+      "a": "Feeding the cat is never mentioned in the message.",
+      "b": "The courtyard is named as a place where the cat could be, not as something to open.",
+      "d": "The red collar simply describes the cat; Karim asks for nothing to be bought."
+    },
+    "vocabulary": [
+      { "term": "un voisin", "gloss_en": "a neighbour", "gloss_zh": "邻居" },
+      { "term": "un collier", "gloss_en": "a collar", "gloss_zh": "项圈" },
+      { "term": "la cour", "gloss_en": "the yard, courtyard", "gloss_zh": "院子" },
+      { "term": "téléphoner", "gloss_en": "to phone, to call", "gloss_zh": "打电话" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Short personal email, present tense and simple imperative; the request is stated directly in one sentence with everyday vocabulary.",
+    "_qa": { "blindAgree": true, "frenchQuality": 93, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "loisirs",
+    "targetNclc": 3,
+    "passageTitle": "La piscine du parc Sainte-Marguerite",
+    "passageText": "La piscine du parc Sainte-Marguerite, à Trois-Rivières, ouvre le 20 juin. Elle est ouverte tous les jours, de 11 h à 19 h. L'entrée est gratuite pour les enfants de moins de 12 ans. Les adultes paient 3 $.",
+    "stem": "Combien paie un adulte pour entrer à la piscine ?",
+    "options": [
+      { "id": "a", "text": "Rien, c'est gratuit" },
+      { "id": "b", "text": "3 $" },
+      { "id": "c", "text": "11 $" },
+      { "id": "d", "text": "12 $" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "The last sentence states: « Les adultes paient 3 $ ». Free entry applies only to children.",
+    "distractorRationales": {
+      "a": "Free entry is only for children under 12, not for adults.",
+      "c": "11 is the opening time (11 h), not a price.",
+      "d": "12 is the age limit for free entry, not a price."
+    },
+    "vocabulary": [
+      { "term": "une piscine", "gloss_en": "a swimming pool", "gloss_zh": "游泳池" },
+      { "term": "gratuit", "gloss_en": "free (no cost)", "gloss_zh": "免费的" },
+      { "term": "l'entrée", "gloss_en": "entry, admission", "gloss_zh": "入场；门票" },
+      { "term": "moins de", "gloss_en": "under, less than", "gloss_zh": "少于；不到" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Four simple factual sentences; the learner must not confuse numbers used for time and age with the price, but no inference is needed.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "logement",
+    "targetNclc": 3,
+    "passageTitle": "Avis aux locataires — 45, rue Botsford",
+    "passageText": "Avis important. L'eau sera coupée mardi 11 avril, de 8 h à midi, dans tout l'immeuble. Un plombier répare un tuyau au sous-sol. Prévoyez de l'eau en réserve dans votre appartement. L'ascenseur fonctionne normalement. Le concierge, Luc Arsenault, Moncton",
+    "stem": "Pourquoi l'eau sera-t-elle coupée mardi ?",
+    "options": [
+      { "id": "a", "text": "Parce que l'ascenseur est en panne" },
+      { "id": "b", "text": "Parce que les locataires déménagent" },
+      { "id": "c", "text": "Parce que la Ville nettoie les conduites de la rue" },
+      { "id": "d", "text": "Parce qu'un plombier répare un tuyau" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "The notice gives the reason directly: « Un plombier répare un tuyau au sous-sol ».",
+    "distractorRationales": {
+      "a": "The notice says the opposite: « L'ascenseur fonctionne normalement ».",
+      "b": "No move or moving day is mentioned in the notice.",
+      "c": "The work is done by a plumber in the basement of the building, not by the city in the street."
+    },
+    "vocabulary": [
+      { "term": "un locataire", "gloss_en": "a tenant", "gloss_zh": "租户" },
+      { "term": "un tuyau", "gloss_en": "a pipe", "gloss_zh": "水管" },
+      { "term": "le sous-sol", "gloss_en": "the basement", "gloss_zh": "地下室" },
+      { "term": "le concierge", "gloss_en": "the building caretaker", "gloss_zh": "楼房管理员" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Building notice of about 35 words; the cause is stated in one short sentence and the distractors are ruled out by single explicit words.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "etudes",
+    "targetNclc": 3,
+    "passageTitle": "Message de l'école aux parents",
+    "passageText": "Chers parents, Le mardi 5 novembre, les élèves de 4e année visitent le Musée canadien de la nature, à Ottawa. L'autobus part de l'école à 9 h. Votre enfant doit apporter un dîner froid et un chandail. Merci ! Mme Nadia Okoye, enseignante",
+    "stem": "Qu'est-ce que l'enfant doit apporter ?",
+    "options": [
+      { "id": "a", "text": "Un livre et un crayon" },
+      { "id": "b", "text": "Un dîner froid et un chandail" },
+      { "id": "c", "text": "De l'argent pour l'autobus" },
+      { "id": "d", "text": "Un billet de musée" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "The teacher writes: « Votre enfant doit apporter un dîner froid et un chandail ». Nothing else is requested.",
+    "distractorRationales": {
+      "a": "School supplies are not mentioned in the message.",
+      "c": "The bus leaves from the school; no money is asked for.",
+      "d": "No ticket is mentioned; the visit is organized by the school."
+    },
+    "vocabulary": [
+      { "term": "un élève", "gloss_en": "a pupil, student", "gloss_zh": "学生" },
+      { "term": "apporter", "gloss_en": "to bring", "gloss_zh": "带来" },
+      { "term": "un dîner", "gloss_en": "lunch (in Quebec)", "gloss_zh": "午餐（魁北克用法）" },
+      { "term": "un chandail", "gloss_en": "a sweater", "gloss_zh": "毛衣" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Short school letter with familiar school vocabulary; the required items appear in one sentence with the verb « apporter ».",
+    "_qa": { "blindAgree": true, "frenchQuality": 94, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "sante",
+    "targetNclc": 3,
+    "passageTitle": "Clinique de vaccination au CLSC",
+    "passageText": "Le CLSC de Limoilou, à Québec, offre des vaccins contre la grippe. La clinique est ouverte le samedi 12 octobre, de 9 h à 16 h. Il faut apporter sa carte d'assurance maladie. Le vaccin est gratuit et la clinique est sans rendez-vous.",
+    "stem": "Qu'est-ce qu'il faut apporter à la clinique ?",
+    "options": [
+      { "id": "a", "text": "Une preuve de rendez-vous" },
+      { "id": "b", "text": "16 $" },
+      { "id": "c", "text": "Une lettre du médecin" },
+      { "id": "d", "text": "Sa carte d'assurance maladie" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "The text says: « Il faut apporter sa carte d'assurance maladie ». That is the only thing required.",
+    "distractorRationales": {
+      "a": "No appointment is needed: « la clinique est sans rendez-vous ».",
+      "b": "The vaccine is free; 16 refers to the closing time (16 h).",
+      "c": "A doctor's letter is never mentioned."
+    },
+    "vocabulary": [
+      { "term": "la grippe", "gloss_en": "the flu", "gloss_zh": "流感" },
+      { "term": "un vaccin", "gloss_en": "a vaccine, a shot", "gloss_zh": "疫苗" },
+      { "term": "il faut", "gloss_en": "you must, it is necessary", "gloss_zh": "必须" },
+      { "term": "sans rendez-vous", "gloss_en": "walk-in, no appointment needed", "gloss_zh": "无需预约" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Simple health notice; the obligation « il faut apporter » is explicit, and one distractor reuses a time number as a fake price.",
+    "_qa": { "blindAgree": true, "frenchQuality": 91, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "argumentative",
+    "topic": "environnement",
+    "targetNclc": 4,
+    "passageTitle": "Lettre au journal de quartier",
+    "passageText": "Dans mon quartier, à Montréal, beaucoup de gens prennent l'auto pour faire deux coins de rue. Moi, je pense que le vélo est meilleur : il est rapide, il ne coûte pas cher et il ne pollue pas. La ville doit faire plus de pistes cyclables. Sofia Marchand",
+    "stem": "Quelle est l'opinion de Sofia ?",
+    "options": [
+      { "id": "a", "text": "L'auto est plus rapide que le vélo" },
+      { "id": "b", "text": "Les pistes cyclables coûtent trop cher" },
+      { "id": "c", "text": "Le vélo est un meilleur choix que l'auto" },
+      { "id": "d", "text": "Il y a assez de pistes cyclables à Montréal" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Sofia writes « je pense que le vélo est meilleur » and gives three reasons: it is fast, cheap and clean. Her opinion is that cycling beats driving.",
+    "distractorRationales": {
+      "a": "She says the bicycle is fast (« il est rapide »), not the car.",
+      "b": "She says the bicycle « ne coûte pas cher » and asks for more paths, so cost is not her complaint.",
+      "d": "She asks the city to build more paths (« La ville doit faire plus de pistes cyclables »), so she thinks there are not enough."
+    },
+    "vocabulary": [
+      { "term": "un quartier", "gloss_en": "a neighbourhood", "gloss_zh": "街区" },
+      { "term": "meilleur", "gloss_en": "better", "gloss_zh": "更好的" },
+      { "term": "polluer", "gloss_en": "to pollute", "gloss_zh": "污染" },
+      { "term": "une piste cyclable", "gloss_en": "a bike path", "gloss_zh": "自行车道" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "Short opinion letter with an explicit marker « je pense que »; the reasons are listed in simple coordinated clauses, so identifying the stance needs no argument analysis.",
+    "_qa": { "blindAgree": true, "frenchQuality": 90, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "travail",
+    "targetNclc": 3,
+    "passageTitle": "Atelier gratuit : écrire son CV",
+    "passageText": "Atelier gratuit : écrire son CV. Bureau de Services Québec, 16, rue Laurier, Gatineau. Le jeudi 7 mars, à 14 h, salle 2. Places limitées : 15 personnes. Inscrivez-vous avant le 5 mars au comptoir d'accueil.",
+    "stem": "Que faut-il faire avant le 5 mars ?",
+    "options": [
+      { "id": "a", "text": "S'inscrire à l'atelier" },
+      { "id": "b", "text": "Payer 15 $" },
+      { "id": "c", "text": "Envoyer son CV par courriel" },
+      { "id": "d", "text": "Aller à la salle 2 à 14 h" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "The last line says: « Inscrivez-vous avant le 5 mars au comptoir d'accueil ». Registration is the action required before 5 March.",
+    "distractorRationales": {
+      "b": "The workshop is free; 15 is the number of places, not a price.",
+      "c": "No email is mentioned; you register at the reception desk.",
+      "d": "Room 2 at 2 p.m. is the workshop itself, on 7 March, not something to do before."
+    },
+    "vocabulary": [
+      { "term": "un atelier", "gloss_en": "a workshop", "gloss_zh": "工作坊；讲习班" },
+      { "term": "s'inscrire", "gloss_en": "to register, to sign up", "gloss_zh": "报名" },
+      { "term": "des places limitées", "gloss_en": "limited spots", "gloss_zh": "名额有限" },
+      { "term": "le comptoir d'accueil", "gloss_en": "the reception desk", "gloss_zh": "接待处" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Poster-style notice made of short blocks; the answer comes from one imperative sentence, and dates and numbers must simply be matched correctly.",
+    "_qa": { "blindAgree": true, "frenchQuality": 91, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "immigration",
+    "targetNclc": 3,
+    "passageTitle": "Courriel du centre des nouveaux arrivants",
+    "passageText": "Bonjour Madame Nguyen, Bienvenue à Laval ! Nos cours de français gratuits commencent le lundi 8 septembre. Ils ont lieu le soir, de 18 h à 20 h. Le centre est près de la station de métro Montmorency. Répondez à ce courriel pour garder votre place. Élise Fournier",
+    "stem": "Quand ont lieu les cours de français ?",
+    "options": [
+      { "id": "a", "text": "Le samedi matin" },
+      { "id": "b", "text": "Tous les jours, à midi" },
+      { "id": "c", "text": "Le lundi, de 8 h à 10 h" },
+      { "id": "d", "text": "Le soir, de 18 h à 20 h" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "The email says the classes « ont lieu le soir, de 18 h à 20 h ». The word « soir » and the times 18 h–20 h match option d.",
+    "distractorRationales": {
+      "a": "Saturday is never mentioned in the email.",
+      "b": "The classes are in the evening, not every day at noon.",
+      "c": "The 8 refers to the date (8 September), not to a starting hour."
+    },
+    "vocabulary": [
+      { "term": "un cours", "gloss_en": "a class, a course", "gloss_zh": "课程" },
+      { "term": "avoir lieu", "gloss_en": "to take place", "gloss_zh": "举行" },
+      { "term": "le soir", "gloss_en": "in the evening", "gloss_zh": "晚上" },
+      { "term": "garder sa place", "gloss_en": "to keep one's spot", "gloss_zh": "保留名额" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "Welcome email with basic time expressions; the trap is a date number reused as a fake hour, but the correct schedule is stated word for word.",
+    "_qa": { "blindAgree": true, "frenchQuality": 93, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "technologie",
+    "targetNclc": 3,
+    "passageTitle": "Atelier sur le téléphone intelligent",
+    "passageText": "La bibliothèque Lisette-Morin, à Rimouski, offre un atelier sur le téléphone intelligent. Les personnes de 60 ans et plus apprennent à envoyer des photos et des messages. L'atelier a lieu le mercredi, à 10 h. Il faut apporter son téléphone.",
+    "stem": "À qui s'adresse cet atelier ?",
+    "options": [
+      { "id": "a", "text": "Aux enfants de l'école" },
+      { "id": "b", "text": "Aux employés de la bibliothèque" },
+      { "id": "c", "text": "Aux personnes de 60 ans et plus" },
+      { "id": "d", "text": "Aux touristes de passage" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "The text names the participants: « Les personnes de 60 ans et plus apprennent à envoyer des photos et des messages ».",
+    "distractorRationales": {
+      "a": "Children are never mentioned; the age given is 60 and over.",
+      "b": "The library offers the workshop; its staff are not the participants.",
+      "d": "Tourists or visitors are not mentioned in the text."
+    },
+    "vocabulary": [
+      { "term": "une bibliothèque", "gloss_en": "a library", "gloss_zh": "图书馆" },
+      { "term": "un téléphone intelligent", "gloss_en": "a smartphone", "gloss_zh": "智能手机" },
+      { "term": "apprendre à", "gloss_en": "to learn how to", "gloss_zh": "学习做……" },
+      { "term": "envoyer", "gloss_en": "to send", "gloss_zh": "发送" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "Four short present-tense sentences; the target audience is stated explicitly with a simple age expression.",
+    "_qa": { "blindAgree": true, "frenchQuality": 94, "reviewer": "review-pass", "verdict": "published" }
+  }
+]

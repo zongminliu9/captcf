@@ -1,0 +1,312 @@
+[
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "transport",
+    "targetNclc": 3,
+    "passageTitle": "Avis aux voyageurs — autobus 24",
+    "passageText": "Avis aux voyageurs. L'arrêt de l'autobus 24 devant le 5100, rue Sherbrooke est fermé. Prenez l'autobus au coin de la rue Girouard, à deux minutes à pied. Ce changement dure jusqu'au 12 mars. Merci de votre patience. — Société de transport de Montréal",
+    "stem": "Où faut-il prendre l'autobus 24 maintenant ?",
+    "options": [
+      { "id": "a", "text": "Devant le 5100, rue Sherbrooke" },
+      { "id": "b", "text": "Au coin de la rue Girouard" },
+      { "id": "c", "text": "À l'entrée du métro Villa-Maria" },
+      { "id": "d", "text": "Au bureau de la Société de transport" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "L'avis dit que l'arrêt de la rue Sherbrooke est fermé et qu'il faut prendre l'autobus « au coin de la rue Girouard ». C'est donc le nouvel arrêt.",
+    "distractorRationales": {
+      "a": "C'est l'ancien arrêt, justement celui qui est fermé.",
+      "c": "Aucun métro n'est mentionné dans l'avis.",
+      "d": "Le bureau de la société de transport n'est pas un arrêt d'autobus."
+    },
+    "vocabulary": [
+      { "term": "un arrêt", "gloss_en": "a (bus) stop", "gloss_zh": "车站" },
+      { "term": "fermé", "gloss_en": "closed", "gloss_zh": "关闭的" },
+      { "term": "au coin de", "gloss_en": "at the corner of", "gloss_zh": "在……的拐角" },
+      { "term": "à pied", "gloss_en": "on foot", "gloss_zh": "步行" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "A1 : avis très court, phrases simples au présent et à l'impératif ; la réponse est une information de lieu explicite, mais le lecteur doit distinguer l'ancien arrêt du nouveau.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "vie_quotidienne",
+    "targetNclc": 3,
+    "passageTitle": "Mot d'une voisine — chat perdu",
+    "passageText": "Bonjour les voisins, Mon chat Nougat est parti hier soir. Il est noir avec une patte blanche. Il n'a pas de collier. Si vous le voyez, téléphonez-moi au 819 555-0142. J'habite au 34, rue Alexandre, appartement 3, à Sherbrooke. Merci beaucoup ! Claudine",
+    "stem": "Comment reconnaît-on le chat de Claudine ?",
+    "options": [
+      { "id": "a", "text": "Il est blanc avec un collier rouge" },
+      { "id": "b", "text": "Il est noir et gris" },
+      { "id": "c", "text": "Il est noir avec une patte blanche" },
+      { "id": "d", "text": "Il porte un collier avec son nom" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Claudine décrit son chat ainsi : « Il est noir avec une patte blanche. » C'est le seul signe physique donné dans le message.",
+    "distractorRationales": {
+      "a": "Le chat n'est pas blanc et le mot dit clairement qu'il n'a pas de collier.",
+      "b": "La couleur grise n'apparaît pas dans la description.",
+      "d": "Le message précise le contraire : le chat n'a pas de collier."
+    },
+    "vocabulary": [
+      { "term": "un voisin", "gloss_en": "a neighbour", "gloss_zh": "邻居" },
+      { "term": "une patte", "gloss_en": "a paw", "gloss_zh": "爪子" },
+      { "term": "un collier", "gloss_en": "a collar", "gloss_zh": "项圈" },
+      { "term": "téléphoner", "gloss_en": "to call (on the phone)", "gloss_zh": "打电话" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "A1 : mot de voisinage familier, vocabulaire concret ; la difficulté vient de la négation « il n'a pas de collier », qui élimine deux options.",
+    "_qa": { "blindAgree": true, "frenchQuality": 93, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "loisirs",
+    "targetNclc": 3,
+    "passageTitle": "Patinoire du parc Saint-Vital",
+    "passageText": "La patinoire extérieure du parc Saint-Vital, à Winnipeg, est ouverte tous les jours de 10 h à 21 h. L'entrée est gratuite. On peut louer des patins pour 5 $. Le samedi soir, il y a de la musique de 18 h à 20 h.",
+    "stem": "Combien coûte l'entrée à la patinoire ?",
+    "options": [
+      { "id": "a", "text": "5 $ pour tout le monde" },
+      { "id": "b", "text": "10 $ le samedi soir" },
+      { "id": "c", "text": "21 $ par famille" },
+      { "id": "d", "text": "Rien, c'est gratuit" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "Le texte dit : « L'entrée est gratuite. » Les 5 $ concernent la location de patins, pas l'entrée.",
+    "distractorRationales": {
+      "a": "5 $ est le prix pour louer des patins, pas le prix de l'entrée.",
+      "b": "Le samedi soir, il y a de la musique, mais aucun prix n'est ajouté.",
+      "c": "Le nombre 21 vient de l'heure de fermeture (21 h), pas d'un prix."
+    },
+    "vocabulary": [
+      { "term": "une patinoire", "gloss_en": "a skating rink", "gloss_zh": "溜冰场" },
+      { "term": "gratuit", "gloss_en": "free (no charge)", "gloss_zh": "免费的" },
+      { "term": "louer", "gloss_en": "to rent", "gloss_zh": "租" },
+      { "term": "des patins", "gloss_en": "skates", "gloss_zh": "冰鞋" }
+    ],
+    "estimatedSeconds": 45,
+    "difficultyEvidence": "A1 : texte informatif court avec heures et prix ; le lecteur doit séparer le prix de location du prix d'entrée et ne pas confondre une heure avec un montant.",
+    "_qa": { "blindAgree": true, "frenchQuality": 88, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "logement",
+    "targetNclc": 4,
+    "passageTitle": "Salle de lavage — 120, rue Botsford",
+    "passageText": "Aux résidents du 120, rue Botsford, à Moncton. La salle de lavage est au sous-sol. Elle est ouverte de 7 h à 22 h. Chaque machine coûte 2,50 $. Ne laissez pas vos vêtements dans les machines après la fin du cycle. Merci. La direction",
+    "stem": "Que demande la direction aux résidents ?",
+    "options": [
+      { "id": "a", "text": "De payer le loyer au sous-sol" },
+      { "id": "b", "text": "De laver leur linge avant 7 h" },
+      { "id": "c", "text": "De retirer leurs vêtements des machines" },
+      { "id": "d", "text": "De fermer la salle de lavage à 22 h" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "L'avis demande : « Ne laissez pas vos vêtements dans les machines après la fin du cycle », c'est-à-dire de les enlever quand le lavage est terminé.",
+    "distractorRationales": {
+      "a": "L'avis parle du prix des machines (2,50 $), jamais du loyer.",
+      "b": "7 h est l'heure d'ouverture : on ne peut pas laver avant.",
+      "d": "22 h est l'heure de fermeture, mais ce n'est pas aux résidents de fermer la salle."
+    },
+    "vocabulary": [
+      { "term": "une salle de lavage", "gloss_en": "a laundry room", "gloss_zh": "洗衣房" },
+      { "term": "le sous-sol", "gloss_en": "the basement", "gloss_zh": "地下室" },
+      { "term": "des vêtements", "gloss_en": "clothes", "gloss_zh": "衣服" },
+      { "term": "la direction", "gloss_en": "the building management", "gloss_zh": "管理处" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "A1 haut : la consigne est donnée à la forme négative (« ne laissez pas »), et la bonne réponse la reformule en positif ; les heures servent de pièges.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "etudes",
+    "targetNclc": 3,
+    "passageTitle": "Courriel de l'école — sortie au musée",
+    "passageText": "Chers parents, Le vendredi 14 avril, les élèves de la classe 3B visitent le Musée POP de Trois-Rivières. Nous partons de l'école à 9 h et nous revenons à 15 h. Votre enfant doit apporter un dîner froid. Merci de signer le papier. Madame Lafleur",
+    "stem": "Qu'est-ce que l'enfant doit apporter ?",
+    "options": [
+      { "id": "a", "text": "Un dîner froid" },
+      { "id": "b", "text": "De l'argent pour le musée" },
+      { "id": "c", "text": "Un billet d'autobus" },
+      { "id": "d", "text": "Un cahier et un crayon" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "Le courriel dit : « Votre enfant doit apporter un dîner froid. » C'est la seule chose demandée à l'élève.",
+    "distractorRationales": {
+      "b": "Le courriel ne parle d'aucun coût ni d'argent.",
+      "c": "Le transport n'est pas mentionné dans le message.",
+      "d": "Aucun matériel scolaire n'est demandé pour la sortie."
+    },
+    "vocabulary": [
+      { "term": "une sortie", "gloss_en": "an outing / field trip", "gloss_zh": "外出活动" },
+      { "term": "un élève", "gloss_en": "a pupil / student", "gloss_zh": "学生" },
+      { "term": "apporter", "gloss_en": "to bring", "gloss_zh": "带来" },
+      { "term": "un dîner froid", "gloss_en": "a cold lunch (Québec French: lunch)", "gloss_zh": "冷餐午饭" }
+    ],
+    "estimatedSeconds": 40,
+    "difficultyEvidence": "A1 : courriel scolaire simple au présent ; l'information demandée est explicite, mais les distracteurs sont des attentes scolaires très courantes.",
+    "_qa": { "blindAgree": true, "frenchQuality": 90, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "sante",
+    "targetNclc": 4,
+    "passageTitle": "Clinique de vaccination au CLSC",
+    "passageText": "Le CLSC de Sainte-Foy, à Québec, offre le vaccin contre la grippe. La clinique est ouverte du lundi au jeudi, de 8 h 30 à 16 h. Il faut prendre un rendez-vous par téléphone. Apportez votre carte d'assurance maladie. Le vaccin est gratuit.",
+    "stem": "Que faut-il faire avant d'aller au CLSC ?",
+    "options": [
+      { "id": "a", "text": "Payer le vaccin en ligne" },
+      { "id": "b", "text": "Passer au bureau le vendredi" },
+      { "id": "c", "text": "Demander une carte d'assurance" },
+      { "id": "d", "text": "Prendre un rendez-vous par téléphone" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "Le texte précise : « Il faut prendre un rendez-vous par téléphone. » C'est l'étape obligatoire avant la visite.",
+    "distractorRationales": {
+      "a": "Le vaccin est gratuit : il n'y a rien à payer.",
+      "b": "La clinique est ouverte du lundi au jeudi, donc pas le vendredi.",
+      "c": "Il faut apporter sa carte d'assurance maladie, pas en demander une."
+    },
+    "vocabulary": [
+      { "term": "un vaccin", "gloss_en": "a vaccine / shot", "gloss_zh": "疫苗" },
+      { "term": "la grippe", "gloss_en": "the flu", "gloss_zh": "流感" },
+      { "term": "un rendez-vous", "gloss_en": "an appointment", "gloss_zh": "预约" },
+      { "term": "une carte d'assurance maladie", "gloss_en": "health insurance card", "gloss_zh": "医保卡" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "A1 haut : texte de service public avec plusieurs conditions ; il faut repérer l'action obligatoire (« il faut ») parmi des informations proches (apporter, gratuit, jours d'ouverture).",
+    "_qa": { "blindAgree": true, "frenchQuality": 88, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "argumentative",
+    "topic": "environnement",
+    "targetNclc": 4,
+    "passageTitle": "Lettre au journal : trop de béton",
+    "passageText": "À mon avis, il y a trop de béton au centre-ville de Rimouski. Les étés sont très chauds et il n'y a pas d'ombre. Je pense que la Ville doit planter des arbres sur la rue Saint-Germain. C'est joli et c'est bon pour tout le monde. — Amadou Sy",
+    "stem": "Que demande Amadou Sy dans sa lettre ?",
+    "options": [
+      { "id": "a", "text": "Que la Ville construise un nouveau parc" },
+      { "id": "b", "text": "Que la Ville ferme la rue aux autos" },
+      { "id": "c", "text": "Que la Ville répare le béton du centre-ville" },
+      { "id": "d", "text": "Que la Ville plante des arbres dans la rue" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "Amadou écrit : « Je pense que la Ville doit planter des arbres sur la rue Saint-Germain. » C'est sa demande principale.",
+    "distractorRationales": {
+      "a": "Il ne parle pas de créer un parc, mais de planter des arbres dans une rue existante.",
+      "b": "Les autos ne sont jamais mentionnées dans la lettre.",
+      "c": "Il se plaint qu'il y a trop de béton ; il ne veut pas le réparer."
+    },
+    "vocabulary": [
+      { "term": "à mon avis", "gloss_en": "in my opinion", "gloss_zh": "依我看" },
+      { "term": "le béton", "gloss_en": "concrete", "gloss_zh": "混凝土" },
+      { "term": "l'ombre", "gloss_en": "shade", "gloss_zh": "阴凉" },
+      { "term": "planter", "gloss_en": "to plant", "gloss_zh": "种植" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "A1 haut : opinion très simple, mais le lecteur doit séparer le problème (le béton, la chaleur) de la solution proposée (planter des arbres).",
+    "_qa": { "blindAgree": true, "frenchQuality": 87, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "notice",
+    "topic": "services_publics",
+    "targetNclc": 4,
+    "passageTitle": "Avis de la SAAQ — Laval",
+    "passageText": "Le point de service de la SAAQ de Laval est fermé le lundi 20 mai. Pour renouveler votre permis de conduire, faites votre demande en ligne sur le site Internet de la SAAQ, ou revenez le mardi 21 mai, dès 8 h 30. Les rendez-vous du 20 mai sont annulés.",
+    "stem": "Que peut faire une personne qui doit renouveler son permis le 20 mai ?",
+    "options": [
+      { "id": "a", "text": "Se présenter au point de service le matin" },
+      { "id": "b", "text": "Téléphoner pour obtenir un rendez-vous ce jour-là" },
+      { "id": "c", "text": "Faire sa demande sur le site Internet" },
+      { "id": "d", "text": "Attendre le mois de juin" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Le point de service est fermé le 20 mai. L'avis propose deux solutions : le site Internet, ou revenir le 21 mai. Le 20 mai même, seule la solution en ligne reste possible.",
+    "distractorRationales": {
+      "a": "Le point de service est fermé toute la journée du 20 mai.",
+      "b": "Les rendez-vous du 20 mai sont annulés et aucun numéro n'est donné.",
+      "d": "Le service reprend dès le lendemain, le 21 mai."
+    },
+    "vocabulary": [
+      { "term": "un point de service", "gloss_en": "a service outlet / office", "gloss_zh": "服务点" },
+      { "term": "renouveler", "gloss_en": "to renew", "gloss_zh": "续期" },
+      { "term": "un permis de conduire", "gloss_en": "a driver's licence", "gloss_zh": "驾照" },
+      { "term": "annulé", "gloss_en": "cancelled", "gloss_zh": "取消的" }
+    ],
+    "estimatedSeconds": 55,
+    "difficultyEvidence": "A1 haut : avis administratif avec deux dates ; la question ajoute une contrainte (le 20 mai) qui écarte la solution du 21 mai, donc petite inférence.",
+    "_qa": { "blindAgree": true, "frenchQuality": 91, "reviewer": "editor-fix", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "correspondence",
+    "topic": "travail",
+    "targetNclc": 3,
+    "passageTitle": "Message du gérant — premier jour",
+    "passageText": "Bonjour Ndeye, Tu commences mardi à la boulangerie, à 6 h du matin. Porte un pantalon noir et des souliers fermés. Nous te donnons le tablier et la casquette. Entre par la porte arrière, sur la ruelle. À mardi ! Karim, gérant",
+    "stem": "Qu'est-ce que Ndeye doit apporter elle-même ?",
+    "options": [
+      { "id": "a", "text": "Une casquette et un tablier" },
+      { "id": "b", "text": "Un pantalon noir et des souliers" },
+      { "id": "c", "text": "La clé de la porte arrière" },
+      { "id": "d", "text": "Son horaire de la semaine" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Karim écrit : « Porte un pantalon noir et des souliers fermés », alors que le tablier et la casquette sont fournis par la boulangerie.",
+    "distractorRationales": {
+      "a": "Le message dit que la boulangerie donne le tablier et la casquette.",
+      "c": "Ndeye doit entrer par la porte arrière, mais aucune clé n'est mentionnée.",
+      "d": "Le message donne seulement le jour et l'heure ; il ne parle pas d'un horaire à apporter."
+    },
+    "vocabulary": [
+      { "term": "une boulangerie", "gloss_en": "a bakery", "gloss_zh": "面包店" },
+      { "term": "des souliers", "gloss_en": "shoes (common in Québec French)", "gloss_zh": "鞋" },
+      { "term": "un tablier", "gloss_en": "an apron", "gloss_zh": "围裙" },
+      { "term": "une ruelle", "gloss_en": "a back lane / alley", "gloss_zh": "小巷" }
+    ],
+    "estimatedSeconds": 50,
+    "difficultyEvidence": "A1 : message de travail court et concret ; il faut opposer ce que l'employée apporte et ce que l'employeur fournit.",
+    "_qa": { "blindAgree": true, "frenchQuality": 92, "reviewer": "review-pass", "verdict": "published" }
+  },
+  {
+    "cefrLevel": "A1",
+    "subtype": "informative",
+    "topic": "technologie",
+    "targetNclc": 3,
+    "passageTitle": "Ateliers sur les tablettes",
+    "passageText": "La Bibliothèque publique d'Ottawa offre des ateliers gratuits sur les tablettes. Les ateliers ont lieu le mercredi, de 14 h à 15 h 30, à la succursale Vanier. Il faut s'inscrire au comptoir. Apportez votre tablette. Il y a dix places par atelier.",
+    "stem": "Combien de personnes peuvent participer à un atelier ?",
+    "options": [
+      { "id": "a", "text": "Dix" },
+      { "id": "b", "text": "Quatorze" },
+      { "id": "c", "text": "Quinze" },
+      { "id": "d", "text": "Trente" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "Le texte indique : « Il y a dix places par atelier. » Une place correspond à une personne.",
+    "distractorRationales": {
+      "b": "14 est l'heure du début de l'atelier (14 h), pas le nombre de places.",
+      "c": "15 vient de l'heure de fin (15 h 30).",
+      "d": "Le nombre 30 vient aussi de l'heure de fin (15 h 30)."
+    },
+    "vocabulary": [
+      { "term": "un atelier", "gloss_en": "a workshop", "gloss_zh": "工作坊" },
+      { "term": "une succursale", "gloss_en": "a branch (of a library)", "gloss_zh": "分馆" },
+      { "term": "s'inscrire", "gloss_en": "to register / sign up", "gloss_zh": "报名" },
+      { "term": "une place", "gloss_en": "a spot / seat", "gloss_zh": "名额" }
+    ],
+    "estimatedSeconds": 40,
+    "difficultyEvidence": "A1 : texte informatif bref ; la difficulté est de ne pas confondre les chiffres de l'horaire avec le nombre de places.",
+    "_qa": { "blindAgree": true, "frenchQuality": 88, "reviewer": "review-pass", "verdict": "published" }
+  }
+]
