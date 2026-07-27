@@ -30,7 +30,7 @@ _Living snapshot. Refresh the git/counts before relying on it. Last updated: 202
 
 | Kind | In bank (published-ready) | 40-set target | Recovered & staged (not yet ingested) |
 | --- | ---: | ---: | ---: |
-| Reading | 340 | 1 560 | **+493 accepted** (141 rejected) in `content/round3-staging/accepted/` |
+| Reading | **833** (was 340; +493 recovered, ingested) | 1 560 | ingested ✓ (staging kept for provenance) |
 | Listening | 266 | 1 560 | text only; needs human audio |
 | Writing | 69 | 120 | — |
 | Speaking | 69 | 120 | — |

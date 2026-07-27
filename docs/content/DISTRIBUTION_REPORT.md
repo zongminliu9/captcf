@@ -17,9 +17,9 @@
 
 | Key | Count |
 | --- | ---: |
-| A1 | 34 |
-| A2 | 52 |
-| B1 | 82 |
+| A1 | 131 |
+| A2 | 227 |
+| B1 | 303 |
 | B2 | 82 |
 | C1 | 56 |
 | C2 | 34 |
@@ -47,20 +47,20 @@
 
 | Key | Count |
 | --- | ---: |
-| culture | 14 |
-| environnement | 42 |
-| etudes | 12 |
-| immigration | 18 |
-| logement | 42 |
-| loisirs | 15 |
-| medias | 22 |
-| sante | 35 |
-| services_publics | 13 |
-| societe | 9 |
-| technologie | 16 |
-| transport | 44 |
-| travail | 44 |
-| vie_quotidienne | 14 |
+| culture | 47 |
+| environnement | 87 |
+| etudes | 63 |
+| immigration | 63 |
+| logement | 92 |
+| loisirs | 42 |
+| medias | 48 |
+| sante | 82 |
+| services_publics | 45 |
+| societe | 15 |
+| technologie | 42 |
+| transport | 96 |
+| travail | 93 |
+| vie_quotidienne | 18 |
 
 ## Vocabulary by CEFR
 
