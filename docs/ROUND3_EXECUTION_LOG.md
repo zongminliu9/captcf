@@ -94,6 +94,17 @@ plan (see gap audit §5). Production content verified intact: 606 published, 4 m
   unmatched / duplicate_version / unsupported), so a bad file can never leave a half-written record.
 - 16 new unit tests (80 total) covering all six required rules. Commit: _pending._
 
+## Phase 3 — Content scale — RECOVERY + FIRST INGEST ✅ (2026-07-26)
+The reading-scale workflow finished authoring/solving/reviewing but hit a usage limit at the LLM
+persist stage; 61/68 batches never wrote to disk. Recovered **493 accepted + 141 rejected** reading
+items from the workflow journal with `scripts/workflows/round3/recover-reading.py` (no model calls),
+validated (0 integrity errors, 0 near-dup, balanced keys), and ingested into the bank via
+`ingest-recovered-reading.ts` → **reading 340 → 833** (content:audit 0/0). Journal + scripts
+preserved in-repo; checkpoint tag `checkpoint/round3-reading-recovered`. All pushed; nothing local.
+
+Lesson baked into the pipeline: **persistence is now deterministic** (recover-reading.py from the
+journal), so the LLM persist stage can never again strand generated work.
+
 ## Phase 3 — Content scale (40/40/10/120/120) — IN PROGRESS
 Measured gap (computed): reading **+1 220**, listening **+1 294**, writing **+51**, speaking **+51**.
 

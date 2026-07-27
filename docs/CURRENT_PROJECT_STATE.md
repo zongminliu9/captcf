@@ -55,6 +55,13 @@ Full breakdown: `docs/RECORDING_REQUIREMENTS.md`. This is the one true external 
 
 ## Next exact task
 
-See `docs/ROUND3_RESUME.md`. In short: ingest the 493 recovered reading items into the branch bank
-(`scripts/content/raw/` → `pnpm content:ingest2` → `pnpm content:audit`), then continue generation
-for reading B2/C1/C2 and writing/speaking toward the targets — **checkpoint + push every batch**.
+Recovered reading is **ingested** (bank reading 833). Remaining reading gap to 40 sets:
+A1 +29, A2 +53, B1 +97, B2 +318, C1 +144, C2 +86 (= +727). Next: generate reading B2/C1/C2 (biggest
+gap), then writing/speaking to 120, listening text, and 10 four-skill mocks.
+
+**Interruption-safe procedure** (the last run stranded 61 batches at the LLM persist stage):
+1. run `scripts/workflows/round3/reading-scale.wf.js` (edit BUCKETS) — author→solve→review;
+2. if it stops, run `python3 scripts/workflows/round3/recover-reading.py <journal-dir>` (no model
+   calls) to persist from the journal;
+3. `pnpm exec tsx scripts/workflows/round3/ingest-recovered-reading.ts` → `pnpm content:audit`;
+4. commit + push per batch. Full steps: `docs/ROUND3_RESUME.md`.
