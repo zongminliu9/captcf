@@ -12,8 +12,10 @@
       "coverage",
       "public/audio",
       "src/content",
+      "content",
       "scripts/content/workflows",
-      "scripts/content/raw"
+      "scripts/content/raw",
+      "scripts/workflows/**/*.wf.js"
     ]
   },
   "formatter": {

@@ -28,9 +28,9 @@ const dk = (it: any) =>
   hash(normalizeText(it.stem) + "|" + normalizeText(it.passage.text).slice(0, 200));
 const seen = new Set(existing.map(dk));
 
-let added = 0,
-  dupe = 0,
-  invalid = 0;
+let added = 0;
+let dupe = 0;
+let invalid = 0;
 const files = existsSync(ACCEPTED)
   ? readdirSync(ACCEPTED)
       .filter((f) => f.endsWith(".json"))
