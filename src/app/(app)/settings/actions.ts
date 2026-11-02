@@ -2,8 +2,11 @@
 import { db } from "@/db";
 import { entitlements, speakingSubmissions, subscriptions } from "@/db/schema";
 import { getActor, signOut } from "@/lib/auth/session";
+import { isPremiumSubscriptionStatus } from "@/lib/billing/rules";
+import { cancelSubscriptionNow, getStripeConfig } from "@/lib/billing/stripe";
+import { logger } from "@/lib/logger";
 import { getStorage } from "@/lib/storage";
-import { eq, sql } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { redirect } from "next/navigation";
 
 /** Tables that carry a user_id owner column (no FK cascade), cleared on account deletion. */
@@ -30,6 +33,33 @@ export async function deleteAccountAction(): Promise<void> {
   const actor = await getActor();
   if (!actor || actor.kind !== "user") redirect("/");
   const userId = actor.kind === "user" ? actor.userId : "";
+
+  // A live Stripe subscription must be stopped first, or the card keeps being charged for an
+  // account that no longer exists. If Stripe can't be reached, abort rather than orphan it.
+  const [sub] = await db
+    .select()
+    .from(subscriptions)
+    .where(eq(subscriptions.userId, userId))
+    .limit(1);
+  if (
+    sub?.provider === "stripe" &&
+    sub.providerSubscriptionId &&
+    isPremiumSubscriptionStatus(sub.status)
+  ) {
+    let canceled = false;
+    if (getStripeConfig()) {
+      try {
+        await cancelSubscriptionNow(sub.providerSubscriptionId);
+        canceled = true;
+      } catch (e) {
+        logger.error("billing: could not cancel subscription before account deletion", {
+          userId,
+          error: (e as Error).message,
+        });
+      }
+    }
+    if (!canceled) redirect("/settings?billing=delete_blocked");
+  }
 
   // purge stored speaking recordings (derived data) from object storage first
   const recordings = await db
@@ -65,7 +95,11 @@ export async function logoutAction(): Promise<void> {
   redirect("/");
 }
 
-/** Cancel Premium: downgrade the subscription + remove entitlements. */
+/**
+ * Cancel a locally granted Premium (dev simulator only). Paid Stripe access is never touched
+ * here — real subscriptions are cancelled in the Stripe Customer Portal (so billing stops too),
+ * and a paid one-time pass simply runs out.
+ */
 export async function cancelSubscriptionAction(): Promise<void> {
   const actor = await getActor();
   if (!actor || actor.kind !== "user") redirect("/");
@@ -73,7 +107,9 @@ export async function cancelSubscriptionAction(): Promise<void> {
   await db
     .update(subscriptions)
     .set({ plan: "free", status: "canceled", updatedAt: new Date() })
-    .where(eq(subscriptions.userId, userId));
-  await db.delete(entitlements).where(eq(entitlements.userId, userId));
+    .where(and(eq(subscriptions.userId, userId), eq(subscriptions.provider, "simulator")));
+  await db
+    .delete(entitlements)
+    .where(and(eq(entitlements.userId, userId), eq(entitlements.source, "simulator")));
   redirect("/settings?canceled=1");
 }

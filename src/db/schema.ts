@@ -636,8 +636,18 @@ export const entitlements = pgTable("entitlements", {
     .references(() => users.id, { onDelete: "cascade" }),
   plan: planEnum("plan").notNull(),
   source: text("source").notNull().default("simulator"),
+  /** Provider reference that produced this grant (e.g. a Stripe Checkout Session id). Unique so
+   * a payment can never be fulfilled twice (webhook + success redirect may race). */
+  providerRef: text("provider_ref").unique(),
   grantedAt: timestamp("granted_at", { withTimezone: true }).notNull().defaultNow(),
   expiresAt: timestamp("expires_at", { withTimezone: true }),
+});
+
+/** Payment-provider webhook events already processed (idempotency: id = provider event id). */
+export const billingEvents = pgTable("billing_events", {
+  id: text("id").primaryKey(),
+  type: text("type").notNull(),
+  receivedAt: timestamp("received_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
 export const usageCounters = pgTable(

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Quelles données CapTCF collecte, pourquoi, le fonctionnement du mode invité, l'usage des cookies, ainsi que l'export et la suppression de vos données.",
 };
 
-const LAST_UPDATED = "18 juillet 2026";
+const LAST_UPDATED = "2 novembre 2026";
 
 const COLLECTED = [
   {
@@ -21,6 +21,10 @@ const COLLECTED = [
   {
     title: "Adresse e-mail (compte facultatif)",
     body: "Uniquement si vous créez un compte, afin de sauvegarder et de synchroniser votre progression entre vos appareils.",
+  },
+  {
+    title: "Informations de paiement (offre Premium)",
+    body: "Les paiements sont traités par Stripe, qui collecte et protège vos données de carte selon ses propres conditions. Nous ne recevons jamais votre numéro de carte : nous conservons seulement l'identifiant client et d'abonnement Stripe, le statut et les dates de votre accès Premium.",
   },
   {
     title: "Préférences d'affichage",

@@ -1,20 +1,26 @@
-# Render Blueprint — CapTCF Private Beta (recommended one-click path).
+# Render Blueprint — CapTCF public launch with real payments (Stripe).
 #
 #   Render Dashboard → New → Blueprint → connect the GitHub repo (zongminliu9/captcf) → Apply.
+#   (Existing Blueprint: Dashboard → the Blueprint → Manual Sync.)
 #
 # It provisions a managed PostgreSQL 17 + a Node web service, wires DATABASE_URL automatically,
 # generates a strong AUTH_SECRET, runs migrations + the (idempotent) production seed on every
-# deploy, and serves over HTTPS. No secrets live in this file.
+# deploy, and serves over HTTPS. No secrets live in this file: the `sync: false` keys below are
+# entered once in the Render Dashboard (see docs/PAID_LAUNCH.md).
+#
+# Paid plans on purpose — people are paying, so: no ~1 min cold starts (free web sleeps), no
+# database that expires after 30 days (free Postgres), and recordings on a persistent disk.
 databases:
   - name: captcf-db
-    plan: free # 1 GB; free Postgres expires after 30 days — switch to a paid plan for a lasting beta
+    plan: basic-256mb # smallest paid Postgres; never expires, daily backups
+    diskSizeGB: 1
     postgresMajorVersion: "17"
 
 services:
   - type: web
     name: captcf
     runtime: node
-    plan: free # free web spins down when idle (~1 min cold start); use "starter" to keep it warm
+    plan: starter # always on (the free plan sleeps → ~1 min cold start for paying users)
     region: oregon
     branch: main
     # Render's build image mounts global bins read-only, so `corepack enable` fails (EROFS).
@@ -28,6 +34,12 @@ services:
     # DB can't be initialised, so the app never starts half-seeded.
     startCommand: npx --yes pnpm@9.15.4 run start:prod
     healthCheckPath: /api/health
+    # Persistent disk for speaking recordings (the container filesystem is wiped on each deploy).
+    # Note: a service with a disk restarts in place on deploy (a few seconds of downtime).
+    disk:
+      name: uploads
+      mountPath: /var/data
+      sizeGB: 1
     envVars:
       - key: NODE_ENV
         value: production
@@ -40,18 +52,42 @@ services:
           property: connectionString
       - key: AUTH_SECRET
         generateValue: true # Render generates a strong random value and keeps it stable
-      # APP_URL is left unset on purpose — the app falls back to RENDER_EXTERNAL_URL at runtime.
+      # APP_URL: optional on the onrender.com URL (falls back to RENDER_EXTERNAL_URL). Set it to
+      # https://your-domain once you attach a custom domain, so Stripe returns users there.
+      - key: APP_URL
+        sync: false
       - key: ENABLE_DEMO_ACCOUNTS
-        value: "false" # never seed demo/admin accounts in the hosted beta
+        value: "false" # never seed demo/admin accounts in production
+
+      # ── Payments (Stripe). Checkout stays hidden until all three secrets are set. ──
       - key: PAYMENTS_PROVIDER
-        value: beta # real checkout disabled; testers get Premium via admin "grant Beta access"
+        value: stripe
+      - key: STRIPE_SECRET_KEY
+        sync: false # sk_live_… (sk_test_… while testing)
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false # whsec_… from the webhook endpoint → https://<host>/api/billing/webhook
+      - key: STRIPE_PRICE_PREMIUM
+        sync: false # price_… — recurring price = subscription; one-time price = fixed-length pass
+      - key: STRIPE_AUTOMATIC_TAX
+        value: "false" # "true" only after Stripe Tax is set up (registrations) in the Dashboard
+
+      # ── Email (password resets). Without it, reset links are never delivered. ──
+      - key: EMAIL_PROVIDER
+        value: resend
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false # e.g. "CapTCF <no-reply@your-domain>" — domain verified in Resend
+      - key: NEXT_PUBLIC_SUPPORT_EMAIL
+        sync: false # shown in the footer + terms; Stripe requires a customer-support contact
+
       - key: AI_FEEDBACK_PROVIDER
         value: none
       - key: STORAGE_DRIVER
         value: local
       - key: STORAGE_LOCAL_DIR
-        value: /tmp/uploads # writable; recordings are ephemeral on the free plan (see DEPLOYMENT.md)
+        value: /var/data/uploads # on the persistent disk above
       - key: NEXT_PUBLIC_BETA
-        value: "true"
+        value: "false" # public launch: hide the "Private Beta" strip
       - key: NEXT_PUBLIC_SHOW_DEMO_ACCOUNTS
         value: "false"

@@ -59,7 +59,8 @@ specific features but are never required, and their UI never appears as a dead b
 | --- | --- | --- |
 | Writing feedback | Deterministic local rubric | AI rubric (`AI_FEEDBACK_PROVIDER`) |
 | Speaking feedback | Local self-eval (duration, volume, pace, rubric) | AI transcription + scoring |
-| Payments / Premium | Dev entitlement simulator | Stripe Checkout |
+| Payments / Premium | Dev entitlement simulator | Stripe Checkout — subscription or one-time pass ([`docs/PAID_LAUNCH.md`](docs/PAID_LAUNCH.md)) |
+| Password-reset email | Printed to the server log | Resend (`EMAIL_PROVIDER=resend`) |
 | Google sign-in | Button hidden | Google OAuth |
 
 See `.env.example` for the full list. Full documentation lives in [`docs/`](docs/).

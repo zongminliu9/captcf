@@ -1,5 +1,9 @@
 # CapTCF — Private Beta deployment
 
+> **Going live with real payments?** Follow [`PAID_LAUNCH.md`](PAID_LAUNCH.md) — `render.yaml` now
+> targets the paid public launch (Stripe, paid Render plans, persistent disk). The beta notes below
+> still describe the payment-free setup (`PAYMENTS_PROVIDER=beta`).
+
 This deploys the current baseline as a **real, internet-reachable Private Beta** with a **remote
 managed PostgreSQL** (never a local/dev/test DB), HTTPS, secure cookies, migrations, and the
 production seed. Payments are disabled; invited testers get Premium via an admin control.

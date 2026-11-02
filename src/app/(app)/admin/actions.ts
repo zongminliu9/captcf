@@ -12,7 +12,7 @@ import {
 } from "@/db/schema";
 import { requireAdmin } from "@/lib/auth/admin";
 import { readingItemSchema } from "@/lib/content/schema";
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, inArray, ne } from "drizzle-orm";
 
 export async function updateQuestionStatus(
   id: string,
@@ -200,12 +200,15 @@ export async function grantBetaAccess(email: string): Promise<BetaGrantResult> {
     .where(eq(users.email, normalized))
     .limit(1);
   if (!user) return { ok: false, message: `Aucun compte pour ${normalized}.` };
+  // The entitlement below is what grants access; only create/refresh the subscription row when
+  // it isn't a paying customer's Stripe record (overwriting that would break billing sync).
   await db
     .insert(subscriptions)
     .values({ userId: user.id, plan: "premium", status: "active", provider: "beta" })
     .onConflictDoUpdate({
       target: subscriptions.userId,
       set: { plan: "premium", status: "active", provider: "beta" },
+      setWhere: ne(subscriptions.provider, "stripe"),
     });
   // refresh the beta entitlement idempotently (never pile up rows on repeated grants)
   await db
@@ -226,10 +229,11 @@ export async function revokeBetaAccess(email: string): Promise<BetaGrantResult> 
     .where(eq(users.email, normalized))
     .limit(1);
   if (!user) return { ok: false, message: `Aucun compte pour ${normalized}.` };
+  // Only revert a beta-granted row; a paying customer's Stripe subscription is left intact.
   await db
     .update(subscriptions)
     .set({ plan: "free", status: "active", provider: "beta" })
-    .where(eq(subscriptions.userId, user.id));
+    .where(and(eq(subscriptions.userId, user.id), eq(subscriptions.provider, "beta")));
   await db
     .delete(entitlements)
     .where(and(eq(entitlements.userId, user.id), eq(entitlements.source, "beta")));

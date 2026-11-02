@@ -10,7 +10,21 @@ export const metadata: Metadata = {
     "Les conditions d'utilisation de CapTCF : outil d'étude indépendant, matériel original, estimations non officielles, usage acceptable et service fourni « en l'état ».",
 };
 
-const LAST_UPDATED = "18 juillet 2026";
+const LAST_UPDATED = "2 novembre 2026";
+const SUPPORT_EMAIL = process.env.NEXT_PUBLIC_SUPPORT_EMAIL;
+
+function Contact() {
+  return SUPPORT_EMAIL ? (
+    <>
+      écrivez-nous à{" "}
+      <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium underline">
+        {SUPPORT_EMAIL}
+      </a>
+    </>
+  ) : (
+    <>contactez-nous</>
+  );
+}
 
 const SECTIONS: { title: string; body: React.ReactNode }[] = [
   {
@@ -86,13 +100,30 @@ const SECTIONS: { title: string; body: React.ReactNode }[] = [
     ),
   },
   {
-    title: "8. Offres et paiement",
+    title: "8. Offres, paiement, renouvellement et remboursement",
     body: (
-      <p>
-        Le service propose une offre gratuite et une offre Premium. Les fonctionnalités de chaque
-        offre sont décrites sur la page des tarifs. En environnement de développement, le passage à
-        Premium peut utiliser un simulateur de paiement, sans transaction réelle.
-      </p>
+      <div className="space-y-2">
+        <p>
+          Le service propose une offre gratuite et une offre Premium. Les fonctionnalités et le prix
+          de chaque offre sont indiqués sur la page des tarifs avant tout paiement.
+        </p>
+        <p>
+          Les paiements sont traités par notre prestataire Stripe ; CapTCF ne reçoit ni ne conserve
+          vos numéros de carte. L'accès Premium est activé dès la confirmation du paiement.
+        </p>
+        <p>
+          <strong>Abonnement</strong> : il se renouvelle automatiquement à chaque période au prix
+          affiché, jusqu'à résiliation. Vous pouvez résilier à tout moment depuis Réglages → « Gérer
+          mon abonnement » ; Premium reste alors actif jusqu'à la fin de la période déjà payée, sans
+          nouveau prélèvement. <strong>Accès à durée fixe</strong> : un paiement unique donne accès
+          à Premium pour la durée indiquée, sans renouvellement automatique.
+        </p>
+        <p>
+          Pour toute question de facturation ou demande de remboursement, <Contact />. Les demandes
+          sont examinées avec bienveillance, sans préjudice des droits que vous confère la loi
+          applicable. Un paiement intégralement remboursé met fin à l'accès Premium correspondant.
+        </p>
+      </div>
     ),
   },
   {

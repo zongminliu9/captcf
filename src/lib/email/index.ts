@@ -40,14 +40,15 @@ export function getEmailProvider(): EmailProvider {
     case "resend":
       if (!process.env.RESEND_API_KEY)
         throw new Error("EMAIL_PROVIDER=resend but RESEND_API_KEY is not set");
-      return resendProvider();
+      if (!process.env.EMAIL_FROM)
+        throw new Error("EMAIL_PROVIDER=resend but EMAIL_FROM is not set");
+      return resendProvider(process.env.RESEND_API_KEY, process.env.EMAIL_FROM);
     default:
       return consoleProvider;
   }
 }
 
-// Interface-complete adapters. Wire the actual client (nodemailer / resend) when the dependency
-// and env are added; the shape callers rely on does not change.
+// SMTP stays interface-only (needs nodemailer). Resend is wired over its REST API (no SDK).
 function smtpProvider(): EmailProvider {
   return {
     name: "smtp",
@@ -56,13 +57,27 @@ function smtpProvider(): EmailProvider {
     },
   };
 }
-function resendProvider(): EmailProvider {
+/** Resend (https://resend.com) over plain fetch. `from` must be on a domain verified in Resend. */
+function resendProvider(apiKey: string, from: string): EmailProvider {
   return {
     name: "resend",
     async send(msg) {
-      throw new Error(
-        `Resend send not wired yet (to=${msg.to}). Add the resend SDK + RESEND_API_KEY.`,
-      );
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from,
+          to: [msg.to],
+          subject: msg.subject,
+          text: msg.text,
+          ...(msg.html ? { html: msg.html } : {}),
+        }),
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (!res.ok) {
+        const detail = await res.text().catch(() => "");
+        throw new Error(`Resend send failed (${res.status}): ${detail.slice(0, 200)}`);
+      }
     },
   };
 }

@@ -236,7 +236,9 @@ function PlanCard({ plan }: { plan: "free" | "premium" }) {
       className="block rounded-[var(--radius-sm)] border border-border-strong px-3 py-2.5 text-sm hover:bg-surface-2"
     >
       <div className="font-medium text-ink">Passez à Premium</div>
-      <p className="mt-0.5 text-xs text-muted">Examens blancs illimités et analyses avancées.</p>
+      <p className="mt-0.5 text-xs text-muted">
+        Les 4 examens blancs complets et l'entraînement illimité.
+      </p>
     </Link>
   );
 }

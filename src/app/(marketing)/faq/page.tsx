@@ -87,8 +87,8 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
       <p>
         L'offre gratuite permet jusqu'à {FREE_DAILY} séances d'entraînement par jour, un accès
         limité à la banque de questions et un examen blanc d'essai. L'offre Premium débloque
-        l'entraînement illimité, les quatre examens blancs, les analyses avancées, le retour par IA
-        et le plan d'étude complet. Le détail figure sur la page{" "}
+        l'entraînement illimité, les quatre examens blancs, les analyses avancées et le plan d'étude
+        complet. Le détail figure sur la page{" "}
         <Link href="/pricing" className="font-medium text-navy hover:underline">
           Tarifs
         </Link>

@@ -33,6 +33,9 @@ const COLS: { title: string; links: { href: string; label: string }[] }[] = [
     links: [
       { href: "/privacy", label: "Confidentialité" },
       { href: "/terms", label: "Conditions" },
+      ...(process.env.NEXT_PUBLIC_SUPPORT_EMAIL
+        ? [{ href: `mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL}`, label: "Contact" }]
+        : []),
     ],
   },
 ];

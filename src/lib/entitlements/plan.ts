@@ -2,10 +2,14 @@ import "server-only";
 import { db } from "@/db";
 import { entitlements, reviewQueue, subscriptions } from "@/db/schema";
 import { type Actor, ownerEq } from "@/lib/auth/owner";
+import { isPremiumSubscriptionStatus } from "@/lib/billing/rules";
 import { and, eq, gt, isNull, lte, or, sql } from "drizzle-orm";
 import type { Plan } from "./index";
 
-/** Effective plan: premium if an active premium subscription OR a live entitlement exists. */
+/**
+ * Effective plan: premium if a premium subscription in a paying status (active / trialing /
+ * past_due during Stripe's retry window) OR a live, unexpired entitlement exists.
+ */
 export async function getPlanForActor(actor: Actor | null): Promise<Plan> {
   if (!actor || actor.kind !== "user") return "free";
 
@@ -14,7 +18,7 @@ export async function getPlanForActor(actor: Actor | null): Promise<Plan> {
     .from(subscriptions)
     .where(eq(subscriptions.userId, actor.userId))
     .limit(1);
-  if (subs[0]?.plan === "premium" && subs[0].status === "active") return "premium";
+  if (subs[0]?.plan === "premium" && isPremiumSubscriptionStatus(subs[0].status)) return "premium";
 
   const ent = await db
     .select({ id: entitlements.id })

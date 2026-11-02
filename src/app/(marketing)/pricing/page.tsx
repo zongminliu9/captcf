@@ -2,24 +2,35 @@ import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { getPremiumOffer } from "@/lib/billing/offer";
+import { paymentsEnabled } from "@/lib/billing/stripe";
 import { PLAN_LIMITS } from "@/lib/entitlements";
-import { ArrowRight, Check, Minus, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Lock, Minus, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Tarifs",
   description:
-    "Comparez l'offre gratuite et l'offre Premium de CapTCF : entraînement, banque de questions, examens blancs, analyses avancées, retour par IA et plan d'étude.",
+    "Comparez l'offre gratuite et l'offre Premium de CapTCF : entraînement illimité, banque de questions, examens blancs complets, analyses avancées et plan d'étude.",
 };
+
+export const dynamic = "force-dynamic";
 
 const free = PLAN_LIMITS.free;
 const premium = PLAN_LIMITS.premium;
 
-// Real payments are enabled only with a configured Stripe provider. In the hosted Private Beta
-// this is false, so we show a disabled notice instead of a checkout button.
-const paymentsEnabled =
-  process.env.PAYMENTS_PROVIDER === "stripe" && !!process.env.STRIPE_SECRET_KEY;
+const CHECKOUT_NOTICES: Record<string, { tone: "info" | "warning" | "danger"; text: string }> = {
+  canceled: { tone: "info", text: "Paiement annulé — aucun montant n'a été prélevé." },
+  pending: {
+    tone: "warning",
+    text: "Votre paiement est en cours de confirmation. Premium sera activé automatiquement dans quelques instants — actualisez votre tableau de bord.",
+  },
+  error: {
+    tone: "danger",
+    text: "Le paiement n'a pas pu être lancé. Réessayez dans un instant ; si le problème persiste, contactez-nous.",
+  },
+};
 
 function practiceLabel(n: number): string {
   return n === Number.POSITIVE_INFINITY ? "illimité" : `${n} / jour`;
@@ -67,11 +78,6 @@ const ROWS: Row[] = [
     premium: premium.features.advanced_analytics,
   },
   {
-    label: "Retour détaillé par IA",
-    free: free.features.ai_feedback,
-    premium: premium.features.ai_feedback,
-  },
-  {
     label: "Plan d'étude complet",
     free: free.features.full_study_plan,
     premium: premium.features.full_study_plan,
@@ -94,9 +100,31 @@ function Cell({ value }: { value: string | boolean }) {
   return <span className="text-sm text-ink">{value}</span>;
 }
 
-export default function PricingPage() {
+export default async function PricingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ checkout?: string }>;
+}) {
+  const { checkout } = await searchParams;
+  const notice = checkout ? CHECKOUT_NOTICES[checkout] : undefined;
+  // Real checkout appears only when Stripe is fully configured AND the price loads. The dev
+  // simulator keeps the button usable locally; in the hosted beta neither is true.
+  const offer = await getPremiumOffer();
+  const simulator =
+    (process.env.PAYMENTS_PROVIDER ?? "simulator") === "simulator" &&
+    process.env.NODE_ENV !== "production";
+  const canBuy = !!offer || simulator;
+  const stripeLive = paymentsEnabled(); // configured, but the price couldn't be loaded right now
+  const taxNote =
+    process.env.STRIPE_AUTOMATIC_TAX === "true" ? " Taxes calculées au paiement." : "";
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+      {notice && (
+        <Alert tone={notice.tone} className="mb-8">
+          {notice.text}
+        </Alert>
+      )}
       {/* ── Header ────────────────────────────────────────────── */}
       <header className="text-center">
         <Badge variant="navy" size="lg" className="mb-5">
@@ -116,7 +144,7 @@ export default function PricingPage() {
           <h2 className="text-lg font-semibold">Gratuit</h2>
           <p className="mt-1 text-sm text-muted">Pour découvrir et s'entraîner régulièrement.</p>
           <div className="mt-5">
-            <span className="display text-4xl">0 €</span>
+            <span className="display text-4xl">{offer?.zeroLabel ?? "0 $"}</span>
             <span className="ml-1 text-sm text-muted">pour toujours</span>
           </div>
           <ul className="mt-6 flex-1 space-y-2.5 text-sm">
@@ -147,8 +175,17 @@ export default function PricingPage() {
           <h2 className="text-lg font-semibold">Premium</h2>
           <p className="mt-1 text-sm text-muted">Tout débloquer pour viser votre objectif NCLC.</p>
           <div className="mt-5">
-            <span className="display text-4xl">Premium</span>
-            <span className="ml-1 text-sm text-muted">accès complet</span>
+            {offer ? (
+              <>
+                <span className="display text-4xl">{offer.amountLabel}</span>
+                <span className="ml-1 text-sm text-muted">{offer.cadence}</span>
+              </>
+            ) : (
+              <>
+                <span className="display text-4xl">Premium</span>
+                <span className="ml-1 text-sm text-muted">accès complet</span>
+              </>
+            )}
           </div>
           <ul className="mt-6 flex-1 space-y-2.5 text-sm">
             {[
@@ -156,7 +193,6 @@ export default function PricingPage() {
               "Les 4 examens blancs complets et minutés",
               "Banque de questions intégrale",
               "Analyses avancées par compétence et par type",
-              "Retour détaillé par IA sur vos productions",
               "Plan d'étude complet vers votre objectif",
               "Analyse approfondie de vos erreurs",
             ].map((f) => (
@@ -165,13 +201,34 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
-          {paymentsEnabled ? (
-            <Button asChild className="mt-7 w-full" variant="primary" size="lg">
-              {/* plain <a> so the checkout route handler runs */}
-              <a href="/api/billing/checkout">
-                Passer à Premium <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
+          {canBuy ? (
+            <div className="mt-7">
+              {/* plain form POST so the checkout route handler runs (then 303 → Stripe) */}
+              <form action="/api/billing/checkout" method="post">
+                <Button type="submit" className="w-full" variant="primary" size="lg">
+                  Passer à Premium <ArrowRight className="h-4 w-4" />
+                </Button>
+              </form>
+              {offer && (
+                <p className="mt-2 flex items-center justify-center gap-1.5 text-center text-xs text-muted">
+                  <Lock className="h-3 w-3 shrink-0" />
+                  {offer.mode === "subscription"
+                    ? "Paiement sécurisé par Stripe. Résiliable à tout moment depuis vos réglages."
+                    : "Paiement unique sécurisé par Stripe, sans renouvellement automatique."}
+                  {taxNote}
+                </p>
+              )}
+            </div>
+          ) : stripeLive ? (
+            <div className="mt-7">
+              <Button className="w-full" variant="primary" size="lg" disabled>
+                Paiement momentanément indisponible
+              </Button>
+              <p className="mt-2 text-center text-xs text-muted">
+                Notre prestataire de paiement ne répond pas pour l'instant. Réessayez dans quelques
+                minutes.
+              </p>
+            </div>
           ) : (
             <div className="mt-7">
               <Button className="w-full" variant="primary" size="lg" disabled>
@@ -226,17 +283,19 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── Dev simulator note ────────────────────────────────── */}
-      <div className="mt-10">
-        <Alert tone="info">
-          <p className="font-medium">Paiement en environnement de développement</p>
-          <p className="mt-1">
-            En l'absence de clé Stripe configurée, le passage à Premium utilise un simulateur de
-            paiement : l'accès Premium est accordé localement pour que toutes les fonctionnalités
-            restent testables. Aucune vraie transaction n'a lieu.
-          </p>
-        </Alert>
-      </div>
+      {/* ── Dev simulator note (local development only) ─────────── */}
+      {simulator && (
+        <div className="mt-10">
+          <Alert tone="info">
+            <p className="font-medium">Paiement en environnement de développement</p>
+            <p className="mt-1">
+              En l'absence de clé Stripe configurée, le passage à Premium utilise un simulateur de
+              paiement : l'accès Premium est accordé localement pour que toutes les fonctionnalités
+              restent testables. Aucune vraie transaction n'a lieu.
+            </p>
+          </Alert>
+        </div>
+      )}
 
       {/* ── Final CTA ─────────────────────────────────────────── */}
       <div className="mt-12 text-center">

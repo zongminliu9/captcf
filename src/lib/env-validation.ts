@@ -22,8 +22,23 @@ export function validateEnv(): void {
     warnings.push("AUTH_SECRET is short — fine for dev, generate a strong one for production");
   }
 
-  if (process.env.PAYMENTS_PROVIDER === "stripe" && !process.env.STRIPE_SECRET_KEY)
-    warnings.push("PAYMENTS_PROVIDER=stripe but STRIPE_SECRET_KEY is not set");
+  if (process.env.PAYMENTS_PROVIDER === "stripe") {
+    // Checkout stays hidden until all three are set (see lib/billing/stripe getStripeConfig), so a
+    // partial config never takes money it can't fulfil — but say loudly what's missing.
+    for (const key of ["STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET", "STRIPE_PRICE_PREMIUM"]) {
+      if (!process.env[key])
+        warnings.push(`PAYMENTS_PROVIDER=stripe but ${key} is not set — checkout is disabled`);
+    }
+    const key = process.env.STRIPE_SECRET_KEY ?? "";
+    if (isProd && key.startsWith("sk_test_"))
+      warnings.push("STRIPE_SECRET_KEY is a TEST key in production — no real money will be taken");
+    if (isProd && !process.env.NEXT_PUBLIC_SUPPORT_EMAIL)
+      warnings.push("NEXT_PUBLIC_SUPPORT_EMAIL is not set — paying users have no support contact");
+    if (isProd && !process.env.APP_URL && !process.env.RENDER_EXTERNAL_URL)
+      errors.push("APP_URL must be set in production for Stripe return URLs");
+  }
+  if (isProd && (process.env.EMAIL_PROVIDER ?? "console") === "console")
+    warnings.push("EMAIL_PROVIDER=console in production — password-reset emails are NOT delivered");
 
   for (const w of warnings) logger.warn(`env: ${w}`);
   if (errors.length) {
