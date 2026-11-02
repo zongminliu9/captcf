@@ -8,8 +8,12 @@
 # deploy, and serves over HTTPS. No secrets live in this file: the `sync: false` keys below are
 # entered once in the Render Dashboard (see docs/PAID_LAUNCH.md).
 #
-# Paid plans on purpose — people are paying, so: no ~1 min cold starts (free web sleeps), no
-# database that expires after 30 days (free Postgres), and recordings on a persistent disk.
+# Cost: the web service runs on Render's FREE plan. It would sleep after 15 min idle (~1 min
+# cold start), so .github/workflows/keep-awake.yml pings it every 10 min (free on a public repo;
+# one always-on service fits in Render's 750 free instance-hours/month).
+# The database is the one thing Render can't give away for good: free Postgres expires after
+# 30 days. Paid plan below (~US$6/mo) — or point DATABASE_URL at a free Neon database instead
+# (see docs/PAID_LAUNCH.md).
 databases:
   - name: captcf-db
     plan: basic-256mb # smallest paid Postgres; never expires, daily backups
@@ -20,7 +24,7 @@ services:
   - type: web
     name: captcf
     runtime: node
-    plan: starter # always on (the free plan sleeps → ~1 min cold start for paying users)
+    plan: free # kept awake by .github/workflows/keep-awake.yml
     region: oregon
     branch: main
     # Render's build image mounts global bins read-only, so `corepack enable` fails (EROFS).
@@ -34,12 +38,6 @@ services:
     # DB can't be initialised, so the app never starts half-seeded.
     startCommand: npx --yes pnpm@9.15.4 run start:prod
     healthCheckPath: /api/health
-    # Persistent disk for speaking recordings (the container filesystem is wiped on each deploy).
-    # Note: a service with a disk restarts in place on deploy (a few seconds of downtime).
-    disk:
-      name: uploads
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
       - key: NODE_ENV
         value: production
@@ -86,7 +84,7 @@ services:
       - key: STORAGE_DRIVER
         value: local
       - key: STORAGE_LOCAL_DIR
-        value: /var/data/uploads # on the persistent disk above
+        value: /tmp/uploads # free plan has no disk: speaking recordings are cleared on each deploy
       - key: NEXT_PUBLIC_BETA
         value: "false" # public launch: hide the "Private Beta" strip
       - key: NEXT_PUBLIC_SHOW_DEMO_ACCOUNTS

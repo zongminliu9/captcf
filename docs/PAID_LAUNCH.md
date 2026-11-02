@@ -17,9 +17,10 @@ Render 免费 Postgres 在 **2026-08-18** 到期（见 `BETA_LAUNCH_REPORT.md`�
 
 ## 1. 开 Stripe 账号（只有你能做）
 
-1. 在 <https://stripe.com> 注册并完成商户认证（身份、银行账户）。
-   - ⚠️ **Stripe 不支持中国大陆主体开户**。如果你在大陆，需要用加拿大/美国/香港/新加坡等地的主体；否则只能换成 Paddle、Lemon Squeezy 这类「代收代缴税」平台（需要另外改代码）。
+1. 在 <https://stripe.com> 注册（美国或加拿大账户均可）并完成商户认证（身份、银行账户）。
 2. Settings → Business：填好公开的商家名称、**客服邮箱**、网站地址。
+
+Stripe 没有月费，只按每笔成交抽成（美国卡约 2.9% + $0.30，以 Stripe 价格页为准）。
 
 ## 2. 创建商品和价格
 
@@ -61,11 +62,14 @@ Settings → Billing → **Customer portal**：开启「取消订阅」「更新
 ## 6. Render：合并代码 + 升级方案 + 填密钥
 
 1. 把这个分支合并到 `main`。
-2. Render → 你的 Blueprint → **Manual Sync**。`render.yaml` 已改为：
-   - Web 服务 **Starter**（常驻，不会让付费用户等 1 分钟冷启动）
-   - 数据库 **basic-256mb**（不会过期）
-   - 1 GB 持久磁盘（口语录音部署后不丢失；代价是每次部署会重启几秒）
-   - 费用大约 Starter $7/月 + Postgres 约 $6/月 + 存储，以 Render 价格页为准。
+2. Render → 你的 Blueprint → **Manual Sync**。`render.yaml` 现在是：
+   - Web 服务：**免费方案**。免费方案闲置 15 分钟会休眠（下一个访客要等约 1 分钟），所以
+     `.github/workflows/keep-awake.yml` 每 10 分钟访问一次 `/api/health` 让它保持唤醒
+     （公开仓库的 GitHub Actions 免费；一个常驻服务用量在 Render 每月 750 免费小时以内）。
+   - 数据库：Render 的免费 Postgres 30 天后过期，所以这里是最便宜的付费方案 **basic-256mb（约 $6/月）**。
+     想完全免费：改用 Neon 免费 Postgres（0.5 GB，不过期，题库远用不完），把 Neon 的连接串填进
+     `DATABASE_URL` 即可。
+   - 免费方案没有持久磁盘：口语录音在每次部署后会被清空（练习记录和分数不受影响）。
 3. Render → `captcf` 服务 → **Environment**，填入：
 
 | 变量 | 值 |
