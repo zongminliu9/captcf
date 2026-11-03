@@ -23,17 +23,16 @@ export function validateEnv(): void {
   }
 
   if (process.env.PAYMENTS_PROVIDER === "stripe") {
-    // Checkout stays hidden until all three are set (see lib/billing/stripe getStripeConfig), so a
-    // partial config never takes money it can't fulfil — but say loudly what's missing.
-    for (const key of ["STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET", "STRIPE_PRICE_PREMIUM"]) {
-      if (!process.env[key])
-        warnings.push(`PAYMENTS_PROVIDER=stripe but ${key} is not set — checkout is disabled`);
-    }
+    // Only the secret key is needed: prices, webhook and portal are provisioned by the app.
+    if (!process.env.STRIPE_SECRET_KEY)
+      warnings.push(
+        "PAYMENTS_PROVIDER=stripe but STRIPE_SECRET_KEY is not set — checkout is hidden",
+      );
     const key = process.env.STRIPE_SECRET_KEY ?? "";
     if (isProd && key.startsWith("sk_test_"))
       warnings.push("STRIPE_SECRET_KEY is a TEST key in production — no real money will be taken");
-    if (isProd && !process.env.NEXT_PUBLIC_SUPPORT_EMAIL)
-      warnings.push("NEXT_PUBLIC_SUPPORT_EMAIL is not set — paying users have no support contact");
+    if (isProd && !process.env.SUPPORT_EMAIL && !process.env.NEXT_PUBLIC_SUPPORT_EMAIL)
+      warnings.push("SUPPORT_EMAIL is not set — paying users have no support contact");
     if (isProd && !process.env.APP_URL && !process.env.RENDER_EXTERNAL_URL)
       errors.push("APP_URL must be set in production for Stripe return URLs");
   }

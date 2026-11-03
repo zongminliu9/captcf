@@ -11,28 +11,22 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 /** Overridable only so the full flow can be smoke-tested against a local fake Stripe. */
 const apiBase = () => process.env.STRIPE_API_BASE ?? "https://api.stripe.com/v1";
 
-export interface StripeConfig {
-  secretKey: string;
-  webhookSecret: string;
-  priceId: string;
-}
-
 /**
- * Real payments are live only when the provider is `stripe` AND the secret key, webhook secret
- * and price are all set. A half-configured deploy keeps checkout hidden (instead of taking money
- * it could not fulfil or keep in sync).
+ * Real payments are on when PAYMENTS_PROVIDER=stripe and STRIPE_SECRET_KEY is set. That single
+ * key is all the owner provides: prices, the webhook endpoint (+ its signing secret) and the
+ * billing-portal configuration are created by the app itself — see lib/billing/provision.
  */
-export function getStripeConfig(): StripeConfig | null {
+export function stripeSecretKey(): string | null {
   if (process.env.PAYMENTS_PROVIDER !== "stripe") return null;
-  const secretKey = process.env.STRIPE_SECRET_KEY;
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-  const priceId = process.env.STRIPE_PRICE_PREMIUM;
-  if (!secretKey || !webhookSecret || !priceId) return null;
-  return { secretKey, webhookSecret, priceId };
+  return process.env.STRIPE_SECRET_KEY?.trim() || null;
 }
 
 export function paymentsEnabled(): boolean {
-  return getStripeConfig() !== null;
+  return stripeSecretKey() !== null;
+}
+
+export function stripeMode(secretKey: string): "live" | "test" {
+  return /^(sk|rk)_live_/.test(secretKey) ? "live" : "test";
 }
 
 /** Public origin for absolute URLs Stripe redirects back to. */
@@ -92,7 +86,7 @@ export async function stripeRequest<T>(
   path: string,
   opts: RequestOptions = {},
 ): Promise<T> {
-  const key = process.env.STRIPE_SECRET_KEY;
+  const key = process.env.STRIPE_SECRET_KEY?.trim();
   if (!key) throw new StripeError("STRIPE_SECRET_KEY is not set", 500);
 
   const query = opts.params ? encodeForm(opts.params) : "";
@@ -127,6 +121,8 @@ export async function stripeRequest<T>(
 export interface StripePrice {
   id: string;
   active: boolean;
+  product: string | { id: string };
+  lookup_key: string | null;
   currency: string;
   unit_amount: number | null;
   type: "one_time" | "recurring";
@@ -199,9 +195,13 @@ export async function findCheckoutSessionByPaymentIntent(
   return list.data[0] ?? null;
 }
 
-export async function createPortalSession(customer: string, returnUrl: string): Promise<string> {
+export async function createPortalSession(
+  customer: string,
+  returnUrl: string,
+  configuration?: string | null,
+): Promise<string> {
   const s = await stripeRequest<{ url: string }>("POST", "/billing_portal/sessions", {
-    params: { customer, return_url: returnUrl },
+    params: { customer, return_url: returnUrl, configuration: configuration ?? undefined },
   });
   return s.url;
 }
@@ -216,11 +216,12 @@ export async function createPortalSession(customer: string, returnUrl: string): 
 export function verifyStripeSignature(
   payload: string,
   header: string | null,
-  secret: string,
+  secret: string | readonly string[],
   toleranceSec = 300,
   nowSec = Math.floor(Date.now() / 1000),
 ): boolean {
-  if (!header || !secret) return false;
+  const secrets = (typeof secret === "string" ? [secret] : secret).filter(Boolean);
+  if (!header || secrets.length === 0) return false;
   let timestamp: number | null = null;
   const signatures: string[] = [];
   for (const part of header.split(",")) {
@@ -232,13 +233,15 @@ export function verifyStripeSignature(
   if (timestamp === null || !Number.isFinite(timestamp) || signatures.length === 0) return false;
   if (Math.abs(nowSec - timestamp) > toleranceSec) return false;
 
-  const expected = Buffer.from(
-    createHmac("sha256", secret).update(`${timestamp}.${payload}`, "utf8").digest("hex"),
-    "utf8",
-  );
-  return signatures.some((sig) => {
-    const given = Buffer.from(sig, "utf8");
-    return given.length === expected.length && timingSafeEqual(given, expected);
+  return secrets.some((s) => {
+    const expected = Buffer.from(
+      createHmac("sha256", s).update(`${timestamp}.${payload}`, "utf8").digest("hex"),
+      "utf8",
+    );
+    return signatures.some((sig) => {
+      const given = Buffer.from(sig, "utf8");
+      return given.length === expected.length && timingSafeEqual(given, expected);
+    });
   });
 }
 

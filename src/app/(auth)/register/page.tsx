@@ -5,8 +5,13 @@ import { redirect } from "next/navigation";
 
 export const metadata: Metadata = { title: "Créer un compte" };
 
-export default async function RegisterPage() {
+export default async function RegisterPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
+  const { next } = await searchParams;
   const actor = await getActor();
   if (actor?.kind === "user") redirect("/dashboard");
-  return <AuthForm mode="register" />;
+  return <AuthForm mode="register" next={next} />;
 }

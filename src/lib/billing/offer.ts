@@ -1,47 +1,60 @@
 import "server-only";
 import { logger } from "@/lib/logger";
+import { PLANS, type PlanId, savingsPercent } from "./plans";
+import { getStripeSetup } from "./provision";
 import { cadenceLabel, formatMoney, passDays } from "./rules";
-import { type StripePrice, getPrice, getStripeConfig } from "./stripe";
+import type { StripePrice } from "./stripe";
 
-export interface PremiumOffer {
+export interface PlanOffer {
+  plan: PlanId;
   mode: "subscription" | "payment";
   price: StripePrice;
   amountLabel: string;
   cadence: string;
-  /** "0 $" in the same currency, for the Free card. */
-  zeroLabel: string;
+  /** Saving vs paying monthly for the same period (0 for the monthly plan). */
+  savings: number;
   passDays: number;
 }
 
-const TTL_MS = 10 * 60 * 1000;
-let cache: { at: number; priceId: string; price: StripePrice } | null = null;
-
-/** The configured Premium price, read from Stripe (cached 10 min). Null when payments are off. */
-export async function loadPremiumPrice(): Promise<StripePrice | null> {
-  const cfg = getStripeConfig();
-  if (!cfg) return null;
-  if (cache && cache.priceId === cfg.priceId && Date.now() - cache.at < TTL_MS) return cache.price;
-  const price = await getPrice(cfg.priceId);
-  cache = { at: Date.now(), priceId: cfg.priceId, price };
-  return price;
+export interface PremiumOffers {
+  plans: PlanOffer[];
+  /** "0 $ US" in the same currency, for the Free card. */
+  zeroLabel: string;
 }
 
-/** Display-ready offer for the pricing page. Null if payments are off or Stripe is unreachable. */
-export async function getPremiumOffer(): Promise<PremiumOffer | null> {
+function toOffer(plan: PlanId, price: StripePrice, monthlyAmount: number): PlanOffer {
+  const days = passDays(price.metadata);
+  const months = price.recurring?.interval === "month" ? price.recurring.interval_count : 1;
+  return {
+    plan,
+    mode: price.type === "recurring" ? "subscription" : "payment",
+    price,
+    amountLabel: formatMoney(price.unit_amount ?? 0, price.currency),
+    cadence: cadenceLabel(price.recurring, days),
+    savings: savingsPercent(monthlyAmount, price.unit_amount ?? 0, months),
+    passDays: days,
+  };
+}
+
+/** Display-ready Premium plans. Null if payments are off or Stripe is unreachable right now. */
+export async function getPremiumOffers(): Promise<PremiumOffers | null> {
   try {
-    const price = await loadPremiumPrice();
-    if (!price || !price.active || price.unit_amount == null) return null;
-    const days = passDays(price.metadata);
-    return {
-      mode: price.type === "recurring" ? "subscription" : "payment",
-      price,
-      amountLabel: formatMoney(price.unit_amount, price.currency),
-      cadence: cadenceLabel(price.recurring, days),
-      zeroLabel: formatMoney(0, price.currency),
-      passDays: days,
-    };
+    const setup = await getStripeSetup();
+    if (!setup) return null;
+    const monthly = setup.prices.monthly?.unit_amount ?? 0;
+    const plans = PLANS.flatMap((p) => {
+      const price = setup.prices[p.id];
+      return price?.active && price.unit_amount != null ? [toOffer(p.id, price, monthly)] : [];
+    });
+    if (plans.length === 0) return null;
+    return { plans, zeroLabel: formatMoney(0, plans[0]!.price.currency) };
   } catch (e) {
-    logger.error("billing: could not load the Premium price", { error: (e as Error).message });
+    logger.error("billing: could not load Premium prices", { error: (e as Error).message });
     return null;
   }
+}
+
+export async function getPlanOffer(plan: PlanId): Promise<PlanOffer | null> {
+  const offers = await getPremiumOffers();
+  return offers?.plans.find((o) => o.plan === plan) ?? null;
 }

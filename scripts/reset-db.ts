@@ -3,13 +3,14 @@
  * Destructive — for local development only.
  */
 import { spawnSync } from "node:child_process";
+import { databaseUrl } from "@/db/url";
 import postgres from "postgres";
 import { loadEnv, projectRoot } from "./lib/env";
 
 loadEnv();
 
 async function main() {
-  const url = process.env.DATABASE_URL ?? "postgres://captcf@localhost:5433/captcf";
+  const url = databaseUrl();
   if (process.env.NODE_ENV === "production") {
     console.error("Refusing to reset the database in production.");
     process.exit(1);

@@ -18,6 +18,21 @@ export interface AuthState {
 
 const emailSchema = z.string().email().max(200);
 
+/** Owner accounts: emails listed in ADMIN_EMAILS (comma-separated) get the admin role. */
+function isOwnerEmail(email: string): boolean {
+  return (process.env.ADMIN_EMAILS ?? "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean)
+    .includes(email);
+}
+
+/** Only same-site relative paths (no `//host`, no scheme) — never an open redirect. */
+function safeNext(raw: FormDataEntryValue | null): string {
+  const next = typeof raw === "string" ? raw : "";
+  return /^\/(?![/\\])[\w\-./?=&%]*$/.test(next) ? next : "/dashboard";
+}
+
 export async function registerAction(_prev: AuthState, formData: FormData): Promise<AuthState> {
   const email = String(formData.get("email") ?? "")
     .trim()
@@ -50,7 +65,7 @@ export async function registerAction(_prev: AuthState, formData: FormData): Prom
   const passwordHash = await hashPassword(password);
   const [user] = await db
     .insert(users)
-    .values({ email, passwordHash, name })
+    .values({ email, passwordHash, name, role: isOwnerEmail(email) ? "admin" : "user" })
     .returning({ id: users.id });
 
   await db
@@ -63,7 +78,7 @@ export async function registerAction(_prev: AuthState, formData: FormData): Prom
   if (guestId) await mergeGuestIntoUser(guestId, user!.id);
 
   await createUserSession(user!.id);
-  redirect("/dashboard");
+  redirect(safeNext(formData.get("next")));
 }
 
 export async function loginAction(_prev: AuthState, formData: FormData): Promise<AuthState> {
@@ -77,7 +92,7 @@ export async function loginAction(_prev: AuthState, formData: FormData): Promise
   if (!rl.allowed) return { error: "Trop de tentatives. Réessayez dans une minute." };
 
   const rows = await db
-    .select({ id: users.id, passwordHash: users.passwordHash })
+    .select({ id: users.id, passwordHash: users.passwordHash, role: users.role })
     .from(users)
     .where(eq(users.email, email))
     .limit(1);
@@ -86,11 +101,15 @@ export async function loginAction(_prev: AuthState, formData: FormData): Promise
     return { error: "Courriel ou mot de passe incorrect." };
   }
 
+  if (user.role !== "admin" && isOwnerEmail(email)) {
+    await db.update(users).set({ role: "admin" }).where(eq(users.id, user.id));
+  }
+
   const guestId = await currentGuestId();
   if (guestId) await mergeGuestIntoUser(guestId, user.id);
 
   await createUserSession(user.id);
-  redirect("/dashboard");
+  redirect(safeNext(formData.get("next")));
 }
 
 export async function logoutAction(): Promise<void> {

@@ -3,7 +3,7 @@ import { db } from "@/db";
 import { entitlements, speakingSubmissions, subscriptions } from "@/db/schema";
 import { getActor, signOut } from "@/lib/auth/session";
 import { isPremiumSubscriptionStatus } from "@/lib/billing/rules";
-import { cancelSubscriptionNow, getStripeConfig } from "@/lib/billing/stripe";
+import { cancelSubscriptionNow, paymentsEnabled } from "@/lib/billing/stripe";
 import { logger } from "@/lib/logger";
 import { getStorage } from "@/lib/storage";
 import { and, eq, sql } from "drizzle-orm";
@@ -47,7 +47,7 @@ export async function deleteAccountAction(): Promise<void> {
     isPremiumSubscriptionStatus(sub.status)
   ) {
     let canceled = false;
-    if (getStripeConfig()) {
+    if (paymentsEnabled()) {
       try {
         await cancelSubscriptionNow(sub.providerSubscriptionId);
         canceled = true;

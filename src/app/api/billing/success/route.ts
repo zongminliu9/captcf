@@ -1,6 +1,6 @@
 import { getActor } from "@/lib/auth/session";
 import { fulfillCheckoutSession } from "@/lib/billing/fulfill";
-import { getCheckoutSession, getStripeConfig } from "@/lib/billing/stripe";
+import { getCheckoutSession, paymentsEnabled } from "@/lib/billing/stripe";
 import { redirectTo } from "@/lib/http";
 import { logger } from "@/lib/logger";
 import type { NextRequest } from "next/server";
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
   const sessionId = req.nextUrl.searchParams.get("session_id") ?? "";
   const actor = await getActor();
   if (!actor || actor.kind !== "user") return redirectTo("/login?next=/settings");
-  if (!getStripeConfig() || !sessionId.startsWith("cs_")) return redirectTo("/pricing");
+  if (!paymentsEnabled() || !sessionId.startsWith("cs_")) return redirectTo("/pricing");
 
   try {
     const session = await getCheckoutSession(sessionId);

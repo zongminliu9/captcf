@@ -11,6 +11,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { normalizeDatabaseUrl } from "@/db/url";
 import { SPEC_VERSION } from "@/lib/exam/config";
 import { drizzle } from "drizzle-orm/postgres-js";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
@@ -47,7 +48,7 @@ export async function bootstrap(): Promise<{ seeded: boolean; totalMs: number }>
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is not set");
   const started = Date.now();
-  const sql = postgres(url, { max: 1 });
+  const sql = postgres(normalizeDatabaseUrl(url), { max: 1 });
   let seeded = false;
   try {
     await sql`SELECT pg_advisory_lock(${LOCK_KEY})`;

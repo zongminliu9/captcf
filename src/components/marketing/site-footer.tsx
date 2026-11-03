@@ -33,12 +33,14 @@ const COLS: { title: string; links: { href: string; label: string }[] }[] = [
     links: [
       { href: "/privacy", label: "Confidentialité" },
       { href: "/terms", label: "Conditions" },
-      ...(process.env.NEXT_PUBLIC_SUPPORT_EMAIL
-        ? [{ href: `mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL}`, label: "Contact" }]
-        : []),
     ],
   },
 ];
+
+/** Read at request time (server component) so the address can change without a rebuild. */
+function supportEmail(): string | undefined {
+  return process.env.SUPPORT_EMAIL ?? process.env.NEXT_PUBLIC_SUPPORT_EMAIL;
+}
 
 export function SiteFooter() {
   return (
@@ -52,7 +54,14 @@ export function SiteFooter() {
               TCF Canada et des estimations non officielles.
             </p>
           </div>
-          {COLS.map((col) => (
+          {COLS.map((c) =>
+            c.title === "Légal" && supportEmail()
+              ? {
+                  ...c,
+                  links: [...c.links, { href: `mailto:${supportEmail()}`, label: "Contact" }],
+                }
+              : c,
+          ).map((col) => (
             <div key={col.title}>
               <h3 className="text-sm font-semibold text-ink">{col.title}</h3>
               <ul className="mt-3 space-y-2">

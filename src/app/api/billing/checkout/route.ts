@@ -1,34 +1,36 @@
 import { db } from "@/db";
 import { entitlements, subscriptions } from "@/db/schema";
 import { getActor } from "@/lib/auth/session";
-import { getPremiumOffer } from "@/lib/billing/offer";
+import { getPlanOffer } from "@/lib/billing/offer";
+import { type PlanId, parsePlanId } from "@/lib/billing/plans";
 import { isPremiumSubscriptionStatus } from "@/lib/billing/rules";
 import {
   type FormValue,
   type StripeCheckoutSession,
   appOrigin,
-  getStripeConfig,
+  paymentsEnabled,
   stripeRequest,
 } from "@/lib/billing/stripe";
 import { redirectTo } from "@/lib/http";
 import { logger } from "@/lib/logger";
 import { rateLimit } from "@/lib/rate-limit";
 import { eq } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
 /**
  * Checkout.
- * - Stripe (PAYMENTS_PROVIDER=stripe + keys + price): creates a real Stripe Checkout Session and
- *   sends the learner to Stripe's hosted payment page. The price decides the mode: a recurring
- *   price → subscription; a one-time price → a fixed-length pass. Access is granted only once
- *   Stripe confirms payment (success redirect and/or webhook — see lib/billing/fulfill).
+ * - Stripe (PAYMENTS_PROVIDER=stripe + STRIPE_SECRET_KEY): creates a real Stripe Checkout Session
+ *   for the chosen plan (`plan` = monthly | quarterly, see lib/billing/plans) and sends the
+ *   learner to Stripe's hosted payment page. A recurring price → subscription; a one-time price →
+ *   a fixed-length pass. Access is granted only once Stripe confirms payment (success redirect
+ *   and/or webhook — see lib/billing/fulfill).
  * - Beta / not fully configured: grants NOTHING and returns to /pricing with a notice.
  * - Dev only: the entitlement SIMULATOR grants Premium immediately so it is testable locally.
  * Guests must register first.
  */
-async function handle(): Promise<NextResponse> {
+async function handle(req: NextRequest): Promise<NextResponse> {
   const actor = await getActor();
   if (!actor || actor.kind !== "user") {
     return redirectTo("/register?next=/pricing", 303);
@@ -37,9 +39,10 @@ async function handle(): Promise<NextResponse> {
   const provider = process.env.PAYMENTS_PROVIDER ?? "simulator";
 
   if (provider === "stripe") {
-    const cfg = getStripeConfig();
-    if (!cfg) return redirectTo("/pricing?beta=1", 303);
-    return stripeCheckout(actor.userId, actor.email);
+    if (!paymentsEnabled()) return redirectTo("/pricing?beta=1", 303);
+    const form = req.method === "POST" ? await req.formData().catch(() => null) : null;
+    const plan = parsePlanId(form?.get("plan") ?? req.nextUrl.searchParams.get("plan"));
+    return stripeCheckout(actor.userId, actor.email, plan);
   }
 
   // Anywhere other than an explicit dev simulator (i.e. the hosted beta), grant nothing.
@@ -62,11 +65,11 @@ async function handle(): Promise<NextResponse> {
   return redirectTo("/dashboard?upgraded=1", 303);
 }
 
-async function stripeCheckout(userId: string, email: string): Promise<NextResponse> {
+async function stripeCheckout(userId: string, email: string, plan: PlanId): Promise<NextResponse> {
   const limited = await rateLimit(`checkout:${userId}`, 10, 600);
   if (!limited.allowed) return redirectTo("/pricing?checkout=error", 303);
 
-  const offer = await getPremiumOffer();
+  const offer = await getPlanOffer(plan);
   if (!offer) return redirectTo("/pricing?checkout=error", 303);
 
   const [sub] = await db
@@ -87,7 +90,11 @@ async function stripeCheckout(userId: string, email: string): Promise<NextRespon
   }
 
   const origin = appOrigin();
-  const metadata = { userId, ...(offer.mode === "payment" ? { accessDays: offer.passDays } : {}) };
+  const metadata = {
+    userId,
+    plan,
+    ...(offer.mode === "payment" ? { accessDays: offer.passDays } : {}),
+  };
   const automaticTax = process.env.STRIPE_AUTOMATIC_TAX === "true";
 
   const params: Record<string, FormValue> = {
@@ -108,7 +115,7 @@ async function stripeCheckout(userId: string, email: string): Promise<NextRespon
         }
       : {}),
     ...(offer.mode === "subscription"
-      ? { subscription_data: { metadata: { userId } } }
+      ? { subscription_data: { metadata: { userId, plan } } }
       : {
           payment_intent_data: { metadata },
           ...(stripeCustomer ? {} : { customer_creation: "always" }),

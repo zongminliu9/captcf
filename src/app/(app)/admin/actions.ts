@@ -11,6 +11,7 @@ import {
   users,
 } from "@/db/schema";
 import { requireAdmin } from "@/lib/auth/admin";
+import { issueResetLink } from "@/lib/auth/password-reset";
 import { readingItemSchema } from "@/lib/content/schema";
 import { and, eq, inArray, ne } from "drizzle-orm";
 
@@ -216,6 +217,25 @@ export async function grantBetaAccess(email: string): Promise<BetaGrantResult> {
     .where(and(eq(entitlements.userId, user.id), eq(entitlements.source, "beta")));
   await db.insert(entitlements).values({ userId: user.id, plan: "premium", source: "beta" });
   return { ok: true, message: `Accès Beta Premium accordé à ${normalized}.` };
+}
+
+/**
+ * Issue a password-reset link for a learner (used while reset emails aren't delivered: the
+ * learner writes to SUPPORT_EMAIL, the admin sends this link back). Single-use, 60 minutes.
+ */
+export async function adminResetLink(email: string): Promise<BetaGrantResult> {
+  await requireAdmin();
+  const normalized = email.trim().toLowerCase();
+  if (!normalized) return { ok: false, message: "Renseignez une adresse courriel." };
+  const [user] = await db
+    .select({ id: users.id })
+    .from(users)
+    .where(eq(users.email, normalized))
+    .limit(1);
+  if (!user) return { ok: false, message: `Aucun compte pour ${normalized}.` };
+  const appUrl = process.env.APP_URL ?? process.env.RENDER_EXTERNAL_URL ?? "http://localhost:3000";
+  const link = await issueResetLink(user.id, appUrl);
+  return { ok: true, message: `Lien (valable 60 min, usage unique) : ${link}` };
 }
 
 /** Revoke a previously granted Beta access (back to Free). */

@@ -29,6 +29,13 @@
       "when": 1793658987594,
       "tag": "0003_billing_live",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793665604398,
+      "tag": "0004_app_settings",
+      "breakpoints": true
     }
   ]
 }

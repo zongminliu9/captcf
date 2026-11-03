@@ -5,8 +5,13 @@ import { redirect } from "next/navigation";
 
 export const metadata: Metadata = { title: "Se connecter" };
 
-export default async function LoginPage() {
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
+  const { next } = await searchParams;
   const actor = await getActor();
   if (actor?.kind === "user") redirect("/dashboard");
-  return <AuthForm mode="login" />;
+  return <AuthForm mode="login" next={next} />;
 }

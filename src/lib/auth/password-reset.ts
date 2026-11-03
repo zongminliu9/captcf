@@ -23,14 +23,7 @@ export async function requestPasswordReset(email: string, appUrl: string): Promi
     .limit(1);
   if (!user) return; // silent — don't reveal whether the account exists
 
-  const token = newToken();
-  await db.insert(passwordResetTokens).values({
-    userId: user.id,
-    tokenHash: hashToken(token),
-    expiresAt: new Date(Date.now() + TTL_MINUTES * 60 * 1000),
-  });
-
-  const link = `${appUrl.replace(/\/$/, "")}/reset-password?token=${token}`;
+  const link = await issueResetLink(user.id, appUrl);
   try {
     await getEmailProvider().send({
       to: normalized,
@@ -40,6 +33,22 @@ export async function requestPasswordReset(email: string, appUrl: string): Promi
   } catch (e) {
     logger.error("password reset email failed", { error: (e as Error).message });
   }
+}
+
+/** Create a single-use, 60-minute reset link for a user (also used by the admin "reset link"). */
+export async function issueResetLink(userId: string, appUrl: string): Promise<string> {
+  const token = newToken();
+  await db.insert(passwordResetTokens).values({
+    userId,
+    tokenHash: hashToken(token),
+    expiresAt: new Date(Date.now() + TTL_MINUTES * 60 * 1000),
+  });
+  return `${appUrl.replace(/\/$/, "")}/reset-password?token=${token}`;
+}
+
+/** True when reset emails are really delivered (not just logged by the console driver). */
+export function resetEmailDelivered(): boolean {
+  return (process.env.EMAIL_PROVIDER ?? "console") !== "console";
 }
 
 export interface ResetResult {

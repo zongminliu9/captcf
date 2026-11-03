@@ -7,7 +7,7 @@ import { type AuthState, loginAction, registerAction } from "@/lib/auth/actions"
 import Link from "next/link";
 import { useActionState } from "react";
 
-export function AuthForm({ mode }: { mode: "login" | "register" }) {
+export function AuthForm({ mode, next }: { mode: "login" | "register"; next?: string }) {
   const action = mode === "register" ? registerAction : loginAction;
   const [state, formAction, pending] = useActionState<AuthState, FormData>(action, {});
 
@@ -29,6 +29,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
       )}
 
       <form action={formAction} className="mt-6 space-y-4">
+        {next && <input type="hidden" name="next" value={next} />}
         {mode === "register" && (
           <div>
             <Label htmlFor="name">Nom (facultatif)</Label>

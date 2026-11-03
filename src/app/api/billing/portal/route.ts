@@ -1,7 +1,8 @@
 import { db } from "@/db";
 import { subscriptions } from "@/db/schema";
 import { getActor } from "@/lib/auth/session";
-import { appOrigin, createPortalSession, getStripeConfig } from "@/lib/billing/stripe";
+import { getStripeSetup } from "@/lib/billing/provision";
+import { appOrigin, createPortalSession, paymentsEnabled } from "@/lib/billing/stripe";
 import { redirectTo } from "@/lib/http";
 import { logger } from "@/lib/logger";
 import { eq } from "drizzle-orm";
@@ -16,7 +17,7 @@ export const dynamic = "force-dynamic";
 export async function POST() {
   const actor = await getActor();
   if (!actor || actor.kind !== "user") return redirectTo("/login?next=/settings", 303);
-  if (!getStripeConfig()) return redirectTo("/settings", 303);
+  if (!paymentsEnabled()) return redirectTo("/settings", 303);
 
   const [sub] = await db
     .select({ provider: subscriptions.provider, customer: subscriptions.providerCustomerId })
@@ -26,7 +27,12 @@ export async function POST() {
   if (sub?.provider !== "stripe" || !sub.customer) return redirectTo("/settings", 303);
 
   try {
-    const url = await createPortalSession(sub.customer, `${appOrigin()}/settings`);
+    const setup = await getStripeSetup();
+    const url = await createPortalSession(
+      sub.customer,
+      `${appOrigin()}/settings`,
+      setup?.portalConfigId,
+    );
     return new NextResponse(null, { status: 303, headers: { Location: url } });
   } catch (e) {
     logger.error("billing: portal session failed", {

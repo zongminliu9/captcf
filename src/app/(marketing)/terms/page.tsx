@@ -11,9 +11,8 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "2 novembre 2026";
-const SUPPORT_EMAIL = process.env.NEXT_PUBLIC_SUPPORT_EMAIL;
-
 function Contact() {
+  const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL ?? process.env.NEXT_PUBLIC_SUPPORT_EMAIL;
   return SUPPORT_EMAIL ? (
     <>
       écrivez-nous à{" "}

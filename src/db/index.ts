@@ -1,8 +1,9 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
+import { databaseUrl } from "./url";
 
-const connectionString = process.env.DATABASE_URL ?? "postgres://captcf@localhost:5433/captcf";
+const connectionString = databaseUrl();
 
 // Reuse a single pool across HMR in dev to avoid exhausting connections.
 const globalForDb = globalThis as unknown as {

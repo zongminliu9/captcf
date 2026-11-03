@@ -18,7 +18,6 @@ const ENV = {
   PAYMENTS_PROVIDER: "stripe",
   STRIPE_SECRET_KEY: "sk_test_integration",
   STRIPE_WEBHOOK_SECRET: SECRET,
-  STRIPE_PRICE_PREMIUM: "price_test",
 };
 const saved: Record<string, string | undefined> = {};
 

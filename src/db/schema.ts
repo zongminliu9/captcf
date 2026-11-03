@@ -643,6 +643,13 @@ export const entitlements = pgTable("entitlements", {
   expiresAt: timestamp("expires_at", { withTimezone: true }),
 });
 
+/** Small key/value store for runtime configuration the app provisions itself (e.g. Stripe ids). */
+export const appSettings = pgTable("app_settings", {
+  key: text("key").primaryKey(),
+  value: jsonb("value").$type<unknown>().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 /** Payment-provider webhook events already processed (idempotency: id = provider event id). */
 export const billingEvents = pgTable("billing_events", {
   id: text("id").primaryKey(),

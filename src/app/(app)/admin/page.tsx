@@ -80,8 +80,8 @@ export default async function AdminOverviewPage() {
       <Card className="mt-6 p-5">
         <div className="mb-1 text-sm font-semibold text-muted">Accès Beta (sans paiement)</div>
         <p className="mb-3 text-sm text-muted">
-          Accordez l'accès Premium à un testeur invité par son courriel. Les paiements réels sont
-          désactivés pendant la Beta privée.
+          Par courriel : accorder ou retirer un accès Premium gratuit (sans paiement), ou créer un
+          lien de réinitialisation du mot de passe à renvoyer à un utilisateur qui vous a écrit.
         </p>
         <BetaGrant />
       </Card>

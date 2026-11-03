@@ -1,10 +1,13 @@
 "use client";
-import { grantBetaAccess, revokeBetaAccess } from "@/app/(app)/admin/actions";
+import { adminResetLink, grantBetaAccess, revokeBetaAccess } from "@/app/(app)/admin/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/field";
 import { useState, useTransition } from "react";
 
-/** Admin control to grant/revoke Premium for an invited Beta tester by email (no payment). */
+/**
+ * Admin controls by learner email: grant/revoke free Premium (no payment), or create a
+ * password-reset link to send back to a learner who wrote in.
+ */
 export function BetaGrant() {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -14,7 +17,7 @@ export function BetaGrant() {
     start(async () => {
       const res = await fn(email);
       setMsg({ ok: res.ok, text: res.message });
-      if (res.ok) setEmail("");
+      if (res.ok && fn !== adminResetLink) setEmail("");
     });
 
   return (
@@ -44,10 +47,23 @@ export function BetaGrant() {
           >
             Retirer
           </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={pending || !email.trim()}
+            onClick={() => run(adminResetLink)}
+          >
+            Lien de mot de passe
+          </Button>
         </div>
       </div>
       {msg && (
-        <p className={`mt-2 text-sm ${msg.ok ? "text-success" : "text-danger"}`}>{msg.text}</p>
+        <p
+          className={`mt-2 break-all text-sm ${msg.ok ? "text-success" : "text-danger"}`}
+          style={{ userSelect: "all" }}
+        >
+          {msg.text}
+        </p>
       )}
     </div>
   );

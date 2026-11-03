@@ -3,22 +3,14 @@
 #   Render Dashboard → New → Blueprint → connect the GitHub repo (zongminliu9/captcf) → Apply.
 #   (Existing Blueprint: Dashboard → the Blueprint → Manual Sync.)
 #
-# It provisions a managed PostgreSQL 17 + a Node web service, wires DATABASE_URL automatically,
-# generates a strong AUTH_SECRET, runs migrations + the (idempotent) production seed on every
-# deploy, and serves over HTTPS. No secrets live in this file: the `sync: false` keys below are
-# entered once in the Render Dashboard (see docs/PAID_LAUNCH.md).
+# A Node web service on Render's FREE plan + a FREE Neon Postgres (Render's free Postgres expires
+# after 30 days; Neon's free tier doesn't). It generates a strong AUTH_SECRET, runs migrations +
+# the (idempotent) production seed on boot, and serves over HTTPS. No secrets live in this file:
+# the `sync: false` keys below are entered once in the Render Dashboard (docs/PAID_LAUNCH.md).
 #
-# Cost: the web service runs on Render's FREE plan. It would sleep after 15 min idle (~1 min
-# cold start), so .github/workflows/keep-awake.yml pings it every 10 min (free on a public repo;
-# one always-on service fits in Render's 750 free instance-hours/month).
-# The database is the one thing Render can't give away for good: free Postgres expires after
-# 30 days. Paid plan below (~US$6/mo) — or point DATABASE_URL at a free Neon database instead
-# (see docs/PAID_LAUNCH.md).
-databases:
-  - name: captcf-db
-    plan: basic-256mb # smallest paid Postgres; never expires, daily backups
-    diskSizeGB: 1
-    postgresMajorVersion: "17"
+# The free web plan sleeps after 15 min idle (~1 min cold start), so
+# .github/workflows/keep-awake.yml pings it every 10 min (free on a public repo; one always-on
+# service fits in Render's 750 free instance-hours/month).
 
 services:
   - type: web
@@ -45,9 +37,7 @@ services:
         value: "22.11.0" # pin a stable LTS; otherwise Render resolves ">=20" to a bleeding-edge Node
 
       - key: DATABASE_URL
-        fromDatabase:
-          name: captcf-db
-          property: connectionString
+        sync: false # Neon → Connect → copy the connection string as shown (pooled or not, both work)
       - key: AUTH_SECRET
         generateValue: true # Render generates a strong random value and keeps it stable
       # APP_URL: optional on the onrender.com URL (falls back to RENDER_EXTERNAL_URL). Set it to
@@ -57,27 +47,26 @@ services:
       - key: ENABLE_DEMO_ACCOUNTS
         value: "false" # never seed demo/admin accounts in production
 
-      # ── Payments (Stripe). Checkout stays hidden until all three secrets are set. ──
+      # ── Payments (Stripe). Only the secret key is needed: the app creates the prices
+      #    (lib/billing/plans.ts), the webhook endpoint and the billing portal in Stripe itself.
+      #    Checkout stays hidden until the key is set. ──
       - key: PAYMENTS_PROVIDER
         value: stripe
       - key: STRIPE_SECRET_KEY
-        sync: false # sk_live_… (sk_test_… while testing)
-      - key: STRIPE_WEBHOOK_SECRET
-        sync: false # whsec_… from the webhook endpoint → https://<host>/api/billing/webhook
-      - key: STRIPE_PRICE_PREMIUM
-        sync: false # price_… — recurring price = subscription; one-time price = fixed-length pass
+        sync: false # sk_test_… to try it out, then sk_live_…
       - key: STRIPE_AUTOMATIC_TAX
         value: "false" # "true" only after Stripe Tax is set up (registrations) in the Dashboard
 
-      # ── Email (password resets). Without it, reset links are never delivered. ──
-      - key: EMAIL_PROVIDER
-        value: resend
-      - key: RESEND_API_KEY
-        sync: false
-      - key: EMAIL_FROM
-        sync: false # e.g. "CapTCF <no-reply@your-domain>" — domain verified in Resend
-      - key: NEXT_PUBLIC_SUPPORT_EMAIL
+      # ── Owner ──
+      - key: ADMIN_EMAILS
+        sync: false # the owner's email: that account becomes admin on sign-up / login
+      - key: SUPPORT_EMAIL
         sync: false # shown in the footer + terms; Stripe requires a customer-support contact
+
+      # ── Email (password resets). console = not delivered (logged only). To deliver: set
+      #    EMAIL_PROVIDER=resend + RESEND_API_KEY + EMAIL_FROM. ──
+      - key: EMAIL_PROVIDER
+        value: console
 
       - key: AI_FEEDBACK_PROVIDER
         value: none

@@ -2,7 +2,7 @@ import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { getPremiumOffer } from "@/lib/billing/offer";
+import { getPremiumOffers } from "@/lib/billing/offer";
 import { paymentsEnabled } from "@/lib/billing/stripe";
 import { PLAN_LIMITS } from "@/lib/entitlements";
 import { ArrowRight, Check, Lock, Minus, Sparkles } from "lucide-react";
@@ -109,11 +109,12 @@ export default async function PricingPage({
   const notice = checkout ? CHECKOUT_NOTICES[checkout] : undefined;
   // Real checkout appears only when Stripe is fully configured AND the price loads. The dev
   // simulator keeps the button usable locally; in the hosted beta neither is true.
-  const offer = await getPremiumOffer();
+  const offers = await getPremiumOffers();
+  const main = offers?.plans[0] ?? null;
   const simulator =
     (process.env.PAYMENTS_PROVIDER ?? "simulator") === "simulator" &&
     process.env.NODE_ENV !== "production";
-  const canBuy = !!offer || simulator;
+  const canBuy = !!offers || simulator;
   const stripeLive = paymentsEnabled(); // configured, but the price couldn't be loaded right now
   const taxNote =
     process.env.STRIPE_AUTOMATIC_TAX === "true" ? " Taxes calculées au paiement." : "";
@@ -144,7 +145,7 @@ export default async function PricingPage({
           <h2 className="text-lg font-semibold">Gratuit</h2>
           <p className="mt-1 text-sm text-muted">Pour découvrir et s'entraîner régulièrement.</p>
           <div className="mt-5">
-            <span className="display text-4xl">{offer?.zeroLabel ?? "0 $"}</span>
+            <span className="display text-4xl">{offers?.zeroLabel ?? "0 $"}</span>
             <span className="ml-1 text-sm text-muted">pour toujours</span>
           </div>
           <ul className="mt-6 flex-1 space-y-2.5 text-sm">
@@ -175,10 +176,10 @@ export default async function PricingPage({
           <h2 className="text-lg font-semibold">Premium</h2>
           <p className="mt-1 text-sm text-muted">Tout débloquer pour viser votre objectif NCLC.</p>
           <div className="mt-5">
-            {offer ? (
+            {main ? (
               <>
-                <span className="display text-4xl">{offer.amountLabel}</span>
-                <span className="ml-1 text-sm text-muted">{offer.cadence}</span>
+                <span className="display text-4xl">{main.amountLabel}</span>
+                <span className="ml-1 text-sm text-muted">{main.cadence}</span>
               </>
             ) : (
               <>
@@ -201,23 +202,43 @@ export default async function PricingPage({
               </li>
             ))}
           </ul>
-          {canBuy ? (
+          {offers ? (
+            <div className="mt-7 space-y-3">
+              {/* plain form POSTs so the checkout route handler runs (then 303 → Stripe) */}
+              {offers.plans.map((o, i) => (
+                <form key={o.plan} action="/api/billing/checkout" method="post">
+                  <input type="hidden" name="plan" value={o.plan} />
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    variant={i === 0 ? "primary" : "outline"}
+                    size="lg"
+                  >
+                    {i === 0 ? "Passer à Premium" : "Choisir"} — {o.amountLabel} {o.cadence}
+                    {o.savings > 0 && (
+                      <Badge variant="gold" className="ml-1">
+                        −{o.savings} %
+                      </Badge>
+                    )}
+                  </Button>
+                </form>
+              ))}
+              <p className="flex items-center justify-center gap-1.5 text-center text-xs text-muted">
+                <Lock className="h-3 w-3 shrink-0" />
+                {offers.plans.every((o) => o.mode === "subscription")
+                  ? "Paiement sécurisé par Stripe. Renouvellement automatique, résiliable à tout moment depuis vos réglages."
+                  : "Paiement sécurisé par Stripe."}
+                {taxNote}
+              </p>
+            </div>
+          ) : canBuy ? (
             <div className="mt-7">
-              {/* plain form POST so the checkout route handler runs (then 303 → Stripe) */}
+              {/* dev simulator: grants Premium locally, no money involved */}
               <form action="/api/billing/checkout" method="post">
                 <Button type="submit" className="w-full" variant="primary" size="lg">
                   Passer à Premium <ArrowRight className="h-4 w-4" />
                 </Button>
               </form>
-              {offer && (
-                <p className="mt-2 flex items-center justify-center gap-1.5 text-center text-xs text-muted">
-                  <Lock className="h-3 w-3 shrink-0" />
-                  {offer.mode === "subscription"
-                    ? "Paiement sécurisé par Stripe. Résiliable à tout moment depuis vos réglages."
-                    : "Paiement unique sécurisé par Stripe, sans renouvellement automatique."}
-                  {taxNote}
-                </p>
-              )}
             </div>
           ) : stripeLive ? (
             <div className="mt-7">

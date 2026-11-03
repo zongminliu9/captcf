@@ -6,10 +6,11 @@ import {
   refreshSubscription,
   revokeRefundedCharge,
 } from "@/lib/billing/fulfill";
+import { webhookSigningSecrets } from "@/lib/billing/provision";
 import {
   type StripeCheckoutSession,
   type StripeEvent,
-  getStripeConfig,
+  paymentsEnabled,
   verifyStripeSignature,
 } from "@/lib/billing/stripe";
 import { logger } from "@/lib/logger";
@@ -20,25 +21,24 @@ export const dynamic = "force-dynamic";
 
 /**
  * Stripe webhook.
- * - Every request must carry a valid `Stripe-Signature` for STRIPE_WEBHOOK_SECRET; anything else
- *   is rejected (no one can forge a "payment succeeded" event).
+ * - Every request must carry a valid `Stripe-Signature` for the endpoint's signing secret (stored
+ *   when the app created the endpoint — lib/billing/provision — or STRIPE_WEBHOOK_SECRET for
+ *   local `stripe listen`); anything else is rejected, so no one can forge "payment succeeded".
  * - Idempotent: processed event ids are recorded in `billing_events`, and every handler is itself
  *   idempotent, so Stripe's retries and the success-redirect race are harmless.
  * - Subscription events re-fetch the subscription from Stripe, so out-of-order delivery can't
  *   regress a learner's access.
  *
- * Subscribe the endpoint to: checkout.session.completed, checkout.session.async_payment_succeeded,
- * customer.subscription.created, customer.subscription.updated, customer.subscription.deleted,
- * charge.refunded.
+ * The endpoint and its event list are created automatically (WEBHOOK_EVENTS in provision.ts).
  */
 export async function POST(req: NextRequest) {
-  const cfg = getStripeConfig();
   const body = await req.text();
-  if (!cfg) {
+  if (!paymentsEnabled()) {
     return NextResponse.json({ received: true, note: "stripe not configured" });
   }
 
-  if (!verifyStripeSignature(body, req.headers.get("stripe-signature"), cfg.webhookSecret)) {
+  const secrets = await webhookSigningSecrets();
+  if (!verifyStripeSignature(body, req.headers.get("stripe-signature"), secrets)) {
     logger.warn("billing: webhook signature verification failed");
     return NextResponse.json({ error: "invalid_signature" }, { status: 400 });
   }
